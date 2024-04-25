@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="icon" type="image/png" href="images\uw-favicon.png" sizes="128x128">
+    <title>UltraWebs Website</title>
+    <style>
+        body {
+            font-family: "Onest", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://ideogram.ai/api/images/direct/bonVtGiwRFGIoblRU86qtA.png");
+            background-size: cover;
+            /* Optional: adjust based on your design */
+            background-attachment: fixed;
+            /* Makes the background image fixed */
+            overflow: hidden;
+        }
+
+        .navbar {
+            padding: 15px 15%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+                /* Set padding to 10px */
+            }
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            /* Adjust as needed */
+            margin-right: 10px;
+        }
+
+        .navbar-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-right: 30%;
+            padding-right: 20px;
+            display: flex;
+        }
+
+        /* Adjust navbar links for smaller screens */
+        @media only screen and (max-width: 768px) {
+            .navbar-links {
+                margin-right: 0;
+                /* Remove right margin */
+                padding-right: 0;
+                /* Remove right padding */
+                justify-content: flex-end;
+                /* Align items to the end of the navbar */
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-right: 30px;
+            padding-right: 20px;
+            display: flex;
+            font-size: 12px;
+        }
+
+        .navbar-links li {
+            font-size: 12px;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .navbar-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+
+        .navbar-links li a:hover {
+            color: #ffd700;
+        }
+
+        .navbar-links li a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffd700;
+            transition: width 0.3s ease, box-shadow 0.3s ease;
+            /* Add transition for smooth animation */
+            box-shadow: 0 0 px 0.5px #ffd700;
+            /* Add more intense glow effect */
+        }
+
+        .navbar-links li a:hover::before {
+            width: 100%;
+            box-shadow: 0 0 1px 0.5px #ffd700;
+            /* Increase glow effect on hover */
+        }
+
+        /* Add CSS for dropdown menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(15, 15, 15, 0.582);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Adjust alignment of icon and text in dropdown */
+        .dropdown a {
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown a i {
+            padding: 10px;
+            margin-right: 5px;
+        }
+
+        /* Show dropdown menu on hover for desktop */
+        .navbar-links li.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Show dropdown menu on click for mobile */
+        @media only screen and (max-width: 768px) {
+            .navbar-links li.dropdown .dropdown-menu {
+                display: none;
+            }
+
+            .navbar-links li.dropdown.active .dropdown-menu {
+                display: block;
+            }
+        }
+
+        /* Adjust dropdown menu positioning for smaller screens */
+        @media only screen and (max-width: 768px) {
+            .dropdown-menu {
+                left: auto;
+                /* Reset left positioning */
+                right: 0;
+                /* Set padding for the dropdown menu */
+                justify-content: flex-end;
+                /* Align items to the end of the container */
+            }
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 80px auto 20px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+            overflow-y: auto;
+            /* Makes the container scrollable */
+            max-height: calc(100vh - 100px);
+            /* Adjusts the max-height to fit the viewport minus navbar height */
+            scrollbar-width: thin;
+            scrollbar-color: rgba(140, 140, 140, 0.308) transparent;
+            transition: scrollbar-width 0.3s ease;
+            animation: hideScrollbar 4s forwards;
+        }
+
+        /* Add media query for smaller screens */
+        /* Adjust grid layout for smaller screens */
+        @media only screen and (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                /* Display two grid items per row */
+            }
+        }
+
+        .container::-webkit-scrollbar {
+            width: 8px;
+            border-radius: 5px;
+        }
+
+        .container::-webkit-scrollbar-track {
+            backdrop-filter: blur(10px);
+            /* Apply blur effect */
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: rgba(140, 140, 140, 0.308);
+            /* Transparent background */
+            backdrop-filter: blur(05px);
+            /* Apply blur effect */
+            transition: background-color 0.3s ease;
+        }
+
+        .container::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.7);
+            /* Transparent background on hover */
+        }
+
+        /* Hide scrollbar after 3 seconds */
+        .container.hide-scrollbar::-webkit-scrollbar {
+            scrollbar-width: thin;
+        }
+
+        .container.hide-scrollbar::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: transparent;
+        }
+
+        .container.hide-scrollbar:hover::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        @keyframes hideScrollbar {
+            to {
+                /* Add class to hide scrollbar */
+                scrollbar-width: none;
+            }
+        }
+
+        .movie-poster {
+            position: relative;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            /* Soft shadow for embossed effect */
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            /* Transition effect for smoother animation */
+        }
+
+        .movie-poster:hover {
+            transform: scale(1.05);
+            transition: transform 0.7s ease-in-out;
+            /* Smooth scaling transition out */
+        }
+
+
+        .movie-poster img {
+            width: 100%;
+            height: auto;
+        }
+
+        .movie-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #fff;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .movie-info h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .movie-info p {
+            margin: 5px 0 0;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <img src="images\uw.png" alt="Logo">
+            <strong>UltraWebs</strong>
+        </a>
+        <ul class="navbar-links">
+            <li class="dropdown">
+                <a href="#"><i class="fa fa-bars"></i> Menu</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fa fa-search"></i> Search</a></li>
+                    <li><a href="#"><i class="fa fa-info-circle"></i> About</a></li>
+                    <li><a href="#"><i class="fa fa-phone"></i> Contact</a></li>
+                    <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="images\F1 beinsports.png" alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Bein Sports</h2>
+                <p>Formula 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="images\ipl.png" alt="Movie Poster">
+            <div class="movie-info">
+                <h2>IPL 2024</h2>
+                <p>Indian Premier League (T20)</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="images\skysports-f1.png" alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Sky sports F1</h2>
+                <p>Formula 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 1</h2>
+                <p>Description of Movie 1</p>
+            </div>
+        </div>
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="https://s3.amazonaws.com/www-inside-design/uploads/2020/10/aspect-ratios-blogpost-1x1-1.png"
+                alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Movie Title 2</h2>
+                <p>Description of Movie 2</p>
+            </div>
+        </div>
+        <!-- Add more movie posters here -->
+    </div>
+</body>
+
+</html>
