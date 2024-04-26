@@ -195,38 +195,12 @@
             }
         }
 
-        /* Adjust font size for mobile devices */
-        @media only screen and (max-width: 768px) {
-            .navbar-brand {
-                font-size: 16px;
-            }
-
-            .navbar-links li a {
-                font-size: 12px;
-            }
-
-            .movie-info h2 {
-                font-size: 14px;
-            }
-
-            .movie-info p {
-                font-size: 10px;
-            }
-
-            .footer p {
-                font-size: 10px;
-            }
-
-            .footer-links li a {
-                font-size: 10px;
-            }
-        }
-
         .container {
             max-width: 90%;
             margin: 80px auto 60px;
             /* Adjusted margin-bottom */
             padding: 40px;
+            margin-top: 60px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             grid-gap: 20px;
@@ -244,10 +218,14 @@
         @media only screen and (max-width: 768px) {
             .container {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
-                max-height: calc(100vh - 220px);
-                /* Adjusted max-height */
-                margin-bottom: 80px;
-                /* Adjusted margin-bottom */
+                /* Display two grid items per row */
+                max-width: 90%;
+                margin: 80px auto 20px;
+                padding: 20px;
+                margin-top: 60px;
+                margin-bottom: 40px;
+                grid-gap: 20px;
+                overflow-y: auto;
             }
         }
 
