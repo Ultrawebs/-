@@ -14,11 +14,69 @@
     <style>
         html,
         body {
-            font-family: 'Titillium Web', sans-serif;
+            font-family: "Onest", sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #333;
-            /* Change to the correct brown color code */
+            background-image: url("https://ideogram.ai/api/images/direct/bonVtGiwRFGIoblRU86qtA.png");
+            background-size: cover;
+            /* Optional: adjust based on your design */
+            background-attachment: fixed;
+            /* Makes the background image fixed */
+            overflow: auto;
+            /* Allow vertical and horizontal scrolling */
+        }
+
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 768px) {
+            body {
+                background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
+                /* Set aspect ratio to 9:16 */
+                background-size: fixed;
+            }
+        }
+
+        /* Custom scrollbar */
+        body::-webkit-scrollbar {
+            width: 8px;
+            /* Width of the scrollbar */
+            border-radius: 5px;
+            /* Rounded corners */
+        }
+
+        body::-webkit-scrollbar-track {
+            backdrop-filter: blur(10px);
+            /* Apply blur effect */
+        }
+
+        body::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            /* Rounded corners for the thumb */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Add shadow */
+            background-color: rgba(140, 140, 140, 0.308);
+            /* Thumb color */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.7);
+            /* Darker thumb color on hover */
+        }
+
+        /* Hide scrollbar after 3 seconds */
+        body.hide-scrollbar::-webkit-scrollbar {
+            scrollbar-width: thin;
+        }
+
+        body.hide-scrollbar::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            /* Hide thumb */
+        }
+
+        body.hide-scrollbar:hover::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Show thumb on hover */
         }
 
         header {
@@ -26,7 +84,12 @@
             justify-content: center;
             align-items: center;
             color: #fff;
-            background-color: red;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
             text-align: center;
             padding: 10px;
             box-sizing: border-box;
@@ -50,12 +113,19 @@
             margin-right: 5px;
             margin-left: 5px;
             margin: 0 auto;
+            backdrop-filter: blur(30px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            overflow-y: auto;
         }
 
         /* Media query for larger screens (desktop) */
         @media only screen and (min-width: 601px) {
             #container {
-                max-width: 65%;
+                max-width: 70%;
                 /* Set width to 80% for desktop */
             }
         }
@@ -94,15 +164,20 @@
 
         /* Position the footer at the bottom */
         footer {
-            position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: red;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
             font-size: 16px;
             color: white;
             text-align: center;
             padding: 10px 2px;
             font-weight: bold;
+            overflow: hidden;
         }
 
         h1,
