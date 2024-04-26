@@ -402,8 +402,15 @@
         /* Adjust footer for smaller screens */
         @media only screen and (max-width: 768px) {
             .footer {
+                height: 50px !important;
                 text-align: justify;
                 /* Center the content */
+                backdrop-filter: blur(10px);
+                /* Adjust blur strength as needed */
+                background-color: rgba(51, 51, 51, 0.098);
+                /* Adjust background color and opacity */
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s ease;
             }
 
             .footer-content {
