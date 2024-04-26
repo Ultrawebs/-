@@ -95,8 +95,6 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
-            margin-right: 30px;
-            padding-right: 20px;
             display: flex;
             font-size: 12px;
         }
@@ -201,7 +199,7 @@
             max-width: 90%;
             margin: 80px auto 20px;
             padding: 20px;
-            margin-bottom: auto;
+            margin-bottom: 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             grid-gap: 20px;
@@ -324,6 +322,102 @@
         .movie-info p {
             margin: 5px 0 0;
             font-size: 13px;
+        }
+
+        .footer {
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            color: #fff;
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            /* Align items to both ends */
+            align-items: center;
+        }
+
+        .footer p {
+            margin: 0;
+            text-align: left;
+            margin-left: 15%;
+            /* Align the text to the left */
+        }
+
+        .footer-links {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: right;
+            margin-right: 15%;
+            /* Align the list items to the right */
+        }
+
+        .footer-links li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        .footer-links li a {
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .footer-links li a:hover {
+            color: #ffd700;
+        }
+
+        .footer-links li a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffd700;
+            transition: width 0.3s ease, box-shadow 0.3s ease;
+            /* Add transition for smooth animation */
+            box-shadow: 0 0 px 0.5px #ffd700;
+            /* Add more intense glow effect */
+        }
+
+        .footer-links li a:hover::before {
+            width: 100%;
+            box-shadow: 0 0 1px 0.5px #ffd700;
+            /* Increase glow effect on hover */
+        }
+
+        /* Adjust footer for smaller screens */
+        @media only screen and (max-width: 768px) {
+            .footer {
+                text-align: justify;
+                /* Center the content */
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                margin-top: 10px;
+            }
+
+            .footer-links li a {
+                color: #fff;
+                text-align: center;
+            }
+
         }
     </style>
 </head>
@@ -591,6 +685,17 @@
         </div>
         <!-- Add more movie posters here -->
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 by UltraWebs</p>
+            <ul class="footer-links">
+                <li><a href="#"> Privacy Policy</a></li>
+                <li><a href="#"> Terms of Service</a></li>
+                <li><a href="#"> Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>
