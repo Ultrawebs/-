@@ -372,6 +372,7 @@
             color: #fff;
             text-decoration: none;
             text-align: center;
+            font-size: 16px;
         }
 
         .footer-links li a:hover {
@@ -407,15 +408,33 @@
 
             .footer-content {
                 flex-direction: column;
+                padding: 0;
+                text-align: center;
             }
 
             .footer-links {
                 margin-top: 10px;
             }
 
-            .footer-links li a {
-                color: #fff;
+            .footer p {
+                margin: 1%;
+                text-align: right;
+                /* Align the text to the left */
+            }
+
+            .footer-links {
+                list-style-type: none;
+                padding: 0;
+                margin: 10px;
+                margin-right: 40px;
                 text-align: center;
+                /* Align the list items to the right */
+            }
+
+            .footer-links li a {
+                font-size: 13px;
+                color: #fff;
+                text-align: right;
             }
 
         }
