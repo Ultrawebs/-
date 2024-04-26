@@ -28,8 +28,7 @@
             body {
                 background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
                 /* Set aspect ratio to 9:16 */
-                background-size: cover;
-                /* 16 / 9 * 100% */
+                background-size: fixed;
             }
         }
 
@@ -222,6 +221,12 @@
             .container {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 /* Display two grid items per row */
+                max-width: 90%;
+                margin: 80px auto 20px;
+                padding: 20px;
+                margin-bottom: 40px;
+                grid-gap: 20px;
+                overflow-y: auto;
             }
         }
 
@@ -325,7 +330,7 @@
 
 <body>
     <nav class="navbar">
-        <a href="#" class="navbar-brand">
+        <a href="#" class="navbar-brand" style="font-size: 20px">
             <img src="images\uw.png" alt="Logo">
             <strong>UltraWebs</strong>
         </a>
