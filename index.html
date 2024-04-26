@@ -293,14 +293,28 @@
         }
 
         .movie-poster:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease-in-out;
-            /* Smooth scaling transition out */
+            backdrop-filter: blur(10%);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.498);
+            /* Adjust background color and opacity */
+            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
         }
 
         .movie-poster img {
             width: 100%;
             height: auto;
+        }
+
+        /* Display movie info and apply blur effect to poster image on hover */
+        .movie-poster:hover img {
+            filter: blur(2px);
+            /* Adjust blur strength as needed */
+        }
+
+        .movie-poster:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* Add a drop shadow */
         }
 
         .movie-info {
@@ -315,7 +329,6 @@
             display: none;
         }
 
-        /* Display movie info on hover */
         .movie-poster:hover .movie-info {
             display: block;
         }
