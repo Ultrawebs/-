@@ -23,6 +23,16 @@
             overflow: hidden;
         }
 
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 768px) {
+            body {
+                background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
+                /* Set aspect ratio to 9:16 */
+                background-size: cover;
+                /* 16 / 9 * 100% */
+            }
+        }
+
         .navbar {
             padding: 15px 15%;
             position: fixed;
@@ -192,6 +202,7 @@
             max-width: 90%;
             margin: 80px auto 20px;
             padding: 20px;
+            margin-bottom: auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             grid-gap: 20px;
