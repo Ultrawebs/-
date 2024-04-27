@@ -21,6 +21,7 @@
             background-attachment: fixed;
             /* Makes the background image fixed */
             overflow: auto;
+            overflow-x: hidden;
             /* Allow vertical and horizontal scrolling */
         }
 
@@ -30,6 +31,7 @@
                 background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
                 /* Set aspect ratio to 9:16 */
                 background-size: fixed;
+                padding: 8px;
             }
         }
 
@@ -99,7 +101,8 @@
             max-width: auto;
             height: auto;
             max-height: 35px;
-            filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg);
+            filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg); 
+            /* filter: brightness(0) grayscale(100%) invert(100%); */
         }
 
         #container {
@@ -107,11 +110,10 @@
             color: white;
             padding: 10px;
             background-color: #333;
-            margin-top: 5px;
-            margin-right: 5px;
+            margin-right: 8px;
             margin-left: 5px;
             margin: 0 auto;
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(10px);
             /* Adjust blur strength as needed */
             background-color: rgba(51, 51, 51, 0.098);
             /* Adjust background color and opacity */
@@ -149,7 +151,6 @@
         .watermark {
             font-family: 'Titillium Web', sans-serif;
             position: baseline;
-            bottom: 10px;
             /* Set distance from bottom of viewport */
             text-align: right;
             margin-right: 10px;
@@ -162,20 +163,23 @@
 
         /* Position the footer at the bottom */
         footer {
-            bottom: 0;
-            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
             backdrop-filter: blur(10px);
             /* Adjust blur strength as needed */
             background-color: rgba(51, 51, 51, 0.098);
             /* Adjust background color and opacity */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
-            font-size: 16px;
-            color: white;
             text-align: center;
-            padding: 10px 2px;
-            font-weight: bold;
+            padding: 10px;
+            box-sizing: border-box;
+            max-width: 100%;
             overflow: hidden;
+            font-size: 16px;
+            font-weight: bold;
         }
 
         h1,
