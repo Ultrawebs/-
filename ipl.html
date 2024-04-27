@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="icon" type="image/png" href="images\uw-favicon.png" sizes="128x128">
+    <title>UltraWebs Website</title>
+    <style>
+        body {
+            font-family: "Onest", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://ideogram.ai/api/images/direct/bonVtGiwRFGIoblRU86qtA.png");
+            background-size: cover;
+            /* Optional: adjust based on your design */
+            background-attachment: fixed;
+            /* Makes the background image fixed */
+            overflow: hidden;
+        }
+
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 768px) {
+            body {
+                background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
+                /* Set aspect ratio to 9:16 */
+                background-size: fixed;
+            }
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        header img {
+            max-width: auto;
+            height: auto;
+            max-height: 35px;
+            filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg);
+            /* filter: brightness(0) grayscale(100%) invert(100%); */
+        }
+
+        .container {
+            max-width: 85%;
+            margin: 40px auto 60px;
+            /* Adjusted margin-bottom */
+            padding: 30px;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-gap: 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 160px);
+            /* Adjusted max-height */
+            scrollbar-width: thin;
+            scrollbar-color: rgba(140, 140, 140, 0.308) transparent;
+            transition: scrollbar-width 0.3s ease;
+            animation: hideScrollbar 4s forwards;
+        }
+
+        /* Add media query for smaller screens */
+        /* Adjust grid layout for smaller screens */
+        @media only screen and (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                /* Display two grid items per row */
+                max-width: 85%;
+                margin: 40px auto 20px;
+                padding: 20px;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                grid-gap: 20px;
+                overflow-y: auto;
+            }
+        }
+
+        /* .container::-webkit-scrollbar {
+            width: 8px;
+            border-radius: 5px;
+        } */
+
+        /* .container::-webkit-scrollbar-track {
+            backdrop-filter: blur(10px);
+            /* Apply blur effect 
+        } */
+
+        /* .container::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: rgba(140, 140, 140, 0.308);
+            /* Transparent background */
+        /* backdrop-filter: blur(05px); */
+        /* Apply blur effect 
+            transition: background-color 0.3s ease;
+        } */
+
+        /* .container::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.7);
+            /* Transparent background on hover 
+        } */
+
+        /* Hide scrollbar after 3 seconds
+        .container.hide-scrollbar::-webkit-scrollbar {
+            scrollbar-width: thin;
+        } */
+
+        /* .container.hide-scrollbar::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: transparent;
+        } */
+
+        /* .container.hide-scrollbar:hover::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.7);
+        } */
+
+        @keyframes hideScrollbar {
+            to {
+                /* Add class to hide scrollbar */
+                scrollbar-width: none;
+            }
+        }
+
+        .movie-poster {
+            position: relative;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            /* Soft shadow for embossed effect */
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            /* Transition effect for smoother animation */
+        }
+
+        .movie-poster:hover {
+            backdrop-filter: blur(10%);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.498);
+            /* Adjust background color and opacity */
+            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .movie-poster img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Display movie info and apply blur effect to poster image on hover */
+        .movie-poster:hover img {
+            filter: blur(2px);
+            /* Adjust blur strength as needed */
+        }
+
+        .movie-poster:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* Add a drop shadow */
+        }
+
+        .movie-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #fff;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+            display: none;
+        }
+
+        .movie-poster:hover .movie-info {
+            display: block;
+        }
+
+        .movie-info h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .movie-info p {
+            margin: 5px 0 0;
+            font-size: 13px;
+        }
+
+        .watermark {
+            font-family: 'Titillium Web', sans-serif;
+            position: baseline;
+            /* Set distance from bottom of viewport */
+            text-align: right;
+            margin-right: 10px;
+            font-size: 14px;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 9999;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            /* Ensure full width */
+            max-width: 100%;
+            overflow: hidden;
+            font-size: 16px;
+            font-weight: bold;
+            position: fixed;
+        }
+
+        ul,
+        li {
+            font-size: 16px;
+            text-align: justify;
+            color: white;
+        }
+
+        /*Telegram floating button*/
+        .telegram-float {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 10000;
+            /* Adjusted z-index to ensure it's above the footer */
+        }
+
+        /* Position the Telegram button */
+        .telegram-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .telegram-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #0088cc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation-name: pulse;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5);
+            }
+
+            80% {
+                box-shadow: 0 0 0 14px rgba(0, 136, 204, 0);
+            }
+        }
+
+        .telegram-icon svg {
+            fill: #fff;
+            width: 30px;
+            height: 30px;
+        }
+
+        .flag {
+            position: absolute;
+            bottom: 07px;
+            /* Adjust the distance from the bottom */
+            right: 07px;
+            /* Adjust the distance from the right */
+        }
+
+        .flag img {
+            width: 30px;
+            /* Adjust the width of the flag image */
+            height: auto;
+            border-radius: 3px;
+            /* Optional: for rounded corners */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img alt="IPL" id="top-image" src="https://pngbong.com/wp-content/uploads/2023/04/IPL-PNG-Logo.png" />
+    </header>
+
+    <div class="container">
+        <!-- Inside each movie-poster div -->
+        <div class="movie-poster" onclick="window.location.href="https://tinyurl.com/2bjrve2w">
+            <img src="images/jiocinema.png" alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Jio Cinema</h2>
+                <p>Global 4K (Multi-Language)</p>
+            </div>
+            <!-- Add the flag image div -->
+            <div class="flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
+            </div>
+        </div>
+
+        <div class="movie-poster" onclick="window.location.href='willowhd.html'">
+            <img src="images/willlow.png" alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Willow HD</h2>
+                <p>Global HD</p>
+            </div>
+            <!-- Add the flag image div -->
+            <div class="flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
+                    alt="Country Flag">
+            </div>
+        </div>
+
+        <div class="movie-poster" onclick="window.location.href='skycricket.html'">
+            <img src="images/skycricket.png" alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Sky Sports Cricket</h2>
+                <p>Global HD</p>
+            </div>
+            <!-- Add the flag image div -->
+            <div class="flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_the_United_Kingdom.png"
+                    alt="Country Flag">
+            </div>
+        </div>
+
+        <div class="movie-poster" onclick="window.location.href='movie.html'">
+            <img src="images/starsports1.png" alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Star Sports 1</h2>
+                <p>Global HD</p>
+            </div>
+            <!-- Add the flag image div -->
+            <div class="flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png"
+                    alt="Country Flag">
+            </div>
+        </div>
+
+        <div class="movie-poster" onclick="window.location.href='jiocricket.html'">
+            <img src="images/jiocricket.png" alt="Movie Poster">
+            <div class="movie-info">
+                <h2>Jio Cricket HD</h2>
+                <p>Global HD</p>
+            </div>
+            <!-- Add the flag image div -->
+            <div class="flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png"
+                    alt="Country Flag">
+            </div>
+        </div>
+
+    </div>
+    <div class="watermark">Created by UltraWebs(HM) &copy; 2024</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
+
+    <footer>IPL &copy; 2024 | by UltraWebs</footer>
+
+    <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
+        <div class="telegram-icon">
+            <svg viewBox="0 0 64 64">
+                <path
+                    d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z">
+                </path>
+            </svg>
+        </div>
+    </a>
+</body>
+<script>
+    // Function to prevent right-click menu
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    });
+
+    // Function to prevent keyboard shortcuts
+    document.onkeydown = function (e) {
+        // Disable F12 key
+        if (event.keyCode == 123) {
+            return false;
+        }
+        // Disable Ctrl+Shift+I key combination
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+        // Disable Ctrl+Shift+J key combination
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+            return false;
+        }
+        // Disable Ctrl+Shift+U key combination
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+        // Disable Ctrl+C key combination
+        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+    };
+</script>
+
+</html>
