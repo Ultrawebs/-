@@ -85,7 +85,7 @@
                 max-width: 85%;
                 padding: 20px;
                 margin-top: 20px;
-                margin-bottom: 40px;
+                margin-bottom: 120px; /* Adjust this value as needed *
                 grid-gap: 20px;
                 overflow-y: auto;
             }
@@ -241,7 +241,14 @@
             overflow: hidden;
             font-size: 16px;
             font-weight: bold;
-            position: fixed;
+        }
+
+        @media only screen and (max-width: 681px) {
+            footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
         }
 
         ul,
