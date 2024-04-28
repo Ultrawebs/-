@@ -81,11 +81,11 @@
 
         /* Add media query for smaller screens */
         /* Adjust grid layout for smaller screens */
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: 687px) {
             .container {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
                 /* Adjusted column width */
-                max-width: 95%;
+                max-width: 85%;
                 /* Increase max-width for better spacing */
                 padding: 10px;
                 /* Reduced padding for smaller screens */
@@ -94,6 +94,7 @@
                 /* Adjusted margin-bottom */
                 grid-gap: 10px;
                 /* Reduced grid gap */
+                position: relative;
             }
         }
 
@@ -225,25 +226,25 @@
         }
 
         footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: absolute;
+            /* Position the footer within the container */
+            bottom: 0;
+            /* Align footer to the bottom */
+            left: 0;
+            width: 100%;
+            /* Make the footer span the entire width of the container */
+            padding: 10px;
+            /* Add padding as needed */
             color: #fff;
             backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(51, 51, 51, 0.098);
-            /* Adjust background color and opacity */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-            text-align: center;
-            padding: 10px;
-            box-sizing: border-box;
-            max-width: 100%;
-            overflow: hidden;
+            /* Adjust other styles as needed */
+
+            /* Additional styles for mobile screens */
         }
 
         @media only screen and (min-width: 769px) {
             footer {
+                text-align: center;
                 position: fixed;
                 bottom: 0;
                 left: 0;
@@ -254,11 +255,14 @@
 
         @media only screen and (max-width: 768px) {
             footer {
-                position: relative;
-                /* Change from fixed to relative positioning */
-                bottom: auto;
-                left: auto;
+                position: static;
+                /* Change to static positioning on smaller screens */
                 width: auto;
+                /* Reset width */
+                padding: 5px;
+                /* Adjust padding for smaller screens */
+                text-align: center;
+                /* Center-align the text */
             }
         }
 
@@ -330,6 +334,57 @@
             height: auto;
             border-radius: 3px;
             /* Optional: for rounded corners */
+        }
+
+        .disclaimer {
+            margin: 0 auto;
+            /* Center horizontally */
+            max-width: 600px;
+            /* Limit width for better readability */
+            margin-bottom: 20px;
+            color: #fff;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            /* Soft shadow for embossed effect */
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            grid-column: span 2;
+            /* Span the entire grid width */
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Make the page not scrollable on desktop */
+        @media only screen and (min-width: 769px) {
+            body {
+                position: relative;
+                overflow: hidden;
+                /* Hide scrollbar */
+                overflow-y: auto;
+                /* Allow vertical scrolling */
+            }
+        }
+
+        .disclaimer h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .disclaimer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .disclaimer li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -466,11 +521,42 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
             </div>
         </div>
+
+        <div class="disclaimer">
+            <h3>Disclaimer</h3>
+            <ul>
+                <li>
+                    The IPL 2024 Network is dedicated to providing a diverse range of cricket-related content to its
+                    viewers.
+                </li>
+                <li>
+                    All materials and resources shared on this platform are sourced from reputable cricket associations,
+                    teams, and content creators.
+                </li>
+                <li>
+                    Our goal is to promote cricket and entertain our audience with insightful and engaging content.
+                </li>
+                <li>
+                    We are committed to respecting intellectual property rights and ensuring that all content
+                    distributed
+                    adheres to copyright laws and regulations.
+                </li>
+                <li>
+                    The content presented on the IPL 2024 Network is either created by our team or obtained through
+                    proper
+                    licensing agreements with content creators and cricket authorities.
+                </li>
+            </ul>
+        </div>
+
+
     </div>
-<!--     <div class="watermark">Created by UltraWebs(HM) &copy; 2024</div> -->
+
+
+    <!-- <div class="watermark">Created by UltraWebs(HM) &copy; 2024</div> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
 
-<!--     <footer>IPL &copy; 2024 | by UltraWebs</footer> -->
+    <!-- <footer>IPL &copy; 2024 | by UltraWebs</footer> -->
 
     <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
         <div class="telegram-icon">
