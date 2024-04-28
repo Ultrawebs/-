@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="icon" type="image/png" href="https://scontent.fbdq2-1.fna.fbcdn.net/v/t39.30808-1/355161579_639685014856705_6201407471546062713_n.png?stp=dst-png_p200x200&_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=oH2imJ7ql5AAb5lu1_b&_nc_ht=scontent.fbdq2-1.fna&oh=00_AfBj6V9gDDMwkK12-tiz64rb28PzGb7fHc9N-VoczIcrqw&oe=66331A5C" sizes="128x128">
+    <link rel="icon" type="image/png"
+        href="https://scontent.fbdq2-1.fna.fbcdn.net/v/t39.30808-1/355161579_639685014856705_6201407471546062713_n.png?stp=dst-png_p200x200&_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=oH2imJ7ql5AAb5lu1_b&_nc_ht=scontent.fbdq2-1.fna&oh=00_AfBj6V9gDDMwkK12-tiz64rb28PzGb7fHc9N-VoczIcrqw&oe=66331A5C"
+        sizes="128x128">
     <title>IPL 2024</title>
     <style>
         body {
@@ -79,16 +81,19 @@
 
         /* Add media query for smaller screens */
         /* Adjust grid layout for smaller screens */
-        @media only screen and (max-width: 681px) {
+        @media only screen and (max-width: 768px) {
             .container {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                /* Display two grid items per row */
-                max-width: 85%;
-                padding: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                /* Adjusted column width */
+                max-width: 95%;
+                /* Increase max-width for better spacing */
+                padding: 10px;
+                /* Reduced padding for smaller screens */
                 margin-top: 20px;
-                margin-bottom: 120px;
-                /* Adjust this value as needed */
-                grid-gap: 20px;
+                margin-bottom: 100px;
+                /* Adjusted margin-bottom */
+                grid-gap: 10px;
+                /* Reduced grid gap */
             }
         }
 
@@ -247,13 +252,13 @@
         }
 
 
-        @media only screen and (max-width: 681px) {
+        @media only screen and (max-width: 768px) {
             footer {
                 position: relative;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
+                /* Change from fixed to relative positioning */
+                bottom: auto;
+                left: auto;
+                width: auto;
             }
         }
 
@@ -373,7 +378,7 @@
                     alt="Country Flag">
             </div>
         </div>
-        
+
         <div class="movie-poster" onclick="window.location.href='willowhd.html'">
             <img src="images/willlow.png" alt="Movie Poster">
             <div class="movie-info">
@@ -412,7 +417,7 @@
                     alt="Country Flag">
             </div>
         </div>
-        
+
         <div class="movie-poster" onclick="window.location.href='movie.html'">
             <img src="images/starsports1.png" alt="Movie Poster">
             <div class="movie-info">
@@ -421,8 +426,7 @@
             </div>
             <!-- Add the flag image div -->
             <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png"
-                    alt="Country Flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
             </div>
         </div>
 
@@ -434,8 +438,7 @@
             </div>
             <!-- Add the flag image div -->
             <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png"
-                    alt="Country Flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
             </div>
         </div>
 
@@ -447,12 +450,12 @@
             </div>
             <!-- Add the flag image div -->
             <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png"
-                    alt="Country Flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
             </div>
         </div>
 
-        <div class="movie-poster" onclick="window.location.href='https://indian-premier-league-24.blogspot.com/2024/03/ipl.html'">
+        <div class="movie-poster"
+            onclick="window.location.href='https://indian-premier-league-24.blogspot.com/2024/03/ipl.html'">
             <img src="images/iplh.png" alt="Movie Poster">
             <div class="movie-info">
                 <h2>IPL Highlights</h2>
@@ -460,8 +463,7 @@
             </div>
             <!-- Add the flag image div -->
             <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png"
-                    alt="Country Flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
             </div>
         </div>
     </div>
