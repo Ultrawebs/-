@@ -20,7 +20,7 @@
             /* Optional: adjust based on your design */
             background-attachment: fixed;
             /* Makes the background image fixed */
-            overflow: visible;
+            overflow: hidden;
         }
 
         /* Media query for mobile devices */
@@ -29,6 +29,7 @@
                 background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
                 /* Set aspect ratio to 9:16 */
                 background-size: fixed;
+                overflow-y: auto;
             }
         }
 
@@ -65,10 +66,9 @@
             padding: 30px;
             margin-top: 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 2fr));
             grid-gap: 20px;
-            overflow-y: auto;
-            max-height: calc(100vh - 160px);
+            max-height: calc(100vh - 100px);
             /* Adjusted max-height */
             scrollbar-width: thin;
             scrollbar-color: rgba(140, 140, 140, 0.308) transparent;
@@ -78,16 +78,16 @@
 
         /* Add media query for smaller screens */
         /* Adjust grid layout for smaller screens */
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: 681px) {
             .container {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 /* Display two grid items per row */
                 max-width: 85%;
                 padding: 20px;
                 margin-top: 20px;
-                margin-bottom: 120px; /* Adjust this value as needed *
+                margin-bottom: 120px;
+                /* Adjust this value as needed */
                 grid-gap: 20px;
-                overflow-y: auto;
             }
         }
 
@@ -232,22 +232,26 @@
             text-align: center;
             padding: 10px;
             box-sizing: border-box;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            /* Ensure full width */
             max-width: 100%;
             overflow: hidden;
-            font-size: 16px;
-            font-weight: bold;
-            z-index: 9999;
         }
 
-        @media only screen and (max-width: 681px) {
+        @media only screen and (min-width: 769px) {
             footer {
                 position: fixed;
                 bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+        }
+
+
+        @media only screen and (max-width: 681px) {
+            footer {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                right: 0;
                 width: 100%;
             }
         }
