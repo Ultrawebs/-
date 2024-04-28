@@ -568,35 +568,6 @@
         </div>
     </a>
 </body>
-<script>
-    // Function to prevent right-click menu
-    document.addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-    });
-
-    // Function to prevent keyboard shortcuts
-    document.onkeydown = function (e) {
-        // Disable F12 key
-        if (event.keyCode == 123) {
-            return false;
-        }
-        // Disable Ctrl+Shift+I key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+Shift+J key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+Shift+U key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+C key combination
-        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-    };
-</script>
+<script src="inspectdisable.js"></script>
 
 </html>
