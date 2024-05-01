@@ -13,11 +13,71 @@
     <style>
         html,
         body {
-            font-family: 'Titillium Web', sans-serif;
+            font-family: "Onest", sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #333;
-            /* Change to the correct brown color code */
+            background-image: url("https://ideogram.ai/api/images/direct/bonVtGiwRFGIoblRU86qtA.png");
+            background-size: cover;
+            /* Optional: adjust based on your design */
+            background-attachment: fixed;
+            /* Makes the background image fixed */
+            overflow: auto;
+            overflow-x: hidden;
+            /* Allow vertical and horizontal scrolling */
+        }
+
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 768px) {
+            body {
+                background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
+                /* Set aspect ratio to 9:16 */
+                background-size: fixed;
+                padding: 8px;
+            }
+        }
+
+        /* Custom scrollbar */
+        body::-webkit-scrollbar {
+            width: 8px;
+            /* Width of the scrollbar */
+            border-radius: 5px;
+            /* Rounded corners */
+        }
+
+        body::-webkit-scrollbar-track {
+            backdrop-filter: blur(10px);
+            /* Apply blur effect */
+        }
+
+        body::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            /* Rounded corners for the thumb */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Add shadow */
+            background-color: rgba(140, 140, 140, 0.308);
+            /* Thumb color */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.7);
+            /* Darker thumb color on hover */
+        }
+
+        /* Hide scrollbar after 3 seconds */
+        body.hide-scrollbar::-webkit-scrollbar {
+            scrollbar-width: thin;
+        }
+
+        body.hide-scrollbar::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            /* Hide thumb */
+        }
+
+        body.hide-scrollbar:hover::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Show thumb on hover */
         }
 
         header {
@@ -25,38 +85,48 @@
             justify-content: center;
             align-items: center;
             color: #fff;
-            background-color: red;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
             text-align: center;
             padding: 10px;
             box-sizing: border-box;
             max-width: 100%;
             overflow: hidden;
-            border-radius: 0px;
-            margin-bottom: 5px;
         }
 
         header img {
             max-width: auto;
             height: auto;
-            max-height: 80px;
-            margin-right: 20px;
+            max-height: 35px;
+            filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg);
         }
+
 
         #container {
             font-family: 'Titillium Web', sans-serif;
             color: white;
             padding: 10px;
             background-color: #333;
-            margin-top: 5px;
-            margin-right: 5px;
+            margin-right: 8px;
             margin-left: 5px;
             margin: 0 auto;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            overflow-y: auto;
         }
 
         /* Media query for larger screens (desktop) */
         @media only screen and (min-width: 601px) {
             #container {
-                max-width: 80%;
+                max-width: 70%;
                 /* Set width to 80% for desktop */
             }
         }
@@ -67,7 +137,7 @@
             /* Center align the container */
             margin: 0 auto;
             /* Set initial width to 100% for mobile */
-            max-width: 100%;
+            max-width: 90%;
         }
 
         #video {
@@ -82,63 +152,35 @@
         .watermark {
             font-family: 'Titillium Web', sans-serif;
             position: baseline;
-            bottom: 10px;
             /* Set distance from bottom of viewport */
             text-align: right;
             margin-right: 10px;
-            font-size: 12px;
-            color: red;
+            font-size: 14px;
+            color: white;
             border-radius: 5px;
             font-weight: bold;
             z-index: 9999;
         }
 
+        /* Position the footer at the bottom */
         footer {
-            font-family: 'Titillium Web', sans-serif;
-            background-color: red;
-            color: White;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
             text-align: center;
-            padding: 1em;
-            margin-top: 05px;
+            padding: 10px;
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow: hidden;
+            font-size: 16px;
             font-weight: bold;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .custom-img {
-                width: 100%;
-                /* Set width to 100% for smaller screens */
-            }
-        }
-
-        /* Media query for larger screens */
-        @media only screen and (min-width: 601px) {
-            .custom-img {
-                max-width: 50%;
-                /* Set maximum width to 100% for larger screens */
-            }
-        }
-
-        /* Set initial width to 100% for all screens */
-        .fig-img {
-            width: 100%;
-            height: auto;
-            /* Ensure aspect ratio is maintained */
-        }
-
-        /* Media query for smaller screens (mobile) */
-        @media only screen and (max-width: 600px) {
-            .fig-img {
-                max-width: 100%;
-                /* Set maximum width to 100% for mobile */
-            }
-        }
-
-        /* Media query for larger screens (desktop) */
-        @media only screen and (min-width: 601px) {
-            .fig-img {
-                max-width: 80%;
-                /* Set maximum width to 80% for desktop */
-            }
         }
 
         h1,
@@ -157,7 +199,7 @@
 
         h3 {
             color: white;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
         }
 
         a {
@@ -172,119 +214,20 @@
 
         ul,
         li {
+            font-size: 16px;
             text-align: justify;
-        }
-
-        table {
-            width: 100%;
-            margin: auto;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 05px;
-            border: 1px solid white;
-            text-align: center;
-        }
-
-        th {
-            background-color: Red;
-        }
-
-        .add-to-calendar {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-
-        .video-thumbnail {
-            text-align: justify;
-            width: 100%;
-            height: auto;
-        }
-
-        .video-title {
-            text-align: justify;
-            font-weight: bold;
-            margin-top: 5px;
-            font-family: 'Titillium Web', sans-serif;
-        }
-
-        .video-author {
-            color: #888;
-            margin-top: 2px;
-            font-family: 'Titillium Web', sans-serif;
-        }
-
-        .custom-title {
-            text-align: center;
-            border-left: 1px solid red;
-            border-right: 1px solid red;
-            padding: 0 10px;
-        }
-
-        .custom-img2 {
-            border-radius: 3px;
-        }
-
-        #race-timing-table {
-            font-family: 'Titillium Web', sans-serif;
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        #race-timing-table th,
-        #race-timing-table td {
-            padding: 05px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        #race-timing-table th {
-            background-color: red;
-            /* Change to the desired color */
-            color: white;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-        #race-timing-table td {
-            background-color: #F8F8FF;
-            color: #222;
-        }
-
-        #race-timing-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        #race-timing-table td:first-child {
-            border-radius: 5px 0 0 5px;
-        }
-
-        #race-timing-table td:last-child {
-            border-radius: 0 5px 5px 0;
-        }
-
-        #container2 {
-            border: 7px solid red;
-            border-radius: 05px;
-            padding: 10px;
-        }
-
-        #container2 img {
-            border-radius: 03px;
-            /* Makes the image border round */
         }
 
         /*Telegram floating button*/
+        .telegram-float {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 10000;
+            /* Adjusted z-index to ensure it's above the footer */
+        }
+
+        /* Position the Telegram button */
         .telegram-float {
             position: fixed;
             bottom: 20px;
@@ -326,12 +269,10 @@
 </head>
 
 <body>
+    <div id="container">
     <header>
         <img alt="F1" id="top-image" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/F1_%28white%29.svg" />
     </header>
-
-    <div id="container">
-
         <div id="player-container">
             <script type="text/javascript">
                 jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
@@ -573,6 +514,9 @@
                 Ownership of this content belongs to Bein Sports or its content suppliers.
             </li>
         </ul>
+
+            <div class="watermark">Created by UltraWebs (HM) © 2024</div>
+    <footer>F1 TV © 2024 | Designed by UW</footer>
     </div>
 
     <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
@@ -585,8 +529,6 @@
         </div>
     </a>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
-    <div class="watermark">Website created by UltraWebs (HM) © 2024</div>
-    <footer>F1 TV © 2024 | Designed by UW</footer>
 </body>
 <script>
     // Function to prevent right-click menu
