@@ -1,0 +1,73 @@
+{
+    "SKY_SPORTS_F1": {
+        "url": "https://linear005-gb-dash1-prd-ll.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsf1)/manifest_720.mpd",
+        "k1": "0005c9fd8524e7b541a0a2a96837db67",
+        "k2": "9ab65cd67318c3ebe1649d26e8e2395d"
+    },
+    "SKY_SPORTS_ARENA": {
+        "url": "https://linear028-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsarena)/manifest_720-120.mpd",
+        "k1": "0005d6ce0830317bd7ba414e9bd7aa7f",
+        "k2": "3adee05b774734902322b28310a8993d"
+
+
+
+
+
+        
+    },
+    "SKY_SPORTS_ACTION": {
+        "url": "https://linear013-gb-dash1-prd-ll.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsaction)/manifest_720.mpd",
+        "k1": "00033f7dcc4fa16f91a862f6d8420902",
+        "k2": "50cfec3c8d2bf51d41cce44f74781edf"
+    },
+    "SKY_SPORTS_MIX": {
+        "url": "https://linear011-gb-dash1-prd-ll.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsmix)/manifest_720.mpd?c3.ri=13631659314425524301",
+        "k1": "0005e45fa30990ec5882e5fa45a699be",
+        "k2": "47b1f736f67679c47f913aa3a5fcea36"
+    },
+    "SKY_SPORTS_GOLF": {
+        "url": "https://linear003-gb-dash1-prd-ll.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsgolf)/manifest_720.mpd",
+        "k1": "00059c656abb9f5e00e43ed7a1c3ffba",
+        "k2": "070f8e3649dfbae44e552a134099e40c"
+    },
+    "SKY_SPORTS_TENNIS": {
+        "url": "https://linear033-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportstennis)/manifest_720-120.mpd",
+        "k1": "0003c6076ebc58846b205e9bae01bf9a",
+        "k2": "97a42ba20dd18bb2a11ecffad1d48177"
+    },
+    "SKY_SPORTS_CRICKET": {
+        "url": "https://linear007-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportscricket)/manifest_720-120.mpd",
+        "k1": "0005cd7d2b9121a3c8586709d03f0e16",
+        "k2": "aa548c9e2a24dd9cfda694a89c4b8dce"
+    },
+    "SKY_SPORTS_CRICKET_2": {
+        "url": "https://linear007-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportscricket)/manifest_720-120.mpd",
+        "k1": "0005cd7d2b9121a3c8586709d03f0e16",
+        "k2": "aa548c9e2a24dd9cfda694a89c4b8dce"
+    },
+    "SKY_SPORTS_RACING": {
+        "url": "https://linear036-gb-dash1-prd-ll.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsracing)/manifest_720.mpd",
+        "k1": "0005af625d6850439fdf3d5fbfef1554",
+        "k2": "e8c03559a31c59883222fc6beff9077c"
+    },
+    "SKY_SPORTS_NEWS": {
+        "url": "https://linear030-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsnews)/manifest_720-120.mpd",
+        "k1": "000504c2e357eae75e2d08180472c349",
+        "k2": "13a53a3a9ff28a0e7f0402f22bbfd75b"
+    },
+    "SKY_PREMIER_LEAGUE": {
+        "url": "https://linear009-gb-dash1-prd-ll.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportspremierleague)/manifest_720.mpd",
+        "k1": "0005e6237bc7c7a273c82a1b86b457c8",
+        "k2": "0783c788b5a8b7be6c77b13525a10eb8"
+    },
+    "SKY_SPORTS_MAIN_EVENT": {
+        "url": "https://linear001-gb-dash1-prd-ll.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsmainevent)/manifest_720.mpd",
+        "k1": "0005403920c26e3aa0c4d81338d2690e",
+        "k2": "0931a3d1d36ae95a7fb7e08111aab4b3"
+    },
+    "SKY_SPORTS_FOOTBALL": {
+        "url": "https://linear019-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsfootball)/manifest_720-120.mpd",
+        "k1": "00058250a3379de8bc837253d41fb434",
+        "k2": "f0dfa2c26f12eaf2c9b3c5a4a4f15a86"
+    }
+}
