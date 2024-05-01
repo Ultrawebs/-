@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <meta name="referrer" content="no-referrer">
     <link rel="icon" type="image/png"
         href="https://scontent.fbdq2-1.fna.fbcdn.net/v/t39.30808-1/355161579_639685014856705_6201407471546062713_n.png?stp=dst-png_p200x200&_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=oH2imJ7ql5AAb5lu1_b&_nc_ht=scontent.fbdq2-1.fna&oh=00_AfBj6V9gDDMwkK12-tiz64rb28PzGb7fHc9N-VoczIcrqw&oe=66331A5C"
         sizes="128x128">
-    <title>IPL 2024</title>
+    <title>IPL</title>
     <style>
+        html,
         body {
-            font-family: "Onest", sans-serif;
+            font-family: 'Titillium Web', sans-serif;
             margin: 0;
             padding: 0;
             background-image: url("https://ideogram.ai/api/images/direct/bonVtGiwRFGIoblRU86qtA.png");
@@ -22,18 +22,55 @@
             /* Optional: adjust based on your design */
             background-attachment: fixed;
             /* Makes the background image fixed */
-            overflow: hidden;
+            overflow: auto;
+            overflow-x: hidden;
+            /* Allow vertical and horizontal scrolling */
         }
 
         /* Media query for mobile devices */
         @media only screen and (max-width: 768px) {
             body {
-                background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
+                background-image: url("https://i.imgur.com/C12Eg8N.png");
                 /* Set aspect ratio to 9:16 */
                 background-size: cover;
-                background-position: center;
-                overflow-y: auto;
+                padding: 05px;
             }
+        }
+
+        /* Custom scrollbar */
+        body::-webkit-scrollbar {
+            width: 8px;
+            /* Width of the scrollbar */
+            /* border-radius: 5px; */
+            /* Rounded corners */
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        body::-webkit-scrollbar-track {
+            backdrop-filter: blur(10px);
+            /* Apply blur effect */
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        body::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            /* Rounded corners for the thumb */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Add shadow */
+            background-color: rgba(140, 140, 140, 0.308);
+            /* Thumb color */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
+        }
+
+        /* Hide scrollbar after 3 seconds */
+        body.hide-scrollbar::-webkit-scrollbar {
+            scrollbar-width: thin;
+        }
+
+        body.hide-scrollbar::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            /* Hide thumb */
         }
 
         header {
@@ -52,6 +89,8 @@
             box-sizing: border-box;
             max-width: 100%;
             overflow: hidden;
+            border-radius: 0px;
+            margin-bottom: 10px;
         }
 
         header img {
@@ -59,20 +98,44 @@
             height: auto;
             max-height: 35px;
             filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg);
-            /* filter: brightness(0) grayscale(100%) invert(100%); */
         }
 
-        .container {
-            max-width: 85%;
-            margin: 40px auto 60px;
-            /* Adjusted margin-bottom */
-            padding: 30px;
-            margin-top: 40px;
+        #container {
+            font-family: 'Titillium Web', sans-serif;
+            color: white;
+            padding: 10px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(51, 51, 51, 0.098);
+            margin: 0 auto;
+        }
+
+        /* Media query for larger screens (desktop) */
+        @media only screen and (min-width: 601px) {
+            #container {
+                max-width: 75%;
+                /* Set width to 80% for desktop */
+            }
+        }
+
+        /* Media query for smaller screens (mobile) */
+        @media only screen and (max-width: 600px) {
+            #container {
+                max-width: 100%;
+                /* Set initial width to 100% for mobile */
+            }
+        }
+
+        .container2 {
+            max-width: calc(100% - 20px);
+            margin: 0 auto;
+            /* Adjusted max-width */
+            /* Subtracting 20px for the grid-gap from the parent container's width */
+            padding: 0;
+            /* Remove padding */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 2fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
             grid-gap: 20px;
             max-height: calc(100vh - 100px);
-            /* Adjusted max-height */
             scrollbar-width: thin;
             scrollbar-color: rgba(140, 140, 140, 0.308) transparent;
             transition: scrollbar-width 0.3s ease;
@@ -81,66 +144,14 @@
 
         /* Add media query for smaller screens */
         /* Adjust grid layout for smaller screens */
-        @media only screen and (max-width: 687px) {
-            .container {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
-                /* Adjusted column width */
+        @media only screen and (max-width: 600px) {
+            .container2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 max-width: 85%;
-                /* Increase max-width for better spacing */
-                padding: 10px;
-                /* Reduced padding for smaller screens */
-                margin-top: 20px;
-                margin-bottom: 100px;
-                /* Adjusted margin-bottom */
-                grid-gap: 10px;
-                /* Reduced grid gap */
-                position: relative;
-            }
-        }
-
-        /* .container::-webkit-scrollbar {
-            width: 8px;
-            border-radius: 5px;
-        } */
-
-        /* .container::-webkit-scrollbar-track {
-            backdrop-filter: blur(10px);
-            /* Apply blur effect 
-        } */
-
-        /* .container::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: rgba(140, 140, 140, 0.308);
-            /* Transparent background */
-        /* backdrop-filter: blur(05px); */
-        /* Apply blur effect 
-            transition: background-color 0.3s ease;
-        } */
-
-        /* .container::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.7);
-            /* Transparent background on hover 
-        } */
-
-        /* Hide scrollbar after 3 seconds
-        .container.hide-scrollbar::-webkit-scrollbar {
-            scrollbar-width: thin;
-        } */
-
-        /* .container.hide-scrollbar::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            background-color: transparent;
-        } */
-
-        /* .container.hide-scrollbar:hover::-webkit-scrollbar-thumb {
-            background-color: rgba(0, 0, 0, 0.7);
-        } */
-
-        @keyframes hideScrollbar {
-            to {
-                /* Add class to hide scrollbar */
-                scrollbar-width: none;
+                padding: 0;
+                /* Remove padding */
+                grid-gap: 15px;
+                margin: 0 auto;
             }
         }
 
@@ -199,7 +210,7 @@
         }
 
         .movie-poster:hover .movie-info {
-            display: block;
+            display: inline-block;
         }
 
         .movie-info h2 {
@@ -212,77 +223,95 @@
             font-size: 13px;
         }
 
+        .flag {
+            position: absolute;
+            bottom: 07px;
+            /* Adjust the distance from the bottom */
+            right: 07px;
+            /* Adjust the distance from the right */
+        }
+
+        .flag img {
+            width: 30px;
+            /* Adjust the width of the flag image */
+            height: auto;
+            border-radius: 3px;
+            /* Optional: for rounded corners */
+        }
+
         .watermark {
             font-family: 'Titillium Web', sans-serif;
             position: baseline;
+            bottom: 10px;
             /* Set distance from bottom of viewport */
             text-align: right;
             margin-right: 10px;
-            font-size: 14px;
-            color: white;
+            font-size: 12px;
+            color: whitesmoke;
             border-radius: 5px;
             font-weight: bold;
             z-index: 9999;
         }
 
         footer {
-            position: absolute;
-            /* Position the footer within the container */
-            bottom: 0;
-            /* Align footer to the bottom */
-            left: 0;
-            width: 100%;
-            /* Make the footer span the entire width of the container */
-            padding: 10px;
-            /* Add padding as needed */
-            color: #fff;
-            backdrop-filter: blur(10px);
-            /* Adjust other styles as needed */
-
-            /* Additional styles for mobile screens */
-        }
-
-        @media only screen and (min-width: 769px) {
-            footer {
-                text-align: center;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-            }
-        }
-
-
-        @media only screen and (max-width: 768px) {
-            footer {
-                position: static;
-                /* Change to static positioning on smaller screens */
-                width: auto;
-                /* Reset width */
-                padding: 5px;
-                /* Adjust padding for smaller screens */
-                text-align: center;
-                /* Center-align the text */
-            }
-        }
-
-        ul,
-        li {
+            font-family: 'Titillium Web', sans-serif;
+            width: auto;
+            backdrop-filter: blur(05px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            color: White;
+            text-align: center;
             font-size: 16px;
-            text-align: justify;
+            padding: 8px 8px;
+            font-weight: bold;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0 0 10px;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+        }
+
+        h3 {
             color: white;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: red;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        ul {
+            list-style-type: square;
+            /* Remove default bullet points */
+            padding-left: 05;
+            /* Remove default left padding */
+            text-align: justify;
+        }
+
+        li {
+            margin: 0 0 0px;
+            margin-right: 05px;
         }
 
         /*Telegram floating button*/
-        .telegram-float {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            z-index: 10000;
-            /* Adjusted z-index to ensure it's above the footer */
-        }
-
-        /* Position the Telegram button */
         .telegram-float {
             position: fixed;
             bottom: 20px;
@@ -320,243 +349,173 @@
             height: 30px;
         }
 
-        .flag {
-            position: absolute;
-            bottom: 07px;
-            /* Adjust the distance from the bottom */
-            right: 07px;
-            /* Adjust the distance from the right */
-        }
-
-        .flag img {
-            width: 30px;
-            /* Adjust the width of the flag image */
-            height: auto;
-            border-radius: 3px;
-            /* Optional: for rounded corners */
-        }
-
-        .disclaimer {
-            margin: 0 auto;
-            /* Center horizontally */
-            max-width: 600px;
-            /* Limit width for better readability */
-            margin-bottom: 20px;
-            color: #fff;
-            padding: 20px;
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(51, 51, 51, 0.098);
-            /* Adjust background color and opacity */
-            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-            /* Soft shadow for embossed effect */
-            transition: box-shadow 0.3s ease, background-color 0.3s ease;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-            border-radius: 10px;
-            margin-bottom: 20px;
-            grid-column: span 2;
-            /* Span the entire grid width */
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Make the page not scrollable on desktop */
-        @media only screen and (min-width: 769px) {
-            body {
-                position: relative;
-                overflow: hidden;
-                /* Hide scrollbar */
-                overflow-y: auto;
-                /* Allow vertical scrolling */
-            }
-        }
-
-        .disclaimer h3 {
-            margin-top: 0;
-            font-size: 18px;
-        }
-
-        .disclaimer ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .disclaimer li {
-            margin-bottom: 10px;
+        /* Remove glow effect from the F1 widget */
+        .f1widget-container {
+            box-shadow: none !important;
         }
     </style>
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
 </head>
 
 <body>
-    <header>
-        <img alt="IPL" id="top-image" src="https://pngbong.com/wp-content/uploads/2023/04/IPL-PNG-Logo.png" />
-    </header>
+    <div id="container">
+        <header>
+            <img alt="IPL" id="top-image" src="https://pngbong.com/wp-content/uploads/2023/04/IPL-PNG-Logo.png" />
+        </header>
+        <h3>Welcome to HD IPL Streaming!</h3>
+        <ul>
+        <li>
+            Experience the thrill of IPL cricket with ULTRA HD streaming on Ultrawebs. Tune in for live action, with
+            links available 30 minutes before each match.
+        </li>
+        <li>
+            All streaming links provided on Ultrawebs are sourced from reliable third-party websites and are accessible
+            worldwide.
+        </li>
+    </ul>
 
-    <div class="container">
-        <!-- Inside each movie-poster div -->
-        <div class="movie-poster" onclick="window.location.href='https://tinyurl.com/2bjrve2w'">
-            <img src="images/jiocinema.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>Jio Cinema</h2>
-                <p>Global 4K (Multi-Language)</p>
+        <div class="container2">
+            <div class="movie-poster" onclick="window.location.href='https://tinyurl.com/2bjrve2w'">
+                <img src="images/jiocinema.png" alt="Movie Poster">
+                <div class="movie-info">
+                    <h2>Jio Cinema</h2>
+                    <p>Global</p>
+                </div>
+                <!-- Add the flag image div -->
+                <div class="flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
+                </div>
             </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
+
+            <div class="movie-poster" onclick="window.location.href='http://zeestb1.online/tata.php?id=2085'">
+                <img src="images/willowxt.png" alt="Movie Poster">
+                <div class="movie-info">
+                    <h2>Willow Xtra</h2>
+                    <p>Global</p>
+                </div>
+                <!-- Add the flag image div -->
+                <div class="flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
+                        alt="Country Flag">
+                </div>
+            </div>
+
+            <div class="movie-poster" onclick="window.location.href='skycricket.html'">
+                <img src="images/willowxt.png" alt="Movie Poster">
+                <div class="movie-info">
+                    <h2>2nd Willow Xtra</h2>
+                    <p>Global</p>
+                </div>
+                <!-- Add the flag image div -->
+                <div class="flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
+                        alt="Country Flag">
+                </div>
+            </div>
+
+            <div class="movie-poster" onclick="window.location.href='willowhd.html'">
+                <img src="images/willlow.png" alt="Movie Poster">
+                <div class="movie-info">
+                    <h2>Willow HD</h2>
+                    <p>Global</p>
+                </div>
+                <!-- Add the flag image div -->
+                <div class="flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
+                        alt="Country Flag">
+                </div>
+            </div>
+
+            <div class="movie-poster" onclick="window.location.href='skycricket.html'">
+                <img src="images/skycricket.png" alt="Movie Poster">
+                <div class="movie-info">
+                    <h2>Sky Sports Cricket</h2>
+                    <p>Global</p>
+                </div>
+                <!-- Add the flag image div -->
+                <div class="flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_the_United_Kingdom.png"
+                        alt="Country Flag">
+                </div>
+            </div>
+
+            <div class="movie-poster" onclick="window.location.href='skymain.html'">
+                <img src="images/skymain.png" alt="Movie Poster">
+                <div class="movie-info">
+                    <h2>Sky Sports Main</h2>
+                    <p>Global</p>
+                </div>
+                <!-- Add the flag image div -->
+                <div class="flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_the_United_Kingdom.png"
+                        alt="Country Flag">
+                </div>
+            </div>
+
+            <div class="movie-poster" onclick="window.location.href='astrocric.html'">
+                <img src="images/astro.png" alt="Movie Poster">
+                <div class="movie-info">
+                    <h2>Astro Cricket</h2>
+                    <p>Global</p>
+                </div>
+                <!-- Add the flag image div -->
+                <div class="flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png"
+                        alt="Country Flag">
+                </div>
+            </div>
+
+            <!-- <div class="movie-poster" onclick="window.location.href='jiocricket.html'">
+                <img src="images/astro.png" alt="Movie Poster">
+                <div class="movie-info">
+                    <h2>Astro Cricket</h2>
+                    <p>Global</p>
+                </div>
+                Add the flag image div 
+                <div class="flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_the_United_Kingdom.png"
+                        alt="Country Flag">
+                </div>
+            </div> -->
+
+            <div class="movie-poster" onclick="window.location.href='https://tinyurl.com/2992orgh'">
+                <img src="images/iplh.png" alt="Movie Poster">
+                <div class="movie-info">
+                    <h2>IPL Highlights</h2>
+                    <p>Global</p>
+                </div>
+                <!-- Add the flag image div -->
+                <div class="flag">
+                    <img src="https://clipart-library.com/images/yckaAM9Xi.png" alt="Country Flag">
+                </div>
             </div>
         </div>
-
-        <div class="movie-poster" onclick="window.location.href='http://zeestb1.online/tata.php?id=2085'">
-            <img src="images/willowxt.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>Willow Xtra HD</h2>
-                <p>Global HD</p>
-            </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
-                    alt="Country Flag">
-            </div>
-        </div>
-
-        <div class="movie-poster" onclick="window.location.href='willowxt.html'">
-            <img src="images/willowxt.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>Willow Xtra HD</h2>
-                <p>Global HD</p>
-            </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
-                    alt="Country Flag">
-            </div>
-        </div>
-
-        <div class="movie-poster" onclick="window.location.href='willowhd.html'">
-            <img src="images/willlow.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>Willow HD</h2>
-                <p>Global HD</p>
-            </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
-                    alt="Country Flag">
-            </div>
-        </div>
-
-        <div class="movie-poster" onclick="window.location.href='skycricket.html'">
-            <img src="images/skycricket.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>Sky Sports Cricket</h2>
-                <p>Global HD</p>
-            </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_the_United_Kingdom.png"
-                    alt="Country Flag">
-            </div>
-        </div>
-
-        <div class="movie-poster" onclick="window.location.href='skymain.html'">
-            <img src="images/skymain.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>Sky Sports Main</h2>
-                <p>Global HD</p>
-            </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_the_United_Kingdom.png"
-                    alt="Country Flag">
-            </div>
-        </div>
-
-        <div class="movie-poster" onclick="window.location.href='movie.html'">
-            <img src="images/starsports1.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>Star Sports 1</h2>
-                <p>Global HD</p>
-            </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
-            </div>
-        </div>
-
-        <div class="movie-poster" onclick="window.location.href='jiocricket.html'">
-            <img src="images/jiocricket.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>Jio Cricket HD</h2>
-                <p>Global HD</p>
-            </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
-            </div>
-        </div>
-
-        <div class="movie-poster" onclick="window.location.href='astrocric.html'">
-            <img src="images/astro.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>Astro Cricket HD</h2>
-                <p>Global HD</p>
-            </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
-            </div>
-        </div>
-
-        <div class="movie-poster"
-            onclick="window.location.href='https://indian-premier-league-24.blogspot.com/2024/03/ipl.html'">
-            <img src="images/iplh.png" alt="Movie Poster">
-            <div class="movie-info">
-                <h2>IPL Highlights</h2>
-                <p>Global HD</p>
-            </div>
-            <!-- Add the flag image div -->
-            <div class="flag">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
-            </div>
-        </div>
-
-        <div class="disclaimer">
-            <h3>Disclaimer</h3>
-            <ul>
-                <li>
-                    The IPL 2024 Network is dedicated to providing a diverse range of cricket-related content to its
-                    viewers.
-                </li>
-                <li>
-                    All materials and resources shared on this platform are sourced from reputable cricket associations,
-                    teams, and content creators.
-                </li>
-                <li>
-                    Our goal is to promote cricket and entertain our audience with insightful and engaging content.
-                </li>
-                <li>
-                    We are committed to respecting intellectual property rights and ensuring that all content
-                    distributed
-                    adheres to copyright laws and regulations.
-                </li>
-                <li>
-                    The content presented on the IPL 2024 Network is either created by our team or obtained through
-                    proper
-                    licensing agreements with content creators and cricket authorities.
-                </li>
-            </ul>
-        </div>
-
-
+        <br/>
+        <h3>Disclaimer</h3>
+        <ul>
+            <li>
+                Ultawebs serves as a platform for broadcasting and distributing IPL (Indian Premier League) content.
+            </li>
+            <li>
+                All streaming links provided on Ultawebs are sourced from third-party websites that are freely available
+                on the internet.
+            </li>
+            <li>
+                We simply facilitate access to these live streams and full match replays for the convenience of our
+                users.
+            </li>
+            <li>
+                Ultawebs endeavors to adhere to all copyright laws and regulations. Any unauthorized use, reproduction,
+                or redistribution of the IPL content provided on our platform is strictly prohibited.
+            </li>
+            <li>
+                Ownership of the IPL content showcased on Ultawebs belongs to the respective rights holders or their
+                content suppliers.
+            </li>
+        </ul>
+        <div class="watermark">Created by UltraWebs(HM) © 2024</div>
+        <footer>IPL © 2024 | Designed by UW</footer>
     </div>
-
-
-    <!-- <div class="watermark">Created by UltraWebs(HM) &copy; 2024</div> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
-
-    <!-- <footer>IPL &copy; 2024 | by UltraWebs</footer> -->
 
     <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
         <div class="telegram-icon">
@@ -567,6 +526,8 @@
             </svg>
         </div>
     </a>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
+
 </body>
 <script>
     // Function to prevent right-click menu
@@ -577,7 +538,7 @@
     // Function to prevent keyboard shortcuts
     document.onkeydown = function (e) {
         // Disable F12 key
-        if (e.keyCode == 123) {
+        if (event.keyCode == 123) {
             return false;
         }
         // Disable Ctrl+Shift+I key combination
@@ -597,12 +558,6 @@
             return false;
         }
     };
-
-    // Detect if the developer tools are opened
-    window.addEventListener('devtoolschange', function(event) {
-        // If developer tools are opened, navigate back to the home page
-        window.location.href = 'about:home'; // Change 'about:home' to your desired home page URL
-    });
 </script>
 
 </html>
