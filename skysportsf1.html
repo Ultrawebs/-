@@ -40,13 +40,15 @@
         body::-webkit-scrollbar {
             width: 8px;
             /* Width of the scrollbar */
-            border-radius: 5px;
+            /* border-radius: 5px; */
             /* Rounded corners */
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
         body::-webkit-scrollbar-track {
             backdrop-filter: blur(10px);
             /* Apply blur effect */
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
         body::-webkit-scrollbar-thumb {
@@ -60,11 +62,6 @@
             /* Smooth transition */
         }
 
-        body::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.7);
-            /* Darker thumb color on hover */
-        }
-
         /* Hide scrollbar after 3 seconds */
         body.hide-scrollbar::-webkit-scrollbar {
             scrollbar-width: thin;
@@ -73,11 +70,6 @@
         body.hide-scrollbar::-webkit-scrollbar-thumb {
             background-color: transparent;
             /* Hide thumb */
-        }
-
-        body.hide-scrollbar:hover::-webkit-scrollbar-thumb {
-            background-color: rgba(0, 0, 0, 0.7);
-            /* Show thumb on hover */
         }
 
         header {
