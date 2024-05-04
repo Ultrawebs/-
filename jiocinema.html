@@ -10,9 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <link rel="icon" type="image/png"
-        href="https://www.jiocinema.com/favicon.ico"
-        sizes="128x128">
+    <link rel="icon" type="image/png" href="https://www.jiocinema.com/favicon.ico" sizes="128x128">
     <title>Jio Cinema</title>
     <style>
         html,
@@ -31,14 +29,18 @@
         }
 
         /* Media query for mobile devices */
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 768px) {
             body {
                 background-image: url("webpa/bgm.webp");
                 /* Set aspect ratio to 9:16 */
-                background-size: cover;
-                padding: 05px;
+                background-size: fixed;
+                /* Fix the width and allow height to adjust */
+                background-attachment: scroll;
+                /* Allow the background image to scroll with the content */
+                padding: 5px;
             }
         }
+
 
         /* Custom scrollbar */
         body::-webkit-scrollbar {
@@ -498,257 +500,260 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KMQRWBLW0W"></script>
     <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-          gtag('config', 'G-KMQRWBLW0W');
+        gtag('config', 'G-KMQRWBLW0W');
     </script>
 
+<body>
     <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
     <script type="text/javascript"
         src="https://platform-api.sharethis.com/js/sharethis.js#property=66328830a14bff0019844da3&product=sticky-share-buttons&source=platform"
         async="async"></script>
-</head>
+    </head>
 
-<body>
-    <div class="sharethis-sticky-share-buttons"></div>
-    <div id="container">
-        <header>
-            <img alt="jiocinema" id="top-image" loading="lazy" src="https://www.jiocinema.com/images/jc_logo_v2.svg" />
-        </header>
-        <nav class="playlist-bar">
-            <!-- Playlist items -->
-            <a href="javascript:void(0);" onclick="window.location.reload();" class="playlist-itemm"><i
-                    class="fa fa-home"></i>&nbsp;Home</a>
-            <!--<a href="https://tinyurl.com/2bjrve2w" class="playlist-itemm"
+    <body>
+        <div class="sharethis-sticky-share-buttons"></div>
+        <div id="container">
+            <header>
+                <img alt="jiocinema" id="top-image" loading="lazy"
+                    src="https://www.jiocinema.com/images/jc_logo_v2.svg" />
+            </header>
+            <nav class="playlist-bar">
+                <!-- Playlist items -->
+                <a href="javascript:void(0);" onclick="window.location.reload();" class="playlist-itemm"><i
+                        class="fa fa-home"></i>&nbsp;Home</a>
+                <!--<a href="https://tinyurl.com/2bjrve2w" class="playlist-itemm"
               ><i class="fa fa-rss"></i> Live</a
             >-->
-            <a href="https://tinyurl.com/2992orgh" class="playlist-itemm"><i
-                    class="fa fa-video-camera"></i>&nbsp;Highlights</a>
-            <!-- <a href="#" class="playlist-itemm" id="share-link" onclick=".share-button">
+                <a href="https://tinyurl.com/2992orgh" class="playlist-itemm"><i
+                        class="fa fa-video-camera"></i>&nbsp;Highlights</a>
+                <!-- <a href="#" class="playlist-itemm" id="share-link" onclick=".share-button">
                 <i class="fa fa-share-square-o"></i>&nbsp;Share
             </a> -->
-        </nav>
+            </nav>
 
-        <center>
-            <h3>Select your preferred Language</h3>
-        </center>
+            <center>
+                <h3>Select your preferred Language</h3>
+            </center>
 
-        <div class="playlist-container">
-            <a class="playlist-tab"
-                onclick="playVideo('https://bunyhlsipla.bunycdn.com/live/indexa22.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                <!--https://bunyhlsipla.bunycdn.com/live/480pa.m3u8 / https://toxicify.pro/toxic/stream.m3u8?id=3931078&e=.m3u8 / https://toxicify.pro/toxic/stream.m3u8?id=3931776--><!--https://toxicify.pro/toxic/stream.m3u8?id=3931079&e=.m3u8 / https://toxicify.pro/toxic/stream.m3u8?id=3931775 / https://toxicify.pro/toxic/stream.m3u8?id=3944023/3943888-->
-                Global Hindi (HD)
-            </a>
+            <div class="playlist-container">
+                <a class="playlist-tab"
+                    onclick="playVideo('https://bunyhlsipla.bunycdn.com/live/indexa22.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    <!--https://bunyhlsipla.bunycdn.com/live/480pa.m3u8 / https://toxicify.pro/toxic/stream.m3u8?id=3931078&e=.m3u8 / https://toxicify.pro/toxic/stream.m3u8?id=3931776--><!--https://toxicify.pro/toxic/stream.m3u8?id=3931079&e=.m3u8 / https://toxicify.pro/toxic/stream.m3u8?id=3931775 / https://toxicify.pro/toxic/stream.m3u8?id=3944023/3943888-->
+                    Global Hindi (HD)
+                </a>
 
-            <!--<a
+                <!--<a
               class="playlist-tab"
-              onclick="playVideo('https://toxicify.pro/JT/help/proxy.php/https://prod-ent-live-gm.jiocinema.com/out/v1/81e640e5a2c74eb98201959a31a008a3/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)"
+              onclick="playVideo('https://toxicify.pro/JT/help/proxy.php/https://prod-ent-live-gm.jiocinema.com/out/v1/81e640e5a2c74eb98201959a31a008a3/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)"
             >
               Global Hindi (4K)
             </a>-->
 
-            <!-- <a class="playlist-tab"
-                onclick="playVideo('https://toxicify.pro/toxicify/stream.m3u8?id=3955975', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
+                <!-- <a class="playlist-tab"
+                onclick="playVideo('https://toxicify.pro/toxicify/stream.m3u8?id=3955975', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
                 2nd G. Hindi (HD)
             </a> -->
 
-            <!--<a
+                <!--<a
               class="playlist-tab"
-              onclick="playVideo('https://toxicify.pro/toxicify/stream.m3u8?id=3952022', 'https://i.imgur.com/ZKST4mG.jpeg', true)"
+              onclick="playVideo('https://toxicify.pro/toxicify/stream.m3u8?id=3952022', 'https://i.imgur.com/fP8H7qA.jpeg', true)"
             >
               Global English (HD)
             </a>-->
 
-            <a class="playlist-tab active"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100322/uhd_akamai_atv_avc_hin_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Hindi (4K)
-            </a>
+                <a class="playlist-tab active"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100322/uhd_akamai_atv_avc_hin_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Hindi (4K)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100323/hd_akamai_androidmob_avc_hin_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Hindi (HD)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100323/hd_akamai_androidmob_avc_hin_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Hindi (HD)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100297/uhd_akamai_atv_avc_eng_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                English (4K)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100297/uhd_akamai_atv_avc_eng_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    English (4K)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100299/hd_akamai_androidmob_avc_eng_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                English (HD)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100299/hd_akamai_androidmob_avc_eng_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    English (HD)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-sports-north-fa.jiocinema.com/hls/live/2109749/uhd_akamai_atv_avc_guj_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Gujarati (4K)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-sports-north-fa.jiocinema.com/hls/live/2109749/uhd_akamai_atv_avc_guj_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Gujarati (4K)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-sports-north-gm.jiocinema.com/hls/live/2109767/uhd_akamai_atv_avc_mar_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Marathi (4K)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-sports-north-gm.jiocinema.com/hls/live/2109767/uhd_akamai_atv_avc_mar_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Marathi (4K)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-sports-north-fa.jiocinema.com/hls/live/2109755/uhd_akamai_atv_avc_pun_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Punjabi (4K)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-sports-north-fa.jiocinema.com/hls/live/2109755/uhd_akamai_atv_avc_pun_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Punjabi (4K)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-sports-south-gm.jiocinema.com/hls/live/2109717/uhd_akamai_atv_avc_tel_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Telugu (4K)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-sports-south-gm.jiocinema.com/hls/live/2109717/uhd_akamai_atv_avc_tel_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Telugu (4K)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-sports-south-gm.jiocinema.com/hls/live/2109723/uhd_akamai_atv_avc_kan_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Kannada (4K)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-sports-south-gm.jiocinema.com/hls/live/2109723/uhd_akamai_atv_avc_kan_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Kannada (4K)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-sports-north-gm.jiocinema.com/hls/live/2109773/uhd_akamai_atv_avc_ben_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Bengali (4K)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-sports-north-gm.jiocinema.com/hls/live/2109773/uhd_akamai_atv_avc_ben_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Bengali (4K)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-sports-south-gm.jiocinema.com/hls/live/2109711/uhd_akamai_atv_avc_tam_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Tamil (4K)
-            </a>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-sports-south-gm.jiocinema.com/hls/live/2109711/uhd_akamai_atv_avc_tam_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Tamil (4K)
+                </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-sports-north-gm.jiocinema.com/hls/live/2109761/uhd_akamai_atv_avc_bhoj_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Bhojpuri (4K)
-            </a>
-        </div>
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-sports-north-gm.jiocinema.com/hls/live/2109761/uhd_akamai_atv_avc_bhoj_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Bhojpuri (4K)
+                </a>
+            </div>
 
-        <div id="container">
-            <h3>Mumbai Indians vs Kolkata Knight Riders<br />By: Jio Cinema</h3>
-            <div class="video-description">
-                <div id="player-container">
-                    <script src="https://ssl.p.jwpcdn.com/player/v/8.33.2/jwplayer.js" type="text/javascript"></script>
-                    <script type="text/javascript">
-                        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+            <div id="container">
+                <h3>Royal Challengers Bengaluru vs Gujarat Titans<br />By: Jio Cinema</h3>
+                <div class="video-description">
+                    <div id="player-container">
+                        <script src="https://ssl.p.jwpcdn.com/player/v/8.33.2/jwplayer.js"
+                            type="text/javascript"></script>
+                        <script type="text/javascript">
+                            jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 
-                        function playVideo(videoUrl, imageUrl, autoplay) {
-                            jwplayer("player-container").setup({
-                                aspectratio: '16:9',
-                                width: '100%',
-                                file: videoUrl,
-                                image: imageUrl,
-                                autostart: autoplay || false,
-                                captions: { color: '#ffb800', fontSize: 30, backgroundOpacity: 0 },
-                                abouttext: 'Ultrawebs(HM)',
-                                aboutlink: 'https://linktr.ee/ultrawebs',
-                                logo: {
-                                    file: 'https://www.jiocinema.com/images/jc_logo_v2.svg',
-                                    position: 'top-right',
-                                    margin: '20',
-                                    hide: 'true',
-                                    size: '05%'
-                                },
-                                sharing: {
-                                    sites: ['facebook', 'twitter', 'tumblr', 'googleplus', { icon: 'https://i.imgur.com/PL7Vp6K.png', src: 'http://www.jwplayer.com/?', label: 'jwplayer' }],
-                                },
-                                fullscreen: {
-                                    enabled: true,
-                                    displayLabel: true,
-                                    label: 'Exit Fullscreen',
-                                },
-                                playbackRateControls: true
-                            });
-                        }
+                            function playVideo(videoUrl, imageUrl, autoplay) {
+                                jwplayer("player-container").setup({
+                                    aspectratio: '16:9',
+                                    width: '100%',
+                                    file: videoUrl,
+                                    image: imageUrl,
+                                    autostart: autoplay || false,
+                                    captions: { color: '#ffb800', fontSize: 30, backgroundOpacity: 0 },
+                                    abouttext: 'Ultrawebs(HM)',
+                                    aboutlink: 'https://linktr.ee/ultrawebs',
+                                    logo: {
+                                        file: 'https://www.jiocinema.com/images/jc_logo_v2.svg',
+                                        position: 'top-right',
+                                        margin: '20',
+                                        hide: 'true',
+                                        size: '05%'
+                                    },
+                                    sharing: {
+                                        sites: ['facebook', 'twitter', 'tumblr', 'googleplus', { icon: 'https://i.imgur.com/PL7Vp6K.png', src: 'http://www.jwplayer.com/?', label: 'jwplayer' }],
+                                    },
+                                    fullscreen: {
+                                        enabled: true,
+                                        displayLabel: true,
+                                        label: 'Exit Fullscreen',
+                                    },
+                                    playbackRateControls: true
+                                });
+                            }
 
-                        playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100322/uhd_akamai_atv_avc_hin_ipl_s1_m1030524/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true);
-                    </script>
+                            playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100322/uhd_akamai_atv_avc_hin_ipl_s1_m1040524/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true);
+                        </script>
+                    </div>
                 </div>
+                <br />
+                <h3>Next: Punjab Kings vs Chennai Super Kings</h3>
+            </div>
+            <center>
+                <h3>🎥 MultiCam: What's Your Angle?</h3>
+            </center>
+            <div class="playlist-container">
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/a491dee5aa0f4e29a197ef1c043a1084/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Hero Cam (4K)
+                </a>
+
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/d7648a7014b34333a4074a6efafcb19f/master.m3u8', 'https://tinyurl.com/2dfgsfhw', true)">
+                    Batter Cam (4K)
+                </a>
+
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/1893486ccd08469e82b3fab606921c26/master.m3u8', 'https://tinyurl.com/2xtvqhxy', true)">
+                    MultiView Cam (4K)
+                </a>
+
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b789111ea8854f8db2dc545541484f27/master.m3u8', 'https://tinyurl.com/2d3jfubd', true)">
+                    Stump Cam (4K)
+                </a>
+
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/5a74ceb567cd49e6ba8b1ebf2fdfec69/master.m3u8', 'https://tinyurl.com/23yxvee9', true)">
+                    Bird's Eye Cam (4K)
+                </a>
+
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/82d7c37dc9ba4ad3ab7966194bee1385/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Insiders (4K)
+                </a>
+
+                <a class="playlist-tab"
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b03529f8c0154d29ac5a225d78c6d65a/master.m3u8', 'https://i.imgur.com/fP8H7qA.jpeg', true)">
+                    Hangout (4K)
+                </a>
             </div>
             <br />
-            <h3>Next: Royal Challengers Bangalore vs Gujarat Titans</h3>
+
+            <h2>Welcome to HD IPL Streaming!</h2>
+            <ul>
+                <li>
+                    Experience the thrill of IPL cricket with ULTRA HD streaming on Ultrawebs. Tune in for live action,
+                    with
+                    links available 30 minutes before each match.
+                </li>
+                <li>
+                    All streaming links provided on Ultrawebs are sourced from reliable third-party websites and are
+                    accessible
+                    worldwide.
+                </li>
+            </ul>
+            <h2>Disclaimer</h2>
+            <ul>
+                <li>
+                    Ultawebs serves as a platform for broadcasting and distributing IPL (Indian Premier League) content.
+                </li>
+                <li>
+                    All streaming links provided on Ultawebs are sourced from third-party websites that are freely
+                    available
+                    on the internet.
+                </li>
+                <li>
+                    We simply facilitate access to these live streams and full match replays for the convenience of our
+                    users.
+                </li>
+                <li>
+                    Ultawebs endeavors to adhere to all copyright laws and regulations. Any unauthorized use,
+                    reproduction,
+                    or redistribution of the IPL content provided on our platform is strictly prohibited.
+                </li>
+                <li>
+                    Ownership of the IPL content showcased on Ultawebs belongs to the respective rights holders or their
+                    content suppliers.
+                </li>
+            </ul>
+            <div class="watermark">Created by UltraWebs(HM) © 2024</div>
+            <footer>IPL © 2024 | Designed by UW</footer>
         </div>
-        <center>
-            <h3>🎥 MultiCam: What's Your Angle?</h3>
-        </center>
-        <div class="playlist-container">
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/a491dee5aa0f4e29a197ef1c043a1084/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Hero Cam (4K)
-            </a>
 
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/d7648a7014b34333a4074a6efafcb19f/master.m3u8', 'https://i.imgur.com/AcmeGWn.jpeg', true)">
-                Batter Cam (4K)
-            </a>
-
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/1893486ccd08469e82b3fab606921c26/master.m3u8', 'https://i.imgur.com/4qWwuw3.jpeg', true)">
-                MultiView Cam (4K)
-            </a>
-
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b789111ea8854f8db2dc545541484f27/master.m3u8', 'https://i.imgur.com/JeLwErX.jpeg', true)">
-                Stump Cam (4K)
-            </a>
-
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/5a74ceb567cd49e6ba8b1ebf2fdfec69/master.m3u8', 'https://i.imgur.com/H8QARby.jpeg', true)">
-                Bird's Eye Cam (4K)
-            </a>
-
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/82d7c37dc9ba4ad3ab7966194bee1385/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Insiders (4K)
-            </a>
-
-            <a class="playlist-tab"
-                onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b03529f8c0154d29ac5a225d78c6d65a/master.m3u8', 'https://i.imgur.com/ZKST4mG.jpeg', true)">
-                Hangout (4K)
-            </a>
-        </div>
-        <br />
-
-        <h2>Welcome to HD IPL Streaming!</h2>
-        <ul>
-            <li>
-                Experience the thrill of IPL cricket with ULTRA HD streaming on Ultrawebs. Tune in for live action,
-                with
-                links available 30 minutes before each match.
-            </li>
-            <li>
-                All streaming links provided on Ultrawebs are sourced from reliable third-party websites and are
-                accessible
-                worldwide.
-            </li>
-        </ul>
-        <h2>Disclaimer</h2>
-        <ul>
-            <li>
-                Ultawebs serves as a platform for broadcasting and distributing IPL (Indian Premier League) content.
-            </li>
-            <li>
-                All streaming links provided on Ultawebs are sourced from third-party websites that are freely
-                available
-                on the internet.
-            </li>
-            <li>
-                We simply facilitate access to these live streams and full match replays for the convenience of our
-                users.
-            </li>
-            <li>
-                Ultawebs endeavors to adhere to all copyright laws and regulations. Any unauthorized use,
-                reproduction,
-                or redistribution of the IPL content provided on our platform is strictly prohibited.
-            </li>
-            <li>
-                Ownership of the IPL content showcased on Ultawebs belongs to the respective rights holders or their
-                content suppliers.
-            </li>
-        </ul>
-        <div class="watermark">Created by UltraWebs(HM) © 2024</div>
-        <footer>IPL © 2024 | Designed by UW</footer>
-    </div>
-
-    <!-- <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
+        <!-- <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
         <div class="telegram-icon">
             <svg viewBox="0 0 64 64">
                 <path
@@ -758,28 +763,28 @@
         </div>
     </a> -->
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const playlistTabs = document.querySelectorAll(".playlist-tab");
-            const currentVideo = document.getElementById("current-video");
-            const videoTitle = document.getElementById("video-title");
-            const videoDescription = document.getElementById("video-description");
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const playlistTabs = document.querySelectorAll(".playlist-tab");
+                const currentVideo = document.getElementById("current-video");
+                const videoTitle = document.getElementById("video-title");
+                const videoDescription = document.getElementById("video-description");
 
-            function handlePlaylistTabClick(event) {
-                event.preventDefault();
-                const target = event.target;
-                playlistTabs.forEach(tab => tab.classList.remove("active"));
-                target.classList.add("active");
-                currentVideo.src = target.getAttribute("data-src");
-                videoTitle.textContent = target.getAttribute("data-title");
-                videoDescription.textContent = target.getAttribute("data-description");
-            }
+                function handlePlaylistTabClick(event) {
+                    event.preventDefault();
+                    const target = event.target;
+                    playlistTabs.forEach(tab => tab.classList.remove("active"));
+                    target.classList.add("active");
+                    currentVideo.src = target.getAttribute("data-src");
+                    videoTitle.textContent = target.getAttribute("data-title");
+                    videoDescription.textContent = target.getAttribute("data-description");
+                }
 
-            playlistTabs.forEach(tab => tab.addEventListener("click", handlePlaylistTabClick));
-        });
-    </script>
+                playlistTabs.forEach(tab => tab.addEventListener("click", handlePlaylistTabClick));
+            });
+        </script>
 
-    <!-- <script>
+        <!-- <script>
         // Function to display share options in a custom alert-like message
         function displayShareOptions() {
             // Define the URLs for different social media platforms
@@ -833,37 +838,37 @@
         });
     </script> -->
 
-</body>
+    </body>
 
-<script>
-    // Function to prevent right-click menu
-    document.addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-    });
+    <script>
+        // Function to prevent right-click menu
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
 
-    // Function to prevent keyboard shortcuts
-    document.onkeydown = function (e) {
-        // Disable F12 key
-        if (event.keyCode == 123) {
-            return false;
-        }
-        // Disable Ctrl+Shift+I key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+Shift+J key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+Shift+U key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+C key combination
-        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-    };
-</script>
+        // Function to prevent keyboard shortcuts
+        document.onkeydown = function (e) {
+            // Disable F12 key
+            if (event.keyCode == 123) {
+                return false;
+            }
+            // Disable Ctrl+Shift+I key combination
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            // Disable Ctrl+Shift+J key combination
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            // Disable Ctrl+Shift+U key combination
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+            // Disable Ctrl+C key combination
+            if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+        };
+    </script>
 
 </html>
