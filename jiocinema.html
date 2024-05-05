@@ -106,11 +106,8 @@
         #container {
             font-family: "Anek Latin", sans-serif;
             color: white;
-            padding: 10px;
-            backdrop-filter: blur(10px);
-            background-color: rgba(51, 51, 51, 0.098);
-            margin: 0 auto;
-            margin-top: 05px;
+            margin-left: 05px;
+            margin-right: 05px;
         }
 
         /* Media query for larger screens (desktop) */
@@ -237,6 +234,7 @@
             /* Adjust background color and opacity */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
+            font-size: 15px;
             cursor: pointer;
             color: white;
             overflow: auto;
@@ -244,6 +242,7 @@
 
         .playlist-tab {
             font-family: "Anek Latin", sans-serif;
+
             padding: 5px 10px;
             background-color: #23368900;
             color: white;
@@ -307,7 +306,9 @@
             font-family: "Anek Latin", sans-serif;
             max-width: 100%;
             margin: auto;
-            border-radius: 8px;
+            margin-top: 02px;
+            margin-bottom: 02px;
+            border-radius: 05px;
         }
 
         .watermark {
@@ -338,25 +339,6 @@
             font-size: 16px;
             padding: 8px 8px;
             font-weight: bold;
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin: 0 0 10px;
-        }
-
-        h1 {
-            font-size: 1.7rem;
-        }
-
-        h2 {
-            font-size: 1.1rem;
-        }
-
-        h3 {
-            color: white;
-            font-size: 1rem;
         }
 
         a {
@@ -537,7 +519,7 @@
             </nav>
 
             <center>
-                <h3>Select your preferred Language</h3>
+                <h4>Select your preferred Language 👇</h4>
             </center>
 
             <div class="playlist-container">
@@ -628,7 +610,7 @@
             </div>
 
             <div id="container">
-                <h3>Punjab Kings vs Chennai Super Kings<br />By: Jio Cinema</h3>
+                <h4>Punjab Kings vs Chennai Super Kings<br />By: Jio Cinema</h4>
                 <div class="video-description">
                     <div id="player-container">
                         <script src="https://ssl.p.jwpcdn.com/player/v/8.33.2/jwplayer.js"
@@ -669,11 +651,10 @@
                         </script>
                     </div>
                 </div>
-                <br />
-                <h3>Next: Lucknow Super Giants vs Kolkata Knight Riders</h3>
+                <h4>Next: Lucknow Super Giants vs Kolkata Knight Riders</h4>
             </div>
             <center>
-                <h3>🎥 MultiCam: What's Your Angle?</h3>
+                <h4>🎥 MultiCam: What's Your Angle?</h4>
             </center>
             <div class="playlist-container">
                 <a class="playlist-tab"
@@ -713,7 +694,7 @@
             </div>
             <br />
 
-            <h2>Welcome to HD IPL Streaming!</h2>
+            <h4>Welcome to HD IPL Streaming!</h4>
             <ul>
                 <li>
                     Experience the thrill of IPL cricket with ULTRA HD streaming on Ultrawebs. Tune in for live action,
@@ -726,7 +707,7 @@
                     worldwide.
                 </li>
             </ul>
-            <h2>Disclaimer</h2>
+            <h4>Disclaimer</h4>
             <ul>
                 <li>
                     Ultawebs serves as a platform for broadcasting and distributing IPL (Indian Premier League) content.
@@ -784,7 +765,5 @@
                 playlistTabs.forEach(tab => tab.addEventListener("click", handlePlaylistTabClick));
             });
         </script>
-
     </body>
-
 </html>
