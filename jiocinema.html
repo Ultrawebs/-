@@ -106,8 +106,11 @@
         #container {
             font-family: "Anek Latin", sans-serif;
             color: white;
-            margin-left: 05px;
-            margin-right: 05px;
+            padding: 05px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(51, 51, 51, 0.098);
+            margin: 0 auto;
+            margin-top: 05px;
         }
 
         /* Media query for larger screens (desktop) */
@@ -121,6 +124,29 @@
         /* Media query for smaller screens (mobile) */
         @media only screen and (max-width: 600px) {
             #container {
+                max-width: 100%;
+                /* Set initial width to 100% for mobile */
+            }
+        }
+
+        #containerr3 {
+            font-family: "Anek Latin", sans-serif;
+            color: white;
+            padding: 02px;
+            margin: 0 auto;
+        }
+
+        /* Media query for larger screens (desktop) */
+        @media only screen and (min-width: 601px) {
+            #containerr3 {
+                max-width: 80%;
+                /* Set width to 80% for desktop */
+            }
+        }
+
+        /* Media query for smaller screens (mobile) */
+        @media only screen and (max-width: 600px) {
+            #containerr3 {
                 max-width: 100%;
                 /* Set initial width to 100% for mobile */
             }
@@ -234,7 +260,6 @@
             /* Adjust background color and opacity */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
-            font-size: 15px;
             cursor: pointer;
             color: white;
             overflow: auto;
@@ -242,7 +267,7 @@
 
         .playlist-tab {
             font-family: "Anek Latin", sans-serif;
-
+            font-size: 1;
             padding: 5px 10px;
             background-color: #23368900;
             color: white;
@@ -306,9 +331,7 @@
             font-family: "Anek Latin", sans-serif;
             max-width: 100%;
             margin: auto;
-            margin-top: 02px;
-            margin-bottom: 02px;
-            border-radius: 05px;
+            border-radius: 8px;
         }
 
         .watermark {
@@ -318,7 +341,7 @@
             /* Set distance from bottom of viewport */
             text-align: right;
             margin-right: 10px;
-            font-size: 12px;
+            font-size: 14px;
             color: whitesmoke;
             border-radius: 5px;
             font-weight: bold;
@@ -609,7 +632,7 @@
                 </a>
             </div>
 
-            <div id="container">
+            <div id="containerr3">
                 <h4>Punjab Kings vs Chennai Super Kings<br />By: Jio Cinema</h4>
                 <div class="video-description">
                     <div id="player-container">
@@ -692,7 +715,6 @@
                     Hangout (4K)
                 </a>
             </div>
-            <br />
 
             <h4>Welcome to HD IPL Streaming!</h4>
             <ul>
