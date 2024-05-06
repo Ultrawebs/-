@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&amp;display=swap"
-        rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
     <link rel="icon" type="image/png" href="https://www.fancode.com/skillup-uploads/fc-web-logo/favicon.png"
         sizes="128x128" style="border-radius: 5px;">
     <title>Fancode F1</title>
@@ -38,21 +38,23 @@
 
         /* Custom scrollbar */
         body::-webkit-scrollbar {
-            width: 8px;
+            overflow: hidden;
+            overflow-x: hidden;
+            width: 05px;
             /* Width of the scrollbar */
             /* border-radius: 5px; */
             /* Rounded corners */
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.826);
         }
 
         body::-webkit-scrollbar-track {
             backdrop-filter: blur(10px);
             /* Apply blur effect */
-            background-color: rgba(0, 0, 0, 0.7);
+            border-color: rgba(0, 0, 0, 0);
         }
 
         body::-webkit-scrollbar-thumb {
-            border-radius: 10px;
+            border-radius: 07px;
             /* Rounded corners for the thumb */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             /* Add shadow */
@@ -101,15 +103,25 @@
         #container {
             font-family: 'Titillium Web', sans-serif;
             color: white;
-            padding: 10px;
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
             background-color: rgba(51, 51, 51, 0.098);
             margin: 0 auto;
+        }
+
+
+        /* Media query for larger screens (desktop) */
+        @media only screen and (max-width: 600px) {
+            #container {
+                padding: 01px;
+                max-width: 100%;
+                /* Set width to 80% for desktop */
+            }
         }
 
         /* Media query for larger screens (desktop) */
         @media only screen and (min-width: 601px) {
             #container {
+                padding: 10px;
                 max-width: 75%;
                 /* Set width to 80% for desktop */
             }
@@ -129,8 +141,7 @@
             /* Center align the container */
             margin: 0 auto;
             /* Set initial width to 100% for mobile */
-            max-width: 100%;
-            margin-bottom: 05px;
+            max-width: 99%;
         }
 
         #video {
@@ -149,8 +160,8 @@
             /* Set distance from bottom of viewport */
             text-align: right;
             margin-right: 10px;
-            font-size: 12px;
-            color: red;
+            font-size: 14px;
+            color: white;
             border-radius: 5px;
             font-weight: bold;
             z-index: 9999;
@@ -209,25 +220,6 @@
             }
         }
 
-        h1,
-        h2,
-        h3 {
-            margin: 0 0 10px;
-        }
-
-        h1 {
-            font-size: 1.7rem;
-        }
-
-        h2 {
-            font-size: 1.3rem;
-        }
-
-        h3 {
-            color: white;
-            font-size: 1.1rem;
-        }
-
         a {
             color: red;
             font-weight: bold;
@@ -244,21 +236,61 @@
         }
 
         table {
-            width: 100%;
+            padding: 5px;
+            width: 50%;
+            border: 05px;
+            border-color: transparent;
             margin: auto;
-            border-collapse: collapse;
+            border-collapse: separate;
+        }
+
+        /* For mobile screens */
+        @media screen and (max-width: 600px) {
+            table {
+                width: 100%;
+                /* Set width to 100% for mobile screens */
+            }
         }
 
         th,
         td {
-            padding: 05px;
-            border: 01px solid white;
-            text-align: center;
+            text-align: left;
         }
 
         th {
             background-color: Red;
         }
+
+        .race-table {
+            width: 30%;
+            margin: 0 auto;
+            border-collapse: separate;
+        }
+
+        /* For mobile screens */
+        @media screen and (max-width: 600px) {
+            .race-table {
+                width: 90%;
+            }
+        }
+
+        .race-table,
+        .race-table th,
+        .race-table td {
+            border: 1px;
+            border-color: transparent;
+            /* Make border color transparent */
+            padding: 03px;
+        }
+
+        .race-table th {
+            text-align: center;
+        }
+
+        .race-table td {
+            text-align: left;
+        }
+
 
         .add-to-calendar {
             background-color: #4CAF50;
@@ -282,10 +314,13 @@
             text-align: justify;
             font-weight: bold;
             margin-top: 5px;
+            margin-left: 05px;
+            margin-right: 05px;
             font-family: 'Titillium Web', sans-serif;
         }
 
         .video-author {
+            margin-left: 05px;
             color: #888;
             margin-top: 2px;
             font-family: 'Titillium Web', sans-serif;
@@ -391,15 +426,15 @@
         }
     </style>
     <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-DVMMJVP33N');
-</script>
+        gtag('config', 'G-DVMMJVP33N');
+    </script>
 </head>
 
 <body>
@@ -408,27 +443,25 @@
             <img alt="Fancode F1" id="top-image" loading="lazy" src="https://i.imgur.com/utXLNQQ.png" />
         </header>
 
-        <h2 class="video-title">
+        <h3 class="video-title">
             FORMULA 1:
-            <a href="United-States-flag.png">
-                <img style="border-radius: 03px;" border="0" width="30"
-                    src="https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-states-of-america-flag.png.transform/1col-retina/image.png"
-                    alt="United-States Flag" />
+            <a href="italy-flag.png">
+                <img style="border-radius: 03px;" border="0" width="30" loading="lazy"
+                    src="https://media.formula1.com/image/upload/f_auto/q_auto/v1677244973/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/italy-flag.png.transform/1col-retina/image.png"
+                    alt="italy-flag" />
             </a>
-            CRYPTO.COM MIAMI GRAND PRIX 2024
-        </h2>
-        <p class="video-author">By: Fancode F1</p>
+            MSC CRUISES GRAN PREMIO DEL MADE IN ITALY E DELL'EMILIA-ROMAGNA 2024
+        </h3>
 
         <div id="player-container">
             <script type="text/javascript">
                 jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
-
-                function playVideo(videoUrl, imageUrl, autoplay) {
+                {
                     jwplayer("player-container").setup({
                         aspectratio: '16:9',
                         width: '100%',
-                        file: videoUrl,
-                        image: imageUrl,
+                        file: 'https://d3j9yh95j3r5d9.cloudfront.net/out/v1/35a426070dad49f1834a269534788dc1/index.m3u8',
+                        image: 'https://www.autodromoimola.it/wp-content/uploads/2024/03/posterImoori.jpg',
                         autostart: true,
                         captions: { color: '#ffb800', fontSize: 30, backgroundOpacity: 0 },
                         abouttext: 'Ultrawebs(HM)',
@@ -437,116 +470,99 @@
                         sharing: {
                             sites: ['facebook', 'twitter', 'tumblr', 'googleplus', { icon: 'https://i.imgur.com/PL7Vp6K.png', src: 'http://www.jwplayer.com/?', label: 'jwplayer' }],
                         },
-                        fullscreen: {
-                            enabled: true,
-                            displayLabel: true,
-                            label: 'Exit Fullscreen',
-                        },
-                        tracks: [
-                            {
-                                file: "YOUR_SUBTITLE_FILE_EN.vtt", // English subtitle file URL
-                                label: "English", // Label for English subtitles
-                                kind: "captions",
-                                default: true // Set true if you want this to be the default subtitle
-                            },
-                            {
-                                file: "YOUR_SUBTITLE_FILE_ES.vtt", // Spanish subtitle file URL
-                                label: "", // Label for Spanish subtitles
-                                kind: "captions"
-                            }
-                            // Add more subtitle tracks as needed
-                        ],
                         playbackRateControls: true // Enable playback speed controls
                     });
                 }
-
-                playVideo('https://d3j9yh95j3r5d9.cloudfront.net/out/v1/35a426070dad49f1834a269534788dc1/index.m3u8', 'https://s34563.pcdn.co/wp-content/uploads/2022/09/F1_ETG_no-date_HRS.png', false);
             </script>
         </div>
+        <p class="video-author">By: Fancode F1</p>
         <!-- <center>
 
             Please wait for 30 seconds, the video will start playing
             automatically.
 
         </center>-->
-        <br />
+
         <center>
             <script type="text/javascript" src="https://www.f1widget.com/javascript/remote.js" async></script>
             <script type="text/javascript">
-                (window.f1widgets ||= []).push({ width: 300, height: 80, lang: "en" });
+                (window.f1widgets ||= []).push({ width: 325, height: 80, lang: "en" });
             </script>
         </center>
 
         <center>
-            <br />
-            <h2 class="custom-title">
-                <a href="United-States.png">
+            <h3 class="custom-title">
+                <a href="italy-flag.png">
                     <img class="custom-img2" border="0" width="35" loading="lazy"
-                        src="https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-states-of-america-flag.png.transform/1col-retina/image.png"
-                        alt="United-States Flag" />
+                        src="https://media.formula1.com/image/upload/f_auto/q_auto/v1677244973/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/italy-flag.png.transform/1col-retina/image.png"
+                        alt="Itl Flag" />
                 </a>
-                Miami International Autodrome
-            </h2>
+                Autodromo Enzo e Dino Ferrari
+            </h3>
             <!-- Modify your image tag to add a class -->
             <a
-                href="https://media.formula1.com/image/upload/f_auto/q_auto/v1677244985/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Miami_Circuit.png">
-                <img class="custom-img" alt="f1-tracks" border="0" data-original-height="507" data-original-width="800" loading="lazy"
-                    src="https://media.formula1.com/image/upload/f_auto/q_auto/v1677244985/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Miami_Circuit.png"
+                href="https://media.formula1.com/image/upload/f_auto/q_auto/v1677244984/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Emilia_Romagna_Circuit.png.transform/7col-retina/image.png">
+                <img class="custom-img" alt="f1-tracks" border="0" data-original-height="507" data-original-width="800"
+                    loading="lazy"
+                    src="https://media.formula1.com/image/upload/f_auto/q_auto/v1677244984/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Emilia_Romagna_Circuit.png.transform/7col-retina/image.png"
                     style="border-radius: 5px;" />
             </a>
-            <p style="font-family: 'Titillium Web', sans-serif; text-align: center;">
-                <strong>City:</strong> Miami<br />
-                <strong>Laps:</strong> 57<br />
-                <strong>Circuit length:</strong> 5.412 <small>km</small><br />
-                <strong>Race distance:</strong> 308.326 <small>km</small><br />
-                <strong>Lap record:</strong> 1:29.708
-                <small><b>Max Verstappen (2023)</b></small><br />
-            </p>
+
+            <table class="race-table">
+                <tr>
+                    <th colspan="2">Track Information</th>
+                </tr>
+                <tr>
+                    <td><strong>City:</strong></td>
+                    <td>Imola</td>
+                </tr>
+                <tr>
+                    <td><strong>Laps:</strong></td>
+                    <td>63</td>
+                </tr>
+                <tr>
+                    <td><strong>Circuit length:</strong></td>
+                    <td>4.909 km</td>
+                </tr>
+                <tr>
+                    <td><strong>Race distance:</strong></td>
+                    <td>309.049 km</td>
+                </tr>
+                <tr>
+                    <td><strong>Lap record:</strong></td>
+                    <td>1:15.484 <small><b>Lewis Hamilton (2020)</b></small></td>
+                </tr>
+            </table>
         </center>
 
         <center>
-            <h2 style="margin-right:10px; text-align: left;">
-                MIAMI GP: ALL YOU NEED TO KNOW
-            </h2>
+            <h3 style="margin-right:15px; text-align: left;">
+                EMILIA-ROMAGNA GP: ALL YOU NEED TO KNOW
+            </h3>
             <figure>
                 <img class="fig-img"
-                    src="https://www.visacashapprb.com/wp-content/uploads/2022/05/miami-grand-prix-map-scuderia-alphatauri.png"
-                    alt="Shanghai International Circuit" width="500" height="300" loading="lazy" />
+                    src="https://www.visacashapprb.com/wp-content/uploads/2022/05/emilia-romagna-grand-prix-map-scuderia-alphatauri.png"
+                    alt="Autodromo Enzo e Dino Ferrari" width="500" height="300" loading="lazy" />
                 <figcaption>
-                    <center>⚲ Miami International Autodrome, USA</center>
+                    <center>⚲ Autodromo Enzo e Dino Ferrari, Italy</center>
                 </figcaption>
             </figure>
-            <p>
-                <strong>For the first time since 1959</strong>, Formula 1 returns to
-                Florida, for a brand new event, the <em>Miami Grand Prix</em>.
-            </p>
-            <p>
-                Miami is considered the jewel of the “Sunshine State,” with its
-                Latin-American cultural influences, a thriving artistic scene, beaches
-                and nightlife, not forgetting sport of course. The city hosts the Miami
-                Open Tennis tournament, the National Football League, as well as NASCAR
-                and Indycar races. And now the stage is set for Formula 1.
-            </p>
-            <p>
-                <a href="https://www.visacashapprb.com/en/f1-tracks/miami-international-autodrome/">Miami International
-                    Autodrome</a>
-                is the venue for the Grand Prix, just a
-                <strong>few kilometres from Downtown</strong>. The United States thus
-                holds the record for the most cities to have hosted a Formula 1 Grand
-                Prix, with Miami being the eleventh.
-            </p>
-
-            <p>
-                The street circuit runs around the famous Hard Rock Stadium, home to the
-                NFL’s Miami Dolphins. The promoter came up with 36 different possible
-                layouts before arriving at the definitive version. All the
-                <strong>hard work over several years</strong> has produced a track that
-                is fast and spectacular, with three long straights each with a DRS zone,
-                where speeds are expected to reach 320 km/h.
-            </p>
+            <p>The <em>Emilia-Romagna Grand Prix</em> is the <strong>fifth&nbsp;round of the 2022 Formula 1 World
+                    Championship</strong>. It is held at the Imola circuit and for us it’s the most home grand prix
+                possible! Imola returned to F1 in 2020 after the Covid-19 pandemic led to a complete re-jig of the
+                calendar.</p>
+            <p>For <strong>26 years in a row</strong>, the <a
+                    href="https://www.visacashapprb.com/en/f1-tracks/autodromo-enzo-e-dino-ferrari/">Enzo e Dino Ferrari
+                    circuit</a> hosted the <strong>San Marino Grand Prix</strong>, a regular fixture on the championship
+                calendar from 1981 to 2006. In 1980 Imola hosted the Italian Grand Prix. The circuit has been completely
+                renovated to meet the F1 safety standards, which means it can once again host the circus.</p>
+            <p>The first ever Formula 1 San Marino Grand Prix was won by Nelson Piquet in 1981, with the final one in
+                2006 going to Michael Schumacher. The German has won it seven times, a record for the most wins here.
+                Therefore, this year there will be two Grands Prix in Italy: apart from the round at Imola, there will
+                be the usual race at Monza in September.</p>
 
         </center>
-        <h2>Schedule</h2>
+        <h3>Schedule</h3>
         <table>
             <thead>
                 <tr>
@@ -557,96 +573,63 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Friday, 03, May</td>
+                    <td>Friday, 17, May</td>
                     <td><b>Practice 1</b></td>
-                    <td>22:00 - 23:00</td>
+                    <td>17:00 - 18:00</td>
                 </tr>
                 <tr>
-                    <td>Saturday, 04, May</td>
-                    <td><b>Sprint Qualifying</b></td>
-                    <td>02:00 - 02:44</td>
+                    <td>Friday, 17, May</td>
+                    <td><b>Practice 2</b></td>
+                    <td>20:30 - 21:30</td>
                 </tr>
                 <tr>
-                    <td>Saturday, 04, May</td>
-                    <td><b>Sprint</b></td>
-                    <td>21:30 - 22:30</td>
+                    <td>Saturday, 18, May</td>
+                    <td><b>Practice 3</b></td>
+                    <td>16:00 - 17:00</td>
                 </tr>
                 <tr>
-                    <td>Sunday, 05, May</td>
+                    <td>Saturday, 18, May</td>
                     <td><b>Qualifying</b></td>
-                    <td>01:30 - 02:30</td>
+                    <td>19:30 - 20:30</td>
                 </tr>
                 <tr>
-                    <td>Monday, 06, May</td>
+                    <td>Sunday, 19, May</td>
                     <td><b>Race</b></td>
-                    <td>01:30 - 03:30</td>
+                    <td>18:30 - 20:30</td>
                 </tr>
             </tbody>
         </table>
 
-        <div id="accordion" class="d-none d-md-block grand-prix-circuit-details">
-            <div class="card">
-                <div class="card-header" id="heading-0" data-id="0" data-toggle="collapse" data-target="#detail-0"
-                    aria-expanded="true" aria-controls="detail-0">
-                    <h3 class="mb-0 d-inline"></h3>
-                    <h3 class="mb-0 d-inline">
-                        Electrifying track <i class="d-inline fa fa-chevron-up"></i>
-                    </h3>
-                </div>
-                <div id="detail-0" class="collapse show" aria-labelledby="heading-0" data-parent="#accordion">
-                    <div class="card-body">
-                        <p>
-                            It's a <strong>street circuit</strong>, but its design has all
-                            the hallmarks of a permanent facility.
-                            <a href="https://www.visacashapprb.com/en/f1-tracks/miami-international-autodrome/">Miami
-                                International
-                                Autodrome</a>
-                            runs round the Hard Rock Stadium in Miami Gardens. The track is
-                            fast and smooth, with three DRS zones, but there are also places
-                            where drivers have to brake right on the limit, producing some
-                            great overtaking moves.
-                        </p>
+        <div class="col-12 col-lg-6">
+            <div id="accordion" class="d-none d-md-block grand-prix-circuit-details">
+                <div class="card">
+                    <div class="card-header collapsed" id="heading-0" data-id="0" data-toggle="collapse"
+                        data-target="#detail-0" aria-expanded="false" aria-controls="detail-0" onclick="toggleInfo(0)">
+                        <h3 class="mb-0 d-inline">Long tradition <i class="d-inline fas fa-chevron-down"></i></h3>
+                    </div>
+                    <div id="detail-0" class="collapse" aria-labelledby="heading-0" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>There was a period of 26 consecutive years during which Imola hosted the San Marino Grand
+                                Prix. The most successful driver in that time was Michael Schumacher with seven wins,
+                                including the last race to go by that name back in 2006. Since 2020, the circuit has
+                                again featured on the Formula 1 World Championship calendar, hosting the Emilia-Romagna
+                                GP. So, having hosted two races, one at Imola in the spring and the other at Monza in
+                                early September, the tradition is now being repeated with the return of Imola and the
+                                Emilia-Romagna GP.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-header collapsed" id="heading-1" data-id="1" data-toggle="collapse"
-                    data-target="#detail-1" aria-expanded="false" aria-controls="detail-1">
-                    <h3 class="mb-0 d-inline"></h3>
-                    <h3 class="mb-0 d-inline">
-                        Return to Florida <i class="d-inline fa fa-chevron-down"></i>
-                    </h3>
-                </div>
-                <div id="detail-1" class="collapse" aria-labelledby="heading-1" data-parent="#accordion">
-                    <div class="card-body">
-                        <p>
-                            The inaugural Miami Grand Prix took place in 2022, marking
-                            Formula 1's return to Florida for the
-                            <strong>first time since 1959</strong>, when the race was run at
-                            Sebring. Miami is the eleventh American city to host a Formula 1
-                            Grand Prix. The race is now run in Miami Gardens, just a few
-                            kilometres from Downtown Miami.
-                        </p>
+                <div class="card">
+                    <div class="card-header" id="heading-1" data-id="1" data-toggle="collapse" data-target="#detail-1"
+                        aria-expanded="false" aria-controls="detail-1" onclick="toggleInfo(1)">
+                        <h3 class="mb-0 d-inline">Motor valley <i class="d-inline fas fa-chevron-down"></i></h3>
                     </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="heading-2" data-id="2" data-toggle="collapse" data-target="#detail-2"
-                    aria-expanded="false" aria-controls="detail-2">
-                    <h3 class="mb-0 d-inline"></h3>
-                    <h3 class="mb-0 d-inline">
-                        American Style <i class="d-inline fa fa-chevron-down"></i>
-                    </h3>
-                </div>
-                <div id="detail-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion">
-                    <div class="card-body">
-                        <p>
-                            Alongside turns 11 to 13 is the Hard Rock Beach Club where the
-                            organisers recreated a beach setting complete with swimming pool
-                            and resort-type cabins.
-                            <strong>There are plenty of events and live music</strong> and
-                            the party goes on long after the racing has finished.
-                        </p>
+                    <div id="detail-1" class="collapse" aria-labelledby="heading-1" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Formula 1’s return to Imola is the icing on the cake for Italy’s Motor Valley which now
+                                hosts an F1 GP, a round of MotoGP and one for World Superbikes, proving that the
+                                Emilia-Romagna region really loves motorised sport.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -694,7 +677,6 @@
             </svg>
         </div>
     </a>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
 
 </body>
 <script>
