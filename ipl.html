@@ -2,14 +2,9 @@
 <html lang="en">
 
 <head>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
@@ -139,14 +134,16 @@
             padding: 0;
             /* Remove padding */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 2fr));
             grid-gap: 20px;
-            max-height: calc(100vh - 100px);
+            max-height: auto;
             scrollbar-width: thin;
             scrollbar-color: rgba(140, 140, 140, 0.308) transparent;
             transition: scrollbar-width 0.3s ease;
             animation: hideScrollbar 4s forwards;
+            /* Add margin-bottom to create space between last poster and disclaimer */
         }
+
 
         /* Add media query for smaller screens */
         /* Adjust grid layout for smaller screens */
@@ -362,36 +359,38 @@
     </style>
     <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-DVMMJVP33N');
-</script>
+        gtag('config', 'G-DVMMJVP33N');
+    </script>
 </head>
 
 <body>
     <div id="container">
         <header>
-            <img alt="IPL" id="top-image" loading="lazy" src="https://pngbong.com/wp-content/uploads/2023/04/IPL-PNG-Logo.png" />
+            <img alt="IPL" id="top-image" loading="lazy"
+                src="https://pngbong.com/wp-content/uploads/2023/04/IPL-PNG-Logo.png" />
         </header>
         <h3>Welcome to HD IPL Streaming!</h3>
         <ul>
-        <li>
-            Experience the thrill of IPL cricket with ULTRA HD streaming on Ultrawebs. Tune in for live action, with
-            links available 30 minutes before each match.
-        </li>
-        <li>
-            All streaming links provided on Ultrawebs are sourced from reliable third-party websites and are accessible
-            worldwide.
-        </li>
-    </ul>
+            <li>
+                Experience the thrill of IPL cricket with ULTRA HD streaming on Ultrawebs. Tune in for live action, with
+                links available 30 minutes before each match.
+            </li>
+            <li>
+                All streaming links provided on Ultrawebs are sourced from reliable third-party websites and are
+                accessible
+                worldwide.
+            </li>
+        </ul>
 
         <div class="container2">
             <div class="movie-poster" onclick="window.location.href='jiocinema.html'">
-                <img src="tinified/jiocinema.png" alt="Movie Poster" loading="lazy">
+                <img src="webpa/jiocinema.webp" alt="Movie Poster" loading="lazy">
                 <div class="movie-info">
                     <h2>Jio Cinema</h2>
                     <p>Global</p>
@@ -475,8 +474,7 @@
                 </div>
                 <!-- Add the flag image div -->
                 <div class="flag">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png"
-                        alt="Country Flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
                 </div>
             </div>
 
@@ -488,8 +486,19 @@
                 </div>
                 <!-- Add the flag image div -->
                 <div class="flag">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png"
-                        alt="Country Flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
+                </div>
+            </div>
+
+            <div class="movie-poster" onclick="window.location.href='jiocricket.html'">
+                <img src="webpa/jiocricket.webp" alt="Movie Poster" loading="lazy">
+                <div class="movie-info">
+                    <h2>Jio Cricket</h2>
+                    <p>Global</p>
+                </div>
+                <!-- Add the flag image div -->
+                <div class="flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="Country Flag">
                 </div>
             </div>
 
@@ -505,7 +514,7 @@
                 </div>
             </div>
         </div>
-        <br/>
+        <br />
         <h3>Disclaimer</h3>
         <ul>
             <li>
