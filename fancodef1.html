@@ -22,7 +22,8 @@
         font-family: "Titillium Web", sans-serif;
         margin: 0;
         padding: 0;
-        background-image: url("webpa/bg.webp");
+        background: url("webpa/bg.webp");
+        background-position: center;
         background-size: cover;
         /* Optional: adjust based on your design */
         background-attachment: fixed;
@@ -35,10 +36,11 @@
       /* Media query for mobile devices */
       @media only screen and (max-width: 768px) {
         body {
-          background-image: url("webpa/bgm.webp");
+          background: url("webpa/bgm.webp");
           /* Set aspect ratio to 9:16 */
+          background-position: center;
           background-size: cover;
-          padding: 8px;
+          padding: 0px;
         }
       }
 
@@ -109,15 +111,15 @@
       #container {
         font-family: "Titillium Web", sans-serif;
         color: white;
-        backdrop-filter: blur(20px);
-        background-color: rgba(51, 51, 51, 0.098);
+        backdrop-filter: blur(10px);
+        background-color: rgba(51, 51, 51, 0.400);
         margin: 0 auto;
       }
 
       /* Media query for larger screens (desktop) */
       @media only screen and (max-width: 600px) {
         #container {
-          padding: 02px;
+          padding: 06px;
           max-width: 100%;
           /* Set width to 80% for desktop */
         }
@@ -485,7 +487,7 @@
               file: "https://d3j9yh95j3r5d9.cloudfront.net/out/v1/35a426070dad49f1834a269534788dc1/index.m3u8",
               image:
                 "https://monaco-grandprix.com/wp-content/uploads/2023/07/Visuel_GPF12024_1920x1080-jpg.webp",
-              autostart: false,
+              autostart: true,
               captions: {
                 color: "#ffb800",
                 fontSize: 30,
@@ -494,7 +496,7 @@
               abouttext: "Ultrawebs(HM)",
               aboutlink: "https://linktr.ee/ultrawebs",
               logo: {
-                file: "https://www.fancode.com/skillup-uploads/fc-web/multi-device-experience-banner-logo.png",
+                file: "https://i.imgur.com/zGplRIG.png",
                 position: "bottom-right",
               }, <!--https://i.imgur.com/ugEOI6d.png-->
               sharing: {
