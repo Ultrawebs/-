@@ -328,8 +328,17 @@
 
         #player-container {
             font-family: "Anek Latin", sans-serif;
-            max-width: 100%;
-            border-radius: 05px;
+            max-width: 80%;
+            border-radius: 5px;
+        }
+
+
+        @media only screen and (max-width: 800px) {
+            #player-container {
+                font-family: "Anek Latin", sans-serif;
+                max-width: 100%;
+                border-radius: 05px;
+            }
         }
 
         .watermark {
@@ -387,9 +396,16 @@
         /*Telegram floating button*/
         .telegram-float {
             position: fixed;
-            bottom: 60px;
+            bottom: 20px;
             right: 20px;
             z-index: 1000;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .telegram-float {
+                bottom: 20px;
+                right: 20px;
+            }
         }
 
         .telegram-icon {
@@ -509,13 +525,12 @@
 
         gtag('config', 'G-DVMMJVP33N');
     </script>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=665057511783940019670c8e&product=inline-share-buttons&source=platform" async="async"></script>
 </head>
 
 <body>
     <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
-    <script type="text/javascript"
-        src="https://platform-api.sharethis.com/js/sharethis.js#property=66328830a14bff0019844da3&product=sticky-share-buttons&source=platform"
-        async="async"></script>
+
     </head>
 
     <body>
@@ -630,90 +645,98 @@
                 </a>
             </div>
 
-            <div id="containerr3">
-                <h4>Eliminator | Rajasthan Royals vs Royal Challengers Bengaluru <br />By: Jio Cinema</h4>
-                <div class="video-description">
-                    <div id="player-container">
-                        <script src="https://ssl.p.jwpcdn.com/player/v/8.33.2/jwplayer.js"
-                            type="text/javascript"></script>
-                        <script type="text/javascript">
-                            jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+            <center>
+                <div id="containerr3">
+                    <h4>Qualifier 2 | Sunrisers Hyderabad vs Rajasthan Royals<br />By: Jio Cinema</h4>
+                    <div class="video-description">
 
-                            function playVideo(videoUrl, imageUrl, autoplay) {
-                                jwplayer("player-container").setup({
-                                    aspectratio: '16:9',
-                                    width: '100%',
-                                    file: videoUrl,
-                                    image: imageUrl,
-                                    autostart: autoplay || false,
-                                    captions: { color: '#ffb800', fontSize: 30, backgroundOpacity: 0 },
-                                    abouttext: 'Ultrawebs(HM)',
-                                    aboutlink: 'https://linktr.ee/ultrawebs',
-                                    logo: {
-                                        file: 'https://www.jiocinema.com/images/jc_logo_v2.svg',
-                                        position: 'top-right',
-                                        margin: '20',
-                                        hide: 'true',
-                                        size: '05%'
-                                    },
-                                    sharing: {
-                                        sites: ['facebook', 'twitter', 'tumblr', 'googleplus', { icon: 'https://i.imgur.com/PL7Vp6K.png', src: 'http://www.jwplayer.com/?', label: 'jwplayer' }],
-                                    },
-                                    fullscreen: {
-                                        enabled: true,
-                                        displayLabel: true,
-                                        label: 'Exit Fullscreen',
-                                    },
-                                    playbackRateControls: true
-                                });
-                            }
+                        <div id="player-container">
+                            <script src="https://ssl.p.jwpcdn.com/player/v/8.33.2/jwplayer.js"
+                                type="text/javascript"></script>
+                            <script type="text/javascript">
+                                jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 
-                            playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100322/uhd_akamai_atv_avc_hin_ipl_s1_m1220524/master.m3u8', 'https://i.imgur.com/apmhRAL.jpeg', true);
-                        </script>
+                                function playVideo(videoUrl, imageUrl, autoplay) {
+                                    jwplayer("player-container").setup({
+                                        aspectratio: '16:9',
+                                        width: '100%',
+                                        file: videoUrl,
+                                        image: imageUrl,
+                                        autostart: autoplay || false,
+                                        captions: { color: '#ffb800', fontSize: 30, backgroundOpacity: 0 },
+                                        abouttext: 'Ultrawebs(HM)',
+                                        aboutlink: 'https://linktr.ee/ultrawebs',
+                                        logo: {
+                                            file: 'https://www.jiocinema.com/images/jc_logo_v2.svg',
+                                            position: 'top-right',
+                                            margin: '20',
+                                            hide: 'true',
+                                            size: '05%'
+                                        },
+                                        sharing: {
+                                            sites: ['facebook', 'twitter', 'tumblr', 'googleplus', { icon: 'https://i.imgur.com/PL7Vp6K.png', src: 'http://www.jwplayer.com/?', label: 'jwplayer' }],
+                                        },
+                                        fullscreen: {
+                                            enabled: true,
+                                            displayLabel: true,
+                                            label: 'Exit Fullscreen',
+                                        },
+                                        playbackRateControls: true
+                                    });
+                                }
+
+                                playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100322/uhd_akamai_atv_avc_hin_ipl_s1_m1220524/master.m3u8', 'https://i.imgur.com/apmhRAL.jpeg', true);
+                            </script>
+                        </div>
                     </div>
+                    <h4 style="font-weight: 300;"><strong>Next:</strong> Kolkata Knight Riders vs TBD (Sun, 26 May)
+                        <strong>| Final</strong>
+                    </h4>
+                    <center>
+                        <h4>🎥 MultiCam: What's Your Angle?</h4>
+                    </center>
                 </div>
-                <h4>Next: Sunrisers Hyderabad vs TBD (Fri, 24 May)</h4>
                 <center>
-                    <h4>🎥 MultiCam: What's Your Angle?</h4>
+                    <div class="playlist-container">
+                        <a class="playlist-tab"
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/a491dee5aa0f4e29a197ef1c043a1084/master.m3u8', 'https://i.imgur.com/apmhRAL.jpeg', true)">
+                            Hero Cam (4K)
+                        </a>
+
+                        <a class="playlist-tab"
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/d7648a7014b34333a4074a6efafcb19f/master.m3u8', 'https://imgur.com/rzTGQ7k.jpeg', true)">
+                            Batter Cam (4K)
+                        </a>
+
+                        <a class="playlist-tab"
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/1893486ccd08469e82b3fab606921c26/master.m3u8', 'https://imgur.com/IZoOiV2.jpeg', true)">
+                            MultiView Cam (4K)
+                        </a>
+
+                        <a class="playlist-tab"
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b789111ea8854f8db2dc545541484f27/master.m3u8', 'https://imgur.com/rAFKMAI.jpeg', true)">
+                            Stump Cam (4K)
+                        </a>
+
+                        <a class="playlist-tab"
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/5a74ceb567cd49e6ba8b1ebf2fdfec69/master.m3u8', 'https://imgur.com/ZgH880p.jpeg', true)">
+                            Bird's Eye Cam (4K)
+                        </a>
+
+                        <a class="playlist-tab"
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/82d7c37dc9ba4ad3ab7966194bee1385/master.m3u8', 'https://i.imgur.com/apmhRAL.jpeg', true)">
+                            Insiders (4K)
+                        </a>
+
+                        <a class="playlist-tab"
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b03529f8c0154d29ac5a225d78c6d65a/master.m3u8', 'https://i.imgur.com/apmhRAL.jpeg', true)">
+                            Hangout (4K)
+                        </a>
+                    </div>
                 </center>
-            </div>
-            <div class="playlist-container">
-                <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/a491dee5aa0f4e29a197ef1c043a1084/master.m3u8', 'https://i.imgur.com/apmhRAL.jpeg', true)">
-                    Hero Cam (4K)
-                </a>
-
-                <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/d7648a7014b34333a4074a6efafcb19f/master.m3u8', 'https://imgur.com/rzTGQ7k.jpeg', true)">
-                    Batter Cam (4K)
-                </a>
-
-                <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/1893486ccd08469e82b3fab606921c26/master.m3u8', 'https://imgur.com/IZoOiV2.jpeg', true)">
-                    MultiView Cam (4K)
-                </a>
-
-                <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b789111ea8854f8db2dc545541484f27/master.m3u8', 'https://imgur.com/rAFKMAI.jpeg', true)">
-                    Stump Cam (4K)
-                </a>
-
-                <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/5a74ceb567cd49e6ba8b1ebf2fdfec69/master.m3u8', 'https://imgur.com/ZgH880p.jpeg', true)">
-                    Bird's Eye Cam (4K)
-                </a>
-
-                <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/82d7c37dc9ba4ad3ab7966194bee1385/master.m3u8', 'https://i.imgur.com/apmhRAL.jpeg', true)">
-                    Insiders (4K)
-                </a>
-
-                <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b03529f8c0154d29ac5a225d78c6d65a/master.m3u8', 'https://i.imgur.com/apmhRAL.jpeg', true)">
-                    Hangout (4K)
-                </a>
-            </div>
-
+            </center>
+            <br/>
+            <div class="sharethis-inline-share-buttons"></div>
             <h4>Welcome to HD IPL Streaming!</h4>
             <ul>
                 <li>
