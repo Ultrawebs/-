@@ -408,9 +408,18 @@
         /*Telegram floating button*/
         .telegram-float {
             position: fixed;
-            bottom: 60px;
+            bottom: 20px;
             right: 20px;
             z-index: 1000;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .telegram-float {
+                position: fixed;
+                bottom: 60px;
+                right: 20px;
+                z-index: 1000;
+            }
         }
 
         .telegram-icon {
@@ -475,8 +484,21 @@
 
             <div class="playlist-container">
                 <!-- Playlist items -->
+                <div class="playlist-item active" data-src="https://vectorx.top/v/Emilia-GP-2024-Full-race-replay/"
+                    data-title="FORMULA 1 DELL'EMILIA-ROMAGNA GRAND PRIX 2024" data-description="
 
-                <div class="playlist-item active" data-src="https://vectorx.top/v/Miami-GP-2024-Full-race-replay/"
+                    Max Verstappen has returned to winning ways after missing out in Miami by taking victory in the Emilia-Romagna Grand Prix, with the Dutchman holding off an exciting late charge from Lando Norris.
+
+                    After Verstappen built up a solid lead in the early stages following a good launch from pole position, the Red Bull star enjoyed a mostly serene drive around the Autodromo Enzo e Dino Ferrari, until Norris's McLaren began to close the gap from P2 as the race reached its latter stages.
+
+                    A thrilling end to the event ensued as Norris continued to cut into Verstappen’s advantage, but a snap of oversteer seemed to take further life out of the McLaren driver’s ageing tyres, allowing the Red Bull to hold onto P1 by just 0.725s as the chequered flag was waved.
+                    
+                    Despite looking to be on Norris’s tail in the fight for P2 earlier in the event, Charles Leclerc had to settle for the final podium position of third in front of Ferrari’s home fans, while Oscar Piastri claimed P4 in a solid drive for McLaren.
+                ">
+                    Emilia Romagna GP
+                </div>
+
+                <div class="playlist-item" data-src="https://vectorx.top/v/Miami-GP-2024-Full-race-replay/"
                     data-title="FORMULA 1 MIAMI GRAND PRIX 2024" data-description="
 
                     Lando Norris achieved his long-awaited first victory in Formula 1 at the Miami Grand Prix, having
@@ -545,20 +567,27 @@
             </div>
 
             <!-- Video Description Container -->
+            <!-- Video Description Container -->
             <div class="video-description">
                 <iframe id="current-video" style="width:100%; aspect-ratio:16 / 9; border-radius: 08px;"
-                    src="https://vectorx.top/v/Miami-GP-2024-Full-race-replay/" allowfullscreen></iframe>
-                <h2 id="video-title">FORMULA 1 MIAMI GRAND PRIX 2024</h2>
+                    src="https://vectorx.top/v/Emilia-GP-2024-Full-race-replay/" allowfullscreen></iframe>
+                <h2 id="video-title">FORMULA 1 DELL'EMILIA-ROMAGNA GRAND PRIX 2024</h2>
                 <p id="video-description">
+                    Max Verstappen has returned to winning ways after missing out in Miami by taking victory in the
+                    Emilia-Romagna Grand Prix, with the Dutchman holding off an exciting late charge from Lando
+                    Norris.<br />
 
-                    Lando Norris achieved his long-awaited first victory in Formula 1 at the Miami Grand Prix, having
-                    sealed the lead by making a perfectly timed pit stop during a Safety Car period halfway through the
-                    race.
+                    After Verstappen built up a solid lead in the early stages following a good launch from pole
+                    position, the Red Bull star enjoyed a mostly serene drive around the Autodromo Enzo e Dino Ferrari,
+                    until Norris's McLaren began to close the gap from P2 as the race reached its latter stages.<br />
 
-                    It marked an impressive performance from Norris, who had started from P5. Pole-sitter Max Verstappen
-                    had enjoyed a strong getaway off the line, while Sergio Perez and Carlos Sainz both initially
-                    overtook Charles Leclerc in the scrap for P2 before Perez locked up and narrowly avoided hitting
-                    teammate Verstappen, allowing Leclerc back through in the process.
+                    A thrilling end to the event ensued as Norris continued to cut into Verstappen’s advantage, but a
+                    snap of oversteer seemed to take further life out of the McLaren driver’s ageing tyres, allowing the
+                    Red Bull to hold onto P1 by just 0.725s as the chequered flag was waved.<br />
+
+                    Despite looking to be on Norris’s tail in the fight for P2 earlier in the event, Charles Leclerc had
+                    to settle for the final podium position of third in front of Ferrari’s home fans, while Oscar
+                    Piastri claimed P4 in a solid drive for McLaren.
                 </p>
                 <!-- Video description -->
             </div>
