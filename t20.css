@@ -341,3 +341,17 @@ li {
 .f1widget-container {
     box-shadow: none !important;
 }
+
+.iframe-container {
+    position: relative;
+    margin-bottom: 08px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.iframe-container iframe {
+    border-radius: 10px;
+    width: 100%;
+    min-height: 235px; /* Minimum height as specified */
+    border: 0cap;
+}
