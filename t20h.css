@@ -401,7 +401,7 @@ li {
 /*Telegram floating button*/
 .telegram-float {
     position: fixed;
-    bottom: 20px;
+    bottom: 100px;
     right: 20px;
     z-index: 1000;
 }
@@ -409,7 +409,7 @@ li {
 @media only screen and (max-width: 600px) {
     .telegram-float {
         position: fixed;
-        bottom: 60px;
+        bottom: 110px;
         right: 20px;
         z-index: 1000;
     }
