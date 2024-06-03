@@ -124,23 +124,25 @@
             }
         }
 
-        #player-container {
-            border-radius: 05px;
-            overflow: hidden;
-            /* Center align the container */
-            margin: 0 auto;
-            /* Set initial width to 100% for mobile */
-            max-width: 80%;
-            margin-bottom: 05px;
-            margin-top: 10px;
-        }
+      #player-container {
+        border-radius: 05px;
+        overflow: hidden;
+        /* Center align the container */
+        margin: 0 auto;
+        /* Set initial width to 100% for mobile */
+        max-width: 80%;
+        height: 100%;
+        margin-bottom: 05px;
+        margin-top: 10px;
+      }
 
-        @media only screen and (max-width: 600px) {
-            #player-container {
-                max-width: 100%;
-                /* Set initial width to 100% for mobile */
-            }
+      @media only screen and (max-width: 600px) {
+        #player-container {
+          max-width: 100%;
+          height: fit-content;
+          /* Set initial width to 100% for mobile */
         }
+      }
 
         #video {
             width: 100%;
@@ -270,46 +272,15 @@
             Please wait for 15 seconds, the video will start playing
             automatically.
         </center>
-        
-        <div id="player-container">
-            <script type="text/javascript">
-                jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
-                {
-                  jwplayer("player-container").setup({
-                    aspectratio: "16:9",
-                    width: "100%",
-                    file: "https://karostream.tulix.tv/WillowTvHighBitrate/tracks-v1a1/mono.m3u8", <!--https://mhdmaxtv.me/sports24/live.m3u8?id=willow-cricket-116-->
-                    image:
-                      "https://mma.prnewswire.com/media/1919551/WillowTV_Logo.jpg?p=facebook",
-                    autostart: true,
-                    captions: {
-                      color: "#ffb800",
-                      fontSize: 30,
-                      backgroundOpacity: 0,
-                    },
-                    abouttext: "Ultrawebs(HM)",
-                    aboutlink: "https://linktr.ee/ultrawebs",
-                    logo: {
-                      file: "",
-                      position: "bottom-right",
-                    }, <!--https://i.imgur.com/ugEOI6d.png-->
-                    sharing: {
-                      sites: [
-                        "facebook",
-                        "twitter",
-                        "tumblr",
-                        "googleplus",
-                        {
-                          icon: "https://i.imgur.com/PL7Vp6K.png",
-                          src: "http://www.jwplayer.com/?",
-                          label: "jwplayer",
-                        },
-                      ],
-                    },
-                    playbackRateControls: true, // Enable playback speed controls
-                  });
-                }
-              </script>
+
+      <div id="player-container" style="width: auto;">
+        <script>
+            var player = new Clappr.Player({
+                source: "https://karostream.tulix.tv/WillowTvHighBitrate/tracks-v1a1/mono.m3u8",
+                parentId: "#player-container",
+                width: '100%',
+            });
+        </script>
         </div>
 
         <h3>Disclaimer</h3>
