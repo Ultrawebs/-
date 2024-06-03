@@ -230,8 +230,6 @@ header img {
     padding: 10px 0;
     /* Add padding for better spacing */
     text-align: center;
-    /* Center the playlist items */
-    font-size: 12px;
 }
 
 /* Playlist item styles */
@@ -322,8 +320,8 @@ header img {
 }
 
 .video-description h2 {
-    font-size: 18px;
-    margin-top: 01px;
+    font-size: 20px;
+    margin-top: 03px;
     color: white;
 }
 
@@ -334,7 +332,6 @@ header img {
 }
 
 .video-description p {
-    font-size: 15px;
     font-family: "Anek Latin", sans-serif;
     margin: 0 0 10px;
     color: white;
@@ -388,12 +385,7 @@ ul {
     text-align: justify;
 }
 
-h4{
-    font-size: 16px;
-}
-
 li {
-    font-size: 15px;
     margin: 0 0 10px;
     margin-right: 05px;
 }
@@ -409,7 +401,7 @@ li {
 @media only screen and (max-width: 600px) {
     .telegram-float {
         position: fixed;
-        bottom: 110px;
+        bottom: 100px;
         right: 20px;
         z-index: 1000;
     }
