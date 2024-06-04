@@ -37,51 +37,39 @@
 
         <div class="playlist-container">
             <!-- Playlist items -->
-            <div class="playlist-item active" data-src="https://www.dailymotion.com/embed/video/k5k7VQMvAZlqHsAMTdU"
+            <div class="playlist-item" data-src="https://www.dailymotion.com/embed/video/k5k7VQMvAZlqHsAMTdU"
                 data-title="M06: ENG vs SCO - Match Highlights"
-                data-description="Highlights:
-          
-                    The match between England and Scotland was abandoned.">
+                data-description="Highlights: The match between England and Scotland was abandoned.">
                 M06: ENG vs SCO
             </div>
             
             <div class="playlist-item" data-src="https://www.dailymotion.com/embed/video/k3bYRGmjxqcTJ9AMAg4"
                 data-title="M05: AFG vs UGA - Match Highlights"
-                data-description="Highlights:
-          
-                    Afghanistan defeated Uganda by 125 runs, showcasing dominant batting and strong bowling to secure a comprehensive victory.">
+                data-description="Highlights: Afghanistan defeated Uganda by 125 runs, showcasing dominant batting and strong bowling to secure a comprehensive victory.">
                 M05: AFG vs UGA
             </div>
             
             <div class="playlist-item" data-src="https://www.dailymotion.com/embed/video/k36nqik3LT4QSMAMrsK"
                 data-title="M04: SL vs SA - Match Highlights"
-                data-description="Highlights:
-          
-                    South Africa defeated Sri Lanka by 6 wickets, successfully chasing the target with a solid batting performance and efficient run-scoring.">
+                data-description="Highlights: South Africa defeated Sri Lanka by 6 wickets, successfully chasing the target with a solid batting performance and efficient run-scoring.">
                 M04: SL vs SA
             </div>
             
             <div class="playlist-item" data-src="https://www.dailymotion.com/embed/video/k361LRdQUfKk7PAMgMo"
                 data-title="M03: NAM vs OMA - Match Highlights"
-                data-description="Highlights:
-          
-                    Oman tied with Namibia, leading to a Super Over where Namibia triumphed by 11 runs. The match was a thrilling contest with both teams showing exceptional skill and determination.">
+                data-description="Highlights: Oman tied with Namibia, leading to a Super Over where Namibia triumphed by 11 runs. The match was a thrilling contest with both teams showing exceptional skill and determination.">
                 M03: NAM vs OMA
             </div>
 
             <div class="playlist-item" data-src="https://www.dailymotion.com/embed/video/k2gqfElPYE0llHAMido"
                 data-title="M02: WI vs PNG - Match Highlights"
-                data-description="Highlights:
-          
-                    West Indies defeated Papua New Guinea by 5 wickets in a competitive match, showcasing their batting depth and strategic gameplay to chase down the target successfully.">
+                data-description="Highlights: West Indies defeated Papua New Guinea by 5 wickets in a competitive match, showcasing their batting depth and strategic gameplay to chase down the target successfully.">
                 M02: WI vs PNG
             </div>
 
             <div class="playlist-item" data-src="https://www.dailymotion.com/embed/video/k6jnX1WQ2Nlo1kAMiqO"
                 data-title="M01: USA vs CAN - Match Highlights"
-                data-description="Highlights:
-          
-                    The USA triumphed over Canada by 7 wickets, displaying a strong batting performance to chase down the target set by Canada comfortably.">
+                data-description="Highlights: The USA triumphed over Canada by 7 wickets, displaying a strong batting performance to chase down the target set by Canada comfortably.">
                 M01: USA vs CAN
             </div>
         </div>
@@ -91,10 +79,7 @@
             <iframe id="current-video" style="width:100%; aspect-ratio:16 / 9; border-radius: 08px;"
                 src="" allowfullscreen></iframe>
             <h2 id="video-title"></h2>
-            <p id="video-description">
-                    
-            </p>
-            <!-- Video description -->
+            <p id="video-description"></p>
         </div>
 
         <h4>Watch ICC Men's T20 World Cup 2024 in HD!</h4>
@@ -153,6 +138,15 @@
 
             // Add click event listener to each playlist item
             playlistItems.forEach(item => item.addEventListener("click", handlePlaylistItemClick));
+
+            // Set the first playlist item as active by default
+            const firstItem = playlistItems[0];
+            if (firstItem) {
+                firstItem.classList.add("active");
+                currentVideo.src = firstItem.getAttribute("data-src");
+                videoTitle.textContent = firstItem.getAttribute("data-title");
+                videoDescription.textContent = firstItem.getAttribute("data-description");
+            }
         });
     </script>
 
