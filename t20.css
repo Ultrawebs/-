@@ -1,6 +1,6 @@
 html,
 body {
-    font-family: "Anek Latin", sans-serif;
+    font-family: "Onest", sans-serif;
     margin: 0;
     padding: 0;
     background-image: url("webpa/bg.webp");
@@ -87,7 +87,7 @@ header img {
 }
 
 #container {
-    font-family: "Anek Latin", sans-serif;
+    font-family: "Onest", sans-serif;
     color: white;
     padding: 10px;
     backdrop-filter: blur(10px);
@@ -242,7 +242,7 @@ header img {
 }
 
 footer {
-    font-family: 'Titillium Web', sans-serif;
+    font-family: "Onest", sans-serif;
     width: auto;
     backdrop-filter: blur(05px);
     /* Adjust blur strength as needed */
