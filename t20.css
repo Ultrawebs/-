@@ -287,7 +287,7 @@ p {
 }
 
 ul {
-    list-style-type: square;
+    list-style-type: disc;
     /* Remove default bullet points */
     padding-left: 05;
     /* Remove default left padding */
