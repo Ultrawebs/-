@@ -98,6 +98,7 @@ header img {
 input {
     font-family: "Anek Latin", sans-serif;
     font-size: 16px;
+    font-weight: bold;
     background-color: transparent;
     border: none;
     outline: none;
@@ -107,7 +108,7 @@ input {
 }
 
 input::placeholder {
-    color: white;
+    color: red;
     opacity: 0.7;
 }
 
@@ -164,6 +165,15 @@ button {
     vertical-align: top;
     flex: 0 0 auto; /* Ensure items don't grow or shrink */
     margin-right: 10px; /* Add some space between items */
+}
+
+.no-results-found {
+    display: inline;
+    font-family: "Anek Latin", sans-serif;
+    align-content: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px; /* Adjust as needed */
 }
 
 .playlist-item:hover {
