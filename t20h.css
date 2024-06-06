@@ -62,7 +62,7 @@ header img {
 .search-form {
     display: flex;
     align-items: center;
-    background-color: rgba(51, 51, 51, 0.098);
+    background-color: rgba(255, 255, 255, 0.112);
     backdrop-filter: blur(10px);
     border-radius: 50px;
     padding: 5px 15px;
