@@ -162,12 +162,17 @@ button {
 }
 
 .no-results-found {
-    display: inline;
-    font-family: "Anek Latin", sans-serif;
-    align-content: center;
-    font-size: 15px;
-    font-weight: bold;
-    margin-top: 10px; /* Adjust as needed */
+    display: flex;
+    justify-content: center; /* Align horizontally to center */
+    align-items: center; /* Align vertically to center */
+    text-align: center; /* Align text content to center */
+    padding: 3px 8px;
+    font: optional;
+    font-size: 18px;
+    font-weight: 600;
+    color: red;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.112);
 }
 
 .playlist-item:hover {
