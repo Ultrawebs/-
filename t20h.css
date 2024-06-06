@@ -425,3 +425,91 @@ li {
     width: 30px;
     height: 30px;
 }
+
+/* Default light theme */
+/* Define CSS variables for light theme */
+:root {
+    --color-bg-light: #ffffff;
+    --color-fg-light: #000000;
+    --color-scrollbar-thumb-light: #555555;
+}
+
+/* Define CSS variables for dark theme */
+[data-theme="dark"] {
+    --color-bg-dark: #000000;
+    --color-fg-dark: #ffffff;
+    --color-scrollbar-thumb-dark: #888888;
+}
+
+/* Apply background and text color based on theme */
+body {
+    background-color: var(--color-bg-light);
+    color: var(--color-fg-light);
+}
+
+/* Update specific styles for dark mode */
+[data-theme="dark"] body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-fg-dark);
+}
+
+/* Toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px; /* Reduced width */
+    height: 20px; /* Reduced height */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px; /* Reduced height */
+    width: 16px; /* Reduced width */
+    left: 2px; /* Adjusted position */
+    bottom: 2px; /* Adjusted position */
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px); /* Adjusted translation */
+    -ms-transform: translateX(16px); /* Adjusted translation */
+    transform: translateX(16px); /* Adjusted translation */
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 20px; /* Adjusted border radius */
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
