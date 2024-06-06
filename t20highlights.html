@@ -34,12 +34,16 @@
                     <path
                         d="M10 2a8 8 0 105.293 14.293l4.657 4.657 1.414-1.414-4.657-4.657A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z" />
                 </svg>
-                <input type="search" placeholder="Search video....">
+                <input type="search" placeholder="Search video...">
                 <button type="submit"></button>
             </form>
         </header>
-        <center>
-            <h4>Please select your video below:</h4>
+        <center style="display: flex; align-items: center; margin-right: 30px;">
+            <h4 style="margin-left: 30px; margin-right: 10px;">Please select your video below 👇</h4>
+            <label class="switch" style="margin-left: auto;">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
         </center>
 
         <center>
@@ -145,6 +149,28 @@
     </a>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+
+            // Function to toggle dark mode
+            function toggleDarkMode() {
+                const body = document.body;
+                if (darkModeToggle.checked) {
+                    body.setAttribute('data-theme', 'dark');
+                } else {
+                    body.setAttribute('data-theme', 'light');
+                }
+            }
+
+            // Add change event listener to the dark mode toggle switch
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+
+            // Initial toggle
+            toggleDarkMode();
+        });
+    </script>
+
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
             const playlistItems = document.querySelectorAll(".playlist-item");
             const currentVideo = document.getElementById("current-video");
@@ -241,7 +267,7 @@
                     }
                 });
 
-                // Show or hide "No results found" message
+                // Show or hide "No results found" message based on search results
                 if (found) {
                     noResultsFound.style.display = "none";
                 } else {
@@ -251,8 +277,10 @@
 
             // Add input event listener to the search input
             searchInput.addEventListener("input", filterPlaylistItems);
-        });
 
+            // Initially hide the "No results found" message
+            noResultsFound.style.display = "none";
+        });
     </script>
 </body>
 
