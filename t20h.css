@@ -1,97 +1,127 @@
-html,
-body {
+html, body {
     font-family: "Anek Latin", sans-serif;
     margin: 0;
     padding: 0;
     background-image: url("webpa/bg.webp");
     background-size: cover;
-    /* Optional: adjust based on your design */
     background-attachment: fixed;
-    /* Makes the background image fixed */
     overflow: auto;
     overflow-x: hidden;
-    /* Allow vertical and horizontal scrolling */
 }
 
 /* Media query for mobile devices */
 @media only screen and (max-width: 768px) {
     body {
         background-image: url("webpa/bgm.webp");
-        /* Set aspect ratio to 9:16 */
-        background-size: fixed;
-        /* Fix the width and allow height to adjust */
+        background-size: cover;
         background-attachment: scroll;
-        /* Allow the background image to scroll with the content */
         padding: 5px;
     }
 }
 
-
 /* Custom scrollbar */
 body::-webkit-scrollbar {
     width: 8px;
-    /* Width of the scrollbar */
-    /* border-radius: 5px; */
-    /* Rounded corners */
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 body::-webkit-scrollbar-track {
     backdrop-filter: blur(10px);
-    /* Apply blur effect */
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 body::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    /* Rounded corners for the thumb */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Add shadow */
     background-color: rgba(140, 140, 140, 0.308);
-    /* Thumb color */
     transition: background-color 0.3s ease;
-    /* Smooth transition */
 }
 
-/* Hide scrollbar after 3 seconds */
 body.hide-scrollbar::-webkit-scrollbar {
     scrollbar-width: thin;
 }
 
 body.hide-scrollbar::-webkit-scrollbar-thumb {
     background-color: transparent;
-    /* Hide thumb */
 }
 
 header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     color: #fff;
     backdrop-filter: blur(10px);
-    /* Adjust blur strength as needed */
     background-color: rgba(51, 51, 51, 0.098);
-    /* Adjust background color and opacity */
     transition: background-color 0.3s ease;
     text-align: center;
-    padding: 02px;
+    padding: 07px 20px;
     box-sizing: border-box;
-    max-width: 100%;
+    width: 100%;
     overflow: hidden;
-    border-radius: 0px;
 }
 
 header img {
-    max-width: auto;
+    max-width:50px;
     height: auto;
-    max-height: 50px;
-    /* filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg); */
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: rgba(51, 51, 51, 0.098);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 300px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media only screen and (max-width: 768px) {
+    .search-form {
+        width: 200px;
+    }
+}
+
+.search-form:hover {
+    background-color: rgba(51, 51, 51, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    color: white;
+    fill: currentColor;
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+input {
+    font-family: "Anek Latin", sans-serif;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 6px 0;
+    width: 100%;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
 }
 
 #container {
     font-family: "Anek Latin", sans-serif;
     color: white;
-    padding: 05px;
+    padding: 5px;
     backdrop-filter: blur(10px);
     background-color: rgba(51, 51, 51, 0.098);
     margin: 0 auto;
@@ -101,7 +131,6 @@ header img {
 @media only screen and (min-width: 601px) {
     #container {
         max-width: 75%;
-        /* Set width to 80% for desktop */
     }
 }
 
@@ -109,7 +138,6 @@ header img {
 @media only screen and (max-width: 600px) {
     #container {
         max-width: 100%;
-        /* Set initial width to 100% for mobile */
     }
 }
 
@@ -117,65 +145,29 @@ header img {
 .playlist-container {
     font-family: "Anek Latin", sans-serif;
     overflow-x: auto;
-    /* Enable horizontal scrolling */
     white-space: nowrap;
     background-color: transparent;
-    /* Prevent wrapping of playlist items */
     cursor: pointer;
     color: transparent;
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to next line */
+    overflow-x: auto; /* Enable horizontal scrolling */
 }
-
-/* Custom scrollbar */
-.playlist-container::-webkit-scrollbar {
-    width: 03px;
-    /* Width of the scrollbar */
-    border-radius: 5px;
-    /* Rounded corners */
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.playlist-container::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-.playlist-container::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    /* Rounded corners for the thumb */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Add shadow */
-    background-color: rgba(140, 140, 140, 0.308);
-    /* Thumb color */
-    transition: background-color 0.3s ease;
-    /* Smooth transition */
-}
-
-/* Hide scrollbar after 3 seconds */
-.playlist-container.hide-scrollbar::-webkit-scrollbar {
-    scrollbar-width: thin;
-}
-
-.playlist-container.hide-scrollbar::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    /* Hide thumb */
-}
-
 
 .playlist-item {
     font-family: "Anek Latin", sans-serif;
     cursor: pointer;
-    padding: 03px 08px;
-    /* Add some space between playlist items */
+    padding: 3px 8px;
     background-color: transparent;
     color: white;
     display: inline-block;
-    /* Display playlist items in a row */
     vertical-align: top;
-    /* Align playlist items to the top */
+    flex: 0 0 auto; /* Ensure items don't grow or shrink */
+    margin-right: 10px; /* Add some space between items */
 }
 
 .playlist-item:hover {
     backdrop-filter: blur(10px);
-    /* Adjust blur strength as needed */
     background-color: rgba(255, 255, 255, 0.112);
 }
 
@@ -183,7 +175,6 @@ header img {
     font-family: "Anek Latin", sans-serif;
     font-weight: bolder;
     backdrop-filter: blur(10px);
-    /* Adjust blur strength as needed */
     background-color: rgba(255, 255, 255, 0.112);
     color: red;
 }
@@ -191,24 +182,40 @@ header img {
 .playlist-item.active:hover {
     font-family: "Anek Latin", sans-serif;
     backdrop-filter: blur(10px);
-    /* Adjust blur strength as needed */
     background-color: rgba(255, 255, 255, 0.112);
     color: red;
 }
 
-
-/* Add a scrollbar when more than three items are present */
 .playlist-container::-webkit-scrollbar {
-    height: 8px;
+    height: 5px;
+    width: 5%;
+    transition: opacity 0.3s ease;
 }
 
 .playlist-container::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
+    background-color: #888888;
+    border-radius: 5px;
 }
 
 .playlist-container::-webkit-scrollbar-track {
     background-color: transparent;
+}
+
+.playlist-container.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.playlist-container.smooth-scrollbar {
+    scrollbar-color: #888888 transparent;
+    scrollbar-width: thin;
+}
+
+.playlist-container.show-scrollbar::-webkit-scrollbar {
+    opacity: 1;
+}
+
+.playlist-container.hide-scrollbar::-webkit-scrollbar {
+    opacity: 0;
 }
 
 #current-video {
@@ -220,15 +227,10 @@ header img {
 .playlist-bar {
     font-family: "Anek Latin", sans-serif;
     background-color: transparent;
-    /* Set background color to dark gray */
     overflow: hidden;
-    /* Hide overflowing content */
     width: 100%;
-    /* Make the playlist bar cover full width */
     margin: 0 auto;
-    /* Center the playlist bar horizontally */
     padding: 10px 0;
-    /* Add padding for better spacing */
     text-align: center;
 }
 
@@ -236,44 +238,29 @@ header img {
 .playlist-itemm {
     font-family: "Anek Latin", sans-serif;
     display: inline-block;
-    /* Display playlist items horizontally */
     margin: 0 10px;
-    /* Add margin for spacing between items */
     color: white;
-    /* Set text color to white */
     text-decoration: none;
-    /* Remove default link underline */
     position: relative;
     text-align: center;
-    /* Set position to relative for pseudo-element */
 }
 
 /* Playlist item hover effect */
 .playlist-itemm::before {
     content: '';
-    /* Add pseudo-element */
     position: absolute;
-    /* Set position to absolute */
     bottom: -2px;
-    /* Move pseudo-element below the text */
     left: 0;
-    /* Align pseudo-element with the text */
     width: 0;
-    /* Set width to 100% */
     height: 2px;
-    /* Set height for underline */
     background-color: #fff;
-    /* Set background color to white */
     transition: width 0.3s ease;
-    /* Add transition effect */
 }
 
 /* Playlist item hover effect */
 .playlist-itemm:hover::before {
     width: 100%;
-    /* Expand width on hover */
 }
-
 
 #current-video {
     background-color: black;
@@ -284,7 +271,7 @@ header img {
 #player-container {
     font-family: "Anek Latin", sans-serif;
     max-width: 100%;
-    border-radius: 05px;
+    border-radius: 5px;
 }
 
 .video-container {
@@ -292,7 +279,6 @@ header img {
     position: relative;
     max-width: 100%;
     padding-bottom: 56.25%;
-    /* 16:9 aspect ratio */
     padding-top: 10px;
     border-radius: 10px;
     margin-top: 10px;
@@ -311,17 +297,15 @@ header img {
 .video-description {
     font-family: "Anek Latin", sans-serif;
     border-radius: 0 5px 5px 5px;
-    padding: 08px;
+    padding: 8px;
     backdrop-filter: blur(10px);
-    /* Adjust blur strength as needed */
     background-color: rgba(255, 255, 255, 0.112);
-    /* Adjust background color and opacity */
     color: white;
 }
 
 .video-description h2 {
     font-size: 20px;
-    margin-top: 03px;
+    margin-top: 3px;
     color: white;
 }
 
@@ -342,7 +326,6 @@ header img {
     font-family: "Anek Latin", sans-serif;
     position: baseline;
     bottom: 10px;
-    /* Set distance from bottom of viewport */
     text-align: right;
     margin-right: 10px;
     font-size: 14px;
@@ -355,10 +338,8 @@ header img {
 footer {
     font-family: "Anek Latin", sans-serif;
     width: auto;
-    backdrop-filter: blur(05px);
-    /* Adjust blur strength as needed */
+    backdrop-filter: blur(5px);
     background-color: rgba(51, 51, 51, 0.098);
-    /* Adjust background color and opacity */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
     color: White;
@@ -380,14 +361,12 @@ p {
 
 ul {
     list-style-type: unset;
-    /* Remove default bullet points */
-    /* Remove default left padding */
     text-align: justify;
 }
 
 li {
     margin: 0 0 10px;
-    margin-right: 05px;
+    margin-right: 5px;
 }
 
 /*Telegram floating button*/
