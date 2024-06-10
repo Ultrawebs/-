@@ -1,6 +1,6 @@
 html,
 body {
-    font-family: "Onest", sans-serif;
+    font-family: "Anek Latin", sans-serif;
     margin: 0;
     padding: 0;
     background-image: url("webpa/bg.webp");
@@ -82,12 +82,12 @@ header {
 header img {
     max-width: auto;
     height: auto;
-    max-height: 60px;
-    /*filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg);*/
+    max-height: 45px;
+    filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg);
 }
 
 #container {
-    font-family: "Onest", sans-serif;
+    font-family: "Anek Latin", sans-serif;
     color: white;
     padding: 10px;
     backdrop-filter: blur(10px);
@@ -151,21 +151,14 @@ header img {
     overflow: hidden;
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    /* Adjust blur strength as needed */
     background-color: rgba(51, 51, 51, 0.098);
-    /* Adjust background color and opacity */
-    box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-    /* Soft shadow for embossed effect */
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
-    /* Transition effect for smoother animation */
 }
 
 .movie-poster:hover {
     backdrop-filter: blur(10%);
-    /* Adjust blur strength as needed */
     background-color: rgba(51, 51, 51, 0.498);
-    /* Adjust background color and opacity */
-    box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
@@ -174,15 +167,12 @@ header img {
     height: auto;
 }
 
-/* Display movie info and apply blur effect to poster image on hover */
 .movie-poster:hover img {
-    filter: blur(2px);
-    /* Adjust blur strength as needed */
+    filter: blur(10px);
 }
 
 .movie-poster:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* Add a drop shadow */
 }
 
 .movie-info {
@@ -209,23 +199,94 @@ header img {
 .movie-info p {
     margin: 5px 0 0;
     font-size: 13px;
+    margin-bottom: 30px;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 600px) {
+    .movie-info h2 {
+        font-size: 16px;
+    }
+
+    .movie-info p {
+        font-size: 11px;
+        margin-bottom: 15px;
+    }
 }
 
 .flag {
     position: absolute;
-    bottom: 07px;
-    /* Adjust the distance from the bottom */
-    right: 07px;
-    /* Adjust the distance from the right */
+    top: 10px;
+    right: 10px;
 }
 
 .flag img {
     width: 30px;
-    /* Adjust the width of the flag image */
     height: auto;
-    border-radius: 3px;
-    /* Optional: for rounded corners */
+    border-radius: 2px;
 }
+
+.card-meta {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.badge {
+    position: absolute;
+    bottom: 5px;
+    left: 7px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #000;
+    transition: filter 0.3s ease;
+}
+
+.duration {
+    position: absolute;
+    bottom: 3px;
+    right: 7px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 800;
+    color: white;
+    transition: filter 0.3s ease;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 600px) {
+    .badge {
+        bottom: 3px;
+        left: 7px;
+        padding: 1px 3px;
+        font-size: 10px;
+    }
+
+    .duration {
+        bottom: 3px;
+        right: 7px;
+        padding: 1px 3px;
+        font-size: 10px;
+    }
+
+    .card-meta {
+        padding: 0 5px;
+    }
+}
+
+.movie-poster:hover .badge,
+.movie-poster:hover .duration {
+    filter: blur(03px);
+}
+
 
 .watermark {
     font-family: 'Titillium Web', sans-serif;
@@ -242,7 +303,7 @@ header img {
 }
 
 footer {
-    font-family: "Onest", sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     width: auto;
     backdrop-filter: blur(05px);
     /* Adjust blur strength as needed */
@@ -287,7 +348,7 @@ p {
 }
 
 ul {
-    list-style-type: disc;
+    list-style-type: square;
     /* Remove default bullet points */
     padding-left: 05;
     /* Remove default left padding */
@@ -352,6 +413,7 @@ li {
 .iframe-container iframe {
     border-radius: 10px;
     width: 100%;
-    min-height: 235px; /* Minimum height as specified */
+    min-height: 235px;
+    /* Minimum height as specified */
     border: 0cap;
 }
