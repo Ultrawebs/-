@@ -2,13 +2,15 @@
 <html lang="en">
 
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <link rel="icon" type="image/png" href="https://aimages.willow.tv/f2/favicon.ico" sizes="128x128" style="border-radius: 5px;">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="https://aimages.willow.tv/f2/favicon.ico" sizes="128x128"
+        style="border-radius: 5px;">
     <title>Willow HD</title>
     <style>
+        /* Your CSS styles */
         html,
         body {
             font-family: "Onest", sans-serif;
@@ -118,6 +120,7 @@
         @media only screen and (max-width: 600px) {
             #container {
                 max-width: 100%;
+                padding: 03px;
                 /* Set initial width to 100% for mobile */
             }
         }
@@ -255,32 +258,81 @@
             width: fit-content;
             text-align: center;
         }
+
+        .responsive-iframe-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding-top: 56.25%;
+            /* 16:9 aspect ratio */
+            margin-top: 08px;
+            margin-bottom: 08px;
+            border-radius: 08px;
+        }
+
+        .responsive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Buttons styles */
+        .server-buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .server-buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 2px;
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .server-buttons button:hover {
+            color: black;
+            background-color: rgb(197, 197, 197);
+        }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-    <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
 </head>
 
 <body>
     <div id="container">
         <header>
-            <img alt="Willow" id="top-image" src="https://static.wikia.nocookie.net/logopedia/images/9/90/Willow_HD_2013.png/revision/latest?cb=20231002183308" />
+            <img alt="Willow" id="top-image"
+                src="https://static.wikia.nocookie.net/logopedia/images/9/90/Willow_HD_2013.png/revision/latest?cb=20231002183308" />
         </header>
 
+        <center>
+            <h4>Select your preferred Server 👇</h4>
+        </center>
+
+        <div class="server-buttons">
+            <!-- Button for Server 1 -->
+            <button onclick="loadServer1()">Server 1</button>
+
+            <!-- Button for Server 2 -->
+            <button onclick="loadServer2()">Server 2</button>
+        </div>
+
         <center style="color: red;margin-top: 08px;font-weight: bold;">
-            Please wait for 15 seconds, the video will start playing
-            automatically.
+            Please wait for 15 seconds, the video will start playing automatically.
         </center>
 
         <div id="player-container" style="width: auto;">
-            <script>
-                var player = new Clappr.Player({
-                    source: "https://live2.notebulk.xyz/us_willow/index.m3u8",
-                    parentId: "#player-container",
-                    width: '100%',
-                    autoPlay: true,
-                    mute: false // This will mute the video
-                });
-            </script>
+            <!-- Video player will be loaded here -->
         </div>
 
         <h3>Disclaimer</h3>
@@ -308,50 +360,99 @@
         <footer>Willow &copy; 2024 | by UltraWebs</footer>
     </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
-
-
-
     <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
         <div class="telegram-icon">
             <svg viewBox="0 0 64 64">
-                <path d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z">
+                <path
+                    d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z">
                 </path>
             </svg>
         </div>
     </a>
 
-</body>
-<script>
-    // Function to prevent right-click menu
-    document.addEventListener("contextmenu", function(e) {
-        e.preventDefault();
-    });
+    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
+    <script>
+        var player1 = null; // Variable to store the Clappr player for Server 1
+        var player2 = null; // Variable to store the iframe player for Server 2
 
-    // Function to prevent keyboard shortcuts
-    document.onkeydown = function(e) {
-        // Disable F12 key
-        if (event.keyCode == 123) {
-            return false;
+        // Function to load Server 1
+        function loadServer1() {
+            // Stop the player for Server 2 if it's playing
+            if (player2 !== null) {
+                player2 = null;
+                document.getElementById("player-container").innerHTML = '';
+            }
+
+            // Check if Server 1 player is already initialized
+            if (player1 === null) {
+                // Initialize the player for Server 1
+                player1 = new Clappr.Player({
+                    source: "https://live2.notebulk.xyz/us_willow/index.m3u8",
+                    parentId: "#player-container",
+                    width: '100%',
+                    height: '400',
+                    autoPlay: true,
+                    mute: false // This will mute the video
+                });
+            }
         }
-        // Disable Ctrl+Shift+I key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
+
+        // Function to load Server 2
+        function loadServer2() {
+            // Stop the player for Server 1 if it's playing
+            if (player1 !== null) {
+                player1.destroy();
+                player1 = null;
+            }
+
+            // Check if Server 2 player is already initialized
+            if (player2 === null) {
+                // Load the iframe for Server 2
+                document.getElementById("player-container").innerHTML = '<div class="responsive-iframe-container"><iframe src="https://emdftinya.tinyuri.org/embed/english.php" allowfullscreen></iframe></div>';
+                player2 = true;
+            }
         }
-        // Disable Ctrl+Shift+J key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+Shift+U key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+C key combination
-        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-    };
-</script>
+
+        // Load Server 1 automatically when the page loads
+        window.onload = function () {
+            loadServer1();
+        };
+    </script>
+
+
+    <script>
+        // Function to prevent right-click menu
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+
+        // Function to prevent keyboard shortcuts
+        document.onkeydown = function (e) {
+            // Disable F12 key
+            if (event.keyCode == 123) {
+                return false;
+            }
+            // Disable Ctrl+Shift+I key combination
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            // Disable Ctrl+Shift+J key combination
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            // Disable Ctrl+Shift+U key combination
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+            // Disable Ctrl+C key combination
+            if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+        };
+    </script>
+
+</body>
 
 </html>
