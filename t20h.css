@@ -158,7 +158,7 @@ button {
     display: inline-block;
     vertical-align: top;
     flex: 0 0 auto; /* Ensure items don't grow or shrink */
-    margin-right: 10px; /* Add some space between items */
+    margin-right: 01px;
 }
 
 .no-results-found {
