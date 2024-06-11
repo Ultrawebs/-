@@ -55,13 +55,13 @@ header {
 }
 
 header img {
-    max-width:150px;
+    max-width:100px;
     height: auto;
 }
 
 @media only screen and (max-width: 768px) {    
     header img {
-        max-width:50px;
+        max-width:80px;
     }
 }
 
