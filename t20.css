@@ -274,7 +274,8 @@ header img {
         bottom: 3px;
         right: 7px;
         padding: 1px 3px;
-        font-size: 10px;
+        font-size: 12px;
+        font-weight: 700;
     }
 
     .card-meta {
