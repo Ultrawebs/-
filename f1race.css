@@ -79,7 +79,7 @@ header img {
 
 @media only screen and (max-width: 768px) {
     .search-form {
-        width: 230px;
+        width: 200px;
         height: auto;
     }
 }
