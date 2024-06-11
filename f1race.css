@@ -1,0 +1,530 @@
+html, body {
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("webpa/bg.webp");
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 768px) {
+    body {
+        background-image: url("webpa/bgm.webp");
+        background-size: cover;
+        background-attachment: scroll;
+        padding: 5px;
+    }
+}
+
+body::-webkit-scrollbar {
+    height: 5px;
+    width: 5%;
+    transition: opacity 0.3s ease;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #555555;
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: transparent; /* Making the track background transparent */
+}
+
+body.smooth-scrollbar {
+    scrollbar-color: #555555 transparent; /* Thumb color and track color */
+    scrollbar-width: thin; /* Makes the scrollbar thin */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    background-color: rgba(51, 51, 51, 0.098);
+    transition: background-color 0.3s ease;
+    text-align: center;
+    padding: 07px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+}
+
+header img {
+    max-width:150px;
+    height: auto;
+}
+
+@media only screen and (max-width: 768px) {    
+    header img {
+        max-width:120px;
+        height: auto;
+    }
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.112);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 300px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media only screen and (max-width: 768px) {
+    .search-form {
+        width: 230px;
+        height: auto;
+    }
+}
+
+.search-form:hover {
+    background-color: rgba(51, 51, 51, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    color: white;
+    fill: currentColor;
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+input {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 6px 0;
+    width: 100%;
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    input {
+        font-size: 15px;
+        padding: 3px 0;
+    }
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+#container {
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+    padding: 5px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(51, 51, 51, 0.098);
+    margin: 0 auto;
+}
+
+/* Media query for larger screens (desktop) */
+@media only screen and (min-width: 601px) {
+    #container {
+        max-width: 75%;
+    }
+}
+
+/* Media query for smaller screens (mobile) */
+@media only screen and (max-width: 600px) {
+    #container {
+        max-width: 100%;
+    }
+}
+
+/* Add new styles for the playlist container and items */
+.playlist-container {
+    font-family: 'Titillium Web', sans-serif;
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: transparent;
+    cursor: pointer;
+    color: transparent;
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to next line */
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.playlist-item {
+    font-family: 'Titillium Web', sans-serif;
+    cursor: pointer;
+    padding: 3px 8px;
+    background-color: transparent;
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+    flex: 0 0 auto; /* Ensure items don't grow or shrink */
+    margin-right: 01px;
+}
+
+.no-results-found {
+    display: flex;
+    justify-content: center; /* Align horizontally to center */
+    align-items: center; /* Align vertically to center */
+    text-align: center; /* Align text content to center */
+    padding: 3px 8px;
+    font: optional;
+    font-size: 18px;
+    font-weight: 600;
+    color: red;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.112);
+}
+
+.playlist-item:hover {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.112);
+}
+
+.playlist-item.active {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: bolder;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.112);
+    color: red;
+}
+
+.playlist-item.active:hover {
+    font-family: 'Titillium Web', sans-serif;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.112);
+    color: red;
+}
+
+.playlist-container::-webkit-scrollbar {
+    height: 5px;
+    width: 5%;
+    transition: opacity 0.3s ease;
+}
+
+.playlist-container::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 5px;
+}
+
+.playlist-container::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.playlist-container.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.playlist-container.smooth-scrollbar {
+    scrollbar-color: #888888 transparent;
+    scrollbar-width: thin;
+}
+
+.playlist-container.show-scrollbar::-webkit-scrollbar {
+    opacity: 1;
+}
+
+.playlist-container.hide-scrollbar::-webkit-scrollbar {
+    opacity: 0;
+}
+
+#current-video {
+    background-color: transparent;
+    border: none;
+}
+
+/* Playlist bar styles */
+.playlist-bar {
+    font-family: 'Titillium Web', sans-serif;
+    background-color: transparent;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Playlist item styles */
+.playlist-itemm {
+    font-family: 'Titillium Web', sans-serif;
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+}
+
+/* Playlist item hover effect */
+.playlist-itemm::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+/* Playlist item hover effect */
+.playlist-itemm:hover::before {
+    width: 100%;
+}
+
+#current-video {
+    background-color: black;
+    border: none;
+    border-radius: 8px;
+}
+
+#player-container {
+    font-family: 'Titillium Web', sans-serif;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.video-container {
+    font-family: 'Titillium Web', sans-serif;
+    position: relative;
+    max-width: 100%;
+    padding-bottom: 56.25%;
+    padding-top: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Your existing CSS styles here */
+.video-description {
+    font-family: 'Titillium Web', sans-serif;
+    border-radius: 0 5px 5px 5px;
+    padding: 8px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.112);
+    color: white;
+}
+
+.video-description h2 {
+    font-size: 20px;
+    margin-top: 3px;
+    color: white;
+}
+
+.video-description h3 {
+    font-family: 'Titillium Web', sans-serif;
+    margin-top: 0;
+    color: white;
+}
+
+.video-description p {
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0 0 10px;
+    color: white;
+    text-align: justify;
+}
+
+.watermark {
+    font-family: 'Titillium Web', sans-serif;
+    position: baseline;
+    bottom: 10px;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 14px;
+    color: whitesmoke;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+footer {
+    font-family: 'Titillium Web', sans-serif;
+    width: auto;
+    backdrop-filter: blur(5px);
+    background-color: rgba(51, 51, 51, 0.098);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    color: White;
+    text-align: center;
+    font-size: 16px;
+    padding: 8px 8px;
+    font-weight: bold;
+}
+
+a {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p {
+    text-align: justify;
+}
+
+ul {
+    list-style-type: unset;
+    text-align: justify;
+}
+
+li {
+    margin: 0 0 10px;
+    margin-right: 5px;
+}
+
+/*Telegram floating button*/
+.telegram-float {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 1000;
+}
+
+@media only screen and (max-width: 600px) {
+    .telegram-float {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        z-index: 1000;
+    }
+}
+
+.telegram-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0088cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    position: relative;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5);
+    }
+
+    80% {
+        box-shadow: 0 0 0 14px rgba(0, 136, 204, 0);
+    }
+}
+
+.telegram-icon svg {
+    fill: #fff;
+    width: 30px;
+    height: 30px;
+}
+
+/* Default light theme */
+/* Define CSS variables for light theme */
+:root {
+    --color-bg-light: #ffffff;
+    --color-fg-light: #000000;
+    --color-scrollbar-thumb-light: #555555;
+}
+
+/* Define CSS variables for dark theme */
+[data-theme="dark"] {
+    --color-bg-dark: #000000;
+    --color-fg-dark: #ffffff;
+    --color-scrollbar-thumb-dark: #888888;
+}
+
+/* Apply background and text color based on theme */
+body {
+    background-color: var(--color-bg-light);
+    color: var(--color-fg-light);
+}
+
+/* Update specific styles for dark mode */
+[data-theme="dark"] body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-fg-dark);
+}
+
+/* Toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px; /* Reduced width */
+    height: 20px; /* Reduced height */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px; /* Reduced height */
+    width: 16px; /* Reduced width */
+    left: 2px; /* Adjusted position */
+    bottom: 2px; /* Adjusted position */
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px); /* Adjusted translation */
+    -ms-transform: translateX(16px); /* Adjusted translation */
+    transform: translateX(16px); /* Adjusted translation */
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 20px; /* Adjusted border radius */
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
