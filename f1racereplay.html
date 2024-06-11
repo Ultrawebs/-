@@ -12,447 +12,8 @@
     <link rel="icon" type="image/png" href="https://media.formula1.com/etc/designs/fom-website/favicon.ico"
         sizes="128x128">
     <title>F1:24 Race Replay</title>
-    <style>
-        html,
-        body {
-            font-family: 'Titillium Web', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url("webpa/bg.webp");
-            background-size: cover;
-            /* Optional: adjust based on your design */
-            background-attachment: fixed;
-            /* Makes the background image fixed */
-            overflow: auto;
-            overflow-x: hidden;
-            /* Allow vertical and horizontal scrolling */
-        }
+    <link rel="stylesheet" href="f1race.css">
 
-        /* Media query for mobile devices */
-        @media only screen and (max-width: 768px) {
-            body {
-                background-image: url("webpa/bgm.webp");
-                /* Set aspect ratio to 9:16 */
-                background-size: fixed;
-                /* Fix the width and allow height to adjust */
-                background-attachment: scroll;
-                /* Allow the background image to scroll with the content */
-                padding: 5px;
-            }
-        }
-
-
-        /* Custom scrollbar */
-        body::-webkit-scrollbar {
-            width: 8px;
-            /* Width of the scrollbar */
-            /* border-radius: 5px; */
-            /* Rounded corners */
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        body::-webkit-scrollbar-track {
-            backdrop-filter: blur(10px);
-            /* Apply blur effect */
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        body::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            /* Rounded corners for the thumb */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Add shadow */
-            background-color: rgba(140, 140, 140, 0.308);
-            /* Thumb color */
-            transition: background-color 0.3s ease;
-            /* Smooth transition */
-        }
-
-        /* Hide scrollbar after 3 seconds */
-        body.hide-scrollbar::-webkit-scrollbar {
-            scrollbar-width: thin;
-        }
-
-        body.hide-scrollbar::-webkit-scrollbar-thumb {
-            background-color: transparent;
-            /* Hide thumb */
-        }
-
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(51, 51, 51, 0.098);
-            /* Adjust background color and opacity */
-            transition: background-color 0.3s ease;
-            text-align: center;
-            padding: 10px;
-            box-sizing: border-box;
-            max-width: 100%;
-            overflow: hidden;
-            border-radius: 0px;
-        }
-
-        header img {
-            max-width: auto;
-            height: auto;
-            max-height: 30px;
-            /* filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg); */
-        }
-
-        #container {
-            font-family: 'Titillium Web', sans-serif;
-            color: white;
-            padding: 05px;
-            backdrop-filter: blur(10px);
-            background-color: rgba(51, 51, 51, 0.098);
-            margin: 0 auto;
-        }
-
-        /* Media query for larger screens (desktop) */
-        @media only screen and (min-width: 601px) {
-            #container {
-                max-width: 75%;
-                /* Set width to 80% for desktop */
-            }
-        }
-
-        /* Media query for smaller screens (mobile) */
-        @media only screen and (max-width: 600px) {
-            #container {
-                max-width: 100%;
-                /* Set initial width to 100% for mobile */
-            }
-        }
-
-        /* Add new styles for the playlist container and items */
-        .playlist-container {
-            font-family: 'Titillium Web', sans-serif;
-            overflow-x: auto;
-            /* Enable horizontal scrolling */
-            white-space: nowrap;
-            background-color: transparent;
-            /* Prevent wrapping of playlist items */
-            cursor: pointer;
-            color: transparent;
-        }
-
-        /* Custom scrollbar */
-        .playlist-container::-webkit-scrollbar {
-            width: 03px;
-            /* Width of the scrollbar */
-            border-radius: 5px;
-            /* Rounded corners */
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .playlist-container::-webkit-scrollbar-track {
-            background-color: transparent;
-        }
-
-        .playlist-container::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            /* Rounded corners for the thumb */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Add shadow */
-            background-color: rgba(140, 140, 140, 0.308);
-            /* Thumb color */
-            transition: background-color 0.3s ease;
-            /* Smooth transition */
-        }
-
-        /* Hide scrollbar after 3 seconds */
-        .playlist-container.hide-scrollbar::-webkit-scrollbar {
-            scrollbar-width: thin;
-        }
-
-        .playlist-container.hide-scrollbar::-webkit-scrollbar-thumb {
-            background-color: transparent;
-            /* Hide thumb */
-        }
-
-
-        .playlist-item {
-            font-family: 'Titillium Web', sans-serif;
-            cursor: pointer;
-            padding: 03px 08px;
-            /* Add some space between playlist items */
-            background-color: transparent;
-            color: white;
-            display: inline-block;
-            /* Display playlist items in a row */
-            vertical-align: top;
-            /* Align playlist items to the top */
-        }
-
-        .playlist-item:hover {
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(255, 255, 255, 0.112);
-        }
-
-        .playlist-item.active {
-            font-family: 'Titillium Web', sans-serif;
-            font-weight: bolder;
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(255, 255, 255, 0.112);
-            color: red;
-        }
-
-        .playlist-item.active:hover {
-            font-family: 'Titillium Web', sans-serif;
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(255, 255, 255, 0.112);
-            color: red;
-        }
-
-
-        /* Add a scrollbar when more than three items are present */
-        .playlist-container::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .playlist-container::-webkit-scrollbar-thumb {
-            background-color: #888;
-            border-radius: 4px;
-        }
-
-        .playlist-container::-webkit-scrollbar-track {
-            background-color: transparent;
-        }
-
-        #current-video {
-            background-color: transparent;
-            border: none;
-        }
-
-        /* Playlist bar styles */
-        .playlist-bar {
-            font-family: 'Titillium Web', sans-serif;
-            background-color: transparent;
-            /* Set background color to dark gray */
-            overflow: hidden;
-            /* Hide overflowing content */
-            width: 100%;
-            /* Make the playlist bar cover full width */
-            margin: 0 auto;
-            /* Center the playlist bar horizontally */
-            padding: 10px 0;
-            /* Add padding for better spacing */
-            text-align: center;
-            /* Center the playlist items */
-        }
-
-        /* Playlist item styles */
-        .playlist-itemm {
-            font-family: 'Titillium Web', sans-serif;
-            display: inline-block;
-            /* Display playlist items horizontally */
-            margin: 0 10px;
-            /* Add margin for spacing between items */
-            color: white;
-            /* Set text color to white */
-            text-decoration: none;
-            /* Remove default link underline */
-            position: relative;
-            text-align: center;
-            /* Set position to relative for pseudo-element */
-        }
-
-        /* Playlist item hover effect */
-        .playlist-itemm::before {
-            content: '';
-            /* Add pseudo-element */
-            position: absolute;
-            /* Set position to absolute */
-            bottom: -2px;
-            /* Move pseudo-element below the text */
-            left: 0;
-            /* Align pseudo-element with the text */
-            width: 0;
-            /* Set width to 100% */
-            height: 2px;
-            /* Set height for underline */
-            background-color: #fff;
-            /* Set background color to white */
-            transition: width 0.3s ease;
-            /* Add transition effect */
-        }
-
-        /* Playlist item hover effect */
-        .playlist-itemm:hover::before {
-            width: 100%;
-            /* Expand width on hover */
-        }
-
-
-        #current-video {
-            background-color: black;
-            border: none;
-            border-radius: 8px;
-        }
-
-        #player-container {
-            font-family: 'Titillium Web', sans-serif;
-            max-width: 100%;
-            border-radius: 05px;
-        }
-
-        .video-container {
-            font-family: 'Titillium Web', sans-serif;
-            position: relative;
-            max-width: 100%;
-            padding-bottom: 56.25%;
-            /* 16:9 aspect ratio */
-            padding-top: 10px;
-            border-radius: 10px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Your existing CSS styles here */
-        .video-description {
-            font-family: 'Titillium Web', sans-serif;
-            border-radius: 0 5px 5px 5px;
-            padding: 08px;
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(255, 255, 255, 0.112);
-            /* Adjust background color and opacity */
-            color: white;
-        }
-
-        .video-description h2 {
-            margin-top: 01px;
-            color: white;
-        }
-
-        .video-description h3 {
-            font-family: 'Titillium Web', sans-serif;
-            margin-top: 0;
-            color: white;
-        }
-
-        .video-description p {
-            font-family: 'Titillium Web', sans-serif;
-            margin: 0 0 10px;
-            color: white;
-            text-align: justify;
-        }
-
-        .watermark {
-            font-family: 'Titillium Web', sans-serif;
-            position: baseline;
-            bottom: 10px;
-            /* Set distance from bottom of viewport */
-            text-align: right;
-            margin-right: 10px;
-            font-size: 14px;
-            color: whitesmoke;
-            border-radius: 5px;
-            font-weight: bold;
-            z-index: 9999;
-        }
-
-        footer {
-            font-family: 'Titillium Web', sans-serif;
-            width: auto;
-            backdrop-filter: blur(05px);
-            /* Adjust blur strength as needed */
-            background-color: rgba(51, 51, 51, 0.098);
-            /* Adjust background color and opacity */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-            color: White;
-            text-align: center;
-            font-size: 16px;
-            padding: 8px 8px;
-            font-weight: bold;
-        }
-
-        a {
-            color: red;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        p {
-            text-align: justify;
-        }
-
-        ul {
-            list-style-type: unset;
-            /* Remove default bullet points */
-            /* Remove default left padding */
-            text-align: justify;
-        }
-
-        li {
-            margin: 0 0 10px;
-            margin-right: 05px;
-        }
-
-        /*Telegram floating button*/
-        .telegram-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .telegram-float {
-                position: fixed;
-                bottom: 60px;
-                right: 20px;
-                z-index: 1000;
-            }
-        }
-
-        .telegram-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #0088cc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation-name: pulse;
-            animation-duration: 1.5s;
-            animation-timing-function: ease-out;
-            animation-iteration-count: infinite;
-            position: relative;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5);
-            }
-
-            80% {
-                box-shadow: 0 0 0 14px rgba(0, 136, 204, 0);
-            }
-        }
-
-        .telegram-icon svg {
-            fill: #fff;
-            width: 30px;
-            height: 30px;
-        }
-    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
     <script>
@@ -462,40 +23,55 @@
 
         gtag('config', 'G-DVMMJVP33N');
     </script>
-</head>
 
-<body>
     <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
     <script type="text/javascript"
         src="https://platform-api.sharethis.com/js/sharethis.js#property=66328830a14bff0019844da3&product=sticky-share-buttons&source=platform"
         async="async"></script>
-    </head>
+</head>
 
-    <body>
-        <div id="container">
-            <header>
-                <img alt="f1tv" id="top-image" loading="lazy"
-                    src="https://f1tv.formula1.com/static/5a5966a0dab4e4fa5d2130f2a81df6bd.png" />
-            </header>
+<body>
+    <div id="container">
+        <header>
+            <img src="https://f1tv.formula1.com/static/5a5966a0dab4e4fa5d2130f2a81df6bd.png" alt="Logo">
+            <form class="search-form">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M10 2a8 8 0 105.293 14.293l4.657 4.657 1.414-1.414-4.657-4.657A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z" />
+                </svg>
+                <input type="search" placeholder="Search video...">
+                <button type="submit"></button>
+            </form>
+        </header>
 
-            <center>
-                <h4>Please select your video below:</h4>
-            </center>
+        <center>
+            <h4>Please select your video below 👇</h4>
+        </center>
 
-            <div class="playlist-container">
-                <!-- Playlist items -->
-                <div class="playlist-item active" data-src="https://vectorx.top/v/Monaco-GP-2024-Full-race-replay/"
-                    data-title="FORMULA 1 GRAND PRIX DE MONACO 2024" data-description="
+        <div class="playlist-container">
+            <!-- Playlist items -->
+            <div class="playlist-item active" data-src="https://vectorx.top/v/Canada-GP-2024-Full-race-replay/"
+                data-title="FORMULA 1 AWS GRAND PRIX DU CANADA 2024" data-description="
+
+                    Max Verstappen and Red Bull bounced back from their Monaco struggles as they returned to winning ways in an action-packed Canadian Grand Prix, overcoming rain showers, multiple Safety Car periods, restarts and a stern challenge from behind to lead home Lando Norris.
+
+                    Verstappen followed pole-sitting Mercedes driver George Russell in the wet early stages of the race until a charging Norris overhauled them both amid improving conditions, only for an ill-timed Safety Car – brought out when Logan Sargeant crashed – to drop the McLaren man to third.
+            ">
+                Canadian GP
+            </div>
+
+            <div class="playlist-item" data-src="https://vectorx.top/v/Monaco-GP-2024-Full-race-replay/"
+                data-title="FORMULA 1 GRAND PRIX DE MONACO 2024" data-description="
 
                     The 2024 Monaco Grand Prix started in dramatic fashion, with a red-flag stoppage less than a lap in, and ended emotionally, with Charles Leclerc finally claiming that elusive home win, for one of the most popular victories in many a year.
 
                     The Lap 1 chaos came on the run out of Sainte Devote, as the Haas of Kevin Magnussen and the Red Bull of Sergio Perez - and then the second Haas of Nico Hulkenberg - all come together, putting all three drivers out on the spot.
             ">
-                    Monaco GP
-                </div>
+                Monaco GP
+            </div>
 
-                <div class="playlist-item" data-src="https://vectorx.top/v/Emilia-GP-2024-Full-race-replay/"
-                    data-title="FORMULA 1 DELL'EMILIA-ROMAGNA GRAND PRIX 2024" data-description="
+            <div class="playlist-item" data-src="https://vectorx.top/v/Emilia-GP-2024-Full-race-replay/"
+                data-title="FORMULA 1 DELL'EMILIA-ROMAGNA GRAND PRIX 2024" data-description="
 
                     Max Verstappen has returned to winning ways after missing out in Miami by taking victory in the Emilia-Romagna Grand Prix, with the Dutchman holding off an exciting late charge from Lando Norris.
 
@@ -505,11 +81,11 @@
                     
                     Despite looking to be on Norris’s tail in the fight for P2 earlier in the event, Charles Leclerc had to settle for the final podium position of third in front of Ferrari’s home fans, while Oscar Piastri claimed P4 in a solid drive for McLaren.
                 ">
-                    Emilia Romagna GP
-                </div>
+                Emilia Romagna GP
+            </div>
 
-                <div class="playlist-item" data-src="https://vectorx.top/v/Miami-GP-2024-Full-race-replay/"
-                    data-title="FORMULA 1 MIAMI GRAND PRIX 2024" data-description="
+            <div class="playlist-item" data-src="https://vectorx.top/v/Miami-GP-2024-Full-race-replay/"
+                data-title="FORMULA 1 MIAMI GRAND PRIX 2024" data-description="
 
                     Lando Norris achieved his long-awaited first victory in Formula 1 at the Miami Grand Prix, having
                     sealed the lead by making a perfectly-timed pit stop during a Safety Car period halfway through the
@@ -520,12 +96,12 @@
                     overtook Charles Leclerc in the scrap for P2 before Perez locked up and narrowly avoided hitting
                     team mate Verstappen, allowing Leclerc back through in the process.
                 ">
-                    Miami GP
-                </div>
+                Miami GP
+            </div>
 
 
-                <div class="playlist-item" data-src="https://vectorx.top/v/Chinese-GP-2024-Full-race-replay/"
-                    data-title="FORMULA 1 CHINESE GRAND PRIX 2024" data-description="Highlights:
+            <div class="playlist-item" data-src="https://vectorx.top/v/Chinese-GP-2024-Full-race-replay/"
+                data-title="FORMULA 1 CHINESE GRAND PRIX 2024" data-description="Highlights:
       
                 Red Bull Racing's Max Verstappen showcased his mastery behind the wheel, clinching the top spot on
                 the podium with a flawless performance.
@@ -533,122 +109,198 @@
                 Perez pushing each other to the limits throughout the Grand Prix.
                 From daring overtakes to strategic pit stops, the Lenovo Chinese Grand Prix treated fans to
                 edge-of-the-seat excitement, highlighting the competitive spirit and skill of the drivers and teams.">
-                    Chinese GP
-                </div>
+                Chinese GP
+            </div>
 
-                <div class="playlist-item" data-src="https://vectorx.top/v/Japanese-GP-2024-Full-race-replay/"
-                    data-title="FORMULA 1 JAPANESE GRAND PRIX 2024"
-                    data-description="Highlights:
+            <div class="playlist-item" data-src="https://vectorx.top/v/Japanese-GP-2024-Full-race-replay/"
+                data-title="FORMULA 1 JAPANESE GRAND PRIX 2024"
+                data-description="Highlights:
           
           Red Bull secured another podium finish with Verstappen taking the win.
           A thrilling race with Verstappen battling closely with teammate Perez for most of the Grand Prix.
           Ferrari's Carlos Sainz managed to secure a podium despite a late-race challenge from (driver who almost took 3rd).">
-                    Japanese GP
-                </div>
+                Japanese GP
+            </div>
 
-                <div class="playlist-item"
-                    data-src="https://videos.sproutvideo.com/embed/0690d4b61c17ebc68f/0bef00037639816a"
-                    data-title="FORMULA 1: AUSTRALIAN GRAND PRIX 2024" data-description="Highlights:
+            <div class="playlist-item"
+                data-src="https://videos.sproutvideo.com/embed/0690d4b61c17ebc68f/0bef00037639816a"
+                data-title="FORMULA 1: AUSTRALIAN GRAND PRIX 2024" data-description="Highlights:
           
           Ferrari dominated the podium with a 1-2 finish.
           Early exit for championship favorite Max Verstappen due to (brief detail about the reason for Verstappen's exit).
           Lando Norris secured a well-deserved podium for McLaren.">
-                    Australian GP
-                </div>
+                Australian GP
+            </div>
 
-                <div class="playlist-item" data-src="https://wolfstream.tv/embed-szvq3447wzy8.html"
-                    data-title="FORMULA 1 STC SAUDI ARABIAN GRAND PRIX 2024" data-description="Highlights:
+            <div class="playlist-item" data-src="https://wolfstream.tv/embed-szvq3447wzy8.html"
+                data-title="FORMULA 1 STC SAUDI ARABIAN GRAND PRIX 2024" data-description="Highlights:
           
           Red Bull continued their dominance with another 1-2 finish.
           Verstappen secured his 100th career podium and extended his winning streak to nine races.
           Ferrari rookie Oliver Bearman scored points on his debut, finishing an impressive seventh.
           The race saw a crash and a safety car deployment on lap 7.">
-                    Saudi Arabian GP
-                </div>
+                Saudi Arabian GP
+            </div>
 
-                <div class="playlist-item" data-src="https://i.imgur.com/tc0KCCc.png"
-                    data-title="FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2024" data-description="Highlights:
+            <div class="playlist-item" data-src="https://i.imgur.com/tc0KCCc.png"
+                data-title="FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2024" data-description="Highlights:
           
           Red Bull dominated the podium with a 1-2 finish.
           A strong start for Verstappen secured him the lead early on.
           Ferrari's Carlos Sainz managed a podium finish despite a close battle with the midfield.">
-                    Bahrain GP
-                </div>
+                Bahrain GP
             </div>
-
-            <!-- Video Description Container -->
-            <!-- Video Description Container -->
-            <div class="video-description">
-                <iframe id="current-video" style="width:100%; aspect-ratio:16 / 9; border-radius: 08px;"
-                    src="https://vectorx.top/v/Monaco-GP-2024-Full-race-replay/" allowfullscreen></iframe>
-                <h2 id="video-title">FORMULA 1 GRAND PRIX DE MONACO 2024</h2>
-                <p id="video-description">
-                    The 2024 Monaco Grand Prix started in dramatic fashion, with a red-flag stoppage less than a lap in, and ended emotionally, with Charles Leclerc finally claiming that elusive home win, for one of the most popular victories in many a year.<br/>
-
-                    The Lap 1 chaos came on the run out of Sainte Devote, as the Haas of Kevin Magnussen and the Red Bull of Sergio Perez - and then the second Haas of Nico Hulkenberg - all come together, putting all three drivers out on the spot.
-                </p>
-                <!-- Video description -->
-            </div>
-
-            <h4>Watch Formula 1 in HD!</h4>
-            <ul>
-                <li>Enjoy live Formula 1 racing in ULTRA HD on UltraWebs.</li>
-                <li>Get reliable worldwide access with streaming links available 30 minutes before each race.</li>
-            </ul>
-            <h4>Disclaimer</h4>
-            <ul>
-                <li>Ultawebs provides Formula 1 race highlights for viewing.</li>
-                <li>All race highlight links on UltraWebs are sourced from freely available third-party websites.</li>
-                <li>We aim to facilitate easy access to these highlights while respecting copyright laws.</li>
-            </ul>
-
-            <div class="watermark">Created by UltraWebs(HM) © 2024</div>
-            <footer>F1 TV © 2024 | Designed by UW</footer>
+            <center>
+                <div class="no-results-found">No results found</div>
+            </center>
         </div>
 
-        <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
-            <div class="telegram-icon">
-                <svg viewBox="0 0 64 64">
-                    <path
-                        d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z">
-                    </path>
-                </svg>
-            </div>
-        </a>
+        <!-- Video Description Container -->
+        <div class="video-description">
+            <iframe id="current-video" style="width:100%; aspect-ratio:16 / 9; border-radius: 08px;" src=""
+                allowfullscreen></iframe>
+            <h2 id="video-title"></h2>
+            <p id="video-description"></p>
+        </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const playlistItems = document.querySelectorAll(".playlist-item");
-                const currentVideo = document.getElementById("current-video");
-                const videoTitle = document.getElementById("video-title");
-                const videoDescription = document.getElementById("video-description");
+        <h4>Watch Formula 1 in HD!</h4>
+        <ul>
+            <li>Enjoy live Formula 1 racing in ULTRA HD on UltraWebs.</li>
+            <li>Get reliable worldwide access with streaming links available 30 minutes before each race.</li>
+        </ul>
+        <h4>Disclaimer</h4>
+        <ul>
+            <li>Ultawebs provides Formula 1 race highlights for viewing.</li>
+            <li>All race highlight links on UltraWebs are sourced from freely available third-party websites.</li>
+            <li>We aim to facilitate easy access to these highlights while respecting copyright laws.</li>
+        </ul>
 
-                // Function to handle playlist item click
-                function handlePlaylistItemClick(event) {
-                    const target = event.target;
-                    const src = target.getAttribute("data-src");
-                    const title = target.getAttribute("data-title");
-                    const description = target.getAttribute("data-description");
+        <div class="watermark">Created by UltraWebs(HM) © 2024</div>
+        <footer>F1 TV © 2024 | Designed by UW</footer>
+    </div>
 
-                    // Remove 'active' class from all playlist items
-                    playlistItems.forEach(item => item.classList.remove("active"));
+    <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
+        <div class="telegram-icon">
+            <svg viewBox="0 0 64 64">
+                <path
+                    d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z">
+                </path>
+            </svg>
+        </div>
+    </a>
 
-                    // Add 'active' class to the clicked playlist item
-                    target.classList.add("active");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const playlistItems = document.querySelectorAll(".playlist-item");
+            const currentVideo = document.getElementById("current-video");
+            const videoTitle = document.getElementById("video-title");
+            const videoDescription = document.getElementById("video-description");
 
-                    // Change the video source to the clicked playlist item's source
-                    currentVideo.src = src;
+            // Function to handle playlist item click
+            function handlePlaylistItemClick(event) {
+                const target = event.target;
+                const src = target.getAttribute("data-src");
+                const title = target.getAttribute("data-title");
+                const description = target.getAttribute("data-description");
 
-                    // Update the video title and description
-                    videoTitle.textContent = title;
-                    videoDescription.textContent = description;
+                // Remove 'active' class from all playlist items
+                playlistItems.forEach(item => item.classList.remove("active"));
+
+                // Add 'active' class to the clicked playlist item
+                target.classList.add("active");
+
+                // Change the video source to the clicked playlist item's source
+                currentVideo.src = src;
+
+                // Update the video title and description
+                videoTitle.textContent = title;
+                videoDescription.textContent = description;
+            }
+
+            // Add click event listener to each playlist item
+            playlistItems.forEach(item => item.addEventListener("click", handlePlaylistItemClick));
+
+            // Set the first playlist item as active by default
+            const firstItem = playlistItems[0];
+            if (firstItem) {
+                firstItem.classList.add("active");
+                currentVideo.src = firstItem.getAttribute("data-src");
+                videoTitle.textContent = firstItem.getAttribute("data-title");
+                videoDescription.textContent = firstItem.getAttribute("data-description");
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const playlistItems = document.querySelectorAll(".playlist-item");
+            const searchInput = document.querySelector(".search-form input");
+            const noResultsFound = document.querySelector(".no-results-found");
+
+            // Function to filter playlist items based on search input
+            function filterPlaylistItems() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                let found = false;
+
+                playlistItems.forEach(item => {
+                    const title = item.getAttribute("data-title").toLowerCase();
+                    const description = item.getAttribute("data-description").toLowerCase();
+                    const isVisible = title.includes(searchTerm) || description.includes(searchTerm);
+
+                    if (isVisible) {
+                        item.style.display = "block";
+                        found = true;
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+
+                // Show or hide "No results found" message based on search results
+                if (found) {
+                    noResultsFound.style.display = "none";
+                } else {
+                    noResultsFound.style.display = "block";
+                }
+            }
+
+            // Add input event listener to the search input
+            searchInput.addEventListener("input", filterPlaylistItems);
+
+            // Initially hide the "No results found" message
+            noResultsFound.style.display = "none";
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const playlistContainer = document.querySelector('.playlist-container');
+
+            let hideScrollbarTimeout;
+
+            const hideScrollbar = () => {
+                playlistContainer.classList.add('hide-scrollbar');
+                playlistContainer.classList.remove('show-scrollbar');
+            };
+
+            const showScrollbar = () => {
+                playlistContainer.classList.remove('hide-scrollbar');
+                playlistContainer.classList.add('show-scrollbar');
+
+                if (hideScrollbarTimeout) {
+                    clearTimeout(hideScrollbarTimeout);
                 }
 
-                // Add click event listener to each playlist item
-                playlistItems.forEach(item => item.addEventListener("click", handlePlaylistItemClick));
-            });
-        </script>
+                hideScrollbarTimeout = setTimeout(hideScrollbar, 3000);
+            };
 
-    </body>
+            playlistContainer.addEventListener('scroll', showScrollbar);
+
+            // Initial hide after 3 seconds if more than 3 items
+            if (playlistContainer.children.length > 3) {
+                hideScrollbarTimeout = setTimeout(hideScrollbar, 3000);
+            }
+        });
+    </script>
+</body>
 
 </html>
