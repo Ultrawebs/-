@@ -1,0 +1,605 @@
+body {
+    font-family: "Onest", sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://ideogram.ai/assets/image/balanced/response/qVJA761cRau29Eu9hylzww');
+    background-size: cover;
+    /* Ensures the image covers the entire background */
+    background-repeat: no-repeat;
+    /* Prevents the image from repeating */
+    background-position: center center;
+    /* Centers the image */
+    background-attachment: fixed;
+    /* Ensures the background image stays fixed when scrolling */
+    position: relative;
+    /* Necessary for the pseudo-element positioning */
+    padding: 10px;
+}
+
+body::before {
+    filter: brightness(50%);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.267);
+    /* Dark semi-transparent overlay */
+    pointer-events: none;
+    /* Allows interaction with the content below */
+    z-index: -1;
+    /* Ensures the overlay is behind the content */
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    transition: opacity 0.3s ease;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+body.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+body.smooth-scrollbar {
+    scrollbar-color: #888888 transparent;
+    scrollbar-width: thin;
+}
+
+body.show-scrollbar::-webkit-scrollbar {
+    opacity: 1;
+}
+
+body.hide-scrollbar::-webkit-scrollbar {
+    opacity: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    background-color: rgba(51, 51, 51, 0.098);
+    transition: background-color 0.3s ease;
+    text-align: center;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 07px;
+}
+
+header img {
+    max-width: 100px;
+    height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    header img {
+        max-width: 80px;
+        height: auto;
+    }
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.112);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 300px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media only screen and (max-width: 768px) {
+    .search-form {
+        width: 200px;
+    }
+}
+
+.search-form:hover {
+    background-color: rgba(51, 51, 51, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    color: white;
+    fill: currentColor;
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+input {
+    font-family: "Anek Latin", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 6px 0;
+    width: 100%;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+/* Styles for the video source text container */
+#video-source-text {
+    width: 80%;
+    max-width: 800px;
+    /* Center align the container horizontally */
+    /* Semi-transparent background */
+    color: white;
+    /* White text color */
+    display: flex;
+    /* Use Flexbox to arrange children */
+    align-items: center;
+    /* Vertically center the items */
+    justify-content: space-between;
+    /* Space out the items, pushing them to the edges */
+    border-radius: 8px;
+    /* Rounded corners */
+    font-family: "Onest", sans-serif;
+    /* Use the Onest font */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Styling for the header and paragraph inside the container */
+#video-source-text h3,
+#video-source-text p {
+    margin: 0;
+    /* Remove default margin */
+    font-size: 18px;
+    /* Set the font size */
+    font-weight: bold;
+    /* Make the text bold */
+}
+
+@media only screen and (max-width: 600px) {
+    #video-source-text {
+        width: 100%;
+    }
+}
+
+#player-container {
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#playlist {
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-item {
+    font-family: "Anek Latin", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 08px;
+    margin: 04px 0;
+    backdrop-filter: blur(10px);
+    background-color: rgba(75, 75, 75, 0.178);
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 650;
+    font-size: 18px;
+}
+
+.playlist-item.active {
+    backdrop-filter: blur(10px);
+    background-color: rgba(141, 141, 141, 0.582);
+    /* Change background color for active item */
+}
+
+
+.playlist-item:hover {
+    background-color: rgba(75, 75, 75, 0.509);
+}
+
+.playlist-info {
+    display: flex;
+    align-items: center;
+}
+
+.playlist-icons {
+    display: flex;
+    align-items: center;
+}
+
+.playlist-icons span {
+    margin-left: 10px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 900;
+    background-color: white;
+    color: black;
+}
+
+.language {
+    color: black;
+    font-size: 14px;
+    width: 40px;
+    text-align: center;
+}
+
+
+@media (max-width: 600px) {
+    #player-container {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #playlist {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .playlist-item {
+        font-size: 14px;
+        margin: 02px 0;
+        padding: 8px;
+        border-radius: 03px;
+        font-weight: 700;
+    }
+}
+
+.flag-icon {
+    width: 25px;
+    height: auto;
+    margin-left: 10px;
+    border-radius: 03px;
+}
+
+.event-info {
+    display: table;
+    width: 80%;
+    max-width: 800px;
+    /* Adjust the width as needed */
+    margin-top: 10px;
+    /* Add spacing between playlist and event info */
+    backdrop-filter: blur(10px);
+    background-color: rgba(75, 75, 75, 0.178);
+    border-radius: 08px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.event-info td {
+    padding: 10px;
+}
+
+.event-logo {
+    width: 150px;
+    height: auto;
+    padding: 08px;
+    object-fit: cover;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    /* Adjust colors as needed */
+}
+
+.event-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.rating-star {
+    margin-right: 2px;
+    font-size: 12px;
+    /* Adjust the font size as needed */
+    /* Initially hide all stars */
+    color: darkgray;
+    /* Default color */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
+}
+
+.rating-star.visible {
+    display: inline;
+    /* Show stars when visible class is added */
+}
+
+.rating-star:hover,
+.rating-star.active {
+    color: gold;
+    /* Change color to gold on hover or when active */
+}
+
+.event-category {
+    font-size: 16px;
+    color: white;
+    font-weight: 100;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 600px) {
+    .event-logo {
+        width: 120px;
+    }
+
+    .event-info {
+        display: table;
+        max-width: 100%;
+        width: 100%;
+        /* Adjust the width as needed */
+        margin-top: 10px;
+        /* Add spacing between playlist and event info */
+        border-radius: 04px;
+    }
+
+    .rating-star {
+        margin-right: 2px;
+        font-size: 18px;
+        /* Adjust the font size as needed */
+        color: darkgray;
+        /* Default color */
+        cursor: pointer;
+    }
+
+    .event-name {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .event-category {
+        font-size: 16px;
+        color: white;
+        font-weight: 100;
+        margin-bottom: 30px;
+    }
+}
+
+.container2 {
+    display: flex;
+    overflow-x: auto;
+    width: 80%;
+    max-width: 800px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.container2::-webkit-scrollbar {
+    height: 5px;
+    width: 5%;
+    transition: opacity 0.3s ease;
+}
+
+.container2:-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 5px;
+}
+
+.container2:-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.container2.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.container2.smooth-scrollbar {
+    scrollbar-color: #888888 transparent;
+    scrollbar-width: thin;
+}
+
+.container2.show-scrollbar::-webkit-scrollbar {
+    opacity: 1;
+}
+
+.container2.hide-scrollbar::-webkit-scrollbar {
+    opacity: 0;
+}
+
+@keyframes scrollAnimation {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-200px * 6));
+        /* Adjust the calculation to match the width of 6 movie posters */
+    }
+}
+
+.movie-poster {
+    position: relative;
+    width: 200px;
+    /* Set a fixed width for the movie poster */
+    height: auto;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-right: 20px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(51, 51, 51, 0.098);
+    animation: scrollAnimation 50s linear infinite;
+    flex-shrink: 0;
+    /* Prevent posters from shrinking */
+}
+
+.movie-poster:hover {
+    backdrop-filter: blur(10%);
+    background-color: rgba(51, 51, 51, 0.498);
+    box-shadow: 0 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: auto;
+}
+
+.movie-poster:hover img {
+    filter: blur(2px);
+}
+
+.movie-poster:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.movie-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    display: none;
+}
+
+.movie-poster:hover .movie-info {
+    display: block;
+}
+
+.movie-info h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.movie-info p {
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .container2 {
+        width: 100%;
+    }
+}
+
+h3 {
+    color: white;
+    font-size: 1.1rem;
+}
+
+a {
+    color: yellowgreen;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p {
+    text-align: justify;
+    color: white;
+}
+
+ul {
+    list-style-type: disc;
+    /* Remove default bullet points */
+    padding-left: 05;
+    /* Remove default left padding */
+    text-align: justify;
+}
+
+li {
+    margin: 0 0 08px;
+    margin-right: 05px;
+    color: white;
+}
+
+/*Telegram floating button*/
+.telegram-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.telegram-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0088cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5);
+    }
+
+    80% {
+        box-shadow: 0 0 0 14px rgba(0, 136, 204, 0);
+    }
+}
+
+.telegram-icon svg {
+    fill: #fff;
+    width: 30px;
+    height: 30px;
+}
+
+.watermark {
+    position: baseline;
+    bottom: 10px;
+    /* Set distance from bottom of viewport */
+    text-align: right;
+    margin-right: 10px;
+    font-size: 12px;
+    color: whitesmoke;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+footer {
+    width: 100%;
+    backdrop-filter: blur(05px);
+    /* Adjust blur strength as needed */
+    background-color: rgba(51, 51, 51, 0.098);
+    /* Adjust background color and opacity */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    color: White;
+    text-align: center;
+    font-size: 16px;
+    padding: 8px 8px;
+    font-weight: bold;
+}
