@@ -302,6 +302,15 @@ button {
     height: 100%;
 }
 
+.video-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* Your existing CSS styles here */
 .video-description {
     font-family: "Anek Latin", sans-serif;
