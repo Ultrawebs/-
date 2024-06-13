@@ -55,6 +55,18 @@
                         alt="UK Flag" class="flag-icon">
                 </div>
             </div>
+            <div class="playlist-item" id="video5">
+                <div class="playlist-info">
+                    <i class="fa fa-play-circle" style="color:white; font-size:22px; margin-right:10px;"></i>
+                    iTV1 - Server 2
+                </div>
+                <div class="playlist-icons">
+                    <span class="language">English</span>
+                    <span>HD</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+                        alt="UK Flag" class="flag-icon">
+                </div>
+            </div>
             <div class="playlist-item" id="video1">
                 <div class="playlist-info">
                     <i class="fa fa-play-circle" style="color:white; font-size:22px; margin-right:10px;"></i>
@@ -220,7 +232,6 @@
         </div>
     </a>
 
-    <script src="https://cdn.jwplayer.com/libraries/your-jwplayer-library.js"></script>
     <script type="text/javascript">
         jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
         var playerInstance = jwplayer("player-container").setup({
@@ -294,6 +305,18 @@
             }]);
             playerInstance.play();
         });
+
+        // document.getElementById('video5').addEventListener('click', () => {
+        //     var iframe = document.createElement('iframe');
+        //     iframe.width = '100%';
+        //     iframe.height = 'auto';
+        //     iframe.src = 'https://www.livehdtv.net/embed/itv1/';
+        //     iframe.frameBorder = '0';
+        //     iframe.scrolling = 'no';
+        //     var playerContainer = document.getElementById('player-container');
+        //     playerContainer.innerHTML = '';
+        //     playerContainer.appendChild(iframe);
+        // });
 
         // Click event listeners for playlist items
         const playlistItems = document.querySelectorAll('.playlist-item');
@@ -443,6 +466,43 @@
                 aspectratio: "16:9",
                 width: "100%",
                 file: "https://live.notebulk.xyz/BeZ8GWqbb7Tll-ObxbkdAw/1718207986/fr_beinsports1/tracks-v1a1/mono.m3u8",
+                image: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/ITV1_logo_%282022%29.svg/225px-ITV1_logo_%282022%29.svg.png",
+                autostart: true,
+                captions: {
+                    color: "#ffb800",
+                    fontSize: 30,
+                    backgroundOpacity: 0,
+                },
+                abouttext: "Ultrawebs(HM)",
+                aboutlink: "https://linktr.ee/ultrawebs",
+                logo: {
+                    file: "",
+                    position: "bottom-right",
+                },
+                sharing: {
+                    sites: [
+                        "facebook",
+                        "twitter",
+                        "tumblr",
+                        "googleplus",
+                        {
+                            icon: "https://i.imgur.com/PL7Vp6K.png",
+                            src: "http://www.jwplayer.com/?",
+                            label: "jwplayer",
+                        },
+                    ],
+                },
+                playbackRateControls: true, // Enable playback speed controls
+            });
+        });
+
+        document.getElementById('video5').addEventListener('click', () => {
+            // Paste the provided script with modifications for the fourth video
+            jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
+            jwplayer("player-container").setup({
+                aspectratio: "16:9",
+                width: "100%",
+                file: "https://livetvde.net/itv1/index.m3u8?token=7793c45dec5b807f733e4d95a917ce8540f72c1c-794486d81277d912f6f69001ac640aac-1718271846-1718261046",
                 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/BeIN-Sports-Logo.svg/1200px-BeIN-Sports-Logo.svg.png",
                 autostart: true,
                 captions: {
