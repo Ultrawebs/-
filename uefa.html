@@ -43,19 +43,7 @@
         </div>
 
         <div id="playlist">
-            <div class="playlist-item active" id="video1">
-                <div class="playlist-info">
-                    <i class="fa fa-play-circle" style="color:white; font-size:22px; margin-right:10px;"></i>
-                    SPO TV
-                </div>
-                <div class="playlist-icons">
-                    <span class="language">English</span>
-                    <span>HD</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg"
-                        alt="South Korea Flag" class="flag-icon">
-                </div>
-            </div>
-            <div class="playlist-item" id="video2">
+            <div class="playlist-item active" id="video2">
                 <div class="playlist-info">
                     <i class="fa fa-play-circle" style="color:white; font-size:22px; margin-right:10px;"></i>
                     iTV1
@@ -65,6 +53,18 @@
                     <span>HD</span>
                     <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
                         alt="UK Flag" class="flag-icon">
+                </div>
+            </div>
+            <div class="playlist-item" id="video1">
+                <div class="playlist-info">
+                    <i class="fa fa-play-circle" style="color:white; font-size:22px; margin-right:10px;"></i>
+                    SPO TV
+                </div>
+                <div class="playlist-icons">
+                    <span class="language">English</span>
+                    <span>HD</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg"
+                        alt="South Korea Flag" class="flag-icon">
                 </div>
             </div>
             <div class="playlist-item" id="video3">
@@ -221,30 +221,37 @@
     </a>
 
     <script src="https://cdn.jwplayer.com/libraries/your-jwplayer-library.js"></script>
-            <script type="text/javascript">
-                jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
-                var playerInstance = jwplayer("player-container").setup({
-                    file: "https://linearjitp-playback.astro.com.my/dash-wv/linear/5058/default.mpd",
-                    aspectratio: '16:9',
-                    width: '100%',
-                    image: 'https://i.namu.wiki/i/0XJ6kATkQEmmTJavHekzanbNDzvg_feSbq-UEme7nbb-87hWY29WifqEByopOrOhwkBo87YwYDuYoRc6huEeLA.svg',
-                    autostart: true, // Disable autostart initially
-                    captions: { color: 'white', fontSize: '25%', backgroundOpacity: 0 },
-                    abouttext: 'Ultrawebs(HM)',
-                    aboutlink: 'https://linktr.ee/ultrawebs',
-                    sharing: {
-                        sites: ['facebook', 'twitter', 'tumblr', 'googleplus', { icon: 'https://i.imgur.com/PL7Vp6K.png', src: 'http://www.jwplayer.com/?', label: 'jwplayer' }]
-                    },
-                    "Volume": "50",
-                    "mute": false,
-                    type: "dash",
-                    drm: {
-                        "clearkey": {
-                            "keyId": "c0e1804aa1d9fd9c41c41bf0f61a5f10",
-                            "key": "758823e4eabb6e4c8c036d073db46b8c"
-                        }
-                    }
-                });
+    <script type="text/javascript">
+        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+        var playerInstance = jwplayer("player-container").setup({
+            file: "https://wp2-obc1112-live-ch-prod.prod.cdn.dmdsdp.com/dash/SV09212/manifest.mpd",
+            aspectratio: '16:9',
+            width: '100%',
+            image: 'https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/ITV1_logo_%282022%29.svg/225px-ITV1_logo_%282022%29.svg.png',
+            autostart: true,
+            captions: { color: 'white', fontSize: '25%', backgroundOpacity: 0 },
+            abouttext: 'Ultrawebs(HM)',
+            aboutlink: 'https://linktr.ee/ultrawebs',
+            logo: {
+                file: 'https://img.uefa.com/imgml/uefacom/elements/logos/competitions/dark/euro2024.svg',
+                position: 'top-left',
+                margin: '20',
+                hide: 'true',
+                size: '05%'
+            },
+            sharing: {
+                sites: ['facebook', 'twitter', 'tumblr', 'googleplus', { icon: 'https://i.imgur.com/PL7Vp6K.png', src: 'http://www.jwplayer.com/?', label: 'jwplayer' }]
+            },
+            "Volume": "50",
+            "mute": false,
+            type: "dash",
+            drm: {
+                "clearkey": {
+                    "keyId": "5d9937d586414096948337ac314d79c1",
+                    "key": "22ca2e250b729982c97209e0ff3f7e9b"
+                }
+            }
+        });
 
         document.getElementById('video1').addEventListener('click', () => {
             playerInstance.load([{
@@ -263,7 +270,7 @@
         document.getElementById('video2').addEventListener('click', () => {
             playerInstance.load([{
                 file: "https://wp2-obc1112-live-ch-prod.prod.cdn.dmdsdp.com/dash/SV09212/manifest.mpd",
-                image: '',
+                image: 'https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/ITV1_logo_%282022%29.svg/225px-ITV1_logo_%282022%29.svg.png',
                 drm: {
                     "clearkey": {
                         "keyId": "5d9937d586414096948337ac314d79c1",
