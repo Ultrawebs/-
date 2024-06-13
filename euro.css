@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
+html,
+body {
+    font-family: 'Onest', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("webpa/bg.webp");
+    background-size: cover;
+    /* Optional: adjust based on your design */
+    background-attachment: fixed;
+    /* Makes the background image fixed */
+    overflow: auto;
+    overflow-x: hidden;
+    /* Allow vertical and horizontal scrolling */
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 768px) {
+    body {
+        background-image: url("webpa/bgm.webp");
+        /* Set aspect ratio to 9:16 */
+        background-size: cover;
+        padding: 05px;
+    }
+}
+
+/* Custom scrollbar */
+body::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the scrollbar */
+    /* border-radius: 5px; */
+    /* Rounded corners */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+body::-webkit-scrollbar-track {
+    backdrop-filter: blur(10px);
+    /* Apply blur effect */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    /* Rounded corners for the thumb */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add shadow */
+    background-color: rgba(140, 140, 140, 0.308);
+    /* Thumb color */
+    transition: background-color 0.3s ease;
+    /* Smooth transition */
+}
+
+/* Hide scrollbar after 3 seconds */
+body.hide-scrollbar::-webkit-scrollbar {
+    scrollbar-width: thin;
+}
+
+body.hide-scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    /* Hide thumb */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    background-color: rgba(51, 51, 51, 0.098);
+    transition: background-color 0.3s ease;
+    text-align: center;
+    padding: 07px 10px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 07px;
+}
+
+header img {
+    max-width:100px;
+    height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    header img  {
+        max-width: 80px;
+        height: auto;
+    }
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.112);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 300px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media only screen and (max-width: 768px) {
+    .search-form {
+        width: 200px;
+    }
+}
+
+.search-form:hover {
+    background-color: rgba(51, 51, 51, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    color: white;
+    fill: currentColor;
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+input {
+    font-family: "Anek Latin", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 6px 0;
+    width: 100%;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+#container {
+    color: white;
+    padding: 03px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(51, 51, 51, 0.098);
+    margin: 0 auto;
+}
+
+/* Media query for larger screens (desktop) */
+@media only screen and (min-width: 601px) {
+    #container {
+        max-width: 75%;
+        padding: 10px;
+        /* Set width to 80% for desktop */
+    }
+}
+
+/* Media query for smaller screens (mobile) */
+@media only screen and (max-width: 600px) {
+    #container {
+        max-width: 100%;
+        /* Set initial width to 100% for mobile */
+    }
+}
+
+.container2 {
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+    /* Adjusted max-width */
+    /* Subtracting 20px for the grid-gap from the parent container's width */
+    padding: 0;
+    /* Remove padding */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 2fr));
+    grid-gap: 20px;
+    max-height: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(140, 140, 140, 0.308) transparent;
+    transition: scrollbar-width 0.3s ease;
+    animation: hideScrollbar 4s forwards;
+    /* Add margin-bottom to create space between last poster and disclaimer */
+}
+
+
+/* Add media query for smaller screens */
+/* Adjust grid layout for smaller screens */
+@media only screen and (max-width: 600px) {
+    .container2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 85%;
+        padding: 0;
+        /* Remove padding */
+        grid-gap: 15px;
+        margin: 0 auto;
+    }
+}
+
+.movie-poster {
+    position: relative;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    /* Adjust blur strength as needed */
+    background-color: rgba(51, 51, 51, 0.098);
+    /* Adjust background color and opacity */
+    box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    /* Soft shadow for embossed effect */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    /* Transition effect for smoother animation */
+}
+
+.search-result-container .movie-poster {
+    width: 50%;
+    /* Adjust this value to set the desired smaller size */
+}
+
+.movie-poster:hover {
+    backdrop-filter: blur(10%);
+    /* Adjust blur strength as needed */
+    background-color: rgba(51, 51, 51, 0.498);
+    /* Adjust background color and opacity */
+    box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: auto;
+}
+
+/* Display movie info and apply blur effect to poster image on hover */
+.movie-poster:hover img {
+    filter: blur(2px);
+    /* Adjust blur strength as needed */
+}
+
+.movie-poster:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Add a drop shadow */
+}
+
+.movie-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    display: none;
+}
+
+.movie-poster:hover .movie-info {
+    display: inline-block;
+}
+
+.movie-info h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.movie-info p {
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+.flag {
+    position: absolute;
+    bottom: 07px;
+    /* Adjust the distance from the bottom */
+    right: 07px;
+    /* Adjust the distance from the right */
+}
+
+.flag img {
+    width: 30px;
+    /* Adjust the width of the flag image */
+    height: auto;
+    border-radius: 3px;
+    /* Optional: for rounded corners */
+}
+
+.watermark {
+    position: baseline;
+    bottom: 10px;
+    /* Set distance from bottom of viewport */
+    text-align: right;
+    margin-right: 10px;
+    font-size: 12px;
+    color: whitesmoke;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+footer {
+    width: auto;
+    backdrop-filter: blur(05px);
+    /* Adjust blur strength as needed */
+    background-color: rgba(51, 51, 51, 0.098);
+    /* Adjust background color and opacity */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    color: White;
+    text-align: center;
+    font-size: 16px;
+    padding: 8px 8px;
+    font-weight: bold;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0 0 10px;
+}
+
+h1 {
+    font-size: 1.7rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    color: white;
+    font-size: 1.1rem;
+}
+
+a {
+    color: yellowgreen;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p {
+    text-align: justify;
+}
+
+ul {
+    list-style-type: disc;
+    /* Remove default bullet points */
+    padding-left: 05;
+    /* Remove default left padding */
+    text-align: justify;
+}
+
+li {
+    margin: 0 0 08px;
+    margin-right: 05px;
+}
+
+/*Telegram floating button*/
+.telegram-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.telegram-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0088cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5);
+    }
+
+    80% {
+        box-shadow: 0 0 0 14px rgba(0, 136, 204, 0);
+    }
+}
+
+.telegram-icon svg {
+    fill: #fff;
+    width: 30px;
+    height: 30px;
+}
+
+/* Remove glow effect from the F1 widget */
+.f1widget-container {
+    box-shadow: none !important;
+}
+
+#searchResults {
+    display: none;
+    backdrop-filter: blur(10px);
+    background-color: rgba(51, 51, 51, 0.098);
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    color: red;
+}
+
+#searchResults .movie-poster {
+    width: 120px;
+    margin: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Responsive adjustments for larger screens */
+@media screen and (min-width: 768px) {
+    #searchResults .movie-poster {
+        width: calc(20% - 20px); /* Adjust width for larger screens, maintaining margin */
+        margin: 10px; /* Increase margin for better spacing */
+    }
+
+    #searchResults .movie-info h2 {
+        font-size: 16px;
+    }
+    
+    #searchResults .flag {
+        position: absolute;
+        bottom: 8px; /* Adjusted margin value */
+        right: 8px; /* Adjusted margin value */
+    }
+    
+    #searchResults .flag img {
+        width: 30px;
+        height: auto;
+        border-radius: 1px;
+    }
+}
+
+#searchResults .movie-info h2 {
+    font-size: 14px;
+}
+
+#searchResults .flag {
+    position: absolute;
+    bottom: 4px; /* Adjusted margin value */
+    right: 4px; /* Adjusted margin value */
+}
+
+#searchResults .flag img {
+    width: 15px;
+    height: auto;
+    border-radius: 1px;
+}
+
+#noResultsMessage {
+    display: none;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
