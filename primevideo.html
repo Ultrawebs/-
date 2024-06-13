@@ -418,6 +418,19 @@
                             alt="USA Flag" class="flag-icon">
                     </div>
                 </div>
+                <div class="playlist-item" id="video4">
+                    <div class="playlist-info">
+                        <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
+                        Amazon Prime Video - 25 FPS
+                    </div>
+                    <div class="playlist-icons">
+                        <span class="language">English</span>
+                        <span>HD</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                            alt="USA Flag" class="flag-icon">
+                    </div>
+                </div>
+            </div>
 
         </center>
 
@@ -482,6 +495,20 @@
                         "clearkey": {
                             "keyId": "c467960712b92d436df3293a1cd9b9c5",
                             "key": "04794df98011b6577af406594d831ef7"
+                        }
+                    }
+                }]);
+                playerInstance.play();
+            });
+
+            document.getElementById('video4').addEventListener('click', () => {
+                playerInstance.load([{
+                    file: "https://aba5sdmaaaaaaaamkycwliah6buj4.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/tgcrfjcgia/out/v1/7296f026409c4e9ba8844a238628f9ad/cenc.mpd",
+                    image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
+                    drm: {
+                        "clearkey": {
+                            "keyId": "d1badeadb11f16bbd0ad7d47914d939e",
+                            "key": "bd52d185d3537c4c1759db6d66f90f31"
                         }
                     }
                 }]);
