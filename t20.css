@@ -259,6 +259,7 @@ header img {
     font-weight: 800;
     color: white;
     transition: filter 0.3s ease;
+    text-align: end; /* Aligns the text to the right */
 }
 
 /* Media query for mobile screens */
