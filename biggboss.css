@@ -92,6 +92,9 @@ header img {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 05px;
+    }
     header img {
         max-width: auto;
         height: auto;
