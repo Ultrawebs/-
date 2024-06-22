@@ -86,7 +86,7 @@ header {
 
 header img {
     max-width: auto;
-    max-height: 20px;
+    max-height: 35px;
     /* filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg); */
 }
 
