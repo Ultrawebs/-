@@ -4,17 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="biggboss.css">
-    <script src="https://ssl.p.jwpcdn.com/player/v/8.33.2/jwplayer.js" type="text/javascript"></script>
-    <link rel="icon" type="image/png" href="https://www.jiocinema.com/favicon.ico" sizes="128x128">
-    <title>Bigg Boss OTT S03</title>
+    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
 </head>
 
 <body>
     <div id="container">
         <header>
-            <img src="https://i.imgur.com/LkXPxib.png" alt="Logo"> <p style="font-weight: 900;">|</p> <img src="https://i.imgur.com/Km8Hkng.png" alt="Logo">
+            <img src="https://i.imgur.com/LkXPxib.png" alt="Logo">
+            <p style="font-weight: 900;">|</p> <img src="https://i.imgur.com/Km8Hkng.png" alt="Logo">
         </header>
 
         <div id="containerr3">
@@ -34,11 +35,11 @@
         <center>
             <div class="playlist-container">
                 <a class="playlist-tab active"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/hd_akamai_androidmob_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/wKAMh9J.jpeg', true)">
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/hd_akamai_androidmob_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
                     Main Camera (HD)
                 </a>
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/uhd_akamai_atv_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/wKAMh9J.jpeg', true)">
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/uhd_akamai_atv_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
                     Main Camera (4K)
                 </a>
             </div>
@@ -58,19 +59,21 @@
             </form>
         </div>
 
-        <div id="container2" class="container2">
-            <div class="movie-poster" onclick="window.open('https://t.me/c/1517188687/1073', '_blank')">
-                <img src="https://i.imgur.com/TvOGDz8.jpeg" alt="Movie Poster" loading="lazy">
-                <div class="card-meta">
-                    <div class="badge badge-outline">Bigg Boss OTT S3 - Grand Premiere</div>
-                    <div class="duration">
-                        <ion-icon name="time-outline" role="img" class="md hydrated"
-                            aria-label="time outline"></ion-icon>
-                        <time datetime="PT122M">S3E1 ∙ Reality ∙ Hindi</time>
+        <center>
+            <div id="container2" class="container2">
+                <div class="movie-poster" onclick="window.open('https://t.me/c/1517188687/1073', '_blank')">
+                    <img src="https://i.imgur.com/TvOGDz8.jpeg" alt="Movie Poster" loading="lazy">
+                    <div class="card-meta">
+                        <div class="badge badge-outline">Bigg Boss OTT S3 - Grand Premiere</div>
+                        <div class="duration">
+                            <ion-icon name="time-outline" role="img" class="md hydrated"
+                                aria-label="time outline"></ion-icon>
+                            <time datetime="PT122M">S3E1 ∙ Reality ∙ Hindi</time>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </center>
         <div class="watermark">Created by UltraWebs(HM) © 2024</div>
         <footer>BBOTT3 © 2024 | Designed by UW</footer>
     </div>
@@ -116,7 +119,7 @@
                 playbackRateControls: true
             });
         }
-        playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/hd_akamai_androidmob_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/wKAMh9J.jpeg', true);
+        playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/hd_akamai_androidmob_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true);
     </script>
 
     <script>
@@ -129,25 +132,20 @@
     </script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const searchInput = document.getElementById('searchInput');
+        document.getElementById('searchInput').addEventListener('input', function (event) {
+            const searchValue = event.target.value.toLowerCase();
             const posters = document.querySelectorAll('.movie-poster');
 
-            searchInput.addEventListener('input', function () {
-                const searchTerm = searchInput.value.trim().toLowerCase();
+            posters.forEach(poster => {
+                const cardMeta = poster.querySelector('.card-meta').innerText.toLowerCase();
+                const badge = poster.querySelector('.badge-outline').innerText.toLowerCase();
+                const duration = poster.querySelector('.duration').innerText.toLowerCase();
 
-                posters.forEach(poster => {
-                    const title = poster.getAttribute('data-title').toLowerCase();
-                    const cardMeta = poster.querySelector('.card-meta').textContent.toLowerCase();
-                    const duration = poster.querySelector('.duration').textContent.toLowerCase();
-                    const badge = poster.querySelector('.badge.badge-outline').textContent.toLowerCase();
-
-                    if (title.includes(searchTerm) || cardMeta.includes(searchTerm) || duration.includes(searchTerm) || badge.includes(searchTerm)) {
-                        poster.style.display = 'block';
-                    } else {
-                        poster.style.display = 'none';
-                    }
-                });
+                if (cardMeta.includes(searchValue) || badge.includes(searchValue) || duration.includes(searchValue)) {
+                    poster.style.display = 'block';
+                } else {
+                    poster.style.display = 'none';
+                }
             });
         });
     </script>
