@@ -36,11 +36,11 @@
         <center>
             <div class="playlist-container">
                 <a class="playlist-tab active"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/hd_akamai_androidmob_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/hd_akamai_androidmob_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/6NXQCzo.jpeg', true)">
                     Main Camera (HD)
                 </a>
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/uhd_akamai_atv_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/uhd_akamai_atv_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/6NXQCzo.jpeg', true)">
                     Main Camera (4K)
                 </a>
             </div>
@@ -120,7 +120,7 @@
                 playbackRateControls: true
             });
         }
-        playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/hd_akamai_androidmob_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true);
+        playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2105483/hd_akamai_androidmob_avc_24x7_bbhindi_day01/master.m3u8', 'https://i.imgur.com/6NXQCzo.jpeg', true);
     </script>
 
     <script>
@@ -170,6 +170,35 @@
 
             playlistTabs.forEach(tab => tab.addEventListener("click", handlePlaylistTabClick));
         });
+
+            // Function to prevent right-click menu
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    });
+
+    // Function to prevent keyboard shortcuts
+    document.onkeydown = function (e) {
+        // Disable F12 key
+        if (event.keyCode == 123) {
+            return false;
+        }
+        // Disable Ctrl+Shift+I key combination
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+        // Disable Ctrl+Shift+J key combination
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+            return false;
+        }
+        // Disable Ctrl+Shift+U key combination
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+        // Disable Ctrl+C key combination
+        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+    };
     </script>
 
 </body>
