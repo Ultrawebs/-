@@ -87,7 +87,7 @@ header {
 header img {
     max-width: auto;
     height: auto;
-    max-height: 40px;
+    max-height: 80px;
     /* filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg); */
 }
 
@@ -133,7 +133,7 @@ img {
 
 @media only screen and (max-width: 800px) {
     .search-form {
-        width: 200px;
+        width: 230px;
         height: auto;
     }
 }
@@ -231,36 +231,27 @@ button {
 }
 
 .container2 {
-    max-width: calc(100% - 20px);
-    /* Adjusted max-width */
-    /* Subtracting 20px for the grid-gap from the parent container's width */
-    padding: 0;
-    /* Remove padding */
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
     grid-gap: 25px;
-    max-height: calc(100vh - 100px);
-    scrollbar-width: thin;
-    scrollbar-color: rgba(140, 140, 140, 0.308) transparent;
-    transition: scrollbar-width 0.3s ease;
-    animation: hideScrollbar 4s forwards;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Add media query for smaller screens */
-/* Adjust grid layout for smaller screens */
 @media only screen and (max-width: 600px) {
     .container2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         max-width: 85%;
         padding: 0;
-        /* Remove padding */
         grid-gap: 25px;
-        margin: 0 auto;
     }
 }
 
 .movie-poster {
-    padding: 08px;
+    padding: 8px;
     position: relative;
     width: 100%;
     height: auto;
@@ -268,33 +259,26 @@ button {
     overflow: hidden;
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    /* Adjust blur strength as needed */
     background-color: rgba(255, 255, 255, 0.112);
-    /* Adjust background color and opacity */
-    box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-    /* Soft shadow for embossed effect */
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
-    /* Transition effect for smoother animation */
 }
 
 .movie-poster:hover {
     backdrop-filter: blur(10%);
-    /* Adjust blur strength as needed */
     background-color: rgba(51, 51, 51, 0.498);
-    /* Adjust background color and opacity */
-    box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .movie-poster img {
     width: 100%;
     height: auto;
-    border-radius: 05px;
+    border-radius: 5px;
+    margin-top: 0px;
 }
 
 .movie-poster:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    /* Add a drop shadow */
 }
 
 .movie-info {
@@ -302,7 +286,7 @@ button {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     color: #fff;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
@@ -312,6 +296,7 @@ button {
 .movie-info h2 {
     margin: 0;
     font-size: 20px;
+    text-align: start;
 }
 
 .movie-info p {
@@ -471,17 +456,17 @@ li {
 
 .badge {
     border-radius: 4px;
-    margin-bottom: 5px;
-    margin-top: 03px;
+    margin-top: 05px;
     font-size: 15px;
     font-weight: 700;
+    text-align: start;
 }
 
 .duration {
     display: flex;
     align-items: center;
     color: white;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: lighter;
 }
 
