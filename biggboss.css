@@ -67,7 +67,7 @@ body.hide-scrollbar::-webkit-scrollbar-thumb {
 
 header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     color: #fff;
     backdrop-filter: blur(10px);
@@ -76,19 +76,50 @@ header {
     /* Adjust background color and opacity */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    text-align: center;
-    padding: 08px;
+    padding: 12px 25px;
     box-sizing: border-box;
     max-width: 100%;
     overflow: hidden;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 header img {
     max-width: auto;
     height: auto;
-    max-height: 80px;
-    /* filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg); */
+    max-height: 50px;
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+header .logo-container p {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: 0 10px;
+}
+
+header button {
+    width: auto;
+    padding: 0 3px;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    border-radius: 2px;
+    color: black;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.74);
+    transition: box-shadow 0.6s ease, background-color 0.6s ease, color 0.6s ease;
+    flex-shrink: 0;
+    margin-left: 20px;
+    font-weight: 900;
+}
+
+header button:hover {
+    color: #fff;
+    background-color: rgba(60, 59, 59, 0.25);
 }
 
 @media (max-width: 768px) {
