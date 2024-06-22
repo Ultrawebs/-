@@ -15,8 +15,12 @@
 <body>
     <div id="container">
         <header>
-            <img src="https://i.imgur.com/LkXPxib.png" alt="Logo">
-            <p style="font-weight: 900;">|</p> <img src="https://i.imgur.com/Km8Hkng.png" alt="Logo">
+            <div class="logo-container">
+                <img src="https://i.imgur.com/LkXPxib.png" alt="Logo">
+                <p>|</p>
+                <img src="https://i.imgur.com/Km8Hkng.png" alt="Logo">
+            </div>
+            <button class="btn btn-primary" onclick="redirect()">Episodes</button>
         </header>
 
         <div id="containerr3">
@@ -60,21 +64,19 @@
             </form>
         </div>
 
-        <center>
-            <div id="container2" class="container2">
-                <div class="movie-poster" onclick="window.open('https://t.me/c/1517188687/1073', '_blank')">
-                    <img src="https://i.imgur.com/TvOGDz8.jpeg" alt="Movie Poster" loading="lazy">
-                    <div class="card-meta">
-                        <div class="badge badge-outline">Bigg Boss OTT S3 - Grand Premiere</div>
-                        <div class="duration">
-                            <ion-icon name="time-outline" role="img" class="md hydrated"
-                                aria-label="time outline"></ion-icon>
-                            <time datetime="PT122M">S3E1 ∙ Reality ∙ Hindi</time>
-                        </div>
+        <div id="container2" class="container2">
+            <div class="movie-poster" onclick="window.open('https://t.me/c/1517188687/1073', '_blank')">
+                <img src="https://i.imgur.com/TvOGDz8.jpeg" alt="Movie Poster" loading="lazy">
+                <div class="card-meta">
+                    <div class="badge badge-outline">Bigg Boss OTT S3 - Grand Premiere</div>
+                    <div class="duration">
+                        <ion-icon name="time-outline" role="img" class="md hydrated"
+                            aria-label="time outline"></ion-icon>
+                        <time datetime="PT122M">S3E1 ∙ Reality ∙ Hindi</time>
                     </div>
                 </div>
             </div>
-        </center>
+        </div>
         <div class="watermark">Created by UltraWebs(HM) © 2024</div>
         <footer>BBOTT3 © 2024 | Designed by UW</footer>
     </div>
@@ -133,6 +135,13 @@
     </script>
 
     <script>
+        // Function to redirect to container 2 section
+        function redirect() {
+            document.getElementById("container2").scrollIntoView();
+        }
+    </script>
+
+    <script>
         document.getElementById('searchInput').addEventListener('input', function (event) {
             const searchValue = event.target.value.toLowerCase();
             const posters = document.querySelectorAll('.movie-poster');
@@ -171,34 +180,34 @@
             playlistTabs.forEach(tab => tab.addEventListener("click", handlePlaylistTabClick));
         });
 
-            // Function to prevent right-click menu
-    document.addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-    });
+        // Function to prevent right-click menu
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
 
-    // Function to prevent keyboard shortcuts
-    document.onkeydown = function (e) {
-        // Disable F12 key
-        if (event.keyCode == 123) {
-            return false;
-        }
-        // Disable Ctrl+Shift+I key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+Shift+J key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+Shift+U key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+C key combination
-        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-    };
+        // Function to prevent keyboard shortcuts
+        document.onkeydown = function (e) {
+            // Disable F12 key
+            if (event.keyCode == 123) {
+                return false;
+            }
+            // Disable Ctrl+Shift+I key combination
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            // Disable Ctrl+Shift+J key combination
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            // Disable Ctrl+Shift+U key combination
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+            // Disable Ctrl+C key combination
+            if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+        };
     </script>
 
 </body>
