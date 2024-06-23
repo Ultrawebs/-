@@ -290,24 +290,32 @@ button {
         padding: 0;
         grid-gap: 25px;
     }
-
-    .movie-poster {
-        width: 100%;
-        height: auto;
-    }
 }
 
 .movie-poster {
     padding: 8px;
     position: relative;
     width: 100%;
-    height: 200px;
+    height: auto;
     cursor: pointer;
     overflow: hidden;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.112);
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+@media only screen and (max-width: 600px) {
+    .movie-poster {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .movie-poster {
+        height: 200px;
+    }
 }
 
 .movie-poster:hover {
