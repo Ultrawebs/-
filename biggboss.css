@@ -292,11 +292,12 @@ button {
     }
 }
 
+/* Default styles for all screens */
 .movie-poster {
     padding: 8px;
     position: relative;
     width: 100%;
-    height: auto; /* Default height for mobile and smaller screens */
+    height: auto; /* Default height */
     cursor: pointer;
     overflow: hidden;
     border-radius: 10px;
@@ -305,7 +306,15 @@ button {
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-@media screen and (min-width: 1024px) {
+/* Styles for mobile screens */
+@media screen and (max-width: 767px) {
+    .movie-poster {
+        height: auto; /* Height for mobile screens */
+    }
+}
+
+/* Styles for larger laptop screens */
+@media screen and (min-width: 768px) {
     .movie-poster {
         height: 200px; /* Height for larger laptop screens */
     }
