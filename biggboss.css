@@ -296,13 +296,19 @@ button {
     padding: 8px;
     position: relative;
     width: 100%;
-    height: auto;
+    height: auto; /* Default height for mobile and smaller screens */
     cursor: pointer;
     overflow: hidden;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.112);
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+@media screen and (min-width: 1024px) {
+    .movie-poster {
+        height: 200px; /* Height for larger laptop screens */
+    }
 }
 
 .movie-poster:hover {
