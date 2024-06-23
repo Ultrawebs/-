@@ -290,6 +290,11 @@ button {
         padding: 0;
         grid-gap: 25px;
     }
+
+    .movie-poster {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .movie-poster {
