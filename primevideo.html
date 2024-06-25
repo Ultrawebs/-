@@ -128,16 +128,24 @@
             }
         }
 
-        #player-container {
-            border-radius: 05px;
-            overflow: hidden;
-            /* Center align the container */
-            margin: 0 auto;
-            /* Set initial width to 100% for mobile */
-            max-width: 80%;
-            margin-bottom: 05px;
-            margin-top: 10px;
-        }
+#player-container {
+    border-radius: 5px;
+    overflow: hidden;
+    /* Center align the container */
+    margin: 0 auto;
+    /* Set initial width to 100% for mobile */
+    max-width: 80%;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+/* Fullscreen styles */
+#player-container:fullscreen {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+}
+
 
         @media only screen and (max-width: 600px) {
             #player-container {
