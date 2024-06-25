@@ -136,8 +136,6 @@
             margin: 0 auto;
             /* Set initial width to 100% for mobile */
             max-width: 100%;
-            margin-bottom: 05px;
-            margin-top: 10px;
         }
 
         @media only screen and (max-width: 600px) {
@@ -146,21 +144,12 @@
                 /* Set initial width to 100% for mobile */
             }
         }
-        
+
         @media only screen and (min-width: 3840px) {
             #player-container {
                 max-width: 100%;
                 /* Set initial width to 100% for 4K TV */
             }
-        }
-        
-        #video {
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%;
-            /* 16:9 aspect ratio (9 / 16 * 100) */
-            border-radius: 10px;
-            object-fit: cover;
         }
 
         .watermark {
@@ -275,6 +264,7 @@
             flex-direction: column;
             margin-bottom: 10px;
             justify-content: center;
+            margin-top: 10px;
         }
 
         .playlist-item {
@@ -379,11 +369,13 @@
                 src="https://m.media-amazon.com/images/G/01/digital/video/acquisition/web_footer_logo._CB462908456_.png" />
         </header>
 
-        <center style="color: red;margin-top: 08px;font-weight: bold;">
+        <center style="color: red;margin-top: 08px;font-weight: bold;padding-bottom: 10px;">
             Please wait for 30 seconds, the video will start playing
             automatically.
+        </center>
 
 
+        <center>
             <div id="player-container"></div>
 
             <div id="playlist">
@@ -438,7 +430,6 @@
                     </div>
                 </div>
             </div>
-
         </center>
 
         <script type="text/javascript">
