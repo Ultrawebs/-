@@ -134,13 +134,18 @@
             overflow: hidden;
             /* Center align the container */
             margin: 0 auto;
-            /* Set initial width to 100% for mobile */
-            max-width: 100%;
         }
 
         @media only screen and (max-width: 600px) {
             #player-container {
                 max-width: 100%;
+                /* Set initial width to 100% for mobile */
+            }
+        }
+
+        @media only screen and (min-width: 60px) {
+            #player-container {
+                max-width: 75%;
                 /* Set initial width to 100% for mobile */
             }
         }
