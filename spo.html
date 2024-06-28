@@ -383,7 +383,7 @@
                 <div class="playlist-item active" id="video1">
                     <div class="playlist-info">
                         <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
-                        SPO TV - Server 1
+                        SPO TV - Stadia
                     </div>
                     <div class="playlist-icons">
                         <span class="language">English</span>
@@ -396,7 +396,20 @@
                 <div class="playlist-item" id="video2">
                     <div class="playlist-info">
                         <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
-                        SPO TV - Server 2
+                        SPO TV - Stadia 2
+                    </div>
+                    <div class="playlist-icons">
+                        <span class="language">English</span>
+                        <span>HD</span>
+                        <img src="https://cdn.britannica.com/49/1949-004-8818300C/Flag-South-Korea.jpg"
+                            alt="South Korea Flag" class="flag-icon">
+
+                    </div>
+                </div>
+                <div class="playlist-item" id="video3">
+                    <div class="playlist-info">
+                        <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
+                        SPO TV - Server 3
                     </div>
                     <div class="playlist-icons">
                         <span class="language">English</span>
@@ -450,6 +463,20 @@
             });
 
             document.getElementById('video2').addEventListener('click', () => {
+                playerInstance.load([{
+                    file: "https://linearjitp-playback.astro.com.my/dash-wv/dashiso/5149/default.mpd",
+                    image: 'https://i.namu.wiki/i/0XJ6kATkQEmmTJavHekzanbNDzvg_feSbq-UEme7nbb-87hWY29WifqEByopOrOhwkBo87YwYDuYoRc6huEeLA.svg',
+                    drm: {
+                        "clearkey": {
+                            "keyId": "f7ae1dc71cc58fb876b4e659174f9c10",
+                            "key": "d6739aee6c76741763992d37cc66f1b8"
+                        }
+                    }
+                }]);
+                playerInstance.play();
+            });
+
+            document.getElementById('video3').addEventListener('click', () => {
                 playerInstance.load([{
                     file: "https://linearjitp-playback.astro.com.my/dash-wv/linear/5058/default.mpd",
                     image: 'https://i.namu.wiki/i/0XJ6kATkQEmmTJavHekzanbNDzvg_feSbq-UEme7nbb-87hWY29WifqEByopOrOhwkBo87YwYDuYoRc6huEeLA.svg',
