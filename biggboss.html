@@ -229,7 +229,7 @@
     <script>
         // Function to redirect to row-container section
         function redirect() {
-            document.getElementById("row-container").scrollIntoView();
+            document.querySelector(".row-container").scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 
