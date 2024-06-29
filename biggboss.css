@@ -590,8 +590,8 @@ li {
 }
 
 .bmc-icon {
-    background-color: #FFDD00;
-    /* Yellow background for Buy Me a Coffee */
+    background-color: #ff813f;
+    /* Yellow background for Buy Me a Coffee #FFDD00*/
     animation: pulse-yellow 1.5s infinite ease-out;
 }
 
