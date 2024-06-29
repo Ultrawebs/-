@@ -549,11 +549,11 @@ li {
     width: 28px; /* Adjust SVG width */
     height: 28px; /* Adjust SVG height */
     fill: #010101; /* SVG fill color */
-    transition: transform 0.8s ease; /* Smooth transition for rotation */
+    transition: transform 0.5s ease; /* Smooth transition for rotation */
 }
 
 .toggle-button.active svg {
-    transform: rotate(360deg); /* Rotate 360 degrees when active */
+    transform: rotate(260deg); /* Rotate 360 degrees when active */
 }
 
 .telegram-float,
