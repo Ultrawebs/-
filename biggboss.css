@@ -574,8 +574,8 @@ li {
 
 .telegram-icon,
 .bmc-icon {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -598,15 +598,14 @@ li {
 .telegram-icon svg {
     fill: #fff;
     /* White color for Telegram icon */
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 }
 
 .bmc-icon svg {
-    fill: #000;
     /* Black color for Buy Me a Coffee icon */
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
 }
 
 .show {
