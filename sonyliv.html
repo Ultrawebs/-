@@ -2,176 +2,127 @@
 <html lang="en">
 
 <head>
-    <title>Sony Liv</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <link rel="stylesheet" href="t20.css">
     <link rel="icon" type="image/png" href="https://brand-websites-prod.s3.ap-south-1.amazonaws.com/sonypicturesnetworksindia/favicon/favicon-32x32.png" sizes="128x128">
-    <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    <title>Sony Liv</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap');
 
-        gtag('config', 'G-DVMMJVP33N');
-    </script>
+        body {
+            font-family: "Onest", sans-serif;
+            margin: 20px;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+            color: #ffffff;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .channel-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .channel {
+            text-decoration: none;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .channel img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 20px 10px;
+        }
+
+        .channel-title {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="container">
+    <h1>Sony TV Channels</h1>
 
-        <div class="iframe-container">
-            <iframe src="https://bwidget.crictimes.org/" scrolling="yes"></iframe>
-        </div>
+    <div class="channel-container">
+        <!-- Sony HD -->
+        <a class="channel" href="https://pubads.g.doubleclick.net/ssai/event/HgaB-u6rSpGx3mo4Xu3sLw/master.m3u8"
+            target="_blank">
+            <img src="https://www.sonypicturesnetworks.com/images/logos/SET-LOGO-HD.png" alt="Sony HD Logo">
+            <div class="channel-title">Sony HD (IN)</div>
+            
+        </a>
 
-        <br />
+        <!-- Sony SAB -->
+        <a class="channel" href="https://pubads.g.doubleclick.net/ssai/event/UI4QFJ_uRk6aLxIcADqa_A/master.m3u8"
+            target="_blank">
+            <img src="https://www.sonypicturesnetworks.com/images/logos/SONY%20SAB%20HD_WHITE.png" alt="Sony SAB Logo">
+            <div class="channel-title">Sony SAB (IN)</div>
+            
+        </a>
 
-        <div class="container2">
+        <!-- Sony PAL -->
+        <a class="channel" href="https://pubads.g.doubleclick.net/ssai/event/rPzF28qORbKZkhci_04fdQ/master.m3u8"
+            target="_blank">
+            <img src="https://www.sonypicturesnetworks.com/images/logos/SONY%20PAL.png" alt="Sony PAL Logo">
+            <div class="channel-title">Sony PAL (IN)</div>
+            
+        </a>
 
-            <div class="movie-poster" onclick="window.location.href='https://dai.google.com/linear/hls/event/QNEZiPzpTXucyrbpCjdZTw/master.m3u8'">
-                <img src="https://origin-staticv2.sonyliv.com/UI_icons/fallback_sonyliv_logo.png" style="width: 70%; padding-left: 15%; padding-top: 15%; margin-bottom: 15%;" alt="Movie Poster" loading="lazy">
-                <div class="movie-info">
-                    <h2>Sony Liv English</h2>
-                    <p>Global</p>
-                </div>
-                <!-- Add the flag image div -->
-                <div class="flag">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
-                        alt="Country Flag">
-                </div>
-                <div class="card-meta">
-                    <div class="badge badge-outline">HD</div>
-                    <div class="duration">
-                        <ion-icon name="time-outline" role="img" class="md hydrated"
-                            aria-label="time outline"></ion-icon>
-                        <time datetime="PT122M">ENGLISH</time>
-                    </div>
-                </div>
-            </div>
+        <!-- Sony YAY -->
+        <a class="channel" href="https://pubads.g.doubleclick.net/ssai/event/40H5HfwWTZadFGYkBTqagg/master.m3u8"
+            target="_blank">
+            <img src="https://www.sonypicturesnetworks.com/images/logos/SONY%20YAY.png" alt="Sony YAY Logo">
+            <div class="channel-title">Sony YAY (IN)</div>
+            
+        </a>
 
-            <div class="movie-poster" onclick="window.location.href='https://dai.google.com/linear/hls/event/g1cPcUIdSQC_3FXsrgV5iA/master.m3u8'">
-                <img src="https://origin-staticv2.sonyliv.com/UI_icons/fallback_sonyliv_logo.png" style="width: 70%; padding-left: 15%; padding-top: 15%; margin-bottom: 15%;" alt="Movie Poster" loading="lazy">
-                <div class="movie-info">
-                    <h2>Sony Liv Hindi</h2>
-                    <p>Global</p>
-                </div>
-                <!-- Add the flag image div -->
-                <div class="flag">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
-                        alt="Country Flag">
-                </div>
-                <div class="card-meta">
-                    <div class="badge badge-outline">HD</div>
-                    <div class="duration">
-                        <ion-icon name="time-outline" role="img" class="md hydrated"
-                            aria-label="time outline"></ion-icon>
-                        <time datetime="PT122M">HINDI</time>
-                    </div>
-                </div>
-            </div>
+        <!-- Sony TEN 1 -->
+        <a class="channel" href="https://pubads.g.doubleclick.net:443/ssai/event/yeYP86THQ4yl7US8Zx5eug/master.m3u8"
+            target="_blank">
+            <img src="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen1_HD_Logo_CLR.png"
+                alt="Sony TEN 1 Logo">
+            <div class="channel-title">Sony TEN 1 (IN)</div>
+            
+        </a>
 
-            <div class="movie-poster" onclick="window.location.href='https://dai.google.com/linear/hls/event/eEwI596iRF2eKZ8hMz0Giw/master.m3u8'">
-                <img src="https://origin-staticv2.sonyliv.com/UI_icons/fallback_sonyliv_logo.png" style="width: 70%; padding-left: 15%; padding-top: 15%; margin-bottom: 15%;" alt="Movie Poster" loading="lazy">
-                <div class="movie-info">
-                    <h2>Sony Liv</h2>
-                    <p>Global</p>
-                </div>
-                <!-- Add the flag image div -->
-                <div class="flag">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
-                        alt="Country Flag">
-                </div>
-                <div class="card-meta">
-                    <div class="badge badge-outline">HD</div>
-                    <div class="duration">
-                        <ion-icon name="time-outline" role="img" class="md hydrated"
-                            aria-label="time outline"></ion-icon>
-                        <time datetime="PT122M">TAMIL<br/>TELUGU</time>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
+        <!-- Sony TEN 2 -->
+        <a class="channel" href="https://pubads.g.doubleclick.net:443/ssai/event/Syu8F41-R1y_JmQ7x0oNxQ/master.m3u8"
+            target="_blank">
+            <img src="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen2_HD_Logo_CLR.png"
+                alt="Sony TEN 2 Logo">
+            <div class="channel-title">Sony TEN 2 (IN)</div>
+            
+        </a>
 
-        <h3>Welcome to India vs Zimbabwe T20 Matches Streaming on Sony Liv!</h3>
-        <ul>
-            <li>
-                Experience the thrill of the India vs Zimbabwe T20 matches with ULTRA HD streaming on Sony Liv. Catch the live action, with links available 30 minutes before each match.
-            </li>
-            <li>
-                All streaming links provided on Sony Liv are sourced from reliable third-party websites and are accessible worldwide.
-            </li>
-        </ul>
-        <h3>Disclaimer</h3>
-        <ul>
-            <li>
-                Sony Liv serves as a platform for broadcasting and distributing India vs Zimbabwe T20 matches.
-            </li>
-            <li>
-                All streaming links provided on Sony Liv are sourced from third-party websites that are freely available on the internet.
-            </li>
-            <li>
-                We simply facilitate access to these live streams and full match replays for the convenience of our users.
-            </li>
-            <li>
-                Sony Liv endeavors to adhere to all copyright laws and regulations. Any unauthorized use, reproduction, or redistribution of the India vs Zimbabwe T20 match content provided on our platform is strictly prohibited.
-            </li>
-            <li>
-                Ownership of the India vs Zimbabwe T20 match content showcased on Sony Liv belongs to the respective rights holders or their content suppliers.
-            </li>
-        </ul>
-        <div class="watermark">Created by Ultrawebs © 2024</div>
-        <footer>T20 © 2024 | Designed by Ultrawebs</footer>
-        
+        <!-- Sony TEN 3 -->
+        <a class="channel" href="https://pubads.g.doubleclick.net:443/ssai/event/nmQFuHURTYGQBNdUG-2Qdw/master.m3u8"
+            target="_blank">
+            <img src="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen3_HD_Logo_CLR.png"
+                alt="Sony TEN 3 Logo">
+            <div class="channel-title">Sony TEN 3 (IN)</div>
+            
+        </a>
+
+        <!-- Sony TEN 5 -->
+        <a class="channel" href="https://pubads.g.doubleclick.net:443/ssai/event/DD7fA-HgSUaLyZp9AjRYxQ/master.m3u8"
+            target="_blank">
+            <img src="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen5_HD_Logo_CLR.png"
+                alt="Sony TEN 5 Logo">
+            <div class="channel-title">Sony TEN 5 (IN)</div>
+            
+        </a>
     </div>
-
-    <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
-        <div class="telegram-icon">
-            <svg viewBox="0 0 64 64">
-                <path
-                    d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z">
-                </path>
-            </svg>
-        </div>
-    </a>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
-
 </body>
-<script>
-    // Function to prevent right-click menu
-    document.addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-    });
-
-    // Function to prevent keyboard shortcuts
-    document.onkeydown = function (e) {
-        // Disable F12 key
-        if (event.keyCode == 123) {
-            return false;
-        }
-        // Disable Ctrl+Shift+I key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+Shift+J key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+Shift+U key combination
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-        // Disable Ctrl+C key combination
-        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-    };
-</script>
 
 </html>
