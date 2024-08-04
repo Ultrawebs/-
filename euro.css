@@ -78,13 +78,13 @@ header {
 }
 
 header img {
-    max-width:100px;
+    max-width:50px;
     height: auto;
 }
 
 @media only screen and (max-width: 768px) {
     header img  {
-        max-width: 80px;
+        max-width: 40px;
         height: auto;
     }
 }
@@ -154,7 +154,7 @@ button {
 /* Media query for larger screens (desktop) */
 @media only screen and (min-width: 601px) {
     #container {
-        max-width: 75%;
+        max-width: 100%;
         padding: 10px;
         /* Set width to 80% for desktop */
     }
