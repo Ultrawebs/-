@@ -37,17 +37,41 @@
 
         <img src="https://i.imgur.com/ZaC826d.jpeg" alt="Bigg_Boss_OTT_Season-3">
 
-        <div class="row-container">
-            <h4 class="center-text">Season 3</h4>
-            <form class="search-form">
-                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                        d="M10 2a8 8 0 105.293 14.293l4.657 4.657 1.414-1.414-4.657-4.657A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z" />
-                </svg>
-                <input id="searchInput" type="search" placeholder="Search Episode...">
-                <button type="submit"></button>
-            </form>
-        </div>
+<div class="row-container">
+    <h4 class="center-text">Seasons</h4>
+    
+    <!-- Tabs for Seasons -->
+    <div class="season-tabs">
+        <button id="season3Btn" class="season-tab active">Season 3</button>
+        <button id="season18Btn" class="season-tab">Season 18</button>
+    </div>
+    
+    <!-- Content for Season 3 -->
+    <div id="season3Content" class="season-content">
+        <h4 class="center-text">Season 3</h4>
+        <form class="search-form">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M10 2a8 8 0 105.293 14.293l4.657 4.657 1.414-1.414-4.657-4.657A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z" />
+            </svg>
+            <input id="searchInputSeason3" type="search" placeholder="Search Episode...">
+            <button type="submit"></button>
+        </form>
+    </div>
+
+    <!-- Content for Season 18 (Initially hidden) -->
+    <div id="season18Content" class="season-content" style="display: none;">
+        <h4 class="center-text">Season 18</h4>
+        <form class="search-form">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M10 2a8 8 0 105.293 14.293l4.657 4.657 1.414-1.414-4.657-4.657A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z" />
+            </svg>
+            <input id="searchInputSeason18" type="search" placeholder="Search Episode...">
+            <button type="submit"></button>
+        </form>
+    </div>
+</div>
 
         <div id="container2" class="container2"> 
             <div class="movie-poster" onclick="window.open('https://t.me/c/1517188687/1373', '_blank')">
