@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bigg Boss Season 18</title>
+    <link rel="icon" type="image/png" href="https://www.jiocinema.com/favicon.ico" sizes="128x128">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            font-family: "Onest", sans-serif;
+            background-color: black;
+            color: #fff;
+        }
+
+        .content-container {
+            flex: 1;
+            width: 70%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 1em;
+            background-color: #333;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            /* Ensure text wraps on smaller screens */
+        }
+
+        header img#top-image {
+            max-width: 80px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        header span {
+            font-size: 2em;
+            /* Default font size */
+            white-space: nowrap;
+            /* Prevents text from wrapping unnecessarily */
+            font-weight: 700;
+        }
+
+        h2 {
+            margin: 0;
+            text-align: center;
+            margin-top: 08px;
+            margin-bottom: 08px;
+        }
+
+        #player-container {
+            width: 100%;
+            margin-top: 10px;
+            margin-right: 05px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 180px;
+            font-weight: 600;
+        }
+
+        .button:hover {
+            background-color: #e6e6e6;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .button:active {
+            background-color: #d9d9d9;
+            transform: translateY(1px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #333;
+            color: white;
+        }
+
+        .watermark {
+            position: relative;
+            bottom: 10px;
+            text-align: right;
+            margin-right: 15px;
+            font-size: 12px;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header img#top-image {
+                max-width: 60px;
+            }
+
+            header span {
+                font-size: 1.2em;
+                /* Slightly smaller font size for medium screens */
+                font-weight: 600;
+            }
+
+            .content-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0.5em;
+            }
+
+            header img#top-image {
+                max-width: 50px;
+            }
+
+            header span {
+                font-size: 1em;
+                /* Smaller font size for small screens */
+                font-weight: 600;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .content-container {
+                width: 95%;
+            }
+        }
+    </style>
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.30.1/jwplayer.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <header>
+        <img alt="Bigg Boss 18" id="top-image"
+            src="https://v3img.voot.com/v3Storage/assets/bbh_logo_hd_ilu-1728056637248.png" />
+        <span>Bigg Boss - Season 18</span>
+    </header>
+
+    <div class="content-container">
+
+        <div id="player-container">
+            <script type="text/javascript">
+                jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+
+                function playVideo(videoUrl, imageUrl, autoplay) {
+                    jwplayer("player-container").setup({
+                        aspectratio: '16:9',
+                        width: '100%',
+                        file: videoUrl,
+                        image: imageUrl,
+                        autostart: autoplay,
+                        captions: { color: '#ffb800', fontSize: 20, backgroundOpacity: 0 },
+                        abouttext: 'Ultrawebs(HM)',
+                        aboutlink: 'https://linktr.ee/ultrawebs',
+                        logo: { file: 'https://v3img.voot.com/v3Storage/assets/bbh_logo_hd_ilu-1728056637248.png', position: 'top-right' },
+                        sharing: {
+                            sites: ['facebook', 'twitter', 'tumblr'],
+                        },
+                        fullscreen: {
+                            enabled: true,
+                            displayLabel: true,
+                        },
+                        tracks: [
+                            {
+                                file: "YOUR_SUBTITLE_FILE_EN.vtt",
+                                label: "English",
+                                kind: "captions",
+                                default: true
+                            }
+                        ],
+                        playbackRateControls: true
+                    });
+                }
+
+                playVideo('https://prod-ent-live-cf.jiocinema.com/hls/live/2101885/uhd_akamai_atv_avc_24x7_bbhindi_s18_day02/master.m3u8', 'https://v3img.voot.com/resizeMedium,w_1280,h_720/v3Storage/assets/tv-1728318253962.jpg', true);
+            </script>
+        </div>
+
+        <div class="button-container">
+            <div class="button-row">
+                <a class="button" href="#"
+                    onclick="playVideo('https://prod-ent-live-fa.jiocinema.com/hls/live/2101885/uhd_akamai_atv_avc_eptv_bbhindi_s18_day11/master.m3u8', true)">Episode</a>
+                <a class="button" href="#"
+                    onclick="playVideo('https://prod-ent-live-cf.jiocinema.com/hls/live/2101885/uhd_akamai_atv_avc_24x7_bbhindi_s18_day02/master.m3u8', true)">LIVE
+                    24 HR</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="watermark">Website created by UltraWebs © 2024</div>
+
+    <footer>© 2024 Blogpost 📺 | Designed by UW</footer>
+</body>
+
+</html>
