@@ -20,15 +20,21 @@
             display: flex;
             flex-direction: column;
             font-family: "Onest", sans-serif;
-            background-color: black;
             color: #fff;
+            background-image: url("https://ideogram.ai/api/images/direct/bonVtGiwRFGIoblRU86qtA.png");
+            background-size: cover;
+            /* Optional: adjust based on your design */
+            background-attachment: fixed;
         }
 
         .content-container {
             flex: 1;
             width: 70%;
-            max-width: 1200px;
             margin: 0 auto;
+            backdrop-filter: blur(20px);
+            background-color: rgba(51, 51, 51, 0.098);
+            padding: 05px;
+            border-radius: 08px
         }
 
         header {
@@ -42,6 +48,10 @@
             align-items: center;
             flex-wrap: wrap;
             /* Ensure text wraps on smaller screens */
+            backdrop-filter: blur(20px);
+            background-color: rgba(51, 51, 51, 0.098);
+            margin: 0 auto;
+            width: 100%;
         }
 
         header img#top-image {
@@ -92,7 +102,7 @@
             padding: 12px 25px;
             font-size: 16px;
             font-weight: 500;
-            color: #333;
+            color: white;
             background-color: #f0f0f0;
             border: 1px solid #ccc;
             text-align: center;
@@ -102,12 +112,17 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 180px;
             font-weight: 600;
+            border-radius: 5px;
+            margin: 0 auto;
+            backdrop-filter: blur(20px);
+            background-color: rgba(51, 51, 51, 0.098);
         }
 
         .button:hover {
             background-color: #e6e6e6;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             transform: translateY(-2px);
+            color: rgba(51, 51, 51, 0.700);
         }
 
         .button:active {
@@ -121,16 +136,24 @@
             padding: 1em;
             background-color: #333;
             color: white;
+            backdrop-filter: blur(20px);
+            background-color: rgba(51, 51, 51, 0.098);
+            margin: 0 auto;
+            width: 100%;
         }
 
         .watermark {
             position: relative;
-            bottom: 10px;
-            text-align: right;
-            margin-right: 15px;
-            font-size: 12px;
+            text-align: center;
+            font-size: 14px;
             color: white;
-            margin-bottom: 05px;
+            padding: 05px;
+        }
+
+        @media (max-width: 1280px) {
+            .content-container {
+                width: 100%;
+            }
         }
 
         /* Responsive Design */
@@ -170,7 +193,11 @@
             }
 
             .content-container {
-                width: 95%;
+                width: 100%;
+            }
+
+            #player-container {
+                padding: 08px;
             }
         }
     </style>
@@ -228,7 +255,7 @@
         <div class="button-container">
             <div class="button-row">
                 <a class="button" href="#"
-                    onclick="playVideo('https://prod-ent-live-fa.jiocinema.com/hls/live/2101885/uhd_akamai_atv_avc_eptv_bbhindi_s18_day12/master.m3u8', true)">Episode</a>
+                    onclick="playVideo('https://prod-ent-live-fa.jiocinema.com/hls/live/2101885/uhd_akamai_atv_avc_eptv_bbhindi_s18_day13/master.m3u8', true)">Episode</a>
                 <a class="button" href="#"
                     onclick="playVideo('https://prod-ent-live-cf.jiocinema.com/hls/live/2101885/uhd_akamai_atv_avc_24x7_bbhindi_s18_day02/master.m3u8', true)">LIVE
                     24 HR</a>
@@ -238,7 +265,7 @@
 
     <div class="watermark">Website created by UltraWebs © 2024</div>
 
-    <footer>© 2024 Blogpost 📺 | Designed by UW</footer>
+    <footer>© 2024 BiggBoss | Designed by UW</footer>
 </body>
 
 </html>
