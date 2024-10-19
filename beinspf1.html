@@ -16,7 +16,7 @@
             font-family: "Onest", sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("https://ideogram.ai/api/images/direct/bonVtGiwRFGIoblRU86qtA.png");
+            background-image: url("bg.webp");
             background-size: cover;
             /* Optional: adjust based on your design */
             background-attachment: fixed;
@@ -29,7 +29,7 @@
         /* Media query for mobile devices */
         @media only screen and (max-width: 768px) {
             body {
-                background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
+                background-image: url("bgm.webp");
                 /* Set aspect ratio to 9:16 */
                 background-size: fixed;
                 padding: 8px;
@@ -85,34 +85,34 @@
             justify-content: center;
             align-items: center;
             color: #fff;
-            backdrop-filter: blur(10px);
             /* Adjust blur strength as needed */
             background-color: rgba(51, 51, 51, 0.098);
             /* Adjust background color and opacity */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
             text-align: center;
-            padding: 10px;
+            padding: 08px;
             box-sizing: border-box;
             max-width: 100%;
             overflow: hidden;
+            margin-bottom: 05px;
         }
 
         header img {
             max-width: auto;
             height: auto;
-            max-height: 35px;
-            filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg);
+            max-height: 40px;
+            /* filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg); */
         }
 
 
         #container {
             font-family: 'Titillium Web', sans-serif;
             color: white;
-            padding: 10px;
+            padding: 01px;
             background-color: #333;
-            margin-right: 8px;
-            margin-left: 5px;
+            padding-left: 08px;
+            padding-right: 08px;
+            margin-right: 10px;
+            margin-left: 10px;
             margin: 0 auto;
             backdrop-filter: blur(10px);
             /* Adjust blur strength as needed */
@@ -132,12 +132,14 @@
         }
 
         #player-container {
-            border-radius: 10px;
+            margin-top: 05px;
+            border-radius: 05px;
             overflow: hidden;
             /* Center align the container */
             margin: 0 auto;
             /* Set initial width to 100% for mobile */
             max-width: 90%;
+            margin-bottom: 05px;
         }
 
         #video {
@@ -145,8 +147,14 @@
             height: 0;
             padding-bottom: 56.25%;
             /* 16:9 aspect ratio (9 / 16 * 100) */
-            border-radius: 10px;
+            border-radius: 05px;
             object-fit: cover;
+        }
+
+        .video-author{
+            font-family: 'Titillium Web', sans-serif;
+            font-weight: 200;
+            color: #9a9a9afd;
         }
 
         .watermark {
@@ -155,7 +163,7 @@
             /* Set distance from bottom of viewport */
             text-align: right;
             margin-right: 10px;
-            font-size: 14px;
+            font-size: 13px;
             color: white;
             border-radius: 5px;
             font-weight: bold;
@@ -181,31 +189,6 @@
             overflow: hidden;
             font-size: 16px;
             font-weight: bold;
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin: 0 0 10px;
-        }
-
-        h1 {
-            font-size: 1.7rem;
-        }
-
-        h2 {
-            font-size: 1.3rem;
-        }
-
-        h3 {
-            color: white;
-            font-size: 1.3rem;
-        }
-
-        a {
-            color: red;
-            font-weight: bold;
-            text-decoration: none;
         }
 
         p {
@@ -270,14 +253,25 @@
 
 <body>
     <div id="container">
-    <header>
-        <img alt="F1" id="top-image" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/F1_%28white%29.svg" />
-    </header>
+        <header>
+            <img alt="F1" id="top-image" loading="lazy"
+                src="https://seeklogo.com/images/B/bein-sports-logo-61C099EBD7-seeklogo.com.png" />
+        </header>
+
+        <h3 class="video-title">
+            FORMULA 1:
+            <a href="United-States-flag.png">
+                <img style="border-radius: 03px;" border="0" width="30"
+                    src="https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-states-of-america-flag.png.transform/1col-retina/image.png"
+                    alt="United-States Flag" />
+            </a>
+            CRYPTO.COM MIAMI GRAND PRIX 2024
+        </h3>
         <div id="player-container">
             <script type="text/javascript">
                 jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
                 var playerInstance = jwplayer("player-container").setup({
-                    file: "https://linearjitp02-playback.astro.com.my/dash-wv/linear/408/default.mpd",
+                    file: "https://linearjitp-playback.astro.com.my/dash-wv/linear/408/default.mpd",
                     aspectratio: '16:9',
                     width: '100%',
                     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/2016_beIN_Sports_logo.svg/2560px-2016_beIN_Sports_logo.svg.png',
@@ -300,204 +294,16 @@
                 });
             </script>
         </div>
-        <h2 class="video-title">
-            FORMULA 1:
-            <a href="United-States-flag.png">
-                <img style="border-radius: 03px;" border="0" width="30"
-                    src="https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-states-of-america-flag.png.transform/1col-retina/image.png"
-                    alt="United-States Flag" />
-            </a>
-            CRYPTO.COM MIAMI GRAND PRIX 2024
-        </h2>
+
         <p class="video-author">By: Bein Sports</p>
-        <center>
-            <script type="text/javascript" src="https://www.f1widget.com/javascript/remote.js" async></script>
-            <script type="text/javascript">
-                (window.f1widgets ||= []).push({ width: 300, height: 80, lang: "en" });
-            </script>
-        </center>
 
-        <center>
-            <br />
-            <h2 class="custom-title">
-                <a href="United-States.png">
-                    <img class="custom-img2" border="0" width="35"
-                        src="https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-states-of-america-flag.png.transform/1col-retina/image.png"
-                        alt="United-States Flag" />
-                </a>
-                Miami International Autodrome
-            </h2>
-            <!-- Modify your image tag to add a class -->
-            <a
-                href="https://media.formula1.com/image/upload/f_auto/q_auto/v1677244985/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Miami_Circuit.png">
-                <img class="custom-img" alt="f1-tracks" border="0" data-original-height="507" data-original-width="800"
-                    src="https://media.formula1.com/image/upload/f_auto/q_auto/v1677244985/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Miami_Circuit.png"
-                    style="border-radius: 5px;" />
-            </a>
-            <p style="font-family: 'Titillium Web', sans-serif; text-align: center;">
-                <strong>City:</strong> Miami<br />
-                <strong>Laps:</strong> 57<br />
-                <strong>Circuit length:</strong> 5.412 <small>km</small><br />
-                <strong>Race distance:</strong> 308.326 <small>km</small><br />
-                <strong>Lap record:</strong> 1:29.708
-                <small><b>Max Verstappen (2023)</b></small><br />
-            </p>
-        </center>
-
-        <h2 style="float:left; margin-right:20px;">
-            MIAMI GP: ALL YOU NEED TO KNOW
-        </h2>
-        <figure style="float:right;">
-            <img class="fig-img"
-                src="https://www.visacashapprb.com/wp-content/uploads/2022/05/miami-grand-prix-map-scuderia-alphatauri.png"
-                alt="Shanghai International Circuit" width="500" height="300" />
-            <figcaption>
-                <center>⚲ Miami International Autodrome, USA</center>
-            </figcaption>
-        </figure>
-        <p><br /><br />
-        </p>
-        <p>
-            <strong>For the first time since 1959</strong>, Formula 1 returns to
-            Florida, for a brand new event, the <em>Miami Grand Prix</em>.
-        </p>
-        <p>
-            Miami is considered the jewel of the “Sunshine State,” with its
-            Latin-American cultural influences, a thriving artistic scene, beaches
-            and nightlife, not forgetting sport of course. The city hosts the Miami
-            Open Tennis tournament, the National Football League, as well as NASCAR
-            and Indycar races. And now the stage is set for Formula 1.
-        </p>
-        <p>
-            <a href="https://www.visacashapprb.com/en/f1-tracks/miami-international-autodrome/">Miami International
-                Autodrome</a>
-            is the venue for the Grand Prix, just a
-            <strong>few kilometres from Downtown</strong>. The United States thus
-            holds the record for the most cities to have hosted a Formula 1 Grand
-            Prix, with Miami being the eleventh.
-        </p>
-
-        <p>
-            The street circuit runs around the famous Hard Rock Stadium, home to the
-            NFL’s Miami Dolphins. The promoter came up with 36 different possible
-            layouts before arriving at the definitive version. All the
-            <strong>hard work over several years</strong> has produced a track that
-            is fast and spectacular, with three long straights each with a DRS zone,
-            where speeds are expected to reach 320 km/h.
-        </p>
-        <h2>Schedule</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Event</th>
-                    <th>Time (IST)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Friday, 03, May</td>
-                    <td><b>Practice 1</b></td>
-                    <td>22:00 - 23:00</td>
-                </tr>
-                <tr>
-                    <td>Saturday, 04, May</td>
-                    <td><b>Sprint Qualifying</b></td>
-                    <td>02:00 - 02:44</td>
-                </tr>
-                <tr>
-                    <td>Saturday, 04, May</td>
-                    <td><b>Sprint</b></td>
-                    <td>21:30 - 22:30</td>
-                </tr>
-                <tr>
-                    <td>Sunday, 05, May</td>
-                    <td><b>Qualifying</b></td>
-                    <td>01:30 - 02:30</td>
-                </tr>
-                <tr>
-                    <td>Monday, 06, May</td>
-                    <td><b>Race</b></td>
-                    <td>01:30 - 03:30</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div id="accordion" class="d-none d-md-block grand-prix-circuit-details">
-            <div class="card">
-                <div class="card-header" id="heading-0" data-id="0" data-toggle="collapse" data-target="#detail-0"
-                    aria-expanded="true" aria-controls="detail-0">
-                    <h3 class="mb-0 d-inline"></h3>
-                    <h3 class="mb-0 d-inline">
-                        Electrifying track <i class="d-inline fa fa-chevron-up"></i>
-                    </h3>
-                </div>
-                <div id="detail-0" class="collapse show" aria-labelledby="heading-0" data-parent="#accordion">
-                    <div class="card-body">
-                        <p>
-                            It's a <strong>street circuit</strong>, but its design has all
-                            the hallmarks of a permanent facility.
-                            <a href="https://www.visacashapprb.com/en/f1-tracks/miami-international-autodrome/">Miami
-                                International
-                                Autodrome</a>
-                            runs round the Hard Rock Stadium in Miami Gardens. The track is
-                            fast and smooth, with three DRS zones, but there are also places
-                            where drivers have to brake right on the limit, producing some
-                            great overtaking moves.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header collapsed" id="heading-1" data-id="1" data-toggle="collapse"
-                    data-target="#detail-1" aria-expanded="false" aria-controls="detail-1">
-                    <h3 class="mb-0 d-inline"></h3>
-                    <h3 class="mb-0 d-inline">
-                        Return to Florida <i class="d-inline fa fa-chevron-down"></i>
-                    </h3>
-                </div>
-                <div id="detail-1" class="collapse" aria-labelledby="heading-1" data-parent="#accordion">
-                    <div class="card-body">
-                        <p>
-                            The inaugural Miami Grand Prix took place in 2022, marking
-                            Formula 1's return to Florida for the
-                            <strong>first time since 1959</strong>, when the race was run at
-                            Sebring. Miami is the eleventh American city to host a Formula 1
-                            Grand Prix. The race is now run in Miami Gardens, just a few
-                            kilometres from Downtown Miami.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="heading-2" data-id="2" data-toggle="collapse" data-target="#detail-2"
-                    aria-expanded="false" aria-controls="detail-2">
-                    <h3 class="mb-0 d-inline"></h3>
-                    <h3 class="mb-0 d-inline">
-                        American Style <i class="d-inline fa fa-chevron-down"></i>
-                    </h3>
-                </div>
-                <div id="detail-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion">
-                    <div class="card-body">
-                        <p>
-                            Alongside turns 11 to 13 is the Hard Rock Beach Club where the
-                            organisers recreated a beach setting complete with swimming pool
-                            and resort-type cabins.
-                            <strong>There are plenty of events and live music</strong> and
-                            the party goes on long after the racing has finished.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h3>F1 Streaming</h3>
+        <h4>F1 Streaming</h4>
         <p>
             Watch F1 streaming live in ULTRA HD for free. F1 streaming links will be
             available 30 min before kickoff.
         </p>
 
-        <h3>Disclaimer</h3>
+        <h4>Disclaimer</h4>
         <ul>
             <li>
                 Bein Sports serves as a broadcaster and distributor of sports content.
@@ -515,8 +321,8 @@
             </li>
         </ul>
 
-            <div class="watermark">Created by UltraWebs (HM) © 2024</div>
-    <footer>F1 TV © 2024 | Designed by UW</footer>
+        <div class="watermark">Created by UltraWebs(HM) © 2024</div>
+        <footer>Bein © 2024 | Designed by UW</footer>
     </div>
 
     <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
@@ -532,12 +338,12 @@
 </body>
 <script>
     // Function to prevent right-click menu
-    document.addEventListener("contextmenu", function(e) {
+    document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
     });
 
     // Function to prevent keyboard shortcuts
-    document.onkeydown = function(e) {
+    document.onkeydown = function (e) {
         // Disable F12 key
         if (event.keyCode == 123) {
             return false;
@@ -560,4 +366,5 @@
         }
     };
 </script>
+
 </html>
