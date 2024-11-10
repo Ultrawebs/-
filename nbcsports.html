@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/704ff50790.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <link rel="icon" type="image/png" href="https://ultrawebs.github.io/-/webpa/uw.webp" sizes="128x128">
+    <title>NBC Sports</title>
+    <style>
+        html,
+        body {
+            font-family: "Anek Latin", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("webpa/bg.webp");
+            background-size: cover;
+            /* Optional: adjust based on your design */
+            background-attachment: fixed;
+            /* Makes the background image fixed */
+            overflow: auto;
+            overflow-x: hidden;
+            /* Allow vertical and horizontal scrolling */
+        }
+
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 768px) {
+            body {
+                background-image: url("webpa/bgm.webp");
+                /* Set aspect ratio to 9:16 */
+                background-size: fixed;
+                /* Fix the width and allow height to adjust */
+                background-attachment: scroll;
+                /* Allow the background image to scroll with the content */
+                padding: 5px;
+            }
+        }
+
+        /* Custom scrollbar */
+        body::-webkit-scrollbar {
+            width: 8px;
+            /* Width of the scrollbar */
+            /* border-radius: 5px; */
+            /* Rounded corners */
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        body::-webkit-scrollbar-track {
+            backdrop-filter: blur(10px);
+            /* Apply blur effect */
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        body::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            /* Rounded corners for the thumb */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Add shadow */
+            background-color: rgba(140, 140, 140, 0.308);
+            /* Thumb color */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
+        }
+
+        /* Hide scrollbar after 3 seconds */
+        body.hide-scrollbar::-webkit-scrollbar {
+            scrollbar-width: thin;
+        }
+
+        body.hide-scrollbar::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            /* Hide thumb */
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            transition: background-color 0.3s ease;
+            text-align: center;
+            padding: 05px;
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: 0px;
+        }
+
+        header img {
+            max-width: auto;
+            height: auto;
+            max-height: 35px;
+            /* filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg); */
+        }
+
+        #container {
+            font-family: "Anek Latin", sans-serif;
+            color: white;
+            padding: 05px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(51, 51, 51, 0.098);
+            margin: 0 auto;
+        }
+
+        /* Media query for larger screens (desktop) */
+        @media only screen and (min-width: 601px) {
+            #container {
+                max-width: 75%;
+                /* Set width to 80% for desktop */
+            }
+        }
+
+        /* Media query for smaller screens (mobile) */
+        @media only screen and (max-width: 600px) {
+            #container {
+                max-width: 100%;
+                /* Set initial width to 100% for mobile */
+            }
+        }
+
+        #containerr3 {
+            font-family: "Anek Latin", sans-serif;
+            color: white;
+            padding: 02px;
+            margin: 0 auto;
+        }
+
+        /* Media query for larger screens (desktop) */
+        @media only screen and (min-width: 601px) {
+            #containerr3 {
+                max-width: 80%;
+                /* Set width to 80% for desktop */
+            }
+        }
+
+        /* Media query for smaller screens (mobile) */
+        @media only screen and (max-width: 600px) {
+            #containerr3 {
+                max-width: 100%;
+                /* Set initial width to 100% for mobile */
+            }
+        }
+
+        .container2 {
+            max-width: calc(100% - 20px);
+            margin: 0 auto;
+            /* Adjusted max-width */
+            /* Subtracting 20px for the grid-gap from the parent container's width */
+            padding: 0;
+            /* Remove padding */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+            grid-gap: 20px;
+            max-height: calc(100vh - 100px);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(140, 140, 140, 0.308) transparent;
+            transition: scrollbar-width 0.3s ease;
+            animation: hideScrollbar 4s forwards;
+        }
+
+        /* Add media query for smaller screens */
+        /* Adjust grid layout for smaller screens */
+        @media only screen and (max-width: 600px) {
+            .container2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                max-width: 85%;
+                padding: 0;
+                /* Remove padding */
+                grid-gap: 15px;
+                margin: 0 auto;
+            }
+        }
+
+        .movie-poster {
+            position: relative;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            /* Soft shadow for embossed effect */
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            /* Transition effect for smoother animation */
+        }
+
+        .movie-poster:hover {
+            backdrop-filter: blur(10%);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.498);
+            /* Adjust background color and opacity */
+            box-shadow: 0 px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .movie-poster img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Display movie info and apply blur effect to poster image on hover */
+        .movie-poster:hover img {
+            filter: blur(2px);
+            /* Adjust blur strength as needed */
+        }
+
+        .movie-poster:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* Add a drop shadow */
+        }
+
+        .movie-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #fff;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+            display: none;
+        }
+
+        .movie-poster:hover .movie-info {
+            display: inline-block;
+        }
+
+        .movie-info h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .movie-info p {
+            margin: 5px 0 0;
+            font-size: 13px;
+        }
+
+        .playlist-container {
+            font-family: "Anek Latin", sans-serif;
+            overflow-x: auto;
+            white-space: nowrap;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            color: white;
+            overflow: auto;
+        }
+
+        .playlist-tab {
+            font-family: "Anek Latin", sans-serif;
+            font-size: 1;
+            padding: 5px 10px;
+            background-color: #23368900;
+            color: white;
+            display: inline-block;
+            vertical-align: top;
+            text-decoration: none;
+            font-style: normal;
+        }
+
+        .playlist-tab:hover {
+            color: white;
+            background-color: #da5436;
+        }
+
+        .playlist-tab.active {
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            background-color: white;
+            color: #233689;
+        }
+
+        .playlist-tab.active:hover {
+            font-family: "Anek Latin", sans-serif;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            background-color: #D3D3D3;
+            color: #233689;
+        }
+
+        /* Add a scrollbar when more than three items are present */
+        .playlist-container::-webkit-scrollbar {
+            height: 5px;
+            opacity: 0;
+            /* Initially hide scrollbar */
+            transition: opacity 0.5s;
+            /* Add smooth transition for opacity */
+        }
+
+        .playlist-container:hover::-webkit-scrollbar {
+            opacity: 1;
+            /* Show scrollbar on hover */
+        }
+
+        .playlist-container::-webkit-scrollbar-thumb {
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .playlist-container::-webkit-scrollbar-track {
+            background-color: #23368900;
+        }
+
+
+        #current-video {
+            background-color: black;
+            border: none;
+            border-radius: 8px;
+        }
+
+        #player-container {
+            font-family: "Anek Latin", sans-serif;
+            max-width: 80%;
+            border-radius: 5px;
+        }
+
+
+        @media only screen and (max-width: 800px) {
+            #player-container {
+                font-family: "Anek Latin", sans-serif;
+                max-width: 100%;
+                border-radius: 05px;
+            }
+        }
+
+        .watermark {
+            font-family: "Anek Latin", sans-serif;
+            position: baseline;
+            bottom: 10px;
+            /* Set distance from bottom of viewport */
+            text-align: right;
+            margin-right: 10px;
+            font-size: 14px;
+            color: whitesmoke;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 9999;
+        }
+
+        footer {
+            font-family: "Anek Latin", sans-serif;
+            width: auto;
+            backdrop-filter: blur(05px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            color: White;
+            text-align: center;
+            font-size: 16px;
+            padding: 8px 8px;
+            font-weight: bold;
+        }
+
+        a {
+            color: red;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        ul {
+            list-style-type: unset;
+            /* Remove default bullet points */
+            /* Remove default left padding */
+            text-align: justify;
+        }
+
+        li {
+            margin: 0 0 10px;
+            margin-right: 05px;
+        }
+
+        /*Telegram floating button*/
+        .telegram-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .telegram-float {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        .telegram-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #0088cc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation-name: pulse;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite;
+            position: relative;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5);
+            }
+
+            80% {
+                box-shadow: 0 0 0 14px rgba(0, 136, 204, 0);
+            }
+        }
+
+        .telegram-icon svg {
+            fill: #fff;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Playlist bar styles */
+        .playlist-bar {
+            font-family: "Anek Latin", sans-serif;
+            backdrop-filter: blur(10px);
+            /* Adjust blur strength as needed */
+            background-color: rgba(51, 51, 51, 0.098);
+            /* Adjust background color and opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            color: white;
+            /* Set background color to dark gray */
+            overflow: hidden;
+            /* Hide overflowing content */
+            width: 100%;
+            /* Make the playlist bar cover full width */
+            margin: 0 auto;
+            /* Center the playlist bar horizontally */
+            padding: 10px 0;
+            /* Add padding for better spacing */
+            text-align: center;
+            /* Center the playlist items */
+            margin-bottom: 05px;
+        }
+
+        .playlist-bar .fa {
+            color: white;
+            /* Set icon color to white */
+        }
+
+        /* Playlist item styles */
+        .playlist-itemm {
+            font-family: "Anek Latin", sans-serif;
+            display: inline-block;
+            /* Display playlist items horizontally */
+            margin: 0 10px;
+            /* Add margin for spacing between items */
+            color: white;
+            /* Set text color to white */
+            text-decoration: none;
+            /* Remove default link underline */
+            position: relative;
+            text-align: center;
+            /* Set position to relative for pseudo-element */
+        }
+
+        /* Playlist item hover effect */
+        .playlist-itemm::before {
+            content: '';
+            /* Add pseudo-element */
+            position: absolute;
+            /* Set position to absolute */
+            bottom: -2px;
+            /* Move pseudo-element below the text */
+            left: 0;
+            /* Align pseudo-element with the text */
+            width: 0;
+            /* Set width to 100% */
+            height: 2px;
+            /* Set height for underline */
+            background-color: #fff;
+            /* Set background color to white */
+            transition: width 0.3s ease;
+            /* Add transition effect */
+        }
+
+        /* Playlist item hover effect */
+        .playlist-itemm:hover::before {
+            color: white;
+            width: 100%;
+            /* Expand width on hover */
+        }
+
+        .playlist-bar a {
+            color: white;
+            /* Set text color of links to white */
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-DVMMJVP33N');
+    </script>
+    <script type="text/javascript"
+        src="https://platform-api.sharethis.com/js/sharethis.js#property=665057511783940019670c8e&product=inline-share-buttons&source=platform"
+        async="async"></script>
+</head>
+
+<body>
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
+
+    <body>
+        <div class="sharethis-sticky-share-buttons"></div>
+        <div id="container">
+            <header>
+                <img alt="skyf1" id="top-image" loading="lazy"
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/08/NBC_Sports_2023.svg" />
+            </header>
+
+            <!--<center>
+                <h4>Select your preferred Server 👇</h4>
+            </center>
+
+            <center>
+
+                <div class="playlist-container">
+                    <a class="playlist-tab active"
+                        onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JV_SportsHD15_DIG_MOB/Fallback/index.m3u8', 'https://static.wikia.nocookie.net/logopedia/images/d/de/JioCinema_Icon_%282024%29.svg', true)">
+                        Server 1
+                    </a>
+
+                    <a class="playlist-tab"
+                        onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JV_SportsHD15_DIG_MOB/Fallback/index.m3u8', 'https://static.wikia.nocookie.net/logopedia/images/d/de/JioCinema_Icon_%282024%29.svg', true)">
+                        Server 2
+                    </a>
+                </div>-->
+            </center>
+            <br />
+            <center>
+                <div id="containerr3">
+                    <div class="video-description">
+                        <div id="player-container">
+                            <script src="https://ssl.p.jwpcdn.com/player/v/8.33.2/jwplayer.js"
+                                type="text/javascript"></script>
+                            <script type="text/javascript">
+                                jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+
+                                function playVideo(videoUrl, imageUrl, autoplay) {
+                                    jwplayer("player-container").setup({
+                                        aspectratio: '16:9',
+                                        width: '100%',
+                                        file: videoUrl,
+                                        image: imageUrl,
+                                        autostart: autoplay || false,
+                                        captions: { color: '#ffb800', fontSize: 30, backgroundOpacity: 0 },
+                                        abouttext: 'Ultrawebs(HM)',
+                                        aboutlink: 'https://linktr.ee/ultrawebs',
+                                        logo: {
+                                            file: '',
+                                            position: 'top-right',
+                                            margin: '20',
+                                            hide: 'true',
+                                            size: '05%'
+                                        },
+                                        sharing: {
+                                            sites: ['facebook', 'twitter', 'tumblr', 'googleplus', { icon: 'https://i.imgur.com/PL7Vp6K.png', src: 'http://www.jwplayer.com/?', label: 'jwplayer' }],
+                                        },
+                                        fullscreen: {
+                                            enabled: true,
+                                            displayLabel: true,
+                                            label: 'Exit Fullscreen',
+                                        },
+                                        playbackRateControls: true
+                                    });
+                                }
+
+                                playVideo('https://d1m1xk35ma8qfl.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-v4tilgx2y7n7y/master.m3u8', 'https://upload.wikimedia.org/wikipedia/commons/0/08/NBC_Sports_2023.svg', true);
+                            </script>
+                        </div>
+                    </div>
+            </center>
+            <br />
+            <div class="sharethis-inline-share-buttons"></div>
+
+            <h3>Disclaimer</h3>
+            <ul>
+                <li>
+                    The Ultrawebs website serves as a platform for facilitating access to sports content.
+                </li>
+                <li>
+                    All streaming links provided are sourced from third-party websites freely available on the internet.
+                </li>
+                <li>
+                    We simply facilitate access to these streams.
+                </li>
+                <li>
+                    We endeavor to adhere to all copyright laws and regulations, and any unauthorized use, reproduction,
+                    or redistribution of our content is strictly prohibited.
+                </li>
+                <li>
+                    Ownership of this content belongs to Ultrawebs or its content suppliers.
+                </li>
+            </ul>
+
+            <div class="watermark">Created by UltraWebs(HM) © 2024</div>
+            <footer>UltraWebs © 2024 | Designed by UW</footer>
+        </div>
+
+        </div>
+        <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
+            <div class="telegram-icon">
+                <svg viewBox="0 0 64 64">
+                    <path
+                        d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z">
+                    </path>
+                </svg>
+            </div>
+        </a>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const playlistTabs = document.querySelectorAll(".playlist-tab");
+                const currentVideo = document.getElementById("current-video");
+                const videoTitle = document.getElementById("video-title");
+                const videoDescription = document.getElementById("video-description");
+
+                function handlePlaylistTabClick(event) {
+                    event.preventDefault();
+                    const target = event.target;
+                    playlistTabs.forEach(tab => tab.classList.remove("active"));
+                    target.classList.add("active");
+                    currentVideo.src = target.getAttribute("data-src");
+                    videoTitle.textContent = target.getAttribute("data-title");
+                    videoDescription.textContent = target.getAttribute("data-description");
+                }
+
+                playlistTabs.forEach(tab => tab.addEventListener("click", handlePlaylistTabClick));
+            });
+        </script>
+
+    </body>
+
+</html>
