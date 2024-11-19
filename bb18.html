@@ -32,7 +32,8 @@
             align-items: center;
             justify-content: center;
             padding: 1em;
-            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            background-color: rgba(51, 51, 51, 0.098);
         }
 
         header img {
@@ -74,9 +75,13 @@
         }
 
         .button {
+            width: 150px;
+            /* Set a fixed width */
             padding: 12px 20px;
             font-size: 1em;
             font-weight: 600;
+            text-align: center;
+            /* Center text horizontally */
             text-decoration: none;
             color: #fff;
             background: rgba(97, 97, 97, 0.475);
@@ -93,7 +98,8 @@
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            background-color: rgba(51, 51, 51, 0.098);
             text-align: center;
             padding: 10px;
             font-size: 0.9em;
@@ -228,7 +234,7 @@
             }
 
             .button {
-                font-size: 0.8em;
+                font-size: 0.9em;
             }
         }
     </style>
@@ -284,8 +290,8 @@
         </div>
 
         <div style="text-align: center; font-weight: bold; padding-bottom: 10px;">
-            <p>Watch live episodes on weekdays from 10:00 PM to 11:30 PM and on 
-            weekends from 9:30 PM to 11:30 PM.</p>
+            <p>Watch live episodes on weekdays from 10:00 PM to 11:30 PM and on
+                weekends from 9:30 PM to 11:30 PM.</p>
         </div>
 
         <div class="button-container">
@@ -294,6 +300,10 @@
             <a class="button" href="#"
                 onclick="playVideo('https://prod-ent-live-cf.jiocinema.com/hls/live/2101885/uhd_akamai_atv_avc_24x7_bbhindi_s18_day03/master.m3u8', 'https://v3img.voot.com/resizeMedium,w_1280,h_720/v3Storage/assets/tv-1728318253962.jpg', true)">LIVE
                 24 HR</a>
+        </div>
+
+        <div style="text-align: center; font-weight: bold; padding-top: 10px; padding-bottom: 10px;">
+                <p>To watch 24-hour live streaming, click on the 'Live 24 HR' button.</p>
         </div>
     </div>
 
