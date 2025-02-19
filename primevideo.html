@@ -515,7 +515,7 @@
             <div id="player-container"></div>
 
             <div id="playlist">
-                <!--<div class="playlist-item active" id="video1">
+                <!-- <div class="playlist-item active" id="video1">
                     <div class="playlist-info">
                         <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
                         Amazon Prime Video - 50 FPS
@@ -527,8 +527,8 @@
                             class="flag-icon">
 
                     </div>
-                </div>-->
-                <!--<div class="playlist-item" id="video2">
+                </div>
+                <div class="playlist-item" id="video2">
                     <div class="playlist-info">
                         <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
                         Amazon Prime Video - 25 FPS
@@ -540,7 +540,7 @@
                             class="flag-icon">
 
                     </div>
-                </div>-->
+                </div> -->
                 <div class="playlist-item" id="video3">
                     <div class="playlist-info">
                         <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
@@ -593,33 +593,33 @@
                 }
             });
 
-            document.getElementById('video1').addEventListener('click', () => {
-                playerInstance.load([{
-                    file: "https://aba5sdmaaaaaaaamcs7bgwx2cgzhi.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/bopqv4fykb/out/v1/01d1290c69584c7cbf58b8ab404ea1b8/cenc.mpd",
-                    image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
-                    drm: {
-                        "clearkey": {
-                            "keyId": "6da8c268d58a0fe4ff75d297359a8ad7",
-                            "key": "eb0ae4c2c24a52070154499bb09a36cb"
-                        }
-                    }
-                }]);
-                playerInstance.play();
-            });
+            // document.getElementById('video1').addEventListener('click', () => {
+            //     playerInstance.load([{
+            //         file: "https://aba5sdmaaaaaaaamcs7bgwx2cgzhi.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/bopqv4fykb/out/v1/01d1290c69584c7cbf58b8ab404ea1b8/cenc.mpd",
+            //         image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
+            //         drm: {
+            //             "clearkey": {
+            //                 "keyId": "6da8c268d58a0fe4ff75d297359a8ad7",
+            //                 "key": "eb0ae4c2c24a52070154499bb09a36cb"
+            //             }
+            //         }
+            //     }]);
+            //     playerInstance.play();
+            // });
 
-            document.getElementById('video2').addEventListener('click', () => {
-                playerInstance.load([{
-                    file: "https://aba5sdmaaaaaaaamibyasmmfoav3v.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/dmmqe7ssji/out/v1/3775f3d149f34a7a81d8cd7d58118e40/cenc.mpd",
-                    image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
-                    drm: {
-                        "clearkey": {
-                            "keyId": "1105b85e6db6214e686e462206ed86ec",
-                            "key": "59d851187354b65fa2d14829046893ef"
-                        }
-                    }
-                }]);
-                playerInstance.play();
-            });
+            // document.getElementById('video2').addEventListener('click', () => {
+            //     playerInstance.load([{
+            //         file: "https://aba5sdmaaaaaaaamibyasmmfoav3v.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/dmmqe7ssji/out/v1/3775f3d149f34a7a81d8cd7d58118e40/cenc.mpd",
+            //         image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
+            //         drm: {
+            //             "clearkey": {
+            //                 "keyId": "1105b85e6db6214e686e462206ed86ec",
+            //                 "key": "59d851187354b65fa2d14829046893ef"
+            //             }
+            //         }
+            //     }]);
+            //     playerInstance.play();
+            // });
 
             document.getElementById('video3').addEventListener('click', () => {
                 playerInstance.load([{
