@@ -505,7 +505,7 @@
                 src="https://m.media-amazon.com/images/G/01/digital/video/acquisition/web_footer_logo._CB462908456_.png" />
         </header>
 
-        <center style="color: red;margin-top: 08px;font-weight: bold;padding-bottom: 10px;">
+        <center style="color: yellowgreen;margin-top: 08px;font-weight: bold;padding-bottom: 10px;">
             Please wait for 30 seconds, the video will start playing
             automatically.
         </center>
@@ -515,7 +515,7 @@
             <div id="player-container"></div>
 
             <div id="playlist">
-                <!-- <div class="playlist-item active" id="video1">
+                <div class="playlist-item active" id="video1">
                     <div class="playlist-info">
                         <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
                         Amazon Prime Video - 50 FPS
@@ -528,7 +528,7 @@
 
                     </div>
                 </div>
-                <div class="playlist-item" id="video2">
+                <!-- <div class="playlist-item" id="video2">
                     <div class="playlist-info">
                         <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
                         Amazon Prime Video - 25 FPS
@@ -593,19 +593,19 @@
                 }
             });
 
-            // document.getElementById('video1').addEventListener('click', () => {
-            //     playerInstance.load([{
-            //         file: "https://aba5sdmaaaaaaaamcs7bgwx2cgzhi.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/bopqv4fykb/out/v1/01d1290c69584c7cbf58b8ab404ea1b8/cenc.mpd",
-            //         image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
-            //         drm: {
-            //             "clearkey": {
-            //                 "keyId": "6da8c268d58a0fe4ff75d297359a8ad7",
-            //                 "key": "eb0ae4c2c24a52070154499bb09a36cb"
-            //             }
-            //         }
-            //     }]);
-            //     playerInstance.play();
-            // });
+            document.getElementById('video1').addEventListener('click', () => {
+                playerInstance.load([{
+                    file: "https://aba5sdmaaaaaaaamidug47tdi5buy.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/l0phze3ehz/out/v1/fe9782633a364a6a84c9410f26d9b2c4/cenc.mpd",
+                    image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
+                    drm: {
+                        "clearkey": {
+                            "keyId": "4a5191838da17a2ab771f4258fad347f",
+                            "key": "54b7a084437459368eed07d182ad644c"
+                        }
+                    }
+                }]);
+                playerInstance.play();
+            });
 
             // document.getElementById('video2').addEventListener('click', () => {
             //     playerInstance.load([{
