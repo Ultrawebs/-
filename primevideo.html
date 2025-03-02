@@ -450,10 +450,24 @@
       color: black;
     }
 
+    .HD {
+      color: rgb(211, 33, 33) !important;
+      font-size: 14px;
+      width: 18px;
+      text-align: center;
+    }
+
     .language {
       color: black;
       font-size: 14px;
       width: 50px;
+      text-align: center;
+    }
+
+    .language2 {
+      color: black;
+      font-size: 14px;
+      width: 55px;
       text-align: center;
     }
 
@@ -605,60 +619,64 @@
         <div class="playlist-item" id="video1">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
-            Amazon Prime Video - 50 FPS
+            Prime Video - 50 FPS
           </div>
           <div class="playlist-icons">
-            <span class="language">Hindi</span>
-            <span>HD</span>
+            <span class="language" style="color: blue;">Hindi</span>
+            <span class="HD">HD</span>
+            <span class="language2">Server 1</span>
             <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag"
               class="flag-icon" />
           </div>
         </div>
-        <!-- <div class="playlist-item" id="video2">
+        <div class="playlist-item" id="video2">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
-            Amazon Prime Video - 25 FPS
+            Prime Video - 50 FPS
           </div>
           <div class="playlist-icons">
-            <span class="language">Hindi</span>
-            <span>HD</span>
+            <span class="language" style="color: blue;">Hindi</span>
+            <span class="HD">HD</span>
+            <span class="language2">Server 2</span>
             <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag"
               class="flag-icon">
 
           </div>
-        </div> -->
+        </div>
         <div class="playlist-item active" id="video3">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
-            Amazon Prime Video - 50 FPS
+            Prime Video - 50 FPS
           </div>
           <div class="playlist-icons">
-            <span class="language">English</span>
-            <span>HD</span>
+            <span class="language" style="color: blue;">English</span>
+            <span class="HD">HD</span>
+            <span class="language2">Server 1</span>
             <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
               class="flag-icon" />
           </div>
         </div>
-        <!-- <div class="playlist-item" id="video4">
+        <div class="playlist-item" id="video4">
+          <div class="playlist-info">
+            <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
+            Prime Video - 50 FPS
+          </div>
+          <div class="playlist-icons">
+            <span class="language" style="color: blue;">English</span>
+            <span class="HD">HD</span>
+            <span class="language2">Server 2</span>
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
+              class="flag-icon" />
+          </div>
+        </div>
+        <!-- <div class="playlist-item" id="video5">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
             Amazon Prime Video - 25 FPS
           </div>
           <div class="playlist-icons">
             <span class="language">English</span>
-            <span>HD</span>
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
-              class="flag-icon" />
-          </div>
-        </div>
-        <div class="playlist-item" id="video5">
-          <div class="playlist-info">
-            <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
-            Amazon Prime Video - 25 FPS
-          </div>
-          <div class="playlist-icons">
-            <span class="language">English</span>
-            <span>HD</span>
+            <span class="HD">HD</span>
             <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
               class="flag-icon" />
           </div>
@@ -722,21 +740,39 @@
         playerInstance.play();
       });
 
-      // document.getElementById('video2').addEventListener('click', () => {
-      //   playerInstance.load([{
-      //     file: "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/qlmzlpteki/out/v1/cbe557b92c4f487da3f69a14a5b1dcaf/cenc.mpd",
-      //     image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
-      //     drm: {
-      //       "clearkey": {
-      //         "keyId": "ae1abaaa3b050537aef6df0b3d32ad7f",
-      //         "key": "bcec14c796465542ad450a43a605e71f"
-      //       }
-      //     }
-      //   }]);
-      //   playerInstance.play();
-      // });
+      document.getElementById('video2').addEventListener('click', () => {
+        playerInstance.load([{
+          file: "https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/9zdhmclf6e/out/v1/fe9782633a364a6a84c9410f26d9b2c4/cenc.mpd",
+          image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
+          drm: {
+            clearkey: {
+                keyId: "4a5191838da17a2ab771f4258fad347f",
+                key: "54b7a084437459368eed07d182ad644c",
+              },
+            },
+          },
+        ]);
+        playerInstance.play();
+      });
 
       document.getElementById("video3").addEventListener("click", () => {
+        playerInstance.load([
+          {
+            file: "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/ys7k1c1ipx/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
+            image:
+              "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
+            drm: {
+              clearkey: {
+                keyId: "7aa124253d518f18740c5bd932d581a3",
+                key: "1819c82fc27225f5e79ae189ddece0ea",
+              },
+            },
+          },
+        ]);
+        playerInstance.play();
+      });
+
+      document.getElementById("video4").addEventListener("click", () => {
         playerInstance.load([
           {
             file: "https://a201aivottlinear-a.akamaihd.net/OTTB/bom-nitro/live/clients/dash/enc/ykmt22pk8m/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
@@ -752,23 +788,6 @@
         ]);
         playerInstance.play();
       });
-
-      // document.getElementById("video4").addEventListener("click", () => {
-      //   playerInstance.load([
-      //     {
-      //       file: "https://aba5sdmaaaaaaaamidug47tdi5buy.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/iowtj5wfb1/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
-      //       image:
-      //         "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
-      //       drm: {
-      //         clearkey: {
-      //           keyId: "7aa124253d518f18740c5bd932d581a3",
-      //           key: "1819c82fc27225f5e79ae189ddece0ea",
-      //         },
-      //       },
-      //     },
-      //   ]);
-      //   playerInstance.play();
-      // });
 
       // document.getElementById("video5").addEventListener("click", () => {
       //   playerInstance.load([
@@ -818,8 +837,8 @@
         creators, studios, and distributors.
       </li>
     </ul>
-    <div class="watermark">Created by UltraWebs(HM) © 2025</div>
-    <footer>Amazon Prime Video © 2025 | Designed by UW</footer>
+    <div class="watermark">Created by UltraWebs(HM) © 2024</div>
+    <footer>Amazon Prime Video © 2024 | Designed by UW</footer>
   </div>
 
   <div class="toggle-button" onclick="toggleButtons()">
