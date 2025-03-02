@@ -614,7 +614,7 @@
               class="flag-icon" />
           </div>
         </div>
-        <div class="playlist-item" id="video2">
+        <!-- <div class="playlist-item" id="video2">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
             Amazon Prime Video - 25 FPS
@@ -626,7 +626,7 @@
               class="flag-icon">
 
           </div>
-        </div>
+        </div> -->
         <div class="playlist-item active" id="video3">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
@@ -639,7 +639,7 @@
               class="flag-icon" />
           </div>
         </div>
-        <div class="playlist-item" id="video4">
+        <!-- <div class="playlist-item" id="video4">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
             Amazon Prime Video - 25 FPS
@@ -662,7 +662,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
               class="flag-icon" />
           </div>
-        </div>
+        </div> -->
       </div>
     </center>
 
@@ -722,24 +722,24 @@
         playerInstance.play();
       });
 
-      document.getElementById('video2').addEventListener('click', () => {
-        playerInstance.load([{
-          file: "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/qlmzlpteki/out/v1/cbe557b92c4f487da3f69a14a5b1dcaf/cenc.mpd",
-          image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
-          drm: {
-            "clearkey": {
-              "keyId": "ae1abaaa3b050537aef6df0b3d32ad7f",
-              "key": "bcec14c796465542ad450a43a605e71f"
-            }
-          }
-        }]);
-        playerInstance.play();
-      });
+      // document.getElementById('video2').addEventListener('click', () => {
+      //   playerInstance.load([{
+      //     file: "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/qlmzlpteki/out/v1/cbe557b92c4f487da3f69a14a5b1dcaf/cenc.mpd",
+      //     image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
+      //     drm: {
+      //       "clearkey": {
+      //         "keyId": "ae1abaaa3b050537aef6df0b3d32ad7f",
+      //         "key": "bcec14c796465542ad450a43a605e71f"
+      //       }
+      //     }
+      //   }]);
+      //   playerInstance.play();
+      // });
 
       document.getElementById("video3").addEventListener("click", () => {
         playerInstance.load([
           {
-            file: "https://aba5sdmaaaaaaaamidug47tdi5buy.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/iowtj5wfb1/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
+            file: "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/ys7k1c1ipx/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
             image:
               "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
             drm: {
@@ -753,39 +753,39 @@
         playerInstance.play();
       });
 
-      document.getElementById("video4").addEventListener("click", () => {
-        playerInstance.load([
-          {
-            file: "https://aba5sdmaaaaaaaamidug47tdi5buy.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/iowtj5wfb1/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
-            image:
-              "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
-            drm: {
-              clearkey: {
-                keyId: "7aa124253d518f18740c5bd932d581a3",
-                key: "1819c82fc27225f5e79ae189ddece0ea",
-              },
-            },
-          },
-        ]);
-        playerInstance.play();
-      });
+      // document.getElementById("video4").addEventListener("click", () => {
+      //   playerInstance.load([
+      //     {
+      //       file: "https://aba5sdmaaaaaaaamidug47tdi5buy.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/iowtj5wfb1/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
+      //       image:
+      //         "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
+      //       drm: {
+      //         clearkey: {
+      //           keyId: "7aa124253d518f18740c5bd932d581a3",
+      //           key: "1819c82fc27225f5e79ae189ddece0ea",
+      //         },
+      //       },
+      //     },
+      //   ]);
+      //   playerInstance.play();
+      // });
 
-      document.getElementById("video5").addEventListener("click", () => {
-        playerInstance.load([
-          {
-            file: "https://abhvfwoaaaaaaaamge5xi5icfzq64.otte.live.cf.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/xjrxodbgeh/out/v1/69b95861163a42d9a34a1d4ceece7a7a/cenc.mpd",
-            image:
-              "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
-            drm: {
-              clearkey: {
-                keyId: "867ab2da044bcc1e4cc1a9252b03ce3e",
-                key: "0db59352d361b0a132c0a64bb231750a",
-              },
-            },
-          },
-        ]);
-        playerInstance.play();
-      });
+      // document.getElementById("video5").addEventListener("click", () => {
+      //   playerInstance.load([
+      //     {
+      //       file: "https://abhvfwoaaaaaaaamge5xi5icfzq64.otte.live.cf.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/xjrxodbgeh/out/v1/69b95861163a42d9a34a1d4ceece7a7a/cenc.mpd",
+      //       image:
+      //         "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
+      //       drm: {
+      //         clearkey: {
+      //           keyId: "867ab2da044bcc1e4cc1a9252b03ce3e",
+      //           key: "0db59352d361b0a132c0a64bb231750a",
+      //         },
+      //       },
+      //     },
+      //   ]);
+      //   playerInstance.play();
+      // });
 
       document
         .getElementById("darkMode")
