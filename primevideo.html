@@ -630,7 +630,7 @@
               class="flag-icon" />
           </div>
         </div>
-        <div class="playlist-item" id="video2">
+        <!-- <div class="playlist-item" id="video2">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
             Prime Video - 50 FPS
@@ -643,7 +643,7 @@
               class="flag-icon">
 
           </div>
-        </div>
+        </div> -->
         <div class="playlist-item active" id="video3">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
@@ -657,7 +657,7 @@
               class="flag-icon" />
           </div>
         </div>
-        <div class="playlist-item" id="video4">
+        <!-- <div class="playlist-item" id="video4">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
             Prime Video - 50 FPS
@@ -669,7 +669,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
               class="flag-icon" />
           </div>
-        </div>
+        </div> -->
         <!-- <div class="playlist-item" id="video5">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
@@ -688,7 +688,7 @@
     <script type="text/javascript">
       jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
       var playerInstance = jwplayer("player-container").setup({
-        file: "https://a201aivottlinear-a.akamaihd.net/OTTB/bom-nitro/live/clients/dash/enc/ykmt22pk8m/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
+        file: "https://otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/xqqu5jyoti/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
         aspectratio: "16:9",
         width: "100%",
         image:
@@ -718,8 +718,8 @@
         type: "dash",
         drm: {
           clearkey: {
-            keyId: "7aa124253d518f18740c5bd932d581a3",
-            key: "1819c82fc27225f5e79ae189ddece0ea",
+            keyId: "d790f0486bf8b693422cfe64d9ed342a",
+            key: "52fd36bde6820b5c07ce4485642394a8",
           },
         },
       });
@@ -727,13 +727,13 @@
       document.getElementById("video1").addEventListener("click", () => {
         playerInstance.load([
           {
-            file: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/clients/dash/enc/9zdhmclf6e/out/v1/fe9782633a364a6a84c9410f26d9b2c4/cenc.mpd",
+            file: "https://otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/rkyxparx1t/out/v1/fe9782633a364a6a84c9410f26d9b2c4/cenc.mpd",
             image:
               "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
             drm: {
               clearkey: {
-                keyId: "4a5191838da17a2ab771f4258fad347f",
-                key: "54b7a084437459368eed07d182ad644c",
+                keyId: "494c5ddd4a2b9c38da05e053c0fd6d3f",
+                key: "ad1ff8c72fc6fefbce716609da9347cf",
               },
             },
           },
@@ -741,31 +741,31 @@
         playerInstance.play();
       });
 
-      document.getElementById('video2').addEventListener('click', () => {
-        playerInstance.load([{
-          file: "https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/9zdhmclf6e/out/v1/fe9782633a364a6a84c9410f26d9b2c4/cenc.mpd",
-          image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
-          drm: {
-            clearkey: {
-                keyId: "4a5191838da17a2ab771f4258fad347f",
-                key: "54b7a084437459368eed07d182ad644c",
-              },
-            },
-          },
-        ]);
-        playerInstance.play();
-      });
+      // document.getElementById('video2').addEventListener('click', () => {
+      //   playerInstance.load([{
+      //     file: "https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/9zdhmclf6e/out/v1/fe9782633a364a6a84c9410f26d9b2c4/cenc.mpd",
+      //     image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
+      //     drm: {
+      //       clearkey: {
+      //           keyId: "4a5191838da17a2ab771f4258fad347f",
+      //           key: "54b7a084437459368eed07d182ad644c",
+      //         },
+      //       },
+      //     },
+      //   ]);
+      //   playerInstance.play();
+      // });
 
       document.getElementById("video3").addEventListener("click", () => {
         playerInstance.load([
           {
-            file: "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/ys7k1c1ipx/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
+            file: "https://otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/xqqu5jyoti/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
             image:
               "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
             drm: {
               clearkey: {
-                keyId: "7aa124253d518f18740c5bd932d581a3",
-                key: "1819c82fc27225f5e79ae189ddece0ea",
+                keyId: "d790f0486bf8b693422cfe64d9ed342a",
+                key: "52fd36bde6820b5c07ce4485642394a8",
               },
             },
           },
@@ -773,22 +773,22 @@
         playerInstance.play();
       });
 
-      document.getElementById("video4").addEventListener("click", () => {
-        playerInstance.load([
-          {
-            file: "https://a201aivottlinear-a.akamaihd.net/OTTB/bom-nitro/live/clients/dash/enc/ykmt22pk8m/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
-            image:
-              "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
-            drm: {
-              clearkey: {
-                keyId: "7aa124253d518f18740c5bd932d581a3",
-                key: "1819c82fc27225f5e79ae189ddece0ea",
-              },
-            },
-          },
-        ]);
-        playerInstance.play();
-      });
+      // document.getElementById("video4").addEventListener("click", () => {
+      //   playerInstance.load([
+      //     {
+      //       file: "https://a201aivottlinear-a.akamaihd.net/OTTB/bom-nitro/live/clients/dash/enc/ykmt22pk8m/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
+      //       image:
+      //         "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
+      //       drm: {
+      //         clearkey: {
+      //           keyId: "7aa124253d518f18740c5bd932d581a3",
+      //           key: "1819c82fc27225f5e79ae189ddece0ea",
+      //         },
+      //       },
+      //     },
+      //   ]);
+      //   playerInstance.play();
+      // });
 
       // document.getElementById("video5").addEventListener("click", () => {
       //   playerInstance.load([
