@@ -551,9 +551,7 @@
 
     .jw-slider-container .jw-progress,
     .jw-volume-tip .jw-slider-container .jw-progress {
-      background: linear-gradient(90deg,
-          #c71212,
-          #ff00ff);
+      background: linear-gradient(90deg, #c71212, #ff00ff);
       /* Red to Baby Pink */
       background-size: 200% 100%;
       animation: gradientMove 6s linear infinite;
@@ -594,6 +592,81 @@
     .jw-button-color:hover {
       color: #c5c5c5 !important;
     }
+
+    /* Popup overlay */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s;
+    }
+
+    /* Popup box */
+    .popup-box {
+      background: white;
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(-20px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @media (max-width: 600px) {
+      .popup-box {
+        max-width: 70%;
+      }
+    }
+
+    .popup-message {
+      text-align: justify;
+    }
+
+    /* Show the popup */
+    .popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-overlay.active .popup-box {
+      transform: translateY(0);
+    }
+
+    /* Buttons */
+    .popup-buttons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .popup-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .ok-btn {
+      background: #ffdd57;
+      color: black;
+      font-weight: bold;
+    }
+
+    .cancel-btn {
+      background: #ccc;
+      color: black;
+    }
   </style>
 </head>
 
@@ -617,78 +690,39 @@
       <div id="player-container"></div>
 
       <div id="playlist">
-        <div class="playlist-item" id="video1">
+        <div class="playlist-item active" id="video1">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
-            Prime Video - 50 FPS
+            Amazon Prime Video - 50 FPS
           </div>
           <div class="playlist-icons">
-            <span class="language" style="color: blue;">Hindi</span>
+            <span class="language" style="color: blue">Hindi</span>
             <span class="HD">HD</span>
-            <span class="language2">Server 1</span>
+            <!-- <span class="language2">Server 1</span> -->
             <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag"
               class="flag-icon" />
           </div>
         </div>
-        <!-- <div class="playlist-item" id="video2">
-          <div class="playlist-info">
-            <i class="fa fa-play-circle" style="color:yellowgreen; font-size:22px; margin-right:10px;"></i>
-            Prime Video - 50 FPS
-          </div>
-          <div class="playlist-icons">
-            <span class="language" style="color: blue;">Hindi</span>
-            <span class="HD">HD</span>
-            <span class="language2">Server 2</span>
-            <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag"
-              class="flag-icon">
-
-          </div>
-        </div> -->
-        <div class="playlist-item active" id="video3">
+        <div class="playlist-item" id="video2">
           <div class="playlist-info">
             <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
-            Prime Video - 50 FPS
+            Amazon Prime Video - 50 FPS
           </div>
           <div class="playlist-icons">
-            <span class="language" style="color: blue;">English</span>
+            <span class="language" style="color: blue">English</span>
             <span class="HD">HD</span>
-            <span class="language2">Server 1</span>
+            <!-- <span class="language2">Server 1</span> -->
             <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
               class="flag-icon" />
           </div>
         </div>
-        <!-- <div class="playlist-item" id="video4">
-          <div class="playlist-info">
-            <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
-            Prime Video - 50 FPS
-          </div>
-          <div class="playlist-icons">
-            <span class="language" style="color: blue;">English</span>
-            <span class="HD">HD</span>
-            <span class="language2">Server 2</span>
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
-              class="flag-icon" />
-          </div>
-        </div> -->
-        <!-- <div class="playlist-item" id="video5">
-          <div class="playlist-info">
-            <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
-            Amazon Prime Video - 25 FPS
-          </div>
-          <div class="playlist-icons">
-            <span class="language">English</span>
-            <span class="HD">HD</span>
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
-              class="flag-icon" />
-          </div>
-        </div> -->
       </div>
     </center>
 
     <script type="text/javascript">
       jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
       var playerInstance = jwplayer("player-container").setup({
-        file: "https://otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/tsrm0zirxz/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
+        file: "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/1jii7mxinw/out/v1/fe9782633a364a6a84c9410f26d9b2c4/cenc.mpd",
         aspectratio: "16:9",
         width: "100%",
         image:
@@ -718,8 +752,8 @@
         type: "dash",
         drm: {
           clearkey: {
-            keyId: "9cb6b6283487afe392adcffebf3cd6be",
-            key: "05f4eb67381e0c173954603518ce84c3",
+            keyId: "553a8e7efc48840b17d03797c023d9b6",
+            key: "05fa313fa73df33f19e0f2d3d047bbaf",
           },
         },
       });
@@ -741,22 +775,7 @@
         playerInstance.play();
       });
 
-      // document.getElementById('video2').addEventListener('click', () => {
-      //   playerInstance.load([{
-      //     file: "https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/9zdhmclf6e/out/v1/fe9782633a364a6a84c9410f26d9b2c4/cenc.mpd",
-      //     image: 'https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png',
-      //     drm: {
-      //       clearkey: {
-      //           keyId: "4a5191838da17a2ab771f4258fad347f",
-      //           key: "54b7a084437459368eed07d182ad644c",
-      //         },
-      //       },
-      //     },
-      //   ]);
-      //   playerInstance.play();
-      // });
-
-      document.getElementById("video3").addEventListener("click", () => {
+      document.getElementById("video2").addEventListener("click", () => {
         playerInstance.load([
           {
             file: "https://otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/tsrm0zirxz/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
@@ -764,48 +783,14 @@
               "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
             drm: {
               clearkey: {
-                  keyId: "9cb6b6283487afe392adcffebf3cd6be",
-                  key: "05f4eb67381e0c173954603518ce84c3",
+                keyId: "9cb6b6283487afe392adcffebf3cd6be",
+                key: "05f4eb67381e0c173954603518ce84c3",
               },
             },
           },
         ]);
         playerInstance.play();
       });
-
-      // document.getElementById("video4").addEventListener("click", () => {
-      //   playerInstance.load([
-      //     {
-      //       file: "https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/xqqu5jyoti/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
-      //       image:
-      //         "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
-      //       drm: {
-      //         clearkey: {
-      //           keyId: "d790f0486bf8b693422cfe64d9ed342a",
-      //           key: "52fd36bde6820b5c07ce4485642394a8",
-      //         },
-      //       },
-      //     },
-      //   ]);
-      //   playerInstance.play();
-      // });
-
-      // document.getElementById("video5").addEventListener("click", () => {
-      //   playerInstance.load([
-      //     {
-      //       file: "https://abhvfwoaaaaaaaamge5xi5icfzq64.otte.live.cf.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/xjrxodbgeh/out/v1/69b95861163a42d9a34a1d4ceece7a7a/cenc.mpd",
-      //       image:
-      //         "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
-      //       drm: {
-      //         clearkey: {
-      //           keyId: "7aa124253d518f18740c5bd932d581a3",
-      //           key: "1819c82fc27225f5e79ae189ddece0ea",
-      //         },
-      //       },
-      //     },
-      //   ]);
-      //   playerInstance.play();
-      // });
 
       document
         .getElementById("darkMode")
@@ -901,6 +886,66 @@
       </svg>
     </div>
   </a>
+
+  <!-- Popup Container -->
+  <div class="popup-overlay" id="coffeePopup">
+    <div class="popup-box">
+      <h2>☕ Buy Me a Coffee?</h2>
+      <p class= "popup-message" id="popupMessage">
+        Hey there! If you enjoy my work, show your support by buying me a
+        coffee! Every cup fuels my creativity and keeps me going. <br/>
+        <center><b>Click OK to show your support!</b></center>
+      </p>
+      <div class="popup-buttons">
+        <button class="ok-btn" onclick="redirectToCoffee()">OK</button>
+        <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Show popup on page load and trigger speech after user interaction
+    window.onload = function () {
+      setTimeout(() => {
+        document.getElementById("coffeePopup").classList.add("active");
+        setTimeout(speakMessage, 1000); // Delay speech slightly
+      }, 500);
+    };
+
+    // Redirect to Buy Me a Coffee
+    function redirectToCoffee() {
+      window.open("https://buymeacoffee.com/haritmengar", "_blank");
+      closePopup();
+    }
+
+    // Close popup
+    function closePopup() {
+      document.getElementById("coffeePopup").classList.remove("active");
+    }
+
+    // // Speak the popup message aloud
+    // function speakMessage() {
+    //   let messageText = document.getElementById("popupMessage").innerText;
+    //   let speech = new SpeechSynthesisUtterance(messageText);
+    //   speech.lang = "en-UK"; // British English accent
+    //   speech.rate = 1; // Normal speed
+    //   speech.pitch = 1; // Normal pitch
+    //   speech.volume = 1; // Full volume
+
+    //   // Fix for Chrome & Safari: Wait until voices are loaded
+    //   let voicesLoaded = false;
+    //   speechSynthesis.onvoiceschanged = function () {
+    //     if (!voicesLoaded) {
+    //       let voices = speechSynthesis.getVoices();
+    //       if (voices.length > 0) {
+    //         speech.voice = voices.find(voice => voice.lang === "en-UK") || voices[0];
+    //         speechSynthesis.speak(speech);
+    //         voicesLoaded = true;
+    //       }
+    //     }
+    //   };
+    // }
+  </script>
 
   <script>
     function toggleButtons() {
