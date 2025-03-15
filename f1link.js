@@ -26,34 +26,29 @@ const videoLinks = {
     }
 };
 
-// Update Session Options Based on GP Selection
+// Update Session Dropdown Based on GP Selection
 function updateSessionOptions() {
     const gpSelection = document.getElementById("gpSelection").value;
     const sessionSelection = document.getElementById("sessionSelection");
-    const playButton = document.getElementById("playButton");
 
+    // Reset session dropdown
     sessionSelection.innerHTML = '<option value="" disabled selected>Select Session</option>';
-    sessionSelection.disabled = false;
-    playButton.disabled = true;
+    sessionSelection.disabled = true; // Disable until a valid selection is made
 
+    // If GP exists in the data, populate sessions
     if (videoLinks[gpSelection]) {
-        Object.entries(videoLinks[gpSelection]).forEach(([session, url]) => {
+        sessionSelection.disabled = false;
+        Object.entries(videoLinks[gpSelection]).forEach(([sessionName, sessionUrl]) => {
             let option = document.createElement("option");
-            option.value = url;
-            option.textContent = session;
+            option.value = sessionUrl;
+            option.textContent = sessionName;
             sessionSelection.appendChild(option);
         });
     }
 }
 
-// Enable Play Button When a Session is Selected
-document.getElementById("sessionSelection").addEventListener("change", function() {
-    document.getElementById("playButton").disabled = false;
-});
-
-// Play Selected Video with Chromecast Feature
-function playSelectedVideo() {
-    const videoUrl = document.getElementById("sessionSelection").value;
+// Play Selected Video
+function playVideo(videoUrl) {
     if (!videoUrl) {
         alert("Please select a valid session!");
         return;
