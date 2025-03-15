@@ -6,13 +6,13 @@ const videoLinks = {
         FP1: "https://dai.fancode.com/primary/114686_english_hls_6567ta-di_backup/vod_93_master.m3u8",
         FP2: "https://dai.fancode.com/primary/114687_english_hls_6308ta-no_backup/vod_160_master.m3u8",
         FP3: "https://dai.fancode.com/primary/114688_english_hls_6234ta-di_backup/vod_825_master.m3u8",
-        Qualifying: "https://example.com/australian_qualifying.m3u8",
+        Qualifying: "https://dai.fancode.com/primary/114689_english_hls_5992ta-di_backup/vod_707_master.m3u8",
         Race: "https://example.com/australian_race.m3u8"
     },
-    bahrain: {
+    chinese: {
         FP1: "https://example.com/bahrain_fp1.m3u8",
-        FP2: "https://example.com/bahrain_fp2.m3u8",
-        FP3: "https://example.com/bahrain_fp3.m3u8",
+        Sprint Qualifying: "https://dai.fancode.com/primary/114689_english_hls_5992ta-di_backup/vod_707_master.m3u8",
+        Sprint: "https://example.com/bahrain_fp3.m3u8",
         Qualifying: "https://example.com/bahrain_qualifying.m3u8",
         Race: "https://example.com/bahrain_race.m3u8"
     },
