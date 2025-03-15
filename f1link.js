@@ -1,60 +1,64 @@
-// Load JW Player key
+// Load JW Player Key
 jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 
+// Video Links Data
 const videoLinks = {
     australian: {
-        FP1: "https://dai.fancode.com/primary/114686_english_hls_6567ta-di_backup/vod_93_master.m3u8",
-        FP2: "https://dai.fancode.com/primary/114687_english_hls_6308ta-no_backup/vod_160_master.m3u8",
-        FP3: "https://dai.fancode.com/primary/114688_english_hls_6234ta-di_backup/vod_825_master.m3u8",
-        Qualifying: "https://dai.fancode.com/primary/114689_english_hls_5992ta-di_backup/vod_707_master.m3u8",
-        Race: "https://example.com/australian_race.m3u8"
+        "FP1": "https://dai.fancode.com/primary/114686_english_hls_6567ta-di_backup/vod_93_master.m3u8",
+        "FP2": "https://dai.fancode.com/primary/114687_english_hls_6308ta-no_backup/vod_160_master.m3u8",
+        "FP3": "https://dai.fancode.com/primary/114688_english_hls_6234ta-di_backup/vod_825_master.m3u8",
+        "Qualifying": "https://dai.fancode.com/primary/114689_english_hls_5992ta-di_backup/vod_707_master.m3u8",
+        "Race": "https://example.com/australian_race.m3u8"
     },
     chinese: {
-        FP1: "https://example.com/bahrain_fp1.m3u8",
-        Sprint Qualifying: "https://dai.fancode.com/primary/114689_english_hls_5992ta-di_backup/vod_707_master.m3u8",
-        Sprint: "https://example.com/bahrain_fp3.m3u8",
-        Qualifying: "https://example.com/bahrain_qualifying.m3u8",
-        Race: "https://example.com/bahrain_race.m3u8"
+        "FP1": "https://example.com/chinese_fp1.m3u8",
+        "Sprint Qualifying": "https://dai.fancode.com/primary/114689_english_hls_5992ta-di_backup/vod_707_master.m3u8",
+        "Sprint": "https://example.com/chinese_sprint.m3u8",
+        "Qualifying": "https://example.com/chinese_qualifying.m3u8",
+        "Race": "https://example.com/chinese_race.m3u8"
     },
     bahrain: {
-        FP1: "https://example.com/monaco_fp1.m3u8",
-        FP2: "https://example.com/monaco_fp2.m3u8",
-        FP3: "https://example.com/monaco_fp3.m3u8",
-        Qualifying: "https://example.com/monaco_qualifying.m3u8",
-        Race: "https://example.com/monaco_race.m3u8"
+        "FP1": "https://example.com/bahrain_fp1.m3u8",
+        "FP2": "https://example.com/bahrain_fp2.m3u8",
+        "FP3": "https://example.com/bahrain_fp3.m3u8",
+        "Qualifying": "https://example.com/bahrain_qualifying.m3u8",
+        "Race": "https://example.com/bahrain_race.m3u8"
     }
 };
 
+// Update Session Options Based on GP Selection
 function updateSessionOptions() {
     const gpSelection = document.getElementById("gpSelection").value;
     const sessionSelection = document.getElementById("sessionSelection");
+    const playButton = document.getElementById("playButton");
 
     sessionSelection.innerHTML = '<option value="" disabled selected>Select Session</option>';
     sessionSelection.disabled = false;
+    playButton.disabled = true;
 
-    Object.keys(videoLinks[gpSelection]).forEach(session => {
-        let option = document.createElement("option");
-        option.value = videoLinks[gpSelection][session];
-        option.textContent = session;
-        sessionSelection.appendChild(option);
-    });
+    if (videoLinks[gpSelection]) {
+        Object.entries(videoLinks[gpSelection]).forEach(([session, url]) => {
+            let option = document.createElement("option");
+            option.value = url;
+            option.textContent = session;
+            sessionSelection.appendChild(option);
+        });
+    }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const gpSelection = document.getElementById("gpSelection");
-    const dropdownIcon = document.querySelector(".dropdown-icon");
-
-    gpSelection.addEventListener("click", function () {
-        dropdownIcon.classList.toggle("rotate");
-    });
-
-    gpSelection.addEventListener("blur", function () {
-        dropdownIcon.classList.remove("rotate");
-    });
+// Enable Play Button When a Session is Selected
+document.getElementById("sessionSelection").addEventListener("change", function() {
+    document.getElementById("playButton").disabled = false;
 });
 
+// Play Selected Video with Chromecast Feature
+function playSelectedVideo() {
+    const videoUrl = document.getElementById("sessionSelection").value;
+    if (!videoUrl) {
+        alert("Please select a valid session!");
+        return;
+    }
 
-function playVideo(videoUrl) {
     jwplayer("player-container").setup({
         aspectratio: '16:9',
         width: '100%',
@@ -68,14 +72,17 @@ function playVideo(videoUrl) {
             file: 'https://media.formula1.com/image/upload/f_auto,c_limit,w_285,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo',
             position: 'bottom-right',
             margin: '20',
-            hide: 'false',
-            size: '05%'
+            hide: false,
+            size: '5%'
         },
         fullscreen: {
             enabled: true,
             displayLabel: true,
-            label: 'Exit Fullscreen',
+            label: 'Exit Fullscreen'
         },
-        playbackRateControls: true
+        playbackRateControls: true,
+
+        // Enable Chromecast Feature
+        cast: {},
     });
 }
