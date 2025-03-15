@@ -16,7 +16,7 @@ const videoLinks = {
         Qualifying: "https://example.com/bahrain_qualifying.m3u8",
         Race: "https://example.com/bahrain_race.m3u8"
     },
-    monaco: {
+    bahrain: {
         FP1: "https://example.com/monaco_fp1.m3u8",
         FP2: "https://example.com/monaco_fp2.m3u8",
         FP3: "https://example.com/monaco_fp3.m3u8",
