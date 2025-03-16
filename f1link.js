@@ -8,7 +8,7 @@ const videoLinks = {
         "FP2": "https://dai.fancode.com/primary/114687_english_hls_6308ta-no_backup/vod_160_master.m3u8",
         "FP3": "https://dai.fancode.com/primary/114688_english_hls_6234ta-di_backup/vod_825_master.m3u8",
         "Qualifying": "https://dai.fancode.com/primary/114689_english_hls_5992ta-di_backup/vod_707_master.m3u8",
-        "Race": "https://example.com/australian_race.m3u8"
+        "Race": "https://dai.fancode.com/primary/114690_english_hls_4902ta-no_backup/vod_103_master.m3u8"
     },
     chinese: {
         "FP1": "https://example.com/chinese_fp1.m3u8",
