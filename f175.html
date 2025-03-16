@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <script src="https://kit.fontawesome.com/704ff50790.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -11,6 +10,8 @@
         href="https://www.formula1.com/assets/home/_next/static/media/icon144x144.668d0c9a.png" sizes="128x128">
     <title>F1</title>
     <link rel="stylesheet" href="formula175.css">
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -18,6 +19,9 @@
         gtag('js', new Date());
         gtag('config', 'G-DVMMJVP33N');
     </script>
+    
+    <!-- Firebase SDK (Deferred for faster loading) -->
+    <script type="module" defer src="firebaseSetup.js"></script>
 </head>
 
 <body>
@@ -40,19 +44,17 @@
                 <select id="gpSelection" onchange="updateSessionOptions()">
                     <option value="" disabled selected>Select a Grand Prix</option>
                     <option value="australian">Australian GP</option>
-                    <option value="chinese">Chinese GP</option>
                     <option value="bahrain">Bahrain GP</option>
+                    <option value="monaco">Monaco GP</option>
                 </select>
             </div>
-    
+
             <select id="sessionSelection" onchange="playVideo(this.value)" disabled>
                 <option value="" disabled selected>Select Session</option>
             </select>
         </div>
-          
-        <div id="player-container">
-            
-        </div>
+
+        <div id="player-container"></div>
 
         <center>
             <div id="containerr3">
@@ -61,26 +63,22 @@
         </center>
 
         <script src="f1link.js"></script>
-        </script>
 
         <div class="sharethis-inline-share-buttons"></div>
         <h4>Welcome to HD F1 GP Highlights!</h4>
         <ul>
-            <li>Watch Formula 1 Grand Prix highlights in ULTRA HD on Ultrawebs. Highlights are available shortly
-                after each race.</li>
-            <li>All links are sourced from reliable third-party websites and accessible worldwide.</li>
+            <li>Watch Formula 1 Grand Prix highlights in ULTRA HD on Ultrawebs.</li>
+            <li>All links are sourced from reliable third-party websites.</li>
         </ul>
+        
         <h4>Disclaimer</h4>
         <ul>
-            <li>Ultrawebs provides access to Formula 1 GP highlights sourced from freely available third-party
-                websites.</li>
+            <li>Ultrawebs provides access to F1 GP highlights sourced from third-party websites.</li>
             <li>We do not host or own any content; all rights belong to their respective owners.</li>
-            <li>Unauthorized use, reproduction, or redistribution is strictly prohibited.</li>
         </ul>
 
         <div class="watermark">Created by UltraWebs(HM) © 2025</div>
         <footer>F1 75 © 2025 | Designed by UW</footer>
     </div>
 </body>
-
 </html>
