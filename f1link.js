@@ -81,3 +81,22 @@ function playVideo(videoUrl) {
         cast: {},
     });
 }
+
+    // Show popup on page load and trigger speech after user interaction
+    window.onload = function () {
+      setTimeout(() => {
+        document.getElementById("coffeePopup").classList.add("active");
+        setTimeout(speakMessage, 1000); // Delay speech slightly
+      }, 500);
+    };
+
+    // Redirect to Buy Me a Coffee
+    function redirectToCoffee() {
+      window.open("https://buymeacoffee.com/haritmengar", "_blank");
+      closePopup();
+    }
+
+    // Close popup
+    function closePopup() {
+      document.getElementById("coffeePopup").classList.remove("active");
+    }
