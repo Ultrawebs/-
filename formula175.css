@@ -537,3 +537,79 @@ li {
     color: white;
     /* Set text color of links to white */
 }
+
+
+    /* Popup overlay */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s;
+    }
+
+    /* Popup box */
+    .popup-box {
+      background: white;
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(-20px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @media (max-width: 600px) {
+      .popup-box {
+        max-width: 70%;
+      }
+    }
+
+    .popup-message {
+      text-align: justify;
+    }
+
+    /* Show the popup */
+    .popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-overlay.active .popup-box {
+      transform: translateY(0);
+    }
+
+    /* Buttons */
+    .popup-buttons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .popup-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .ok-btn {
+      background: #ffdd57;
+      color: black;
+      font-weight: bold;
+    }
+
+    .cancel-btn {
+      background: #ccc;
+      color: black;
+    }
