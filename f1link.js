@@ -13,7 +13,7 @@ const videoLinks = {
     chinese: {
         "FP1": "https://dai.fancode.com/primary/118386_english_hls_6228ta-no_backup/vod_379_master.m3u8",
         "Sprint Qualifying": "https://dai.fancode.com/primary/118387_english_hls_6067ta-di_backup/vod_821_master.m3u8",
-        "Sprint": "https://example.com/chinese_sprint.m3u8",
+        "Sprint": "https://dai.fancode.com/secondary/118388_english_hls_5414ta-di_backup/vod_363_master.m3u8",
         "Qualifying": "https://example.com/chinese_qualifying.m3u8",
         "Race": "https://example.com/chinese_race.m3u8"
     },
