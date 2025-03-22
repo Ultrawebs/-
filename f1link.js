@@ -1,5 +1,5 @@
-// Load JW Player Key
-jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+// Load JW Player key
+jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
 
 // Video Links Data
 const videoLinks = {
@@ -26,58 +26,100 @@ const videoLinks = {
     }
 };
 
-// Update Session Dropdown Based on GP Selection
 function updateSessionOptions() {
-    const gpSelection = document.getElementById("gpSelection").value;
-    const sessionSelection = document.getElementById("sessionSelection");
+  const gpSelection = document.getElementById("gpSelection").value;
+  const sessionSelection = document.getElementById("sessionSelection");
 
-    // Reset session dropdown
-    sessionSelection.innerHTML = '<option value="" disabled selected>Select Session</option>';
-    sessionSelection.disabled = true; // Disable until a valid selection is made
+  sessionSelection.innerHTML =
+    '<option value="" disabled selected>Select Session</option>';
+  sessionSelection.disabled = false;
 
-    // If GP exists in the data, populate sessions
-    if (videoLinks[gpSelection]) {
-        sessionSelection.disabled = false;
-        Object.entries(videoLinks[gpSelection]).forEach(([sessionName, sessionUrl]) => {
-            let option = document.createElement("option");
-            option.value = sessionUrl;
-            option.textContent = sessionName;
-            sessionSelection.appendChild(option);
-        });
-    }
+  Object.keys(videoLinks[gpSelection]).forEach((session) => {
+    let option = document.createElement("option");
+    option.value = videoLinks[gpSelection][session];
+    option.textContent = session;
+    sessionSelection.appendChild(option);
+  });
 }
 
-// Play Selected Video
+document.addEventListener("DOMContentLoaded", function () {
+  const gpSelection = document.getElementById("gpSelection");
+  const dropdownIcon = document.querySelector(".dropdown-icon");
+
+  gpSelection.addEventListener("click", function () {
+    dropdownIcon.classList.toggle("rotate");
+  });
+
+  gpSelection.addEventListener("blur", function () {
+    dropdownIcon.classList.remove("rotate");
+  });
+});
+
 function playVideo(videoUrl) {
-    if (!videoUrl) {
-        alert("Please select a valid session!");
-        return;
+  jwplayer("player-container").setup({
+    aspectratio: "16:9",
+    width: "100%",
+    file: videoUrl,
+    image:
+      "https://d2n9h2wits23hf.cloudfront.net/image/v1/static/6057949432001/8382b094-4a8d-4719-a656-3afa74e3818f/156bd909-72ac-47f9-9c65-f8f3b6553de6/1194x672/match/image.jpg",
+    autostart: true,
+    captions: { color: "#ffb800", fontSize: 30, backgroundOpacity: 0 },
+    abouttext: "Ultrawebs(HM)",
+    aboutlink: "https://linktr.ee/ultrawebs",
+    logo: {
+      file: "https://media.formula1.com/image/upload/f_auto,c_limit,w_285,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo",
+      position: "bottom-right",
+      margin: "20",
+      hide: "false",
+      size: "05%",
+    },
+    fullscreen: {
+      enabled: true,
+      displayLabel: true,
+      label: "Exit Fullscreen",
+    },
+    playbackRateControls: true,
+  });
+}
+
+// Show popup on page load and trigger speech after user interaction
+window.onload = function () {
+  setTimeout(() => {
+    document.getElementById("coffeePopup").classList.add("active");
+    setTimeout(speakMessage, 1000); // Delay speech slightly
+  }, 500);
+};
+
+// Redirect to Buy Me a Coffee
+function redirectToCoffee() {
+  window.open("https://buymeacoffee.com/haritmengar", "_blank");
+  closePopup();
+}
+
+// Close popup
+function closePopup() {
+  document.getElementById("coffeePopup").classList.remove("active");
+}
+
+// Speak the popup message aloud
+function speakMessage() {
+  let messageText = document.getElementById("popupMessage").innerText;
+  let speech = new SpeechSynthesisUtterance(messageText);
+  speech.lang = "en-UK"; // British English accent
+  speech.rate = 1; // Normal speed
+  speech.pitch = 1; // Normal pitch
+  speech.volume = 1; // Full volume
+
+  // Fix for Chrome & Safari: Wait until voices are loaded
+  let voicesLoaded = false;
+  speechSynthesis.onvoiceschanged = function () {
+    if (!voicesLoaded) {
+      let voices = speechSynthesis.getVoices();
+      if (voices.length > 0) {
+        speech.voice = voices.find(voice => voice.lang === "en-UK") || voices[0];
+        speechSynthesis.speak(speech);
+        voicesLoaded = true;
+      }
     }
-
-    jwplayer("player-container").setup({
-        aspectratio: '16:9',
-        width: '100%',
-        file: videoUrl,
-        image: 'https://d2n9h2wits23hf.cloudfront.net/image/v1/static/6057949432001/8382b094-4a8d-4719-a656-3afa74e3818f/156bd909-72ac-47f9-9c65-f8f3b6553de6/1194x672/match/image.jpg',
-        autostart: true,
-        captions: { color: '#ffb800', fontSize: 30, backgroundOpacity: 0 },
-        abouttext: 'Ultrawebs(HM)',
-        aboutlink: 'https://linktr.ee/ultrawebs',
-        logo: {
-            file: 'https://media.formula1.com/image/upload/f_auto,c_limit,w_285,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo',
-            position: 'bottom-right',
-            margin: '20',
-            hide: false,
-            size: '5%'
-        },
-        fullscreen: {
-            enabled: true,
-            displayLabel: true,
-            label: 'Exit Fullscreen'
-        },
-        playbackRateControls: true,
-
-        // Enable Chromecast Feature
-        cast: {},
-    });
+  };
 }
