@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
     <meta name="referrer" content="no-referrer">
-    <link rel="icon" type="image/png" href="https://aimages.willow.tv/f2/favicon.ico" sizes="128x128"
+    <link rel="icon" type="image/png" href="https://www.pngplay.com/wp-content/uploads/7/Cricket-Ball-Transparent-PNG.png" sizes="128x128"
         style="border-radius: 5px;">
     <title>Willow HD</title>
     <style>
@@ -17,7 +16,7 @@
             font-family: "Onest", sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("https://ideogram.ai/api/images/direct/bonVtGiwRFGIoblRU86qtA.png");
+            background-image: url("webpa/bg.webp");
             background-size: cover;
             /* Optional: adjust based on your design */
             background-attachment: fixed;
@@ -28,12 +27,12 @@
         }
 
         /* Media query for mobile devices */
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: 600px) {
             body {
-                background-image: url("https://ideogram.ai/api/images/direct/k9pI9F1ZSyejot5OYVETtw.png");
+                background-image: url("webpa/bgm.webp");
                 /* Set aspect ratio to 9:16 */
-                background-size: fixed;
-                padding: 8px;
+                background-size: cover;
+                padding: 02px;
             }
         }
 
@@ -41,13 +40,15 @@
         body::-webkit-scrollbar {
             width: 8px;
             /* Width of the scrollbar */
-            border-radius: 5px;
+            /* border-radius: 5px; */
             /* Rounded corners */
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
         body::-webkit-scrollbar-track {
             backdrop-filter: blur(10px);
             /* Apply blur effect */
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
         body::-webkit-scrollbar-thumb {
@@ -61,11 +62,6 @@
             /* Smooth transition */
         }
 
-        body::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.7);
-            /* Darker thumb color on hover */
-        }
-
         /* Hide scrollbar after 3 seconds */
         body.hide-scrollbar::-webkit-scrollbar {
             scrollbar-width: thin;
@@ -74,11 +70,6 @@
         body.hide-scrollbar::-webkit-scrollbar-thumb {
             background-color: transparent;
             /* Hide thumb */
-        }
-
-        body.hide-scrollbar:hover::-webkit-scrollbar-thumb {
-            background-color: rgba(0, 0, 0, 0.7);
-            /* Show thumb on hover */
         }
 
         header {
@@ -93,13 +84,15 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
             text-align: center;
-            padding: 05px;
+            padding: 08px;
             box-sizing: border-box;
             max-width: 100%;
             overflow: hidden;
+            border-radius: 0px;
         }
 
         header img {
+            border-radius: 03px;
             max-width: auto;
             height: auto;
             max-height: 30px;
@@ -110,34 +103,43 @@
             font-family: "Onest", sans-serif;
             color: white;
             padding: 10px;
-            background-color: #333;
-            margin-right: 8px;
-            margin-left: 5px;
-            margin: 0 auto;
-            backdrop-filter: blur(10px);
-            /* Adjust blur strength as needed */
+            backdrop-filter: blur(20px);
             background-color: rgba(51, 51, 51, 0.098);
-            /* Adjust background color and opacity */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-            overflow-y: auto;
+            margin: 0 auto;
         }
 
         /* Media query for larger screens (desktop) */
         @media only screen and (min-width: 601px) {
             #container {
-                max-width: 70%;
+                max-width: 75%;
                 /* Set width to 80% for desktop */
             }
         }
 
+        /* Media query for smaller screens (mobile) */
+        @media only screen and (max-width: 600px) {
+            #container {
+                max-width: 100%;
+                /* Set initial width to 100% for mobile */
+            }
+        }
+
         #player-container {
-            border-radius: 10px;
+            border-radius: 05px;
             overflow: hidden;
             /* Center align the container */
             margin: 0 auto;
             /* Set initial width to 100% for mobile */
-            max-width: 90%;
+            max-width: 100%;
+            margin-bottom: 05px;
+            margin-top: 10px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #player-container {
+                max-width: 100%;
+                /* Set initial width to 100% for mobile */
+            }
         }
 
         #video {
@@ -152,34 +154,30 @@
         .watermark {
             font-family: "Onest", sans-serif;
             position: baseline;
+            bottom: 10px;
             /* Set distance from bottom of viewport */
             text-align: right;
             margin-right: 10px;
-            font-size: 14px;
+            font-size: 12px;
             color: white;
             border-radius: 5px;
             font-weight: bold;
             z-index: 9999;
         }
 
-        /* Position the footer at the bottom */
         footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            backdrop-filter: blur(10px);
+            font-family: "Anek Latin", sans-serif;
+            width: auto;
+            backdrop-filter: blur(05px);
             /* Adjust blur strength as needed */
             background-color: rgba(51, 51, 51, 0.098);
             /* Adjust background color and opacity */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
+            color: White;
             text-align: center;
-            padding: 10px;
-            box-sizing: border-box;
-            max-width: 100%;
-            overflow: hidden;
             font-size: 16px;
+            padding: 8px 8px;
             font-weight: bold;
         }
 
@@ -199,35 +197,19 @@
 
         h3 {
             color: white;
-            font-size: 1.3rem;
-        }
-
-        a {
-            color: red;
-            font-weight: bold;
-            text-decoration: none;
+            font-size: 1.1rem;
         }
 
         p {
             text-align: justify;
         }
 
-        ul,
         li {
-            font-size: 16px;
             text-align: justify;
+            margin: 0 0 08px;
         }
 
         /*Telegram floating button*/
-        .telegram-float {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            z-index: 10000;
-            /* Adjusted z-index to ensure it's above the footer */
-        }
-
-        /* Position the Telegram button */
         .telegram-float {
             position: fixed;
             bottom: 20px;
@@ -265,42 +247,50 @@
             height: 30px;
         }
 
-        .responsive-iframe-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            padding-top: 56.25%;
-            /* 16:9 aspect ratio */
-            margin-bottom: 08px;
-            border-radius: 05px;
-        }
-
-        .responsive-iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+        .alert {
+            color: red;
+            margin-top: 5px;
+            font-weight: bold;
+            background-color: black;
+            width: fit-content;
+            text-align: center;
         }
     </style>
     <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js" type="text/javascript"></script>
 </head>
 
-<body>    
+<body>
     <div id="container">
-
-            <header>
-        <img alt="willow extra" id="top-image" src="https://static.wikia.nocookie.net/logopedia/images/9/90/Willow_HD_2013.png/revision/latest?cb=2023100218330" />
-    </header>
+        <header>
+            <img alt="Willow" id="top-image"
+                src="https://img.willow.tv/apps/wlw-nw-lgo.png" />
+        </header>
 
         <center style="color: red;margin-top: 08px;font-weight: bold;">
             Please wait for 15 seconds, the video will start playing
             automatically.
         </center>
 
-        <div class="responsive-iframe-container">
-            <iframe src="https://emdftinya.tinyuri.org/embed/english.php" allowfullscreen></iframe>
+        <div id="player-container">
+        <script type="text/javascript">
+            jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+            var playerInstance = jwplayer("player-container").setup({
+                file: "https://channel5.csports.tv/1030826119/index.m3u8",
+                aspectratio: '16:9',
+                width: '100%',
+                image: 'https://mma.prnewswire.com/media/1919551/WillowTV_Logo.jpg?p=facebook',
+                autostart: true,
+                captions: { color: 'white', fontSize: '25%', backgroundOpacity: 0 },
+                abouttext: 'Ultrawebs(HM)',
+                aboutlink: 'https://linktr.ee/ultrawebs',
+                sharing: {
+                    sites: ['facebook', 'twitter', 'tumblr', 'googleplus']
+                },
+                "Volume": "50",
+                "mute": false,
+                type: "hls"
+            });
+        </script>
         </div>
 
         <h3>Disclaimer</h3>
@@ -331,7 +321,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=" strict" crossorigin="anonymous"></script>
 
-    
+
 
     <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
         <div class="telegram-icon">
