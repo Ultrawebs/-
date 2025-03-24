@@ -63,6 +63,8 @@ function playVideo(videoUrl) {
     image:
       "https://d2n9h2wits23hf.cloudfront.net/image/v1/static/6057949432001/8382b094-4a8d-4719-a656-3afa74e3818f/156bd909-72ac-47f9-9c65-f8f3b6553de6/1194x672/match/image.jpg",
     autostart: true,
+    hlshtml: true,
+    cast: {}, // Enables Chromecast & AirPlay
     captions: { color: "#ffb800", fontSize: 30, backgroundOpacity: 0 },
     abouttext: "Ultrawebs(HM)",
     aboutlink: "https://linktr.ee/ultrawebs",
