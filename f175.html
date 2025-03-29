@@ -1,131 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script
-      src="https://kit.fontawesome.com/704ff50790.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="referrer" content="no-referrer" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://www.formula1.com/assets/home/_next/static/media/icon144x144.668d0c9a.png"
-      sizes="128x128"
-    />
-    <title>F1</title>
-    <link rel="stylesheet" href="formula175.css" />
 
-    <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-DVMMJVP33N");
-    </script>
+<head>
+  <script src="https://kit.fontawesome.com/704ff50790.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@hola.org/jwplayer-hlsjs@latest/dist/jwplayer.hlsjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@0.14.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <link rel="icon" type="image/png"
+    href="https://www.formula1.com/assets/home/_next/static/media/icon144x144.668d0c9a.png" sizes="128x128" />
+  <title>F1</title>
+  <link rel="stylesheet" href="formula175.css" />
 
-    <!-- Firebase SDK (Deferred for faster loading) -->
-    <script type="module" defer src="firebaseSetup.js"></script>
-  </head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-DVMMJVP33N");
+  </script>
 
-  <body>
-    <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js"></script>
+  <!-- Firebase SDK (Deferred for faster loading) -->
+  <script type="module" defer src="firebaseSetup.js"></script>
+</head>
 
-    <div id="container">
-      <header>
-        <img
-          alt="f175"
-          id="top-image"
-          loading="lazy"
-          src="https://media.formula1.com/image/upload/f_auto,c_limit,w_288,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo"
-        />
-        <img
-          alt="2025"
-          id="top-image"
-          loading="lazy"
-          src="https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/year%20icon/2025.png"
-        />
-      </header>
+<body>
+  <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js"></script>
 
-      <center>
-        <h4>Select your preferred GP Highlight 👇</h4>
-      </center>
+  <div id="container">
+    <header>
+      <img alt="f175" id="top-image" loading="lazy"
+        src="https://media.formula1.com/image/upload/f_auto,c_limit,w_288,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo" />
+      <img alt="2025" id="top-image" loading="lazy"
+        src="https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/year%20icon/2025.png" />
+    </header>
 
-      <div class="playlist-container">
-        <div class="dropdown-wrapper">
-          <select id="gpSelection" onchange="updateSessionOptions()">
-            <option value="" disabled selected>Select a Grand Prix</option>
-            <option value="australian">Australian GP</option>
-            <option value="chinese">Chinese GP</option>
-            <option value="monaco">Monaco GP</option>
-          </select>
-        </div>
+    <center>
+      <h4>Select your preferred GP Highlight 👇</h4>
+    </center>
 
-        <select id="sessionSelection" onchange="playVideo(this.value)" disabled>
-          <option value="" disabled selected>Select Session</option>
+    <div class="playlist-container">
+      <div class="dropdown-wrapper">
+        <select id="gpSelection" onchange="updateSessionOptions()">
+          <option value="" disabled selected>Select a Grand Prix</option>
+          <option value="australian">Australian GP</option>
+          <option value="chinese">Chinese GP</option>
+          <option value="monaco">Monaco GP</option>
         </select>
       </div>
 
-      <div id="player-container"></div>
+      <select id="sessionSelection" onchange="playVideo(this.value)" disabled>
+        <option value="" disabled selected>Select Session</option>
+      </select>
+    </div>
+
+    <div id="player-container"></div>
 
     <!-- Popup Container -->
-      <div class="popup-overlay" id="coffeePopup">
-        <div class="popup-box">
-          <h2>☕ Buy Me a Coffee?</h2>
-          <p class="popup-message" id="popupMessage">
-            Hey there! If you enjoy my work, show your support by buying me a
-            coffee! Every cup fuels my creativity and keeps me going. <br />
-            <center><b>Click OK to show your support!</b></center>
-          </p>
-          <div class="popup-buttons">
-            <button class="ok-btn" onclick="redirectToCoffee()">OK</button>
-            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
-          </div>
+    <div class="popup-overlay" id="coffeePopup">
+      <div class="popup-box">
+        <h2>☕ Buy Me a Coffee?</h2>
+        <p class="popup-message" id="popupMessage">
+          Hey there! If you enjoy my work, show your support by buying me a
+          coffee! Every cup fuels my creativity and keeps me going. <br />
+          <center><b>Click OK to show your support!</b></center>
+        </p>
+        <div class="popup-buttons">
+          <button class="ok-btn" onclick="redirectToCoffee()">OK</button>
+          <button class="cancel-btn" onclick="closePopup()">Cancel</button>
         </div>
       </div>
-      
-      <center>
-        <div id="containerr3">
-          <h4>Formula 1 Highlights 2025<br />By: Fancode</h4>
-        </div>
-      </center>
-
-      <script src="f1link.js"></script>
-
-
-
-      <div class="sharethis-inline-share-buttons"></div>
-      <h4>Welcome to HD F1 GP Highlights!</h4>
-      <ul>
-        <li>Watch Formula 1 Grand Prix highlights in ULTRA HD on Ultrawebs.</li>
-        <li>All links are sourced from reliable third-party websites.</li>
-      </ul>
-
-      <h4>Disclaimer</h4>
-      <ul>
-        <li>
-          Ultrawebs provides access to F1 GP highlights sourced from third-party
-          websites.
-        </li>
-        <li>
-          We do not host or own any content; all rights belong to their
-          respective owners.
-        </li>
-      </ul>
-
-      <div class="watermark">Created by UltraWebs(HM) © 2025</div>
-      <footer>F1 75 © 2025 | Designed by UW</footer>
     </div>
-  </body>
+
+    <center>
+      <div id="containerr3">
+        <h4>Formula 1 Highlights 2025<br />By: Fancode</h4>
+      </div>
+    </center>
+
+    <script src="f1link.js"></script>
+
+
+
+    <div class="sharethis-inline-share-buttons"></div>
+    <h4>Welcome to HD F1 GP Highlights!</h4>
+    <ul>
+      <li>Watch Formula 1 Grand Prix highlights in ULTRA HD on Ultrawebs.</li>
+      <li>All links are sourced from reliable third-party websites.</li>
+    </ul>
+
+    <h4>Disclaimer</h4>
+    <ul>
+      <li>
+        Ultrawebs provides access to F1 GP highlights sourced from third-party
+        websites.
+      </li>
+      <li>
+        We do not host or own any content; all rights belong to their
+        respective owners.
+      </li>
+    </ul>
+
+    <div class="watermark">Created by UltraWebs(HM) © 2025</div>
+    <footer>F1 75 © 2025 | Designed by UW</footer>
+  </div>
+</body>
+
 </html>
