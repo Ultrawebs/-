@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Willow 2 HD</title>
+    <title>Star Sports 2 HD Hindi</title>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-    <link rel="icon" type="image/png" loading="lazy" href="https://static.wikia.nocookie.net/logopedia/images/7/7d/Willow_2023_stacked.svg" sizes="128x128">
+    <link rel="icon" type="image/png" loading="lazy" href="https://upload.wikimedia.org/wikipedia/en/2/22/Star_Sports_Network_logo.png" sizes="128x128">
   </head>
 
   <style>
@@ -576,8 +576,18 @@
         </li>
       </ul>
 
-      <div class="watermark">Created by UltraWebs(HM) © 2024</div>
-      <footer>UltraWebs © 2024 | Designed by UW</footer>
+    <div class="watermark">
+      Created by UltraWebs(HM) © <span id="year"></span>
+    </div>
+    <footer>
+      Willow by Cricbuzz © <span id="year-footer"></span> | Designed by UW
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("year-footer").textContent =
+        new Date().getFullYear();
+    </script>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
