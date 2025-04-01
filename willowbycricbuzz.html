@@ -718,6 +718,19 @@
               class="flag-icon" />
           </div>
         </div>
+        <div class="playlist-item" id="video3">
+          <div class="playlist-info">
+            <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
+            Sky Sports Cricket - 50 FPS
+          </div>
+          <div class="playlist-icons">
+            <span class="language" style="color: blue">English</span>
+            <span class="HD">HD</span>
+            <!-- <span class="language2">Server 1</span> -->
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
+              class="flag-icon" />
+          </div>
+        </div>
       </div>
     </center>
 
@@ -797,6 +810,16 @@
         playerInstance.play();
       });
 
+      document.getElementById("video3").addEventListener("click", () => {
+        playerInstance.load([
+          {
+            file: "https://iplislive.pages.dev/sky.m3u8",
+            image: "https://img.willow.tv/apps/wlw-nw-lgo.png",
+          },
+        ]);
+        playerInstance.play();
+      });
+      
       document
         .getElementById("darkMode")
         .addEventListener("click", function () {
