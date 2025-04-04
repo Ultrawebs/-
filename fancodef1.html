@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -539,6 +540,13 @@
     color: white;
     /* Set text color of links to white */
   }
+
+  .jw-icon-tooltip .jw-tooltip-text {
+    color: white !important;
+    font-weight: bold !important;
+  }
+</style>
+
 </style>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
@@ -606,19 +614,25 @@
 
   <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js"></script>
 <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+
 <script>
   jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
 
   document.addEventListener("DOMContentLoaded", function () {
-    jwplayer("player-container").setup({
+    const player = jwplayer("player-container").setup({
       file: "https://d3o9cywwn38ni.cloudfront.net/out/v1/39480ac4b6dd44faa04aaab62ec9a10e/index.m3u8",
       image: "https://i.imgur.com/utXLNQQ.png",
       width: "100%",
-      aspectratio: "16:9",
+      height: "100%",
+      aspectratio: "16:9", // Fixed aspect ratio 16:9
       autostart: true,
-      mute: false,
+      mute: true,
+      stretching: "uniform",
       hlshtml: true,
-      cast: {},
+      cast: {
+        default: true,  // Always enable Chromecast
+        iosAirPlay: true, // Always enable AirPlay
+      },
       captions: {
         color: "#ffb800",
         fontSize: 30,
@@ -639,6 +653,11 @@
         label: "Exit Fullscreen"
       },
       playbackRateControls: true
+    });
+
+    // Ensure Chromecast button always appears in player controls
+    player.on("ready", function () {
+      player.cast.show(); // Forces Chromecast & AirPlay button to show inside controls
     });
   });
 </script>
