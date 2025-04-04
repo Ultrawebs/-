@@ -1,6 +1,4 @@
-// Load JW Player key
-jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
-
+// F1 Link - JavaScript Code
 // Video Links Data
 const videoLinks = {
   australian: {
@@ -44,14 +42,13 @@ function updateSessionOptions() {
 
 // Initialize JW Player
 function initializePlayer(videoUrl) {
-  const player = jwplayer("player-container").setup({
+  jwplayer("player-container").setup({
     aspectratio: "16:9",
     width: "100%",
     file: videoUrl,
     image: "https://d2n9h2wits23hf.cloudfront.net/image/v1/static/6057949432001/8382b094-4a8d-4719-a656-3afa74e3818f/156bd909-72ac-47f9-9c65-f8f3b6553de6/1194x672/match/image.jpg",
     autostart: true,
     hlshtml: true,
-    captions: { color: "#ffb800", fontSize: 30, backgroundOpacity: 0 },
     abouttext: "Ultrawebs(HM)",
     aboutlink: "https://linktr.ee/ultrawebs",
     logo: {
@@ -67,47 +64,28 @@ function initializePlayer(videoUrl) {
       label: "Exit Fullscreen",
     },
     playbackRateControls: true,
-    cast: { active: true }, // Enable Chromecast
-    airplay: true // Enable AirPlay
+    cast: {
+      appid: "CC1AD845", // Chromecast default app ID
+    },
+    airplay: true,
+    sharing: {
+      sites: [
+        "facebook",
+        "twitter",
+        "tumblr",
+        {
+          icon: "https://www.gstatic.com/images/icons/material/system/2x/gmail_64dp.png",
+          label: "Gmail",
+          src: "mailto:?subject=Check%20out%20this%20video&body=Watch%20this%20video%20here:%20https://yourdomain.com/video-page"
+        },
+        {
+          icon: "https://cdn-icons-png.flaticon.com/512/25/25686.png",
+          label: "Embed",
+          src: "javascript:prompt('Embed this video:', `<iframe src='https://yourdomain.com/embed-player.html' width='640' height='360' frameborder='0' allowfullscreen></iframe>`);"
+        }
+      ]
+    }
   });
-
-  // Add Chromecast & AirPlay buttons manually
-  addCastingButtons(player);
-}
-
-// Function to add AirPlay & Chromecast buttons dynamically
-function addCastingButtons(player) {
-  let controls = document.getElementById("player-container");
-
-  // Remove existing buttons if already present
-  document.querySelectorAll(".cast-button, .airplay-button").forEach(btn => btn.remove());
-
-  // Create Chromecast Button
-  let castButton = document.createElement("button");
-  castButton.innerHTML = "📺 Chromecast";
-  castButton.classList.add("cast-button");
-  castButton.onclick = () => {
-    if (player.cast) {
-      player.cast.start();
-    } else {
-      alert("Chromecast is not available on this device.");
-    }
-  };
-
-  // Create AirPlay Button
-  let airplayButton = document.createElement("button");
-  airplayButton.innerHTML = "🎵 AirPlay";
-  airplayButton.classList.add("airplay-button");
-  airplayButton.onclick = () => {
-    if (window.WebKitPlaybackTargetAvailabilityEvent) {
-      player.cast.airPlay();
-    } else {
-      alert("AirPlay is not available on this device.");
-    }
-  };
-
-  controls.appendChild(castButton);
-  controls.appendChild(airplayButton);
 }
 
 // Play video when session is selected
@@ -135,34 +113,24 @@ function closePopup() {
 }
 
 // Speak the popup message aloud
-function speakMessage() {
-  let messageText = document.getElementById("popupMessage").innerText;
-  let speech = new SpeechSynthesisUtterance(messageText);
-  speech.lang = "en-UK"; // British English accent
-  speech.rate = 1;
-  speech.pitch = 1;
-  speech.volume = 1;
+// function speakMessage() {
+//   let messageText = document.getElementById("popupMessage").innerText;
+//   let speech = new SpeechSynthesisUtterance(messageText);
+//   speech.lang = "en-UK"; // British English accent
+//   speech.rate = 1;
+//   speech.pitch = 1;
+//   speech.volume = 1;
 
-  // Fix for Chrome & Safari: Wait until voices are loaded
-  let voicesLoaded = false;
-  speechSynthesis.onvoiceschanged = function () {
-    if (!voicesLoaded) {
-      let voices = speechSynthesis.getVoices();
-      if (voices.length > 0) {
-        speech.voice = voices.find(voice => voice.lang === "en-UK") || voices[0];
-        speechSynthesis.speak(speech);
-        voicesLoaded = true;
-      }
-    }
-  };
-}
-
-// Load Google Cast SDK
-(function () {
-  var js = document.createElement("script");
-  js.src = "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js";
-  js.onload = function () {
-    console.log("Google Cast SDK Loaded");
-  };
-  document.body.appendChild(js);
-})();
+//   // Fix for Chrome & Safari: Wait until voices are loaded
+//   let voicesLoaded = false;
+//   speechSynthesis.onvoiceschanged = function () {
+//     if (!voicesLoaded) {
+//       let voices = speechSynthesis.getVoices();
+//       if (voices.length > 0) {
+//         speech.voice = voices.find(voice => voice.lang === "en-UK") || voices[0];
+//         speechSynthesis.speak(speech);
+//         voicesLoaded = true;
+//       }
+//     }
+//   };
+// }
