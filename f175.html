@@ -3,10 +3,8 @@
 
 <head>
   <script src="https://kit.fontawesome.com/704ff50790.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@hola.org/jwplayer-hlsjs@latest/dist/jwplayer.hlsjs.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@0.14.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="no-referrer" />
@@ -31,8 +29,6 @@
 </head>
 
 <body>
-  <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js"></script>
-
   <div id="container">
     <header>
       <img alt="f175" id="top-image" loading="lazy"
@@ -49,14 +45,30 @@
       <div class="dropdown-wrapper">
         <select id="gpSelection" onchange="updateSessionOptions()">
           <option value="" disabled selected>Select a Grand Prix</option>
-          <option value="australian">Australian GP</option>
-          <option value="chinese">Chinese GP</option>
-          <option value="japanese">Japanese GP</option>
-          <option value="bahrain">Bahrain GP</option>
-          <option value="saudi">Saudi GP</option>
-          <option value="miami">Miami GP</option>
-          <option value="imola">Imola GP</option>
-          <option value="monaco">Monaco GP</option>
+          <option value="australian">Australian Grand Prix</option>
+          <option value="chinese">Chinese Grand Prix</option>
+          <option value="japanese">Japanese Grand Prix</option>
+          <option value="bahrain">Bahrain Grand Prix</option>
+          <option value="saudi">Saudi Arabian Grand Prix</option>
+          <option value="miami">Miami Grand Prix</option>
+          <option value="emilia-romagna">Emilia Romagna Grand Prix</option>
+          <option value="monaco">Monaco Grand Prix</option>
+          <option value="spanish">Spanish Grand Prix</option>
+          <option value="canadian">Canadian Grand Prix</option>
+          <option value="austrian">Austrian Grand Prix</option>
+          <option value="british">British Grand Prix</option>
+          <option value="belgian">Belgian Grand Prix</option>
+          <option value="hungarian">Hungarian Grand Prix</option>
+          <option value="dutch">Dutch Grand Prix</option>
+          <option value="italian">Italian Grand Prix</option>
+          <option value="azerbaijan">Azerbaijan Grand Prix</option>
+          <option value="singapore">Singapore Grand Prix</option>
+          <option value="us">United States Grand Prix</option>
+          <option value="mexico">Mexico City Grand Prix</option>
+          <option value="brazilian">São Paulo Grand Prix</option>
+          <option value="las-vegas">Las Vegas Grand Prix</option>
+          <option value="qatar">Qatar Grand Prix</option>
+          <option value="abu-dhabi">Abu Dhabi Grand Prix</option>
         </select>
       </div>
 
@@ -66,22 +78,6 @@
     </div>
 
     <div id="player-container"></div>
-
-    <!-- Popup Container -->
-    <div class="popup-overlay" id="coffeePopup">
-      <div class="popup-box">
-        <h2>☕ Buy Me a Coffee?</h2>
-        <p class="popup-message" id="popupMessage">
-          Hey there! If you enjoy my work, show your support by buying me a
-          coffee! Every cup fuels my creativity and keeps me going. <br />
-          <center><b>Click OK to show your support!</b></center>
-        </p>
-        <div class="popup-buttons">
-          <button class="ok-btn" onclick="redirectToCoffee()">OK</button>
-          <button class="cancel-btn" onclick="closePopup()">Cancel</button>
-        </div>
-      </div>
-    </div>
 
     <center>
       <div id="containerr3">
@@ -112,9 +108,35 @@
       </li>
     </ul>
 
-    <div class="watermark">Created by UltraWebs(HM) © 2025</div>
-    <footer>F1 75 © 2025 | Designed by UW</footer>
+    <div class="watermark">
+      Created by UltraWebs(HM) © <span id="year"></span>
+    </div>
+    <footer>
+      Formula 1 © <span id="year-footer"></span> | Designed by UW
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("year-footer").textContent =
+        new Date().getFullYear();
+    </script>
   </div>
 </body>
+
+<!-- Popup Container -->
+<div class="popup-overlay" id="coffeePopup">
+  <div class="popup-box">
+    <h2>☕ Buy Me a Coffee?</h2>
+    <p class="popup-message" id="popupMessage">
+      Hey there! If you enjoy my work, show your support by buying me a
+      coffee! Every cup fuels my creativity and keeps me going. <br />
+      <center><b>Click OK to show your support!</b></center>
+    </p>
+    <div class="popup-buttons">
+      <button class="ok-btn" onclick="redirectToCoffee()">OK</button>
+      <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+</div>
 
 </html>
