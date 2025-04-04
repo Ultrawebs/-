@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -655,10 +654,17 @@
       playbackRateControls: true
     });
 
-    // Ensure Chromecast button always appears in player controls
+    // Ensure Chromecast button is enabled and visible
     player.on("ready", function () {
-      player.cast.show(); // Forces Chromecast & AirPlay button to show inside controls
+      player.cast.show(); // Forces Chromecast & AirPlay button to appear
     });
+
+    // Manually trigger the Chromecast icon to be visible
+    setTimeout(() => {
+      if (!player.cast.isCasting()) {
+        player.cast.show();
+      }
+    }, 2000);
   });
 </script>
 
