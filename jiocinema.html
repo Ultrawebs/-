@@ -10,8 +10,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <link rel="icon" type="image/png" href="https://www.jiocinema.com/favicon.ico" sizes="128x128">
-    <title>JioCinema</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/7Ehri8R.png" sizes="128x128">
+    <title>IPL 2025</title>
     <style>
         html,
         body {
@@ -515,6 +515,81 @@
             color: white;
             /* Set text color of links to white */
         }
+
+        /* Popup overlay */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+        }
+
+        /* Popup box */
+        .popup-box {
+            background: white;
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        @media (max-width: 600px) {
+            .popup-box {
+                max-width: 70%;
+            }
+        }
+
+        .popup-message {
+            text-align: justify;
+        }
+
+        /* Show the popup */
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-overlay.active .popup-box {
+            transform: translateY(0);
+        }
+
+        /* Buttons */
+        .popup-buttons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .popup-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .ok-btn {
+            background: #ffdd57;
+            color: black;
+            font-weight: bold;
+        }
+
+        .cancel-btn {
+            background: #ccc;
+            color: black;
+        }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMMJVP33N"></script>
@@ -525,7 +600,9 @@
 
         gtag('config', 'G-DVMMJVP33N');
     </script>
-<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=665057511783940019670c8e&product=inline-share-buttons&source=platform" async="async"></script>
+    <script type="text/javascript"
+        src="https://platform-api.sharethis.com/js/sharethis.js#property=665057511783940019670c8e&product=inline-share-buttons&source=platform"
+        async="async"></script>
 </head>
 
 <body>
@@ -537,8 +614,8 @@
         <div class="sharethis-sticky-share-buttons"></div>
         <div id="container">
             <header>
-                <img alt="jiocinema" id="top-image" loading="lazy"
-                    src="https://www.jiocinema.com/images/jc_logo_v2.svg" />
+                <img alt="IPl25" id="top-image" loading="lazy"
+                    src="https://documents.iplt20.com//ipl/assets/images/ipl-logo-new-old.png" />
             </header>
             <nav class="playlist-bar">
                 <!-- Playlist items -->
@@ -547,8 +624,7 @@
                 <!--<a href="https://tinyurl.com/2bjrve2w" class="playlist-itemm"
               ><i class="fa fa-rss"></i> Live</a
             >-->
-                <a href="https://tinyurl.com/2992orgh" class="playlist-itemm"><i
-                        class="fa fa-video-camera"></i>&nbsp;Highlights</a>
+                <a href="" class="playlist-itemm"><i class="fa fa-video-camera"></i>&nbsp;Highlights</a>
                 <!-- <a href="#" class="playlist-itemm" id="share-link" onclick=".share-button">
                 <i class="fa fa-share-square-o"></i>&nbsp;Share
             </a> -->
@@ -558,96 +634,63 @@
                 <h4>Select your preferred Language 👇</h4>
             </center>
 
+            <center>
             <div class="playlist-container">
-                <a class="playlist-tab"
-                    onclick="playVideo('https://bunyhlsipla.bunycdn.com/live/indexa22.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    <!--https://bunyhlsipla.bunycdn.com/live/480pa.m3u8 / https://toxicify.pro/toxic/stream.m3u8?id=3931078&e=.m3u8 / https://toxicify.pro/toxic/stream.m3u8?id=3931776--><!--https://toxicify.pro/toxic/stream.m3u8?id=3931079&e=.m3u8 / https://toxicify.pro/toxic/stream.m3u8?id=3931775 / https://toxicify.pro/toxic/stream.m3u8?id=3944023/3943888-->
-                    Global Hindi (HD)
-                </a>
-
-                <!--<a
-              class="playlist-tab"
-              onclick="playVideo('https://toxicify.pro/JT/help/proxy.php/https://prod-ent-live-gm.jiocinema.com/out/v1/81e640e5a2c74eb98201959a31a008a3/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)"
-            >
-              Global Hindi (4K)
-            </a>-->
-
-                <!-- <a class="playlist-tab"
-                onclick="playVideo('https://toxicify.pro/toxicify/stream.m3u8?id=3955975', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                2nd G. Hindi (HD)
-            </a> -->
-
-                <!--<a
-              class="playlist-tab"
-              onclick="playVideo('https://toxicify.pro/toxicify/stream.m3u8?id=3952022', 'https://i.imgur.com/GqM6AEf.jpeg', true)"
-            >
-              Global English (HD)
-            </a>-->
-
                 <a class="playlist-tab active"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100322/uhd_akamai_atv_avc_hin_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    Hindi (4K)
-                </a>
-
-                <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100323/hd_akamai_androidmob_avc_hin_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_HIN_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
                     Hindi (HD)
                 </a>
 
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100297/uhd_akamai_atv_avc_eng_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    English (4K)
-                </a>
-
-                <a class="playlist-tab"
-                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100299/hd_akamai_androidmob_avc_eng_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_ENG_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
                     English (HD)
                 </a>
 
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-sports-north-fa.jiocinema.com/hls/live/2109749/uhd_akamai_atv_avc_guj_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    Gujarati (4K)
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_Guj_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                    Gujarati (HD)
                 </a>
 
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-sports-north-gm.jiocinema.com/hls/live/2109767/uhd_akamai_atv_avc_mar_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    Marathi (4K)
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_HAR_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                    Haryanvi (HD)
                 </a>
 
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-sports-north-fa.jiocinema.com/hls/live/2109755/uhd_akamai_atv_avc_pun_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    Punjabi (4K)
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_Mal_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                    Malayalam (HD)
                 </a>
 
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-sports-south-gm.jiocinema.com/hls/live/2109717/uhd_akamai_atv_avc_tel_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    Telugu (4K)
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_TEL_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                    Telugu (HD)
                 </a>
 
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-sports-south-gm.jiocinema.com/hls/live/2109723/uhd_akamai_atv_avc_kan_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    Kannada (4K)
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_KAN_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                    Kannada (HD)
                 </a>
 
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-sports-north-gm.jiocinema.com/hls/live/2109773/uhd_akamai_atv_avc_ben_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    Bengali (4K)
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_BEN_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                    Bengali (HD)
                 </a>
 
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-sports-south-gm.jiocinema.com/hls/live/2109711/uhd_akamai_atv_avc_tam_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    Tamil (4K)
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_TAM_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                    Tamil (HD)
                 </a>
 
                 <a class="playlist-tab"
-                    onclick="playVideo('https://prod-sports-north-gm.jiocinema.com/hls/live/2109761/uhd_akamai_atv_avc_bhoj_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                    Bhojpuri (4K)
+                    onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_Bhoj_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                    Bhojpuri (HD)
                 </a>
             </div>
+            </center>
 
             <center>
                 <div id="containerr3">
-                    <h4>Final | Kolkata Knight Riders vs Sunrisers Hyderabad<br/>By: Jio Cinema</h4>
+                    <h4>Live all Matches of IPL 2025<br />By: Jio Cinema</h4>
                     <div class="video-description">
 
                         <div id="player-container">
@@ -662,34 +705,50 @@
                                         width: '100%',
                                         file: videoUrl,
                                         image: imageUrl,
-                                        autostart: autoplay || false,
-                                        captions: { color: '#ffb800', fontSize: 30, backgroundOpacity: 0 },
+                                        autostart: autoplay || true,
+                                        captions: {
+                                            color: '#ffb800',
+                                            fontSize: 30,
+                                            backgroundOpacity: 0
+                                        },
                                         abouttext: 'Ultrawebs(HM)',
                                         aboutlink: 'https://linktr.ee/ultrawebs',
                                         logo: {
-                                            file: 'https://www.jiocinema.com/images/jc_logo_v2.svg',
-                                            position: 'top-right',
+                                            file: 'https://i.imgur.com/G5gyeUZ.png',
+                                            position: 'bottom-right',
                                             margin: '20',
                                             hide: 'true',
                                             size: '05%'
                                         },
                                         sharing: {
-                                            sites: ['facebook', 'twitter', 'tumblr', 'googleplus', { icon: 'https://i.imgur.com/PL7Vp6K.png', src: 'http://www.jwplayer.com/?', label: 'jwplayer' }],
+                                            sites: ['facebook', 'twitter', 'tumblr', 'googleplus', {
+                                                icon: 'https://i.imgur.com/PL7Vp6K.png',
+                                                src: 'http://www.jwplayer.com/?',
+                                                label: 'jwplayer'
+                                            }]
                                         },
                                         fullscreen: {
                                             enabled: true,
                                             displayLabel: true,
-                                            label: 'Exit Fullscreen',
+                                            label: 'Exit Fullscreen'
                                         },
-                                        playbackRateControls: true
+                                        playbackRateControls: true,
+                                        playbackRates: [0.5, 1, 1.5, 2, 4],
+                                        cast: {
+                                            appid: 'CC1AD845'
+                                        },
+                                        airplay: true
                                     });
                                 }
 
-                                playVideo('https://prod-ent-live-gm.jiocinema.com/hls/live/2100322/uhd_akamai_atv_avc_hin_ipl_s1_m1260524/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true);
+                                playVideo(
+                                    'https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_HIN_IDC_MOB/Fallback/index.m3u8',
+                                    'https://www.iplt20.com/assets/images/headeripllogo.svg',
+                                    true
+                                );
                             </script>
                         </div>
                     </div>
-                    <h4>See you next year. Bye!👋</h4>
                     <center>
                         <h4>🎥 MultiCam: What's Your Angle?</h4>
                     </center>
@@ -697,43 +756,43 @@
                 <center>
                     <div class="playlist-container">
                         <a class="playlist-tab"
-                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/a491dee5aa0f4e29a197ef1c043a1084/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                            Hero Cam (4K)
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_CAM02_IDC_MOB/Fallback/index.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                            Hero Cam (HD)
                         </a>
 
                         <a class="playlist-tab"
-                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/d7648a7014b34333a4074a6efafcb19f/master.m3u8', 'https://imgur.com/rzTGQ7k.jpeg', true)">
-                            Batter Cam (4K)
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_CAM01_IDC_MOB/Fallback/index.m3u8', 'https://imgur.com/rzTGQ7k.jpeg', true)">
+                            Batter Cam (HD)
                         </a>
 
                         <a class="playlist-tab"
-                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/1893486ccd08469e82b3fab606921c26/master.m3u8', 'https://imgur.com/IZoOiV2.jpeg', true)">
-                            MultiView Cam (4K)
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_CAM04_IDC_MOB/Fallback/index.m3u8', 'https://imgur.com/IZoOiV2.jpeg', true)">
+                            MultiView Cam (HD)
                         </a>
 
                         <a class="playlist-tab"
-                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b789111ea8854f8db2dc545541484f27/master.m3u8', 'https://imgur.com/rAFKMAI.jpeg', true)">
-                            Stump Cam (4K)
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_CAM03_IDC_MOB/Fallback/index.m3u8', 'https://imgur.com/rAFKMAI.jpeg', true)">
+                            Stump Cam (HD)
                         </a>
 
-                        <a class="playlist-tab"
+                        <!-- <a class="playlist-tab"
                             onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/5a74ceb567cd49e6ba8b1ebf2fdfec69/master.m3u8', 'https://imgur.com/ZgH880p.jpeg', true)">
-                            Bird's Eye Cam (4K)
+                            Bird's Eye Cam (HD)
                         </a>
 
                         <a class="playlist-tab"
-                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/82d7c37dc9ba4ad3ab7966194bee1385/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                            Insiders (4K)
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/82d7c37dc9ba4ad3ab7966194bee1385/master.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                            Insiders (HD)
                         </a>
 
                         <a class="playlist-tab"
-                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b03529f8c0154d29ac5a225d78c6d65a/master.m3u8', 'https://i.imgur.com/GqM6AEf.jpeg', true)">
-                            Hangout (4K)
-                        </a>
+                            onclick="playVideo('https://prod-ent-live-gm.jiocinema.com/out/v1/b03529f8c0154d29ac5a225d78c6d65a/master.m3u8', 'https://www.iplt20.com/assets/images/headeripllogo.svg', true)">
+                            Hangout (HD)
+                        </a> -->
                     </div>
                 </center>
             </center>
-            <br/>
+            <br />
             <div class="sharethis-inline-share-buttons"></div>
             <h4>Welcome to HD IPL Streaming!</h4>
             <ul>
@@ -772,8 +831,18 @@
                     content suppliers.
                 </li>
             </ul>
-            <div class="watermark">Created by UltraWebs(HM) © 2024</div>
-            <footer>IPL © 2024 | Designed by UW</footer>
+            <div class="watermark">
+                Created by UltraWebs(HM) © <span id="year"></span>
+            </div>
+            <footer>
+                IPL25 © <span id="year-footer"></span> | Designed by UW
+            </footer>
+
+            <script>
+                document.getElementById("year").textContent = new Date().getFullYear();
+                document.getElementById("year-footer").textContent =
+                    new Date().getFullYear();
+            </script>
         </div>
 
         <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
@@ -805,6 +874,65 @@
 
                 playlistTabs.forEach(tab => tab.addEventListener("click", handlePlaylistTabClick));
             });
+        </script>
+
+        <div class="popup-overlay" id="coffeePopup">
+            <div class="popup-box">
+                <h2>☕ Buy Me a Coffee?</h2>
+                <p class="popup-message" id="popupMessage">
+                    Hey there! If you enjoy my work, show your support by buying me a
+                    coffee! Every cup fuels my creativity and keeps me going. <br />
+                    <center><b>Click OK to show your support!</b></center>
+                </p>
+                <div class="popup-buttons">
+                    <button class="ok-btn" onclick="redirectToCoffee()">OK</button>
+                    <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Show popup on page load and trigger speech after user interaction
+            window.onload = function () {
+                setTimeout(() => {
+                    document.getElementById("coffeePopup").classList.add("active");
+                    setTimeout(speakMessage, 1000); // Delay speech slightly
+                }, 500);
+            };
+
+            // Redirect to Buy Me a Coffee
+            function redirectToCoffee() {
+                window.open("https://buymeacoffee.com/haritmengar", "_blank");
+                closePopup();
+            }
+
+            // Close popup
+            function closePopup() {
+                document.getElementById("coffeePopup").classList.remove("active");
+            }
+
+            // // Speak the popup message aloud
+            // function speakMessage() {
+            //   let messageText = document.getElementById("popupMessage").innerText;
+            //   let speech = new SpeechSynthesisUtterance(messageText);
+            //   speech.lang = "en-UK"; // British English accent
+            //   speech.rate = 1; // Normal speed
+            //   speech.pitch = 1; // Normal pitch
+            //   speech.volume = 1; // Full volume
+
+            //   // Fix for Chrome & Safari: Wait until voices are loaded
+            //   let voicesLoaded = false;
+            //   speechSynthesis.onvoiceschanged = function () {
+            //     if (!voicesLoaded) {
+            //       let voices = speechSynthesis.getVoices();
+            //       if (voices.length > 0) {
+            //         speech.voice = voices.find(voice => voice.lang === "en-UK") || voices[0];
+            //         speechSynthesis.speak(speech);
+            //         voicesLoaded = true;
+            //       }
+            //     }
+            //   };
+            // }
         </script>
 
     </body>
