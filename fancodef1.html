@@ -605,75 +605,43 @@
   </div>
 
   <script src="https://ssl.p.jwpcdn.com/player/v/8.32.1/jwplayer.js"></script>
+<script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+<script>
+  jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
 
-  <script>
-    jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
-
-    const videoUrl = "https://d2odfqekvl7hg1.cloudfront.net/out/v1/c9652c9228c246738c797bf3da40a9f6/index.m3u8";
-    let fps = 0;
-    let frameCount = 0;
-    let lastTime = performance.now();
-
-    function playVideo(videoUrl) {
-      const player = jwplayer("player-container").setup({
-        aspectratio: "16:9",
-        width: "100%",
-        file: videoUrl,
-        image: "https://i.imgur.com/utXLNQQ.png",
-        autostart: true,
-        hlshtml: true,
-        cast: {}, // Enables Chromecast & AirPlay
-        captions: { color: "#ffb800", fontSize: 30, backgroundOpacity: 0 },
-        abouttext: "Ultrawebs(HM)",
-        aboutlink: "https://linktr.ee/ultrawebs",
-        logo: {
-          file: "https://media.formula1.com/image/upload/f_auto,c_limit,w_85,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo",
-          position: "bottom-right",
-          margin: 20,
-          hide: false,
-          size: "05%",
-        },
-        fullscreen: { enabled: true, displayLabel: true, label: "Exit Fullscreen" },
-        playbackRateControls: true,
-      });
-
-      // Function to calculate FPS accurately
-      function calculateFPS() {
-        frameCount++;
-        let now = performance.now();
-        let deltaTime = (now - lastTime) / 1000;
-
-        if (deltaTime >= 1) {
-          fps = Math.round(frameCount / deltaTime);
-          frameCount = 0;
-          lastTime = now;
-        }
-
-        requestAnimationFrame(calculateFPS);
-      }
-
-      requestAnimationFrame(calculateFPS);
-
-      // Function to update FPS in video quality settings
-      function updateQualityLabels() {
-        let currentLevels = player.getQualityLevels();
-        let updatedLevels = currentLevels.map((level) => ({
-          ...level,
-          label: `${level.label} | ${fps} FPS`
-        }));
-
-        player.setConfig({ qualityLabels: updatedLevels });
-      }
-
-      // Start updating quality settings every 2 seconds
-      setInterval(updateQualityLabels, 2000);
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      playVideo(videoUrl);
+  document.addEventListener("DOMContentLoaded", function () {
+    jwplayer("player-container").setup({
+      file: "https://d3o9cywwn38ni.cloudfront.net/out/v1/39480ac4b6dd44faa04aaab62ec9a10e/index.m3u8",
+      image: "https://i.imgur.com/utXLNQQ.png",
+      width: "100%",
+      aspectratio: "16:9",
+      autostart: true,
+      hlshtml: true,
+      cast: {},
+      captions: {
+        color: "#ffb800",
+        fontSize: 30,
+        backgroundOpacity: 0
+      },
+      abouttext: "Ultrawebs(HM)",
+      aboutlink: "https://linktr.ee/ultrawebs",
+      logo: {
+        file: "https://media.formula1.com/image/upload/f_auto,c_limit,w_85,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo",
+        position: "bottom-right",
+        margin: 20,
+        hide: false,
+        size: "05%"
+      },
+      fullscreen: {
+        enabled: true,
+        displayLabel: true,
+        label: "Exit Fullscreen"
+      },
+      playbackRateControls: true
     });
+  });
+</script>
 
-  </script>
 </body>
 
 </html>
