@@ -18,7 +18,7 @@ const videoLinks = {
   japanese: {
     "FP1": "https://dai.fancode.com/secondary/118391_english_hls_5852ta-no_backup/vod_347_master.m3u8",
     "FP2": "https://dai.fancode.com/secondary/118392_english_hls_5185ta-di_backup/vod_887_master.m3u8",
-    "FP3": "https://example.com/bahrain_fp3.m3u8",
+    "FP3": "https://dai.fancode.com/secondary/118393_english_hls_6984ta-di_backup/vod_985_master.m3u8",
     "Qualifying": "https://example.com/bahrain_qualifying.m3u8",
     "Race": "https://example.com/bahrain_race.m3u8"
   }
