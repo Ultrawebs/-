@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+
   <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
   <link rel="icon" type="image/png" href="https://www.fancode.com/skillup-uploads/fc-web-logo/favicon.png"
     sizes="128x128" style="border-radius: 5px" />
@@ -15,7 +16,7 @@
 <style>
   html,
   body {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     margin: 0;
     padding: 0;
     background-image: url("webpa/bg.webp");
@@ -33,7 +34,7 @@
     body {
       background-image: url("webpa/bgm.webp");
       /* Set aspect ratio to 9:16 */
-      background-size: fixed;
+      background-size: cover; /* or contain, depending on your design */
       /* Fix the width and allow height to adjust */
       background-attachment: scroll;
       /* Allow the background image to scroll with the content */
@@ -103,7 +104,7 @@
   }
 
   #container {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: white;
     padding: 05px;
     backdrop-filter: blur(10px);
@@ -128,7 +129,7 @@
   }
 
   #containerr3 {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: white;
     padding: 02px;
     margin: 0 auto;
@@ -243,7 +244,7 @@
   }
 
   .movie-info h2 {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     margin: 0;
     font-size: 20px;
   }
@@ -254,7 +255,7 @@
   }
 
   .playlist-container {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     overflow-x: auto;
     white-space: nowrap;
     backdrop-filter: blur(10px);
@@ -269,7 +270,7 @@
   }
 
   .playlist-tab {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 1;
     padding: 5px 10px;
     background-color: #23368900;
@@ -293,7 +294,7 @@
   }
 
   .playlist-tab.active:hover {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-weight: bold;
     backdrop-filter: blur(10px);
     background-color: #d3d3d3;
@@ -330,14 +331,14 @@
   }
 
   #player-container {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     max-width: 100%;
     border-radius: 10px;
   }
 
   @media only screen and (max-width: 800px) {
     #player-container {
-      font-family: "Titillium Web", sans-serif;
+      font-family: 'Rubik', sans-serif;
       max-width: 100%;
       border-radius: 05px;
       border-radius: 08px;
@@ -366,7 +367,7 @@
   }
 
   .watermark {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     position: baseline;
     bottom: 10px;
     /* Set distance from bottom of viewport */
@@ -380,7 +381,7 @@
   }
 
   footer {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     width: auto;
     backdrop-filter: blur(05px);
     /* Adjust blur strength as needed */
@@ -465,7 +466,7 @@
 
   /* Playlist bar styles */
   .playlist-bar {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     backdrop-filter: blur(10px);
     /* Adjust blur strength as needed */
     background-color: rgba(51, 51, 51, 0.098);
@@ -494,7 +495,7 @@
 
   /* Playlist item styles */
   .playlist-itemm {
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Rubik', sans-serif;
     display: inline-block;
     /* Display playlist items horizontally */
     margin: 0 10px;
@@ -540,9 +541,35 @@
     /* Set text color of links to white */
   }
 
-  .jw-icon-tooltip .jw-tooltip-text {
-    color: white !important;
-    font-weight: bold !important;
+  /* Netflix-style menu override */
+  .jw-settings-menu {
+    font-family: 'Rubik', sans-serif;
+    background: #111 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease-in-out !important;
+    overflow: hidden !important;
+  }
+
+  .jw-settings-menu .jw-settings-submenu {
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  .jw-settings-menu .jw-settings-content-item {
+    color: #eee !important;
+    font-family: "Segoe UI", sans-serif !important;
+    padding: 10px 16px !important;
+    border-bottom: 1px solid #333;
+    transition: background 0.2s ease-in-out !important;
+  }
+
+  .jw-settings-menu .jw-settings-content-item:hover {
+    background-color: #222 !important;
+    color: #fff !important;
+  }
+
+  .jw-icon-inline.jw-button-color:hover {
+    filter: brightness(1.4);
   }
 </style>
 
@@ -610,43 +637,42 @@
     <div class="watermark">Created by UltraWebs(HM) © 2025</div>
     <footer>UltraWebs © 2025 | Designed by UW</footer>
   </div>
-<script>
 
-  document.addEventListener("DOMContentLoaded", function () {
-    jwplayer("player-container").setup({
-      file: "https://d1bkv650dbuv10.cloudfront.net/out/v1/75a3fdbe06ec45cda11519ab5a6c6844/index.m3u8",
-      image: "https://i.imgur.com/utXLNQQ.png",
-      width: "100%",
-      height: "100%",
-      aspectratio: "16:9",
-      autostart: true,
-      mute: true,
-      stretching: "uniform",
-      hlshtml: true,
-      cast: {
-        appid: "CC1AD845"
-      },
-      airplay: true,
-      logo: {
-        file: "https://media.formula1.com/image/upload/f_auto,c_limit,w_85,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo",
-        position: "bottom-right",
-        margin: 20,
-        hide: false,
-        size: "05%"
-      },
-      captions: {
-        color: "#ffb800",
-        fontSize: 30,
-        backgroundOpacity: 0
-      },
-      abouttext: "Ultrawebs(HM)",
-      aboutlink: "https://linktr.ee/ultrawebs",
-      playbackRateControls: true
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      jwplayer("player-container").setup({
+        file: "https://d1bkv650dbuv10.cloudfront.net/out/v1/75a3fdbe06ec45cda11519ab5a6c6844/index.m3u8",
+        image: "https://i.imgur.com/utXLNQQ.png",
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: true,
+        mute: false,
+        stretching: "uniform",
+        hlshtml: true,
+        cast: {
+          appid: "CC1AD845"
+        },
+        airplay: true,
+        logo: {
+          file: "https://media.formula1.com/image/upload/f_auto,c_limit,w_85,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo",
+          position: "bottom-right",
+          margin: 20,
+          hide: false,
+          size: "05%"
+        },
+        captions: {
+          color: "#ffb800",
+          fontSize: 30,
+          backgroundOpacity: 0
+        },
+        abouttext: "Ultrawebs(HM)",
+        aboutlink: "https://linktr.ee/ultrawebs",
+        playbackRateControls: true
+      });
     });
-  });
-</script>
-
-
+  </script> 
+  
 </body>
 
 </html>
