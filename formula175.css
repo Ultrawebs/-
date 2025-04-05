@@ -626,3 +626,35 @@ li {
     background: #ccc;
     color: black;
 }
+
+
+  /* Netflix-style menu override */
+  .jw-settings-menu {
+    font-family: 'Rubik', sans-serif;
+    background: #111 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease-in-out !important;
+    overflow: hidden !important;
+  }
+
+  .jw-settings-menu .jw-settings-submenu {
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  .jw-settings-menu .jw-settings-content-item {
+    color: #eee !important;
+    font-family: "Segoe UI", sans-serif !important;
+    padding: 10px 16px !important;
+    border-bottom: 1px solid #333;
+    transition: background 0.2s ease-in-out !important;
+  }
+
+  .jw-settings-menu .jw-settings-content-item:hover {
+    background-color: #222 !important;
+    color: #fff !important;
+  }
+
+  .jw-icon-inline.jw-button-color:hover {
+    filter: brightness(1.4);
+  }
