@@ -21,6 +21,13 @@ const videoLinks = {
     "FP3": "https://dai.fancode.com/secondary/118393_english_hls_6984ta-di_backup/vod_985_master.m3u8",
     "Qualifying": "https://dai.fancode.com/secondary/118394_english_hls_8320ta-di_backup/vod_191_master.m3u8",
     "Race": "https://dai.fancode.com/secondary/118395_english_hls_2588ta-di_backup/vod_456_master.m3u8"
+  },
+  bahrain: {
+    "FP1": "https://dai.fancode.com/primary/118396_english_hls_5727ta-di_backup/vod_698_master.m3u8",
+    "FP2": "https://dai.fancode.com/primary/118397_english_hls_5782ta-no_backup/vod_743_master.m3u8",
+    "FP3": "https://dai.fancode.com/secondary/118393_english_hls_6984ta-di_backup/vod_98_master.m3u8",
+    "Qualifying": "https://dai.fancode.com/secondary/118394_english_hls_8320ta-di_backup/vod_19_master.m3u8",
+    "Race": "https://dai.fancode.com/secondary/118395_english_hls_2588ta-di_backup/vod_46_master.m3u8"
   }
 };
 
