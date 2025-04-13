@@ -26,8 +26,8 @@ const videoLinks = {
     "FP1": "https://dai.fancode.com/primary/118396_english_hls_5727ta-di_backup/vod_698_master.m3u8",
     "FP2": "https://dai.fancode.com/primary/118397_english_hls_5782ta-no_backup/vod_743_master.m3u8",
     "FP3": "https://dai.fancode.com/primary/118398_english_hls_5283ta-no_backup/vod_201_master.m3u8",
-    "Qualifying": "https://dai.fancode.com/secondary/118394_english_hls_8320ta-di_backup/vod_19_master.m3u8",
-    "Race": "https://dai.fancode.com/secondary/118395_english_hls_2588ta-di_backup/vod_46_master.m3u8"
+    "Qualifying": "https://dai.fancode.com/primary/118399_english_hls_4632ta-no_backup/vod_630_master.m3u8",
+    "Race": "https://dai.fancode.com/primary/118400_english_hls_411ta-di_backup/vod_375_master.m3u8"
   }
 };
 
