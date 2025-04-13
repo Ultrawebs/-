@@ -28,6 +28,34 @@ const videoLinks = {
     "FP3": "https://dai.fancode.com/primary/118398_english_hls_5283ta-no_backup/vod_201_master.m3u8",
     "Qualifying": "https://dai.fancode.com/primary/118399_english_hls_4632ta-no_backup/vod_630_master.m3u8",
     "Race": "https://dai.fancode.com/primary/118400_english_hls_411ta-di_backup/vod_375_master.m3u8"
+  },
+  saudi: {
+    "FP1": "<FP1_Link>",
+    "FP2": "<FP2_Link>",
+    "FP3": "<FP3_Link>",
+    "Qualifying": "<Qualifying_Link>",
+    "Race": "<Race_Link>"
+  },
+  miami: {
+    "FP1": "<FP1_Link>",
+    "Sprint Qualifying": "<Sprint_Qualifying_Link>",
+    "Sprint": "<Sprint_Link>",
+    "Qualifying": "<Qualifying_Link>",
+    "Race": "<Race_Link>"
+  },
+  "emiliaromagna": {
+    "FP1": "<FP1_Link>",
+    "FP2": "<FP2_Link>",
+    "FP3": "<FP3_Link>",
+    "Qualifying": "<Qualifying_Link>",
+    "Race": "<Race_Link>"
+  },
+  monaco: {
+    "FP1": "<FP1_Link>",
+    "FP2": "<FP2_Link>",
+    "FP3": "<FP3_Link>",
+    "Qualifying": "<Qualifying_Link>",
+    "Race": "<Race_Link>"
   }
 };
 
