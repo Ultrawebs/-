@@ -89,6 +89,27 @@
             font-weight: bold;
         }
 
+        #countdown-loading {
+            padding: 1rem;
+            display: none;
+        }
+
+        #last-updated {
+            margin-top: 1rem;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+
+        .retry-btn {
+            background: #e10600;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
         @media (max-width: 768px) {
             #countdown {
                 flex-wrap: wrap;
@@ -120,21 +141,24 @@
     <h1>F1 Countdown & Full Weekend Schedule</h1>
 
     <div id="countdown">
-        <div class="time-box">
-            <div id="days" class="time-value">00</div>
-            <div class="label">DAYS</div>
-        </div>
-        <div class="time-box">
-            <div id="hours" class="time-value">00</div>
-            <div class="label">HRS</div>
-        </div>
-        <div class="time-box">
-            <div id="minutes" class="time-value">00</div>
-            <div class="label">MINS</div>
-        </div>
-        <div class="time-box">
-            <div id="seconds" class="time-value">00</div>
-            <div class="label">SECS</div>
+        <div id="countdown-loading">Loading next event...</div>
+        <div id="countdown-timer" style="display: flex;">
+            <div class="time-box">
+                <div id="days" class="time-value">00</div>
+                <div class="label">DAYS</div>
+            </div>
+            <div class="time-box">
+                <div id="hours" class="time-value">00</div>
+                <div class="label">HRS</div>
+            </div>
+            <div class="time-box">
+                <div id="minutes" class="time-value">00</div>
+                <div class="label">MINS</div>
+            </div>
+            <div class="time-box">
+                <div id="seconds" class="time-value">00</div>
+                <div class="label">SECS</div>
+            </div>
         </div>
     </div>
 
@@ -144,20 +168,24 @@
                 <th>Round</th>
                 <th>Session</th>
                 <th>Date</th>
-                <th>Time</th>
+                <th>Time (your local)</th>
                 <th>Location</th>
+                <th>Time Until</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td colspan="5">Loading schedule...</td>
+                <td colspan="6">Loading schedule...</td>
             </tr>
         </tbody>
     </table>
 
+    <div id="last-updated">
+        Last updated: <span id="update-time">Never</span>
+    </div>
+
     <script>
         // Mock data for demonstration
-        // In a real app, you would fetch this from an API
         const mockSchedule = {
             races: [
                 {
@@ -223,10 +251,14 @@
 
         let nextEventTime = null;
         let scheduleData = [];
+        let countdownInterval = null;
 
         async function fetchSchedule() {
             const tableBody = document.querySelector("#schedule tbody");
-            tableBody.innerHTML = "<tr><td colspan='5'>Loading schedule...</td></tr>";
+            tableBody.innerHTML = "<tr><td colspan='6'>Loading schedule...</td></tr>";
+            
+            document.getElementById("countdown-loading").style.display = "block";
+            document.getElementById("countdown-timer").style.display = "none";
 
             try {
                 // In a real app, you would fetch from the API:
@@ -236,71 +268,92 @@
                 
                 // For demo, we'll use mock data
                 const races = mockSchedule.races;
-                const now = new Date();
-                scheduleData = [];
-
-                races.forEach(race => {
-                    const { round, raceName, Circuit } = race;
-                    const location = `${Circuit.Location.locality}, ${Circuit.Location.country}`;
-
-                    const addSession = (label, sessionDate, sessionTime) => {
-                        if (!sessionDate || !sessionTime) return;
-                        
-                        const utc = new Date(`${sessionDate}T${sessionTime}`);
-                        if (utc > now) {
-                            scheduleData.push({
-                                round,
-                                session: label,
-                                date: utc.toLocaleDateString(undefined, { 
-                                    weekday: "short", 
-                                    year: "numeric", 
-                                    month: "short", 
-                                    day: "numeric" 
-                                }),
-                                time: utc.toLocaleTimeString(undefined, { 
-                                    hour: "2-digit", 
-                                    minute: "2-digit", 
-                                    timeZoneName: "short" 
-                                }),
-                                location,
-                                utc,
-                                raceName
-                            });
-                        }
-                    };
-
-                    // Add all sessions
-                    addSession("Practice 1", race.FirstPractice?.date, race.FirstPractice?.time);
-                    addSession("Practice 2", race.SecondPractice?.date, race.SecondPractice?.time);
-                    addSession("Practice 3", race.ThirdPractice?.date, race.ThirdPractice?.time);
-                    addSession("Qualifying", race.Qualifying?.date, race.Qualifying?.time);
-                    addSession("Race", race.date, race.time);
-                });
-
-                // Sort by date
-                scheduleData.sort((a, b) => a.utc - b.utc);
-
-                if (scheduleData.length === 0) {
-                    tableBody.innerHTML = "<tr><td colspan='5'>No upcoming events found.</td></tr>";
-                    return;
-                }
-
-                // Update the table
-                updateScheduleTable();
-
-                // Set the next event time for countdown
-                nextEventTime = scheduleData[0].utc;
-                
-                // Start countdown if not already running
-                if (!window.countdownInterval) {
-                    updateCountdown();
-                    window.countdownInterval = setInterval(updateCountdown, 1000);
-                }
+                processScheduleData(races);
                 
             } catch (err) {
                 console.error("Error loading schedule:", err);
-                tableBody.innerHTML = "<tr><td colspan='5'>Error loading schedule. Please try again later.</td></tr>";
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6">
+                            Failed to load schedule. Showing demo data instead.
+                            <button class="retry-btn" onclick="fetchSchedule()">Retry</button>
+                        </td>
+                    </tr>
+                `;
+                processScheduleData(mockSchedule.races);
             }
+        }
+
+        function processScheduleData(races) {
+            const now = new Date();
+            scheduleData = [];
+
+            races.forEach(race => {
+                const { round, raceName, Circuit } = race;
+                const location = `${Circuit.Location.locality}, ${Circuit.Location.country}`;
+
+                const addSession = (label, sessionDate, sessionTime) => {
+                    if (!sessionDate || !sessionTime) return;
+                    
+                    const utc = new Date(`${sessionDate}T${sessionTime}`);
+                    if (utc > now) {
+                        scheduleData.push({
+                            round,
+                            session: label,
+                            date: utc.toLocaleDateString(undefined, { 
+                                weekday: "short", 
+                                year: "numeric", 
+                                month: "short", 
+                                day: "numeric" 
+                            }),
+                            time: utc.toLocaleTimeString(undefined, { 
+                                hour: "2-digit", 
+                                minute: "2-digit", 
+                                timeZoneName: "short" 
+                            }),
+                            location,
+                            utc,
+                            raceName,
+                            circuitName: Circuit.circuitName
+                        });
+                    }
+                };
+
+                // Add all sessions
+                addSession("Practice 1", race.FirstPractice?.date, race.FirstPractice?.time);
+                addSession("Practice 2", race.SecondPractice?.date, race.SecondPractice?.time);
+                addSession("Practice 3", race.ThirdPractice?.date, race.ThirdPractice?.time);
+                addSession("Qualifying", race.Qualifying?.date, race.Qualifying?.time);
+                addSession("Race", race.date, race.time);
+            });
+
+            // Sort by date
+            scheduleData.sort((a, b) => a.utc - b.utc);
+
+            if (scheduleData.length === 0) {
+                document.querySelector("#schedule tbody").innerHTML = "<tr><td colspan='6'>No upcoming events found.</td></tr>";
+                return;
+            }
+
+            // Update the table
+            updateScheduleTable();
+
+            // Set the next event time for countdown
+            nextEventTime = scheduleData[0].utc;
+            
+            // Start countdown if not already running
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+            
+            // Update last updated time
+            document.getElementById("update-time").textContent = new Date().toLocaleString();
+            
+            document.getElementById("countdown-loading").style.display = "none";
+            document.getElementById("countdown-timer").style.display = "flex";
         }
 
         function updateScheduleTable() {
@@ -318,10 +371,27 @@
                     <td>${event.session}</td>
                     <td>${event.date}</td>
                     <td>${event.time}</td>
-                    <td>${event.location}</td>
+                    <td>${event.raceName} - ${event.circuitName}</td>
+                    <td class="time-until">${formatTimeUntil(event.utc)}</td>
                 `;
                 tableBody.appendChild(row);
             });
+        }
+
+        function formatTimeUntil(eventTime) {
+            const now = new Date();
+            const diff = eventTime - now;
+            
+            if (diff < 0) return "Completed";
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            if (days > 1) return `${days} days`;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            if (hours > 1) return `${hours} hours`;
+            
+            const minutes = Math.floor(diff / (1000 * 60));
+            return `${minutes} minutes`;
         }
 
         function updateCountdown() {
@@ -331,10 +401,19 @@
             const distance = nextEventTime - now;
 
             if (distance < 0) {
-                // Event has passed, refresh schedule
-                clearInterval(window.countdownInterval);
-                window.countdownInterval = null;
-                fetchSchedule();
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+                
+                // Find the next upcoming event
+                const upcoming = scheduleData.find(event => event.utc > now);
+                if (upcoming) {
+                    nextEventTime = upcoming.utc;
+                    updateCountdown();
+                    countdownInterval = setInterval(updateCountdown, 1000);
+                    updateScheduleTable(); // Refresh highlights
+                } else {
+                    fetchSchedule(); // Only fetch if no events left
+                }
                 return;
             }
 
@@ -355,5 +434,4 @@
         });
     </script>
 </body>
-
 </html>
