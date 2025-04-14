@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F1 Race Countdown & Schedule</title>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #e10600;
+        }
+
+        #countdown {
+            display: inline-flex;
+            gap: 20px;
+            background-color: #1c1c1c;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 70px;
+        }
+
+        .time-value {
+            font-size: 2.2rem;
+            background: #333;
+            padding: 0.5rem;
+            border-radius: 8px;
+            min-width: 70px;
+        }
+
+        .label {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #444;
+            text-align: center;
+        }
+
+        th {
+            background-color: #e10600;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #252525;
+        }
+
+        tr:nth-child(odd) td {
+            background-color: #1e1e1e;
+        }
+
+        .next-event {
+            background-color: rgba(225, 6, 0, 0.2) !important;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            #countdown {
+                flex-wrap: wrap;
+                padding: 1rem;
+                gap: 10px;
+            }
+            
+            .time-box {
+                min-width: 60px;
+            }
+            
+            .time-value {
+                font-size: 1.8rem;
+                min-width: 60px;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>F1 Countdown & Full Weekend Schedule</h1>
+
+    <div id="countdown">
+        <div class="time-box">
+            <div id="days" class="time-value">00</div>
+            <div class="label">DAYS</div>
+        </div>
+        <div class="time-box">
+            <div id="hours" class="time-value">00</div>
+            <div class="label">HRS</div>
+        </div>
+        <div class="time-box">
+            <div id="minutes" class="time-value">00</div>
+            <div class="label">MINS</div>
+        </div>
+        <div class="time-box">
+            <div id="seconds" class="time-value">00</div>
+            <div class="label">SECS</div>
+        </div>
+    </div>
+
+    <table id="schedule">
+        <thead>
+            <tr>
+                <th>Round</th>
+                <th>Session</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="5">Loading schedule...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Mock data for demonstration
+        // In a real app, you would fetch this from an API
+        const mockSchedule = {
+            races: [
+                {
+                    round: 1,
+                    raceName: "Bahrain Grand Prix",
+                    Circuit: {
+                        circuitName: "Bahrain International Circuit",
+                        Location: {
+                            locality: "Sakhir",
+                            country: "Bahrain"
+                        }
+                    },
+                    date: "2025-03-01",
+                    time: "15:00:00Z",
+                    FirstPractice: {
+                        date: "2025-02-28",
+                        time: "11:30:00Z"
+                    },
+                    SecondPractice: {
+                        date: "2025-02-28",
+                        time: "15:00:00Z"
+                    },
+                    ThirdPractice: {
+                        date: "2025-03-01",
+                        time: "11:30:00Z"
+                    },
+                    Qualifying: {
+                        date: "2025-02-29",
+                        time: "15:00:00Z"
+                    }
+                },
+                {
+                    round: 2,
+                    raceName: "Saudi Arabian Grand Prix",
+                    Circuit: {
+                        circuitName: "Jeddah Corniche Circuit",
+                        Location: {
+                            locality: "Jeddah",
+                            country: "Saudi Arabia"
+                        }
+                    },
+                    date: "2025-03-08",
+                    time: "17:00:00Z",
+                    FirstPractice: {
+                        date: "2025-03-07",
+                        time: "13:30:00Z"
+                    },
+                    SecondPractice: {
+                        date: "2025-03-07",
+                        time: "17:00:00Z"
+                    },
+                    ThirdPractice: {
+                        date: "2025-03-08",
+                        time: "13:30:00Z"
+                    },
+                    Qualifying: {
+                        date: "2025-03-07",
+                        time: "17:00:00Z"
+                    }
+                }
+            ]
+        };
+
+        let nextEventTime = null;
+        let scheduleData = [];
+
+        async function fetchSchedule() {
+            const tableBody = document.querySelector("#schedule tbody");
+            tableBody.innerHTML = "<tr><td colspan='5'>Loading schedule...</td></tr>";
+
+            try {
+                // In a real app, you would fetch from the API:
+                // const response = await fetch('https://ergast.com/api/f1/current.json');
+                // const data = await response.json();
+                // const races = data.MRData.RaceTable.Races;
+                
+                // For demo, we'll use mock data
+                const races = mockSchedule.races;
+                const now = new Date();
+                scheduleData = [];
+
+                races.forEach(race => {
+                    const { round, raceName, Circuit } = race;
+                    const location = `${Circuit.Location.locality}, ${Circuit.Location.country}`;
+
+                    const addSession = (label, sessionDate, sessionTime) => {
+                        if (!sessionDate || !sessionTime) return;
+                        
+                        const utc = new Date(`${sessionDate}T${sessionTime}`);
+                        if (utc > now) {
+                            scheduleData.push({
+                                round,
+                                session: label,
+                                date: utc.toLocaleDateString(undefined, { 
+                                    weekday: "short", 
+                                    year: "numeric", 
+                                    month: "short", 
+                                    day: "numeric" 
+                                }),
+                                time: utc.toLocaleTimeString(undefined, { 
+                                    hour: "2-digit", 
+                                    minute: "2-digit", 
+                                    timeZoneName: "short" 
+                                }),
+                                location,
+                                utc,
+                                raceName
+                            });
+                        }
+                    };
+
+                    // Add all sessions
+                    addSession("Practice 1", race.FirstPractice?.date, race.FirstPractice?.time);
+                    addSession("Practice 2", race.SecondPractice?.date, race.SecondPractice?.time);
+                    addSession("Practice 3", race.ThirdPractice?.date, race.ThirdPractice?.time);
+                    addSession("Qualifying", race.Qualifying?.date, race.Qualifying?.time);
+                    addSession("Race", race.date, race.time);
+                });
+
+                // Sort by date
+                scheduleData.sort((a, b) => a.utc - b.utc);
+
+                if (scheduleData.length === 0) {
+                    tableBody.innerHTML = "<tr><td colspan='5'>No upcoming events found.</td></tr>";
+                    return;
+                }
+
+                // Update the table
+                updateScheduleTable();
+
+                // Set the next event time for countdown
+                nextEventTime = scheduleData[0].utc;
+                
+                // Start countdown if not already running
+                if (!window.countdownInterval) {
+                    updateCountdown();
+                    window.countdownInterval = setInterval(updateCountdown, 1000);
+                }
+                
+            } catch (err) {
+                console.error("Error loading schedule:", err);
+                tableBody.innerHTML = "<tr><td colspan='5'>Error loading schedule. Please try again later.</td></tr>";
+            }
+        }
+
+        function updateScheduleTable() {
+            const tableBody = document.querySelector("#schedule tbody");
+            tableBody.innerHTML = "";
+
+            scheduleData.forEach((event, index) => {
+                const row = document.createElement("tr");
+                if (index === 0) {
+                    row.classList.add("next-event");
+                }
+                
+                row.innerHTML = `
+                    <td>${event.round}</td>
+                    <td>${event.session}</td>
+                    <td>${event.date}</td>
+                    <td>${event.time}</td>
+                    <td>${event.location}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function updateCountdown() {
+            if (!nextEventTime) return;
+
+            const now = new Date();
+            const distance = nextEventTime - now;
+
+            if (distance < 0) {
+                // Event has passed, refresh schedule
+                clearInterval(window.countdownInterval);
+                window.countdownInterval = null;
+                fetchSchedule();
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = String(days).padStart(2, "0");
+            document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchSchedule();
+        });
+    </script>
+</body>
+
+</html>
