@@ -32,8 +32,8 @@ const videoLinks = {
   saudi: {
     "FP1": "https://dai.fancode.com/primary/118401_english_hls_6567ta-di_backup/vod_236_master.m3u8",
     "FP2": "https://dai.fancode.com/primary/118402_english_hls_6446ta-no_backup/vod_225_master.m3u8",
-    "FP3": "<FP3_Link>",
-    "Qualifying": "<Qualifying_Link>",
+    "FP3": "https://dai.fancode.com/primary/118403_english_hls_5644ta-no_backup/vod_248_master.m3u8",
+    "Qualifying": "https://dai.fancode.com/primary/118404_english_hls_5585ta-no_backup/vod_377_master.m3u8",
     "Race": "<Race_Link>"
   },
   miami: {
