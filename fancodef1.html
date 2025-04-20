@@ -648,7 +648,6 @@
       autostart: true,
       mute: false,
       primary: "html5",
-      stretching: "none",
 
       // iOS behavior
       playsinline: true,       // Critical for iOS inline playback
@@ -680,12 +679,7 @@
 
       // Enable speed control
       playbackRateControls: true
-    });
-
-    // Assuming 'player' is your JW Player instance
-      function setStretching(mode) {
-        player.setConfig({ stretching: mode });
-      }      
+    });   
 
     // Optional: Fix for quality switcher not appearing immediately
     jwplayer("player-container").on('ready', function () {
