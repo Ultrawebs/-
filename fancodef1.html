@@ -682,6 +682,11 @@
       playbackRateControls: true
     });
 
+    // Assuming 'player' is your JW Player instance
+      function setStretching(mode) {
+        player.setConfig({ stretching: mode });
+      }      
+
     // Optional: Fix for quality switcher not appearing immediately
     jwplayer("player-container").on('ready', function () {
       console.log("Player ready on iOS with inline mode!");
