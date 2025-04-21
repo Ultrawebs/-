@@ -337,6 +337,11 @@
     border-radius: 10px;
   }
 
+  :fullscreen, :-webkit-full-screen, :-moz-full-screen {
+    background-color: black;
+  }
+
+
   @media only screen and (max-width: 800px) {
     #player-container {
       font-family: 'Rubik', sans-serif;
@@ -649,7 +654,6 @@
         aspectratio: "16:9",
         autostart: true,
         mute: false,
-        stretching: "uniform",
         cast: {
           appid: "CC1AD845"
         },
