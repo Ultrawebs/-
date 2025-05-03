@@ -37,8 +37,8 @@ const videoLinks = {
     "Race": "https://dai.fancode.com/primary/118405_english_hls_6222ta-di_backup/vod_897_master.m3u8"
   },
   miami: {
-    "FP1": "<FP1_Link>",
-    "Sprint Qualifying": "<Sprint_Qualifying_Link>",
+    "FP1": "https://dai.fancode.com/primary/118406_english_hls_5990ta-di_backup/vod_240_master.m3u8",
+    "Sprint Qualifying": "https://dai.fancode.com/primary/118407_english_hls_5896ta-di_h264_backup/vod_288_master.m3u8",
     "Sprint": "<Sprint_Link>",
     "Qualifying": "<Qualifying_Link>",
     "Race": "<Race_Link>"
