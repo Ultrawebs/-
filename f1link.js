@@ -41,7 +41,7 @@ const videoLinks = {
     "Sprint Qualifying": "https://dai.fancode.com/primary/118407_english_hls_5896ta-di_h264_backup/vod_288_master.m3u8",
     "Sprint": "https://dai.fancode.com/primary/118408_english_hls_39117ta-di_h264_backup/vod_308_master.m3u8",
     "Qualifying": "https://dai.fancode.com/primary/118409_english_hls_34242ta-di_h264_backup/vod_574_master.m3u8",
-    "Race": "<Race_Link>"
+    "Race": "https://dai.fancode.com/primary/118410_english_hls_1689ta-di_h264_backup/vod_765_master.m3u8"
   },
   "emiliaromagna": {
     "FP1": "<FP1_Link>",
