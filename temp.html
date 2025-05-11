@@ -2,124 +2,260 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aaj Tak HD</title>
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live News - JW Player</title>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
 
+    /* General styles */
     body {
       font-family: "Onest", sans-serif;
       background-color: #181818;
       color: white;
       margin: 0;
+      padding: 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
-    .player-container {
-      max-width: 900px;
+    h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Dropdown container styles */
+    .dropdown {
+      position: relative;
+      width: 90%;
+      max-width: 400px;
+      margin-bottom: 20px;
+      font-family: "Onest", sans-serif;
+    }
+
+    .dropdown select {
+      display: none; /* Hide the default select */
+    }
+
+    .dropdown button {
       width: 100%;
-      background: #000;
+      padding: 12px 20px;
+      background-color: #333;
+      color: white;
+      border: 2px solid #ff0000;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: "Onest", sans-serif;
+    }
+
+    .dropdown button:hover {
+      background-color: #444;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      width: 100%;
+      background-color: #333;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      border-bottom: 1px solid #444;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #555;
+    }
+
+    .dropdown-content img {
+      width: 60px;
+      height: 30px;
+      margin-right: 10px;
+      align-items: center;
+    }
+
+    .dropdown.active .dropdown-content {
+      display: block;
+    }
+
+    /* Player container styles */
+    #player-container {
+      width: 90%;
+      max-width: 1200px;
+      aspect-ratio: 16 / 9;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
     }
 
-    .plyr--full-ui {
-      border-radius: 10px;
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      select {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      #player-container {
+        width: 100%;
+      }
     }
 
-    :root {
-      --plyr-color-main: #ff0000; /* YouTube Red */
-      --plyr-control-icon-size: 20px;
-      --plyr-control-spacing: 10px;
-      --plyr-video-control-background: rgba(0, 0, 0, 0.7);
+    /* Larger screen sizes (laptops and above) */
+    @media (min-width: 769px) and (max-width: 1200px) {
+      #player-container {
+        width: 80%;
+      }
     }
 
-    .plyr__controls {
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    .plyr__control--overlaid {
-      background: var(--plyr-color-main);
-    }
-
-    .plyr__control {
+    /* Modernized button styles */
+    button {
+      padding: 10px 20px;
+      background-color: #ff5733;
       color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+      font-family: "Onest", sans-serif; /* Apply font to button */
+    }
+
+    button:hover {
+      background-color: #ff3b0b;
+    }
+
+    button:focus {
+      outline: none;
     }
   </style>
+
+  <!-- JW Player Script -->
+  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
 </head>
 <body>
-  <div class="player-container">
-    <video id="player" controls poster="https://images.ottplay.com/images/media/gallery/1920x1080-1746594024.png">
-      <track kind="subtitles" label="English" src="subtitles.vtt" srclang="en" default />
-    </video>
+  <h2>Live News Channels</h2>
+
+  <!-- Channel Selection -->
+  <div class="dropdown" id="channel-dropdown">
+    <button>Select Channel</button>
+    <div class="dropdown-content">
+      <a href="#" data-url="https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8">
+        <img src="https://i.imgur.com/RpIdCB3.png" alt="Aaj Tak HD"/> Aaj Tak HD
+      </a>
+      <a href="#" data-url="https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8">
+        <img src="https://i.imgur.com/GEqUslW.png" alt="TV9 Bharatvarsh"/> TV9 Bharatvarsh
+      </a>
+      <a href="#" data-url="https://indiatodaylive.akamaized.net/hls/live/2014320/indiatoday/indiatodaylive/playlist.m3u8">
+        <img src="https://i.imgur.com/zLoUGiT.png" alt="India Today"/> India Today
+      </a>
+      <a href="#" data-url="https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8">
+        <img src="https://i.imgur.com/PyDjUZB.png" alt="NDTV India"/> NDTV India
+      </a>
+      <a href="#" data-url="https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/NDTV_247.svg/512px-NDTV_247.svg.png" alt="NDTV 24x7"/> NDTV 24x7
+      </a>
+      <a href="#" data-url="http://fl3.moveonjoy.com/BBC_WORLD_NEWS/index.m3u8">
+        <img src="https://i.imgur.com/vSz2WEp.png" alt="BBC WORLD NEWS"/> BBC WORLD NEWS
+      </a>
+      <a href="#" data-url="https://apollo.production-public.tubi.io/live/ac-euronews2.m3u8">
+        <img src="https://i.imgur.com/8t9mdg9.png" alt="Euro News"/> Euro News
+      </a>
+      <a href="#" data-url="https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8">
+        <img src="https://i.imgur.com/qQ33TVM.png" alt="ABC News Australia"/> ABC News Australia
+      </a>
+    </div>
   </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
-  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+
+  <!-- JW Player Container -->
+  <div id="player-container"></div>
+
+  <!-- Reload Button (Optional) -->
+  <button id="reload-button">Reload Channel</button>
+
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const video = document.getElementById("player");
-      const source = "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8";
-      const defaultOptions = {};
-      
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(source);
-        hls.on(Hls.Events.MANIFEST_PARSED, function () {
-          const availableQualities = hls.levels.map((level, index) => {
-            let label = level.height + "p";
-            return { label, value: index };
-          });
+    const dropdown = document.getElementById("channel-dropdown");
+    const reloadButton = document.getElementById("reload-button");
+    const dropdownButton = dropdown.querySelector("button");
+    const dropdownContent = dropdown.querySelector(".dropdown-content");
+    const playerContainer = document.getElementById("player-container");
 
-          availableQualities.unshift({ label: "Auto", value: -1 });
-          let currentQuality = "Auto";
+    // Toggle dropdown visibility
+    dropdownButton.addEventListener("click", () => {
+      dropdown.classList.toggle("active");
+    });
 
-          const player = new Plyr(video, {
-            controls: [
-              "play-large",
-              "play",
-              "progress",
-              "current-time",
-              "mute",
-              "volume",
-              "captions",
-              "settings",
-              "pip",
-              "fullscreen",
-            ],
-            settings: ["quality", "speed", "captions"],
-            quality: {
-              default: -1,
-              options: availableQualities.map((q) => q.label),
-              forced: true,
-              onChange: (qualityLabel) => {
-                const selectedQuality = availableQualities.find((q) => q.label === qualityLabel);
-                if (selectedQuality) {
-                  hls.currentLevel = selectedQuality.value;
-                  currentQuality = qualityLabel;
-                  console.log("Quality changed to:", qualityLabel);
-                }
-              },
-            },
-          });
-          
-          player.on("qualitychange", () => {
-            const selectedQuality = availableQualities.find((q) => q.value === hls.currentLevel);
-            if (selectedQuality) {
-              currentQuality = selectedQuality.label;
-            }
-          });
-
-          video.plyr = player;
-        });
-        hls.attachMedia(video);
-        window.hls = hls;
+    // Handle channel selection
+    dropdownContent.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") {
+        const url = e.target.getAttribute("data-url");
+        loadChannel(url);
+        dropdownButton.textContent = e.target.textContent;
+        dropdown.classList.remove("active");
       }
+    });
+
+    // Function to load the selected channel
+    function loadChannel(url) {
+      jwplayer(playerContainer).setup({
+        file: url,
+        image: "https://images.ottplay.com/images/media/gallery/1920x1080-1746594024.png",
+        width: "100%",
+        aspectratio: "16:9",
+        autostart: true,
+        mute: false,
+        primary: "html5",
+
+        playsinline: true,
+        fullscreen: false,
+        ioscontrols: false,
+        hlshtml: true,
+
+        cast: {
+          appid: "CC1AD845"
+        },
+        airplay: true,
+        captions: {
+          color: "#ffb800",
+          fontSize: 30,
+          backgroundOpacity: 0
+        },
+        abouttext: "Ultrawebs(HM)",
+        aboutlink: "https://linktr.ee/ultrawebs",
+
+        playbackRateControls: true
+      });
+    }
+
+    // Load default channel
+    loadChannel("https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8");
+
+    // Optional: Reload button functionality
+    reloadButton.addEventListener("click", () => {
+      loadChannel(dropdownContent.querySelector("a.active").getAttribute("data-url"));
     });
   </script>
 </body>
