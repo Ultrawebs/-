@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaj Tak HD</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
+
+    body {
+      font-family: "Onest", sans-serif;
+      background-color: #181818;
+      color: white;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .player-container {
+      max-width: 900px;
+      width: 100%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .plyr--full-ui {
+      border-radius: 10px;
+    }
+
+    :root {
+      --plyr-color-main: #ff0000; /* YouTube Red */
+      --plyr-control-icon-size: 20px;
+      --plyr-control-spacing: 10px;
+      --plyr-video-control-background: rgba(0, 0, 0, 0.7);
+    }
+
+    .plyr__controls {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .plyr__control--overlaid {
+      background: var(--plyr-color-main);
+    }
+
+    .plyr__control {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="player-container">
+    <video id="player" controls poster="https://images.ottplay.com/images/media/gallery/1920x1080-1746594024.png">
+      <track kind="subtitles" label="English" src="subtitles.vtt" srclang="en" default />
+    </video>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const video = document.getElementById("player");
+      const source = "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8";
+      const defaultOptions = {};
+      
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(source);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+          const availableQualities = hls.levels.map((level, index) => {
+            let label = level.height + "p";
+            return { label, value: index };
+          });
+
+          availableQualities.unshift({ label: "Auto", value: -1 });
+          let currentQuality = "Auto";
+
+          const player = new Plyr(video, {
+            controls: [
+              "play-large",
+              "play",
+              "progress",
+              "current-time",
+              "mute",
+              "volume",
+              "captions",
+              "settings",
+              "pip",
+              "fullscreen",
+            ],
+            settings: ["quality", "speed", "captions"],
+            quality: {
+              default: -1,
+              options: availableQualities.map((q) => q.label),
+              forced: true,
+              onChange: (qualityLabel) => {
+                const selectedQuality = availableQualities.find((q) => q.label === qualityLabel);
+                if (selectedQuality) {
+                  hls.currentLevel = selectedQuality.value;
+                  currentQuality = qualityLabel;
+                  console.log("Quality changed to:", qualityLabel);
+                }
+              },
+            },
+          });
+          
+          player.on("qualitychange", () => {
+            const selectedQuality = availableQualities.find((q) => q.value === hls.currentLevel);
+            if (selectedQuality) {
+              currentQuality = selectedQuality.label;
+            }
+          });
+
+          video.plyr = player;
+        });
+        hls.attachMedia(video);
+        window.hls = hls;
+      }
+    });
+  </script>
+</body>
+</html>
