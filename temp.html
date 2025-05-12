@@ -1,262 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Live News - JW Player</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live News TV</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
-
-    /* General styles */
     body {
-      font-family: "Onest", sans-serif;
-      background-color: #181818;
-      color: white;
       margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-      font-size: 2rem;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    /* Dropdown container styles */
-    .dropdown {
-      position: relative;
-      width: 90%;
-      max-width: 400px;
-      margin-bottom: 20px;
-      font-family: "Onest", sans-serif;
-    }
-
-    .dropdown select {
-      display: none; /* Hide the default select */
-    }
-
-    .dropdown button {
-      width: 100%;
-      padding: 12px 20px;
-      background-color: #333;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
       color: white;
-      border: 2px solid #ff0000;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
+    }
+
+    header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-family: "Onest", sans-serif;
+      padding: 1rem;
+      background-color: #1c1c1c;
+      font-size: 1.5rem;
+      border-bottom: 1px solid #333;
     }
 
-    .dropdown button:hover {
-      background-color: #444;
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
     }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      width: 100%;
-      background-color: #333;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      max-height: 200px;
-      overflow-y: auto;
-      z-index: 1;
-    }
-
-    .dropdown-content a {
+    header .search-container {
       display: flex;
       align-items: center;
-      padding: 10px;
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      border-bottom: 1px solid #444;
     }
 
-    .dropdown-content a:hover {
-      background-color: #555;
-    }
-
-    .dropdown-content img {
-      width: 60px;
-      height: 30px;
-      margin-right: 10px;
-      align-items: center;
-    }
-
-    .dropdown.active .dropdown-content {
-      display: block;
-    }
-
-    /* Player container styles */
-    #player-container {
-      width: 90%;
-      max-width: 1200px;
-      aspect-ratio: 16 / 9;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      margin-bottom: 30px;
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      select {
-        font-size: 0.9rem;
-        padding: 10px;
-      }
-
-      #player-container {
-        width: 100%;
-      }
-    }
-
-    /* Larger screen sizes (laptops and above) */
-    @media (min-width: 769px) and (max-width: 1200px) {
-      #player-container {
-        width: 80%;
-      }
-    }
-
-    /* Modernized button styles */
-    button {
-      padding: 10px 20px;
-      background-color: #ff5733;
+    header .search-bar {
+      background-color: #333;
       color: white;
       border: none;
+      padding: 0.5rem;
       border-radius: 6px;
+      margin-left: 1rem;
+      width: 200px;
       font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 20px;
-      font-family: "Onest", sans-serif; /* Apply font to button */
     }
 
-    button:hover {
-      background-color: #ff3b0b;
+    header .search-bar::placeholder {
+      color: #888;
     }
 
-    button:focus {
+    header .search-bar:focus {
       outline: none;
+      border: 1px solid #ffb800;
+    }
+
+    #playerContainer {
+      width: 100%;
+      height: auto;
+      max-width: 900px;
+      align-content: center;
+    }
+
+    .channel-info {
+      text-align: center;
+      padding: 1rem;
+      border-bottom: 1px solid #333;
+    }
+
+    .channel-info h2 {
+      font-size: 1.6rem;
+      margin: 0;
+    }
+
+    .channel-info p {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    .icon-bar {
+      display: flex;
+      justify-content: center;
+      gap: 108px;
+      margin: 1rem 0 0.3rem;
+    }
+
+    .icon-bar i {
+      color: #ccc;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.3s;
+    }
+
+    .icon-bar i:hover {
+      color: gold;
+      transform: scale(1.2);
+    }
+
+    .favorite.active {
+      color: gold;
+    }
+
+    .icon-labels {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    .playlist {
+      display: flex;
+      justify-content: start;
+      gap: 15px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    .playlist-item {
+      flex: 0 0 auto;
+      width: 100px;
+      height: 100px;
+      background-color: #2a2a2a;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border 0.2s, transform 0.2s;
+    }
+
+    .playlist-item img {
+      max-width: 60px;
+      max-height: 60px;
+      border-radius: 8px;
+    }
+
+    .playlist-item.active {
+      border: 2px solid #fff;
+    }
+
+    .bottom-buttons {
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      border-top: 1px solid #333;
+    }
+
+    .bottom-buttons button {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .bottom-buttons button:hover {
+      background: #444;
+    }
+
+    @media (min-width: 768px) {
+      .playlist-item {
+        width: 100px;
+        height: 100px;
+      }
+
+      .icon-bar i {
+        font-size: 3rem;
+      }
+
+      .icon-labels {
+        gap: 100px;
+      }
+
+      header .search-container {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header .search-container {
+        display: block;
+        width: 50%;
+      }
+
+      header .search-bar {
+        width: 80%;
+        margin-top: 0.5rem;
+      }
     }
   </style>
-
-  <!-- JW Player Script -->
-  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
 </head>
-<body>
-  <h2>Live News Channels</h2>
 
-  <!-- Channel Selection -->
-  <div class="dropdown" id="channel-dropdown">
-    <button>Select Channel</button>
-    <div class="dropdown-content">
-      <a href="#" data-url="https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8">
-        <img src="https://i.imgur.com/RpIdCB3.png" alt="Aaj Tak HD"/> Aaj Tak HD
-      </a>
-      <a href="#" data-url="https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8">
-        <img src="https://i.imgur.com/GEqUslW.png" alt="TV9 Bharatvarsh"/> TV9 Bharatvarsh
-      </a>
-      <a href="#" data-url="https://indiatodaylive.akamaized.net/hls/live/2014320/indiatoday/indiatodaylive/playlist.m3u8">
-        <img src="https://i.imgur.com/zLoUGiT.png" alt="India Today"/> India Today
-      </a>
-      <a href="#" data-url="https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8">
-        <img src="https://i.imgur.com/PyDjUZB.png" alt="NDTV India"/> NDTV India
-      </a>
-      <a href="#" data-url="https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/NDTV_247.svg/512px-NDTV_247.svg.png" alt="NDTV 24x7"/> NDTV 24x7
-      </a>
-      <a href="#" data-url="http://fl3.moveonjoy.com/BBC_WORLD_NEWS/index.m3u8">
-        <img src="https://i.imgur.com/vSz2WEp.png" alt="BBC WORLD NEWS"/> BBC WORLD NEWS
-      </a>
-      <a href="#" data-url="https://apollo.production-public.tubi.io/live/ac-euronews2.m3u8">
-        <img src="https://i.imgur.com/8t9mdg9.png" alt="Euro News"/> Euro News
-      </a>
-      <a href="#" data-url="https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8">
-        <img src="https://i.imgur.com/qQ33TVM.png" alt="ABC News Australia"/> ABC News Australia
-      </a>
+<body>
+  <header>
+    <div class="logo">UW DTH</div>
+    <div class="search-container">
+      <input type="text" id="searchBar" class="search-bar" placeholder="Search channels..." />
     </div>
+  </header>
+
+  <center>
+    <h1>Live News TV</h1>
+    <p>Watch your favorite news channels live!</p>
+    <div id="playerContainer"></div>
+  </center>
+
+  <div class="channel-info">
+    <h2 id="channelNameDisplay">Aaj Tak HD</h2>
+    <p id="channelSubtitle">Live News Broadcast</p>
   </div>
 
-  <!-- JW Player Container -->
-  <div id="player-container"></div>
+  <div class="icon-bar">
+    <i id="favoriteIcon" class="material-icons favorite" title="Add to Favorite">star_border</i>
+    <i id="infoIcon" class="material-icons" title="Channel Info">info</i>
+  </div>
+  <div class="icon-labels">
+    <span>Favourite</span>
+    <span>Details</span>
+  </div>
 
-  <!-- Reload Button (Optional) -->
-  <button id="reload-button">Reload Channel</button>
+  <div class="playlist" id="playlistContainer"></div>
+
+  <div class="bottom-buttons">
+    <button onclick="showRecent()">Recently Watched ▼</button>
+    <button>Channel Guide</button>
+  </div>
+
+  <div class="watermark" style="text-align: end; padding: 1rem; color: #888; font-size: 0.85rem;">
+    Created by UltraWebs(HM) © <span id="year"></span>
+  </div>
+  <footer style="text-align: center; padding-bottom: 1.5rem; color: #aaa; font-size: 0.85rem;">
+    News © <span id="year-footer"></span> | Designed by UW
+  </footer>
 
   <script>
-    const dropdown = document.getElementById("channel-dropdown");
-    const reloadButton = document.getElementById("reload-button");
-    const dropdownButton = dropdown.querySelector("button");
-    const dropdownContent = dropdown.querySelector(".dropdown-content");
-    const playerContainer = document.getElementById("player-container");
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("year-footer").textContent = new Date().getFullYear();
+  </script>
 
-    // Toggle dropdown visibility
-    dropdownButton.addEventListener("click", () => {
-      dropdown.classList.toggle("active");
-    });
-
-    // Handle channel selection
-    dropdownContent.addEventListener("click", (e) => {
-      if (e.target.tagName === "A") {
-        const url = e.target.getAttribute("data-url");
-        loadChannel(url);
-        dropdownButton.textContent = e.target.textContent;
-        dropdown.classList.remove("active");
+  <script>
+    const playlist = [
+      {
+        name: "Aaj Tak HD",
+        url: "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
+        img: "https://i.imgur.com/RpIdCB3.png"
+      },
+      {
+        name: "TV9 Bharatvarsh",
+        url: "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8",
+        img: "https://i.imgur.com/GEqUslW.png"
+      },
+      {
+        name: "India Today",
+        url: "https://indiatodaylive.akamaized.net/hls/live/2014320/indiatoday/indiatodaylive/playlist.m3u8",
+        img: "https://i.imgur.com/zLoUGiT.png"
+      },
+      {
+        name: "NDTV India",
+        url: "https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8",
+        img: "https://i.imgur.com/PyDjUZB.png"
+      },
+      {
+        name: "NDTV 24x7",
+        url: "https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/NDTV_247.svg/512px-NDTV_247.svg.png"
+      },
+      {
+        name: "BBC World News",
+        url: "http://fl3.moveonjoy.com/BBC_WORLD_NEWS/index.m3u8",
+        img: "https://i.imgur.com/vSz2WEp.png"
+      },
+      {
+        name: "Euro News",
+        url: "https://apollo.production-public.tubi.io/live/ac-euronews2.m3u8",
+        img: "https://i.imgur.com/8t9mdg9.png"
       }
-    });
+    ];
 
-    // Function to load the selected channel
-    function loadChannel(url) {
-      jwplayer(playerContainer).setup({
+    const playlistContainer = document.getElementById("playlistContainer");
+    const channelNameDisplay = document.getElementById("channelNameDisplay");
+    const channelSubtitle = document.getElementById("channelSubtitle");
+    const favoriteIcon = document.getElementById("favoriteIcon");
+    const infoIcon = document.getElementById("infoIcon");
+    const searchBar = document.getElementById("searchBar");
+
+    // Load channel with JW Player
+    function loadChannel(url, name) {
+      jwplayer("playerContainer").setup({
         file: url,
         image: "https://images.ottplay.com/images/media/gallery/1920x1080-1746594024.png",
         width: "100%",
         aspectratio: "16:9",
-        autostart: true,
+        autostart: false,
         mute: false,
         primary: "html5",
-
-        playsinline: true,
-        fullscreen: false,
-        ioscontrols: false,
-        hlshtml: true,
-
-        cast: {
-          appid: "CC1AD845"
-        },
-        airplay: true,
-        captions: {
-          color: "#ffb800",
-          fontSize: 30,
-          backgroundOpacity: 0
-        },
+        playbackRateControls: true,
         abouttext: "Ultrawebs(HM)",
         aboutlink: "https://linktr.ee/ultrawebs",
+        cast: { appid: "CC1AD845" },
+        airplay: true,
+        captions: { color: "#ffb800", fontSize: 30, backgroundOpacity: 0 },
+      });
+      channelNameDisplay.textContent = name;
+      channelSubtitle.textContent = "Live News Broadcast";
 
-        playbackRateControls: true
+      // Save to recently watched
+      saveRecent(name, url);
+    }
+
+    function saveRecent(name, url) {
+      let recent = JSON.parse(localStorage.getItem("recentChannels")) || [];
+      recent = recent.filter(ch => ch.name !== name); // Remove duplicate
+      recent.unshift({ name, url }); // Add to top
+      if (recent.length > 5) recent = recent.slice(0, 5); // Max 5
+      localStorage.setItem("recentChannels", JSON.stringify(recent));
+    }
+
+    function showRecent() {
+      let recent = JSON.parse(localStorage.getItem("recentChannels")) || [];
+      if (recent.length === 0) {
+        alert("No recently watched channels.");
+        return;
+      }
+      let list = recent.map(ch => ch.name).join("\n");
+      alert("Recently Watched:\n" + list);
+    }
+
+    // Build playlist UI
+    function buildPlaylist(filteredPlaylist) {
+      playlistContainer.innerHTML = "";
+      filteredPlaylist.forEach((channel, index) => {
+        const div = document.createElement("div");
+        div.className = "playlist-item" + (index === 0 ? " active" : "");
+        div.innerHTML = `<img src="${channel.img}" alt="${channel.name}">`;
+        div.title = channel.name;
+        div.dataset.url = channel.url;
+        div.dataset.name = channel.name;
+
+        div.addEventListener("click", () => {
+          document.querySelectorAll(".playlist-item").forEach(item => item.classList.remove("active"));
+          div.classList.add("active");
+          loadChannel(channel.url, channel.name);
+          favoriteIcon.classList.remove("active");
+          favoriteIcon.textContent = "star_border";
+        });
+
+        playlistContainer.appendChild(div);
+
+        // Auto-load first channel
+        if (index === 0) {
+          loadChannel(channel.url, channel.name);
+        }
       });
     }
 
-    // Load default channel
-    loadChannel("https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8");
+    // Search function
+    searchBar.addEventListener("input", function () {
+      const query = searchBar.value.toLowerCase();
+      const filteredPlaylist = playlist.filter(channel =>
+        channel.name.toLowerCase().includes(query)
+      );
+      buildPlaylist(filteredPlaylist);
+    });
 
-    // Optional: Reload button functionality
-    reloadButton.addEventListener("click", () => {
-      loadChannel(dropdownContent.querySelector("a.active").getAttribute("data-url"));
+    buildPlaylist(playlist);
+
+    favoriteIcon.addEventListener("click", () => {
+      favoriteIcon.classList.toggle("active");
+      favoriteIcon.textContent = favoriteIcon.classList.contains("active") ? "star" : "star_border";
+    });
+
+    infoIcon.addEventListener("click", () => {
+      alert(`Channel Info:\n${channelNameDisplay.textContent}`);
     });
   </script>
 </body>
+
 </html>
