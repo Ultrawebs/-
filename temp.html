@@ -124,19 +124,23 @@
       flex: 0 0 auto;
       width: 100px;
       height: 100px;
-      background-color: #2a2a2a;
+      background: linear-gradient(to bottom right,
+          rgba(255, 255, 255, 0.250),
+          rgba(255, 255, 255, 0.05));
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: border 0.2s, transform 0.2s;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
     }
 
     .playlist-item img {
       max-width: 60px;
       max-height: 60px;
-      border-radius: 8px;
     }
 
     .playlist-item.active {
@@ -207,8 +211,6 @@
   </header>
 
   <center>
-    <h1>Live News TV</h1>
-    <p>Watch your favorite news channels live!</p>
     <div id="playerContainer"></div>
   </center>
 
