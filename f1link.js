@@ -48,7 +48,7 @@ const videoLinks = {
     "FP2": "https://dai.fancode.com/primary/118412_english_hls_19011ta-di_h264_backup/vod_107_master.m3u8",
     "FP3": "https://dai.fancode.com/primary/118413_english_hls_47187ta-di_h264_backup/vod_798_master.m3u8",
     "Qualifying": "https://dai.fancode.com/primary/118414_english_hls_70319ta-di_h264_backup/vod_975_master.m3u8",
-    "Race": "<Race_Link>"
+    "Race": "https://dai.fancode.com/primary/118415_english_hls_27728ta-di_h264_backup/vod_408_master.m3u8"
   },
   monaco: {
     "FP1": "<FP1_Link>",
