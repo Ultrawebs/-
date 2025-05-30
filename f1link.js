@@ -58,7 +58,7 @@ const videoLinks = {
     "Race": "https://dai.fancode.com/secondary/118420_english_hls_54361ta-di_h264_backup/vod_152_master.m3u8"
   },
   spanish: {
-    "FP1": "link",
+    "FP1": "https://dai.fancode.com/primary/118421_english_hls_25827ta-di_h264_backup/vod_546_master.m3u8",
     "FP2": "link",
     "FP3": "link",
     "Qualifying": "link",
