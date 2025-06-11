@@ -698,7 +698,7 @@
           <div class="playlist-icons">
             <span class="language" style="color: blue">English</span>
             <span class="HD">HD</span>
-            <!-- <span class="language2">Server 1</span> -->
+            <span class="language2">Server 1</span>
             <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" alt="AUS Flag"
               class="flag-icon" />
           </div>
@@ -711,7 +711,20 @@
           <div class="playlist-icons">
             <span class="language" style="color: blue">English</span>
             <span class="HD">HD</span>
-            <!-- <span class="language2">Server 1</span> -->
+            <span class="language2">Server 2</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" alt="AUS Flag"
+              class="flag-icon" />
+          </div>
+        </div>
+        <div class="playlist-item" id="video3">
+          <div class="playlist-info">
+            <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
+            Amazon Prime Video - 50 FPS
+          </div>
+          <div class="playlist-icons">
+            <span class="language" style="color: blue">English</span>
+            <span class="HD">HD</span>
+            <span class="language2">Server 3</span>
             <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" alt="AUS Flag"
               class="flag-icon" />
           </div>
@@ -791,6 +804,24 @@
         ]);
         playerInstance.play();
       });
+
+      document.getElementById("video3").addEventListener("click", () => {
+        playerInstance.load([
+          {
+            file: "https://abdntqgaaaaaaaamdrjk7aj77ndl7.otte.live.cf.ww.aiv-cdn.net/syd-nitro/live/clients/dash/enc/uugw0qkwob/out/v1/acfdcf2dabd24075bb615c6c19ba9bd4/cenc.mpd",
+            image:
+              "https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Emblem.png",
+            drm: {
+              clearkey: {
+                keyId: "ec2147a4b9b1b87ee3d8dc6915bc7928",
+                key: "c84fcd82767a9cd9e2e0c0d1b47a72c5",
+              },
+            },
+          },
+        ]);
+        playerInstance.play();
+      });
+
 
       document
         .getElementById("darkMode")
