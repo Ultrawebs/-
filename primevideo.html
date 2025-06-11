@@ -509,88 +509,9 @@
       border-radius: 03px;
     }
 
-    /* --- JW Player Background --- */
-    .jwplayer {
-      background-color: #000 !important;
-      /* Dark background */
-      border-radius: 10px;
-    }
-
-    /* --- Control Bar (Semi-Transparent) --- */
-    .jw-controlbar {
-      background: transparent;
-      border-radius: 0 0 10px 10px;
-    }
-
-    /* --- Play Button (Glowing Effect) --- */
-    .jw-display-icon-container {
-      background: transparent;
-      border-radius: 50%;
-      transition: 0.3s;
-    }
-
-    .jw-display-icon-container:hover {
-      background: transparent;
-    }
-
-    /* --- Customize Seek Bar (Buffered Background) --- */
-    .jw-slider-container {
-      background: transparent !important;
-    }
-
-    /* --- Gradient Animation for Seek Bar Progress --- */
-    .jw-slider-container .jw-progress {
-      background: linear-gradient(90deg, #0099ff, #ff00ff);
-      /* Blue to Pink */
-      background-size: 200% 100%;
-      animation: gradientMove 3s linear infinite;
-      height: 4px !important;
-      /* Adjust thickness */
-      border-radius: 5px;
-    }
-
-    .jw-slider-container .jw-progress,
-    .jw-volume-tip .jw-slider-container .jw-progress {
-      background: linear-gradient(90deg, #c71212, #ff00ff);
-      /* Red to Baby Pink */
-      background-size: 200% 100%;
-      animation: gradientMove 6s linear infinite;
-      /* Smooth and continuous */
-    }
-
-    /* --- Keyframe Animation for Smooth Gradient Transition --- */
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* --- Ensure Progress Bars are Visible and Overriding JW Styles --- */
-    .jw-slider-container .jw-progress:before,
-    .jw-volume-tip .jw-slider-container .jw-progress:before {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-    }
-
-    /* --- Button Colors (Yellow) --- */
-    .jw-button-color {
-      color: #ffffff !important;
-      transition: 0.3s;
-    }
-
-    .jw-button-color:hover {
-      color: #c5c5c5 !important;
+    .flag-icon:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
     }
 
     /* Popup overlay */
@@ -667,6 +588,111 @@
       background: #ccc;
       color: black;
     }
+
+    /* Netflix-style menu override */
+    .jw-settings-menu {
+      font-family: 'Onest', sans-serif !important;
+      background: #111 !important;
+      border-radius: 10px !important;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease-in-out !important;
+      overflow: hidden !important;
+    }
+
+    .jw-settings-menu .jw-settings-submenu {
+      transition: all 0.3s ease-in-out !important;
+    }
+
+    .jw-settings-menu .jw-settings-content-item {
+      color: #eee !important;
+      font-family: 'Onest', sans-serif !important;
+      padding: 10px 16px !important;
+      border-bottom: 1px solid #333;
+      transition: background 0.2s ease-in-out !important;
+    }
+
+    .jw-settings-menu .jw-settings-content-item:hover {
+      background-color: #222 !important;
+      color: #fff !important;
+    }
+
+    .jw-icon-inline.jw-button-color:hover {
+      filter: brightness(1.4);
+    }
+
+    /* Import font (optional) */
+    @import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;700&display=swap');
+
+    /* Shimmer text setup */
+    /* Wrapper to center the text */
+    .shine-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      margin-top: 8px;
+    }
+
+    /* Text with shining effect */
+    .shine-text {
+      font-size: 1.20rem;
+      font-weight: bolder;
+      color: yellowgreen;
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .shine-text::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 20%;
+      height: 100%;
+      background: linear-gradient(120deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.2) 30%,
+          rgba(255, 255, 255, 0.6) 50%,
+          rgba(255, 255, 255, 0.2) 70%,
+          rgba(255, 255, 255, 0) 100%);
+      transform: skewX(-20deg);
+      animation: shine 09s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+      mix-blend-mode: lighten;
+      pointer-events: none;
+      will-change: left;
+    }
+
+    /* Shine animation */
+    @keyframes shine {
+      0% {
+        left: -75%;
+      }
+
+      50% {
+        left: 125%;
+      }
+
+      100% {
+        left: -75%;
+      }
+    }
+
+    /* Responsive text */
+    @media screen and (max-width: 600px) {
+      .shine-text {
+        font-size: 0.95rem;
+        white-space: normal;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .shine-text {
+        font-size: 0.85rem;
+      }
+    }
   </style>
 </head>
 
@@ -677,14 +703,11 @@
         src="https://m.media-amazon.com/images/G/01/digital/video/acquisition/web_footer_logo._CB462908456_.png" />
     </header>
 
-    <center style="
-          color: yellowgreen;
-          margin-top: 08px;
-          font-weight: bold;
-          padding-bottom: 10px;
-        ">
-      Please wait for 30 seconds, the video will start playing automatically.
-    </center>
+    <div class="shine-wrapper">
+      <div class="shine-text">
+        Please wait for 30 seconds, the video will start playing automatically.
+      </div>
+    </div>
 
     <center>
       <div id="player-container"></div>
@@ -699,8 +722,8 @@
             <span class="language" style="color: blue">English</span>
             <span class="HD">HD</span>
             <span class="language2">Server 1</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" alt="AUS Flag"
-              class="flag-icon" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"
+              alt="AUS Flag" class="flag-icon" />
           </div>
         </div>
         <div class="playlist-item" id="video2">
@@ -712,8 +735,8 @@
             <span class="language" style="color: blue">English</span>
             <span class="HD">HD</span>
             <span class="language2">Server 2</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" alt="AUS Flag"
-              class="flag-icon" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"
+              alt="AUS Flag" class="flag-icon" />
           </div>
         </div>
         <div class="playlist-item" id="video3">
@@ -725,8 +748,8 @@
             <span class="language" style="color: blue">English</span>
             <span class="HD">HD</span>
             <span class="language2">Server 3</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" alt="AUS Flag"
-              class="flag-icon" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"
+              alt="AUS Flag" class="flag-icon" />
           </div>
         </div>
       </div>
@@ -854,8 +877,18 @@
         creators, studios, and distributors.
       </li>
     </ul>
-    <div class="watermark">Created by UltraWebs(HM) © 2024</div>
-    <footer>Amazon Prime Video © 2024 | Designed by UW</footer>
+    <div class="watermark">
+      Created by UltraWebs(HM) © <span id="year"></span>
+    </div>
+    <footer>
+      Prime Video © <span id="year-footer"></span> | Designed by UW
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("year-footer").textContent =
+        new Date().getFullYear();
+    </script>
   </div>
 
   <div class="toggle-button" onclick="toggleButtons()">
@@ -922,9 +955,9 @@
   <div class="popup-overlay" id="coffeePopup">
     <div class="popup-box">
       <h2>☕ Buy Me a Coffee?</h2>
-      <p class= "popup-message" id="popupMessage">
+      <p class="popup-message" id="popupMessage">
         Hey there! If you enjoy my work, show your support by buying me a
-        coffee! Every cup fuels my creativity and keeps me going. <br/>
+        coffee! Every cup fuels my creativity and keeps me going. <br />
         <center><b>Click OK to show your support!</b></center>
       </p>
       <div class="popup-buttons">
