@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live News TV</title>
+  <title>Modern Media UI</title>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
   <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
   <style>
@@ -137,6 +137,7 @@
       0% {
         background-position: -100px 0;
       }
+
       100% {
         background-position: 100px 0;
       }
@@ -252,7 +253,7 @@
       {
         name: "WION",
         url: "https://d2f067kuhcp3tj.cloudfront.net/index.m3u8",
-        img: "https://www.wionews.com/_next/static/media/wion-logo_white.d670dbc6.svg"
+        img: "https://i.imgur.com/WrmeIco.png"
       },
       {
         name: "NDTV 24x7",
@@ -261,7 +262,7 @@
       },
       {
         name: "BBC World News",
-        url: "https://d2vnbkvjbims7j.cloudfront.net/containerA/LTN/playlist.m3u8",
+        url: "http://fl3.moveonjoy.com/BBC_WORLD_NEWS/index.m3u8",
         img: "https://i.imgur.com/vSz2WEp.png"
       },
       {
@@ -295,7 +296,32 @@
           autostart: true,
           mute: false,
           skin: {
-            name: "netflix"
+            controlbar: {
+              background: "#000000",
+              icons: "#ffffff",
+              iconsActive: "#e50914",
+              text: "#ffffff"
+            },
+            menus: {
+              background: "#000000",
+              text: "#ffffff",
+              textActive: "#e50914"
+            },
+            timeslider: {
+              progress: "#e50914",
+              rail: "#777777",
+              thumb: "#e50914"
+            },
+            tooltips: {
+              background: "#000000",
+              text: "#ffffff"
+            },
+            captions: {
+              color: "#ffffff",
+              fontSize: 14,
+              backgroundOpacity: 0,
+              edgeStyle: "none"
+            }
           }
         });
       }
