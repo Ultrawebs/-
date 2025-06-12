@@ -2,28 +2,45 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Live News TV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
   <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+  <link rel="icon" href="https://static-00.iconduck.com/assets.00/news-icon-2048x2048-tad74fxi.png" type="image/png" />
   <style>
     * {
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
       font-family: 'Onest', sans-serif;
       background: url('https://ideogram.ai/assets/image/lossless/response/RQ0zJX4sR9OUE4O1zMmwEQ') no-repeat center center fixed;
       background-size: cover;
       color: white;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      max-width: 100vw;
       overflow-x: hidden;
-      padding-bottom: 120px;
+      scroll-behavior: smooth;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      /* Adjust opacity here */
+      z-index: -1;
+      /* Behind everything */
     }
 
     header {
@@ -34,8 +51,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
-      background-color: rgba(0, 0, 0, 0.7);
+      background: rgba(255, 255, 255, 0.05);
       border-bottom: 1px solid #333;
+      backdrop-filter: blur(18px);
     }
 
     header .logo {
@@ -49,12 +67,14 @@
     }
 
     .search-bar {
-      background-color: #2c2c2c;
+      background: rgba(255, 255, 255, 0.05);
       color: white;
+      font-weight: 700;
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 6px;
       width: 200px;
+      backdrop-filter: blur(18px);
     }
 
     .search-bar::placeholder {
@@ -66,15 +86,51 @@
       border: 1px solid #ffb800;
     }
 
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
     #playerContainer {
       width: 100%;
       max-width: 960px;
       margin: 2rem auto;
-      border-radius: 10px;
-      overflow: hidden;
-      background-color: black;
       aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Shine animation (optional) */
+    .player-shine {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shineOverlay 4s infinite linear;
+      pointer-events: none;
+      z-index: 11;
+    }
+
+    @keyframes shineOverlay {
+      0% {
+        left: -100%;
+      }
+
+      100% {
+        left: 100%;
+      }
     }
 
     .channel-info {
@@ -89,27 +145,27 @@
       padding: 1rem;
       max-width: 100vw;
       gap: 1rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      border-top: 1px solid #333;
-      backdrop-filter: blur(10px);
+      background-color: transparent;
+      flex-wrap: wrap;
     }
 
     .playlist-item {
       width: 100px;
       height: 100px;
       flex: 0 0 auto;
-      background-color: #1e1e1e;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       position: relative;
-      animation: shimmer 2s infinite linear;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s;
+    }
+
+    .playlist-item:hover {
+      transform: scale(1.05);
     }
 
     .playlist-item img {
@@ -117,6 +173,8 @@
       max-height: 80%;
       object-fit: contain;
       display: block;
+      position: relative;
+      z-index: 2;
     }
 
     .playlist-item:hover::after {
@@ -132,22 +190,91 @@
       font-size: 12px;
     }
 
-    @keyframes shimmer {
+    /* Shimmer Animation for Playlist Items */
+    .playlist-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -200%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.45) 50%,
+          rgba(255, 255, 255, 0) 100%);
+      animation: shimmerFade 6s infinite ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 10px;
+    }
+
+    @keyframes shimmerFade {
       0% {
-        background-position: -100px 0;
+        left: -200%;
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.5;
+      }
+
+      50% {
+        left: 100%;
+        opacity: 0.65;
+      }
+
+      80% {
+        opacity: 0.5;
       }
 
       100% {
-        background-position: 100px 0;
+        left: 200%;
+        opacity: 0;
       }
+    }
+
+    .playlist-item.active {
+      border: 2px solid #e50914;
+      box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+    }
+
+    .playlist-item.active img {
+      filter: brightness(1.2);
+    }
+
+    .playlist-item.active::before {
+      background: linear-gradient(120deg,
+          rgba(229, 9, 20, 0.2) 0%,
+          rgba(229, 9, 20, 0.5) 50%,
+          rgba(229, 9, 20, 0.2) 100%);
+      opacity: 1;
+    }
+
+    .playlist-item.active:hover::after {
+      background: rgba(229, 9, 20, 0.8);
+      color: white;
+    }
+
+    .playlist-item.active:hover img {
+      filter: brightness(1.4);
+    }
+
+    .playlist-item.active::after {
+      background: linear-gradient(120deg,
+          rgba(229, 9, 20, 0.8) 0%,
+          rgba(229, 9, 20, 1) 50%,
+          rgba(229, 9, 20, 0.8) 100%);
     }
 
     .footer {
       text-align: center;
-      color: #aaa;
-      padding: 2rem 0 1rem;
+      color: whitesmoke;
+      padding: 1rem;
       font-size: 0.9rem;
-      margin-top: auto;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(6px);
+      z-index: 900;
     }
 
     .watermark {
@@ -162,12 +289,6 @@
     }
 
     @media screen and (max-width: 768px) {
-      body {
-        padding-bottom: 100px;
-        background-attachment: scroll;
-        background-position: top;
-      }
-
       header .logo {
         font-size: 1.2rem;
       }
@@ -180,13 +301,70 @@
       #playerContainer {
         max-height: 320px;
         aspect-ratio: 16 / 9;
-        border-radius: 0px;
+        border-radius: 06px;
       }
 
       .playlist {
-        justify-content: flex-start;
         padding: 1rem 0.5rem;
       }
+
+      .playlist-item {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    /* Scrollbar Track - Glass Effect */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Scrollbar Thumb - Glass + Shine */
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(120deg,
+          rgba(255, 255, 255, 0.25) 0%,
+          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0.25) 100%);
+      border-radius: 10px;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      background-size: 200% 100%;
+      animation: shimmer-scrollbar 2s infinite linear;
+      transition: background 0.3s ease;
+    }
+
+    /* On hover, make it brighter */
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(120deg,
+          rgba(255, 255, 255, 0.35) 0%,
+          rgba(255, 255, 255, 0.6) 50%,
+          rgba(255, 255, 255, 0.35) 100%);
+      background-size: 200% 100%;
+    }
+
+    /* Shimmer Animation */
+    @keyframes shimmer-scrollbar {
+      0% {
+        background-position: -100% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    /* Optional for Firefox (limited styling) */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
@@ -195,23 +373,24 @@
   <header>
     <div class="logo">Live News</div>
     <div class="search-container">
-      <input type="text" class="search-bar" placeholder="Search...">
+      <input type="text" class="search-bar" placeholder="Search..." />
     </div>
   </header>
 
-  <div id="playerContainer"></div>
-
-  <div class="channel-info">
-    <h2 id="channelName">Select a Channel</h2>
+  <div class="content">
+    <div id="playerContainer"></div>
+    <div class="channel-info">
+      <h2 id="channelName">Select a Channel</h2>
+    </div>
   </div>
 
   <div class="playlist" id="playlist"></div>
 
-  <div class="watermark">© <span id="watermarkYear"></span> Ultrawebs Media</div>
-
   <footer class="footer">
     &copy; <span id="footerYear"></span> Ultrawebs. All rights reserved.
   </footer>
+
+  <div class="watermark">© <span id="watermarkYear"></span> Ultrawebs Media</div>
 
   <script>
     const channels = [
