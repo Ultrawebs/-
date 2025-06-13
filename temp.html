@@ -8,365 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
   <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
   <link rel="icon" href="https://static-00.iconduck.com/assets.00/news-icon-2048x2048-tad74fxi.png" type="image/png" />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      font-family: 'Onest', sans-serif;
-      background: url('https://ideogram.ai/assets/image/lossless/response/RQ0zJX4sR9OUE4O1zMmwEQ') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      position: relative;
-      z-index: 0;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      /* Adjust opacity here */
-      z-index: -1;
-      /* Behind everything */
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid #333;
-      backdrop-filter: blur(18px);
-    }
-
-    header .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-
-    .search-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .search-bar {
-      background: rgba(255, 255, 255, 0.05);
-      color: white;
-      font-weight: 700;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      width: 200px;
-      backdrop-filter: blur(18px);
-    }
-
-    .search-bar::placeholder {
-      color: #aaa;
-    }
-
-    .search-bar:focus {
-      outline: none;
-      border: 1px solid #ffb800;
-    }
-
-    .content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
-    }
-
-    #playerContainer {
-      width: 100%;
-      max-width: 960px;
-      margin: 2rem auto;
-      aspect-ratio: 16 / 9;
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Shine animation (optional) */
-    .player-shine {
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 200%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      animation: shineOverlay 4s infinite linear;
-      pointer-events: none;
-      z-index: 11;
-    }
-
-    @keyframes shineOverlay {
-      0% {
-        left: -100%;
-      }
-
-      100% {
-        left: 100%;
-      }
-    }
-
-    .channel-info {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .playlist {
-      display: flex;
-      overflow-x: auto;
-      justify-content: center;
-      padding: 1rem;
-      max-width: 100vw;
-      gap: 1rem;
-      background-color: transparent;
-      flex-wrap: wrap;
-    }
-
-    .playlist-item {
-      width: 100px;
-      height: 100px;
-      flex: 0 0 auto;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s;
-    }
-
-    .playlist-item:hover {
-      transform: scale(1.05);
-    }
-
-    .playlist-item img {
-      max-width: 80%;
-      max-height: 80%;
-      object-fit: contain;
-      display: block;
-      position: relative;
-      z-index: 2;
-    }
-
-    .playlist-item:hover::after {
-      content: attr(data-name);
-      position: absolute;
-      bottom: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.8);
-      padding: 5px 10px;
-      border-radius: 5px;
-      white-space: nowrap;
-      font-size: 12px;
-    }
-
-    /* Shimmer Animation for Playlist Items */
-    .playlist-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -200%;
-      width: 200%;
-      height: 100%;
-      background: linear-gradient(120deg,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.45) 50%,
-          rgba(255, 255, 255, 0) 100%);
-      animation: shimmerFade 6s infinite ease-in-out;
-      opacity: 0;
-      pointer-events: none;
-      z-index: 1;
-      border-radius: 10px;
-    }
-
-    @keyframes shimmerFade {
-      0% {
-        left: -200%;
-        opacity: 0;
-      }
-
-      20% {
-        opacity: 0.5;
-      }
-
-      50% {
-        left: 100%;
-        opacity: 0.65;
-      }
-
-      80% {
-        opacity: 0.5;
-      }
-
-      100% {
-        left: 200%;
-        opacity: 0;
-      }
-    }
-
-    .playlist-item.active {
-      border: 2px solid #e50914;
-      box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
-    }
-
-    .playlist-item.active img {
-      filter: brightness(1.2);
-    }
-
-    .playlist-item.active::before {
-      background: linear-gradient(120deg,
-          rgba(229, 9, 20, 0.2) 0%,
-          rgba(229, 9, 20, 0.5) 50%,
-          rgba(229, 9, 20, 0.2) 100%);
-      opacity: 1;
-    }
-
-    .playlist-item.active:hover::after {
-      background: rgba(229, 9, 20, 0.8);
-      color: white;
-    }
-
-    .playlist-item.active:hover img {
-      filter: brightness(1.4);
-    }
-
-    .playlist-item.active::after {
-      background: linear-gradient(120deg,
-          rgba(229, 9, 20, 0.8) 0%,
-          rgba(229, 9, 20, 1) 50%,
-          rgba(229, 9, 20, 0.8) 100%);
-    }
-
-    .footer {
-      text-align: center;
-      color: whitesmoke;
-      padding: 1rem;
-      font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(6px);
-      z-index: 900;
-    }
-
-    .watermark {
-      position: fixed;
-      bottom: 4px;
-      right: 12px;
-      font-size: 10px;
-      color: #ccc;
-      opacity: 0.6;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    @media screen and (max-width: 768px) {
-      header .logo {
-        font-size: 1.2rem;
-      }
-
-      .search-bar {
-        width: 140px;
-        font-size: 14px;
-      }
-
-      #playerContainer {
-        max-height: 320px;
-        aspect-ratio: 16 / 9;
-        border-radius: 06px;
-      }
-
-      .playlist {
-        padding: 1rem 0.5rem;
-      }
-
-      .playlist-item {
-        width: 100px;
-        height: 100px;
-      }
-    }
-
-    /* Scrollbar Track - Glass Effect */
-    ::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* Scrollbar Thumb - Glass + Shine */
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(120deg,
-          rgba(255, 255, 255, 0.25) 0%,
-          rgba(255, 255, 255, 0.5) 50%,
-          rgba(255, 255, 255, 0.25) 100%);
-      border-radius: 10px;
-      border: 2px solid rgba(0, 0, 0, 0.2);
-      background-size: 200% 100%;
-      animation: shimmer-scrollbar 2s infinite linear;
-      transition: background 0.3s ease;
-    }
-
-    /* On hover, make it brighter */
-    ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(120deg,
-          rgba(255, 255, 255, 0.35) 0%,
-          rgba(255, 255, 255, 0.6) 50%,
-          rgba(255, 255, 255, 0.35) 100%);
-      background-size: 200% 100%;
-    }
-
-    /* Shimmer Animation */
-    @keyframes shimmer-scrollbar {
-      0% {
-        background-position: -100% 0;
-      }
-
-      100% {
-        background-position: 200% 0;
-      }
-    }
-
-    /* Optional for Firefox (limited styling) */
-    * {
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.2);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -377,94 +19,149 @@
     </div>
   </header>
 
-  <div class="content">
-    <div id="playerContainer"></div>
+  <main class="content">
+    <div id="playerContainer">
+      <div class="player-shine"></div>
+    </div>
     <div class="channel-info">
       <h2 id="channelName">Select a Channel</h2>
     </div>
-  </div>
+  </main>
 
-  <div class="playlist" id="playlist"></div>
+  <section class="playlist" id="playlist"></section>
 
   <footer class="footer">
     &copy; <span id="footerYear"></span> Ultrawebs. All rights reserved.
   </footer>
 
-  <div class="watermark">© <span id="watermarkYear"></span> Ultrawebs Media</div>
+  <div class="watermark">
+    © <span id="watermarkYear"></span> Ultrawebs Media
+  </div>
 
   <script>
     const channels = [
       {
         name: "Aaj Tak HD",
         url: "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
-        img: "https://i.imgur.com/RpIdCB3.png"
+        img: "https://i.imgur.com/RpIdCB3.png",
       },
       {
         name: "TV9 Bharatvarsh",
         url: "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8",
-        img: "https://i.imgur.com/GEqUslW.png"
+        img: "https://i.imgur.com/GEqUslW.png",
       },
       {
         name: "India Today",
         url: "https://indiatodaylive.akamaized.net/hls/live/2014320/indiatoday/indiatodaylive/playlist.m3u8",
-        img: "https://i.imgur.com/zLoUGiT.png"
+        img: "https://i.imgur.com/zLoUGiT.png",
       },
       {
         name: "India TV",
         url: "https://pl-indiatvnews.akamaized.net/out/v1/db79179b608641ceaa5a4d0dd0dca8da/index.m3u8",
-        img: "https://m.media-amazon.com/images/I/511fgtxyiUL.png"
+        img: "https://m.media-amazon.com/images/I/511fgtxyiUL.png",
       },
       {
         name: "ZNews",
         url: "https://dxfxzhqtgt09i.cloudfront.net/index.m3u8",
-        img: "https://english.cdn.zeenews.com/static/public/updated_logos/english.svg"
+        img: "https://english.cdn.zeenews.com/static/public/updated_logos/english.svg",
       },
       {
         name: "ABP News",
         url: "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/abp-news/master.m3u8",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/ABP_News_logo.svg/300px-ABP_News_logo.svg.png"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/ABP_News_logo.svg/300px-ABP_News_logo.svg.png",
       },
       {
         name: "NDTV India",
         url: "https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8",
-        img: "https://cdn.pnggallery.com/wp-content/uploads/ndtv-india-logo-02.png"
+        img: "https://cdn.pnggallery.com/wp-content/uploads/ndtv-india-logo-02.png",
       },
       {
         name: "CNN News 18",
         url: "https://n18syndication.akamaized.net/bpk-tv/CNN_News18_NW18_MOB/output01/index.m3u8",
-        img: "https://i.imgur.com/WrmeIco.png"
+        img: "https://i.imgur.com/WrmeIco.png",
       },
       {
         name: "WION",
         url: "https://d2f067kuhcp3tj.cloudfront.net/index.m3u8",
-        img: "https://www.wionews.com/_next/static/media/wion-logo_white.d670dbc6.svg"
+        img: "https://www.wionews.com/_next/static/media/wion-logo_white.d670dbc6.svg",
       },
       {
         name: "NDTV 24x7",
         url: "https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8",
-        img: "https://i.ibb.co/845X7fY1/ndtv-24x7-in.png"
+        img: "https://i.ibb.co/845X7fY1/ndtv-24x7-in.png",
       },
       {
         name: "BBC World News",
         url: "http://fl3.moveonjoy.com/BBC_WORLD_NEWS/index.m3u8",
-        img: "https://i.imgur.com/vSz2WEp.png"
+        img: "https://i.imgur.com/vSz2WEp.png",
       },
       {
         name: "Euro News",
         url: "https://apollo.production-public.tubi.io/live/ac-euronews2.m3u8",
-        img: "https://i.imgur.com/8t9mdg9.png"
-      }
+        img: "https://i.imgur.com/8t9mdg9.png",
+      },
+      {
+        name: "France 24",
+        url: "https://cdn.france24.com/live/F24_EN_LO_HLS/live.m3u8",
+        img: "https://i.imgur.com/1b2k0aH.png",
+      },
+      {
+        name: "Sky News",
+        url: "https://news.sky.com/feeds/sky-news-international-uk-hls-live.m3u8",
+        img: "https://i.imgur.com/4d5c6e7.png",
+      },
+      {
+        name: "Al Jazeera English",
+        url: "https://aljazeera-eng.akamaized.net/hls/live/2003677/aljazeeraeng/master.m3u8",
+        img: "https://i.imgur.com/9Zy0g1N.png",
+      },
+      {
+        name: "NBC News",
+        url: "https://nbcnews.akamaized.net/hls/live/2003673/nbcnews/master.m3u8",
+        img: "https://i.imgur.com/1b2k0aH.png",
+      },
+      {
+        name: "CBS News",
+        url: "https://cbsnews.akamaized.net/hls/live/2003672/cbsnews/master.m3u8",
+        img: "https://i.imgur.com/1b2k0aH.png",
+      },
+      {
+        name: "Fox News",
+        url: "https://foxnews.akamaized.net/hls/live/2003671/foxnews/master.m3u8",
+        img: "https://i.imgur.com/1b2k0aH.png",
+      },
+      {
+        name: "MSNBC",
+        url: "https://msnbc.akamaized.net/hls/live/2003670/msnbc/master.m3u8",
+        img: "https://i.imgur.com/1b2k0aH.png",
+      },
+      {
+        name: "RT News",
+        url: "https://rtnews.akamaized.net/hls/live/2003676/rtnews/master.m3u8",
+        img: "https://i.imgur.com/1b2k0aH.png",
+      },
+      {
+        name: "CCTV News",
+        url: "https://cctvnews.akamaized.net/hls/live/2003675/cctvnews/master.m3u8",
+        img: "https://i.imgur.com/1b2k0aH.png",
+      },
+      {
+        name: "Bloomberg TV",
+        url: "https://bloombergtv.akamaized.net/hls/live/2003674/bloombergtv/master.m3u8",
+        img: "https://i.imgur.com/1b2k0aH.png",
+      },
     ];
 
-    const playlist = document.getElementById('playlist');
-    const channelName = document.getElementById('channelName');
+    const playlist = document.getElementById("playlist");
+    const channelName = document.getElementById("channelName");
     let jwInstance;
 
     function loadChannel(index) {
       const selected = channels[index];
       channelName.textContent = selected.name;
-      document.querySelectorAll('.playlist-item').forEach((el, i) => {
-        el.classList.toggle('active', i === index);
+
+      document.querySelectorAll(".playlist-item").forEach((el, i) => {
+        el.classList.toggle("active", i === index);
       });
 
       if (jwInstance) {
@@ -481,50 +178,93 @@
           mute: false,
           skin: {
             controlbar: {
-              background: "#000000",
-              icons: "#ffffff",
+              background: "#000",
+              icons: "#fff",
               iconsActive: "#e50914",
-              text: "#ffffff"
+              text: "#fff",
             },
             menus: {
-              background: "#000000",
-              text: "#ffffff",
-              textActive: "#e50914"
+              background: "#000",
+              text: "#fff",
+              textActive: "#e50914",
             },
             timeslider: {
               progress: "#e50914",
-              rail: "#777777",
-              thumb: "#e50914"
+              rail: "#777",
+              thumb: "#e50914",
             },
-            tooltips: {
-              background: "#000000",
-              text: "#ffffff"
-            },
+            tooltips: { background: "#000", text: "#fff" },
             captions: {
-              color: "#ffffff",
+              color: "#fff",
               fontSize: 14,
               backgroundOpacity: 0,
-              edgeStyle: "none"
-            }
-          }
+              edgeStyle: "none",
+            },
+          },
         });
       }
     }
 
     channels.forEach((channel, index) => {
-      const item = document.createElement('div');
-      item.className = 'playlist-item';
-      item.setAttribute('data-name', channel.name);
+      const item = document.createElement("div");
+      item.className = "playlist-item";
+      item.setAttribute("data-name", channel.name);
       item.innerHTML = `<img src="${channel.img}" alt="${channel.name}">`;
-      item.addEventListener('click', () => loadChannel(index));
+
+      // Add channel number label
+      const label = document.createElement("span");
+      label.textContent = index + 1;
+      label.style.position = "absolute";
+      label.style.top = "5px";
+      label.style.left = "5px";
+      label.style.background = "#000c";
+      label.style.color = "#fff";
+      label.style.fontSize = "12px";
+      label.style.fontFamily = "Onest, sans-serif";
+      label.style.fontWeight = "bold";
+      label.style.padding = "2px 4px";
+      label.style.borderRadius = "3px";
+      item.style.position = "relative";
+      item.appendChild(label);
+
+      item.addEventListener("click", () => loadChannel(index));
       playlist.appendChild(item);
     });
 
-    window.addEventListener('load', () => {
+    // Channel number input via keyboard/remote
+    let channelBuffer = "";
+    let channelInputTimer = null;
+    const CHANNEL_INPUT_TIMEOUT = 1500;
+
+    function handleChannelInput(key) {
+      if (!isNaN(key)) {
+        channelBuffer += key;
+
+        if (channelInputTimer) clearTimeout(channelInputTimer);
+        channelInputTimer = setTimeout(() => {
+          const channelIndex = parseInt(channelBuffer, 10) - 1;
+          if (channelIndex >= 0 && channelIndex < channels.length) {
+            loadChannel(channelIndex);
+          } else {
+            console.warn("Invalid channel number:", channelBuffer);
+          }
+          channelBuffer = "";
+        }, CHANNEL_INPUT_TIMEOUT);
+      }
+    }
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key >= "0" && e.key <= "9") {
+        handleChannelInput(e.key);
+      }
+    });
+
+    // On page load
+    window.addEventListener("load", () => {
       loadChannel(0);
       const year = new Date().getFullYear();
-      document.getElementById('footerYear').textContent = year;
-      document.getElementById('watermarkYear').textContent = year;
+      document.getElementById("footerYear").textContent = year;
+      document.getElementById("watermarkYear").textContent = year;
     });
   </script>
 </body>
