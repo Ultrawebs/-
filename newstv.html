@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live News TV</title>
+  <meta name="description" content="Watch live news channels from India and around the world in one place." />
+  <link rel="icon" href="https://static-00.iconduck.com/assets.00/news-icon-2048x2048-tad74fxi.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Live News</div>
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Search..." />
+    </div>
+  </header>
+
+  <main class="content">
+    <div id="playerContainer">
+      <div class="player-shine"></div>
+    </div>
+    <div class="channel-info">
+      <h2 id="channelName">Select a Channel</h2>
+    </div>
+  </main>
+
+  <section class="playlist" id="playlist" aria-label="Channel Playlist"></section>
+
+  <footer class="footer">
+    &copy; <span id="footerYear"></span> Ultrawebs. All rights reserved.
+  </footer>
+
+  <div class="watermark">
+    © <span id="watermarkYear"></span> Ultrawebs Media
+  </div>
+
+  <div id="channelOverlay" role="alert" aria-live="polite"></div>
+
+  <script>
+    const channels = [
+      {
+        name: "Aaj Tak HD",
+        url: "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
+        img: "https://i.imgur.com/RpIdCB3.png",
+      },
+      {
+        name: "TV9 Bharatvarsh",
+        url: "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8",
+        img: "https://i.imgur.com/GEqUslW.png",
+      },
+      {
+        name: "India Today",
+        url: "https://indiatodaylive.akamaized.net/hls/live/2014320/indiatoday/indiatodaylive/playlist.m3u8",
+        img: "https://i.imgur.com/zLoUGiT.png",
+      },
+      {
+        name: "India TV",
+        url: "https://pl-indiatvnews.akamaized.net/out/v1/db79179b608641ceaa5a4d0dd0dca8da/index.m3u8",
+        img: "https://m.media-amazon.com/images/I/511fgtxyiUL.png",
+      },
+      {
+        name: "ZNews",
+        url: "https://dxfxzhqtgt09i.cloudfront.net/index.m3u8",
+        img: "https://english.cdn.zeenews.com/static/public/updated_logos/english.svg",
+      },
+      {
+        name: "ABP News",
+        url: "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/abp-news/master.m3u8",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/ABP_News_logo.svg/300px-ABP_News_logo.svg.png",
+      },
+      {
+        name: "NDTV India",
+        url: "https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8",
+        img: "https://cdn.pnggallery.com/wp-content/uploads/ndtv-india-logo-02.png",
+      },
+      {
+        name: "CNN News 18",
+        url: "https://n18syndication.akamaized.net/bpk-tv/CNN_News18_NW18_MOB/output01/index.m3u8",
+        img: "https://i.imgur.com/WrmeIco.png",
+      },
+      {
+        name: "WION",
+        url: "https://d2f067kuhcp3tj.cloudfront.net/index.m3u8",
+        img: "https://www.wionews.com/_next/static/media/wion-logo_white.d670dbc6.svg",
+      },
+      {
+        name: "NDTV 24x7",
+        url: "https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8",
+        img: "https://i.ibb.co/845X7fY1/ndtv-24x7-in.png",
+      },
+      {
+        name: "BBC World News",
+        url: "http://fl3.moveonjoy.com/BBC_WORLD_NEWS/index.m3u8",
+        img: "https://i.imgur.com/vSz2WEp.png",
+      },
+      {
+        name: "Euro News",
+        url: "https://apollo.production-public.tubi.io/live/ac-euronews2.m3u8",
+        img: "https://i.imgur.com/8t9mdg9.png",
+      }
+    ];
+
+    const playlist = document.getElementById("playlist");
+    const channelName = document.getElementById("channelName");
+    const channelOverlay = document.getElementById("channelOverlay");
+    let jwInstance;
+    let channelBuffer = "";
+    let channelInputTimer = null;
+    const CHANNEL_INPUT_TIMEOUT = 500;
+
+    function showOverlay(message) {
+      channelOverlay.textContent = message;
+      channelOverlay.style.display = "block";
+    }
+
+    function hideOverlay() {
+      channelOverlay.style.display = "none";
+    }
+
+    function loadChannel(index) {
+      const selected = channels[index];
+      if (!selected) return;
+
+      channelName.textContent = selected.name;
+      document.title = `${selected.name} | Live News TV`;
+
+      document.querySelectorAll(".playlist-item").forEach((el, i) => {
+        el.classList.toggle("active", i === index);
+      });
+
+      if (jwInstance) {
+        jwInstance.load({ file: selected.url });
+        jwInstance.play();
+      } else {
+        try {
+          jwInstance = jwplayer("playerContainer").setup({
+            file: selected.url,
+            width: "100%",
+            aspectratio: "16:9",
+            controls: true,
+            primary: "html5",
+            autostart: true,
+            mute: false,
+            skin: {
+              controlbar: {
+                background: "#000",
+                icons: "#fff",
+                iconsActive: "#e50914",
+                text: "#fff",
+              },
+              menus: {
+                background: "#000",
+                text: "#fff",
+                textActive: "#e50914",
+              },
+              timeslider: {
+                progress: "#e50914",
+                rail: "#777",
+                thumb: "#e50914",
+              },
+              tooltips: { background: "#000", text: "#fff" },
+              captions: {
+                color: "#fff",
+                fontSize: 14,
+                backgroundOpacity: 0,
+                edgeStyle: "none",
+              },
+            },
+          });
+        } catch (error) {
+          alert("Failed to load video player.");
+        }
+      }
+    }
+
+    function handleChannelInput(key) {
+      if (!isNaN(key)) {
+        channelBuffer += key;
+        showOverlay(`Channel ${channelBuffer}`);
+
+        if (channelInputTimer) clearTimeout(channelInputTimer);
+        channelInputTimer = setTimeout(() => {
+          const channelIndex = parseInt(channelBuffer, 10) - 1;
+          if (channelIndex >= 0 && channelIndex < channels.length) {
+            showOverlay(`Tuning to Channel ${channelBuffer}...`);
+            setTimeout(() => {
+              loadChannel(channelIndex);
+              hideOverlay();
+            }, 800);
+          } else {
+            showOverlay(`Invalid Channel: ${channelBuffer}`);
+            setTimeout(hideOverlay, 1500);
+          }
+          channelBuffer = "";
+        }, CHANNEL_INPUT_TIMEOUT);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Build playlist
+      channels.forEach((channel, index) => {
+        const item = document.createElement("div");
+        item.className = "playlist-item";
+        item.setAttribute("data-name", channel.name);
+        item.setAttribute("tabindex", "0");
+        item.style.position = "relative";
+        item.innerHTML = `
+          <img loading="lazy" src="${channel.img}" alt="${channel.name}" />
+        `;
+
+        const label = document.createElement("span");
+        label.textContent = index + 1;
+        label.style.cssText = `
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          background: #000c;
+          color: #fff;
+          font-size: 12px;
+          font-family: Onest, sans-serif;
+          font-weight: bold;
+          padding: 2px 4px;
+          border-radius: 3px;
+        `;
+        item.appendChild(label);
+
+        item.addEventListener("click", () => loadChannel(index));
+        playlist.appendChild(item);
+      });
+
+      // Initial load
+      loadChannel(0);
+
+      const year = new Date().getFullYear();
+      document.getElementById("footerYear").textContent = year;
+      document.getElementById("watermarkYear").textContent = year;
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key >= "0" && e.key <= "9") {
+        handleChannelInput(e.key);
+      }
+    });
+  </script>
+</body>
+
+</html>
