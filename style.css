@@ -148,6 +148,23 @@ header .logo {
   font-weight: 700;
 }
 
+#channelOverlay {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 20px 40px;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 10px;
+  font-family: 'Onest', sans-serif;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 0 20px #000;
+}
+
 /* Playlist */
 .playlist {
   display: flex;
