@@ -67,8 +67,8 @@ const videoLinks = {
   canadian: {
     "Practice 1": "https://dai.fancode.com/secondary/118426_english_hls_10720ta-di_h264_backup/vod_380_master.m3u8",
     "Practice 2": "https://dai.fancode.com/primary/118427_english_hls_49507ta-di_h264_backup/vod_936_master.m3u8",
-    "Practice 3": "Link",
-    "Qualifying": "link",
+    "Practice 3": "https://dai.fancode.com/secondary/118428_english_hls_51272ta-di_h264_backup/vod_789_master.m3u8",
+    "Qualifying": "https://dai.fancode.com/secondary/118429_english_hls_34953ta-di_h264_backup/vod_464_master.m3u8",
     "Race": "link"
   },
   austrian: {
