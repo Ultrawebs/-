@@ -12,6 +12,8 @@
   <script src="https://cdn.jsdelivr.net/npm/hls.js@0.14.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
   <meta charset="UTF-8" />
+  <meta name="description"
+    content="Willow by Cricbuzz is your go-to channel for live cricket matches, expert commentary, match highlights, and exclusive cricket content. Stream cricket 24/7 with in-depth coverage from Cricbuzz.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="no-referrer" />
   <link rel="icon" type="image/png"
@@ -718,26 +720,13 @@
               class="flag-icon" />
           </div>
         </div>
-        <div class="playlist-item" id="video3">
-          <div class="playlist-info">
-            <i class="fa fa-play-circle" style="color: yellowgreen; font-size: 22px; margin-right: 10px"></i>
-            Sky Sports Cricket - 50 FPS
-          </div>
-          <div class="playlist-icons">
-            <span class="language" style="color: blue">English</span>
-            <span class="HD">HD</span>
-            <!-- <span class="language2">Server 1</span> -->
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"
-              class="flag-icon" />
-          </div>
-        </div>
       </div>
     </center>
 
     <script type="text/javascript">
       jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
       var playerInstance = jwplayer("player-container").setup({
-        file: "https://dfwlive-v1-c1p3-sponsored.akamaized.net/Content/HLS.cps/Live/channel(WILLXT-3292.dfw.1080)/index.m3u8",
+        file: "https://abmyxykaaaaaaaamkyvb65fuqebyg.7a77200bf98444ac997a89ed83775793.emt.cf.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/jkja3vmuw1/out/v1/af03770b36b641cfadb1bb1db5942ac5/cenc.mpd",
         aspectratio: "16:9",
         width: "100%",
         image: "https://img.willow.tv/apps/wlw-nw-lgo.png",
@@ -770,8 +759,8 @@
         type: "dash",
         drm: {
           clearkey: {
-            keyId: "1f52934d28a25c51a5dd577a650dcece",
-            key: "323a46b02a31172c2475406e56fd3be6",
+            keyId: "f84ff53e0279c903d105d9c7943e833d",
+            key: "65a3b8fcaccce482c02cd61e947d327a",
           },
         },
       });
@@ -779,13 +768,13 @@
       document.getElementById("video1").addEventListener("click", () => {
         playerInstance.load([
           {
-            file: "https://abgqjfuaaaaaaaamcswtescdjn66h.0eee773031d3434d8c65ff46ac9a6070.emt.cf.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/wgjpslfpzn/out/v1/e34c66966c61474e81f2a99fc80e876b/cenc.mpd",
+            file: "https://abmyxykaaaaaaaamkyvb65fuqebyg.7a77200bf98444ac997a89ed83775793.emt.cf.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/jkja3vmuw1/out/v1/af03770b36b641cfadb1bb1db5942ac5/cenc.mpd",
             image:
               "https://img.willow.tv/apps/wlw-nw-lgo.png",
             drm: {
               clearkey: {
-                keyId: "491624049c3c8d870102edd5950f38bd",
-                key: "5b91b2fae92f4f72f0c3b9a3e91822c4",
+                keyId: "f84ff53e0279c903d105d9c7943e833d",
+                key: "65a3b8fcaccce482c02cd61e947d327a",
               },
             },
           },
@@ -796,13 +785,13 @@
       document.getElementById("video2").addEventListener("click", () => {
         playerInstance.load([
           {
-            file: "https://ottb.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/xjudwq2szi/out/v1/967e8f52f2bb4d1da443ba6483da4e68/cenc.mpd",
+            file: "https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd",
             image:
               "https://img.willow.tv/apps/wlw-nw-lgo.png",
             drm: {
               clearkey: {
-                keyId: "6016f23a660b6428d767758b52e54a72",
-                key: "df006c09745771c9d820f79c667f5a8b",
+                "keyId": "1779c27b9d077a3ba0c9cc1bb9a94b9f",
+                "key": "cc5cf3b7928fb9e0a1ee6a8b566f0a8e"
               },
             },
           },
@@ -810,16 +799,6 @@
         playerInstance.play();
       });
 
-      document.getElementById("video3").addEventListener("click", () => {
-        playerInstance.load([
-          {
-            file: "https://iplislive.pages.dev/sky.m3u8",
-            image: "https://img.willow.tv/apps/wlw-nw-lgo.png",
-          },
-        ]);
-        playerInstance.play();
-      });
-      
       document
         .getElementById("darkMode")
         .addEventListener("click", function () {
