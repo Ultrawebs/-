@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Sports Stream</title>
+
+    <!-- Meta Description for SEO -->
+    <meta name="description"
+        content="Watch live Hindi and English sports channels in HD with smart quality controls. Supports all devices with a fast, modern, and beautiful interface.">
+
+    <!-- Open Graph Meta Tags (for Facebook, WhatsApp, LinkedIn, etc.) -->
+    <meta property="og:title" content="Live Sports Streaming – Hindi & English">
+    <meta property="og:description"
+        content="Enjoy smooth live streaming of TEN Sports channels in Hindi and English. Select quality, switch themes, and stream on any device.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.ibb.co/39mS3cSV/1750428228466-h.webp">
+    <meta property="og:url" content="https://ultrawebs.github.io/-/">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Live Sports Streaming – Hindi & English">
+    <meta name="twitter:description"
+        content="Stream TEN Sports Hindi and English channels in HD. Manual quality switch, fullscreen, volume, and theme toggle.">
+    <meta name="twitter:image" content="https://i.ibb.co/39mS3cSV/1750428228466-h.webp">
+
+
+    <!-- Import Onest Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            --glass: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+            --btn-bg: rgba(255, 255, 255, 0.08);
+            --btn-text: #ffffff;
+            --btn-shadow: rgba(255, 255, 255, 0.2);
+        }
+
+        body.light {
+            --bg: linear-gradient(135deg, #f5f5f5, #dcdcdc);
+            --glass: rgba(255, 255, 255, 0.4);
+            --text: #111111;
+            --btn-bg: rgba(255, 255, 255, 0.4);
+            --btn-text: #111111;
+            --btn-shadow: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: "Onest", sans-serif;
+            color: var(--text);
+            background: url('https://i.ibb.co/FLTS8GNY/Chasing-sunsets-with-turbo-dreams-follow-for-more-akhira-ai.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            z-index: 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Add a dark blur overlay using ::before */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.233);
+            /* darkness level */
+        }
+
+        body.light::before {
+            background: rgba(0, 0, 0, 0.233);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .glass-box {
+            background: var(--glass);
+            border-radius: 20px;
+            backdrop-filter: blur(05px);
+            -webkit-backdrop-filter: blur(05px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            background: #000;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .now-playing {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .controls,
+        .bottom-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .btn,
+        select,
+        input[type="range"] {
+            font-family: "Onest", sans-serif;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .btn {
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            box-shadow: 0 4px 10px var(--btn-shadow);
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        select,
+        input[type="range"] {
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            outline: none;
+        }
+
+        @media (max-width: 600px) {
+
+            .btn,
+            select {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Live Sports Stream</h1>
+        <div class="glass-box">
+            <div class="now-playing" id="nowPlaying">Loading...</div>
+            <div class="video-wrapper">
+                <video id="video" controls autoplay playsinline></video>
+                <div class="logo">TEN Sports</div>
+            </div>
+
+            <div class="controls">
+                <button class="btn" onclick="setLanguage('hindi')">Hindi</button>
+                <button class="btn" onclick="setLanguage('english')">English</button>
+                <select id="qualitySelect" onchange="setQuality(this.value)">
+                    <option value="auto">Auto</option>
+                    <option value="1080p">1080p</option>
+                    <option value="720p">720p</option>
+                    <option value="540p">540p</option>
+                </select>
+            </div>
+
+            <div class="bottom-controls">
+                <input type="range" id="volume" min="0" max="1" step="0.01" />
+                <button class="btn" onclick="toggleFullscreen()">Fullscreen</button>
+                <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const qualitySelect = document.getElementById('qualitySelect');
+        const volumeSlider = document.getElementById('volume');
+        const nowPlaying = document.getElementById('nowPlaying');
+
+        const streamLinks = {
+            hindi: {
+                auto: 'https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master.m3u8',
+                '1080p': 'https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8',
+                '720p': 'https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master_2000.m3u8',
+                '540p': 'https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master_900.m3u8'
+            },
+            english: {
+                auto: 'https://tataplay.slivcdn.com/hls/live/2011747/TEN1HD/master.m3u8',
+                '1080p': 'https://tataplay.slivcdn.com/hls/live/2011747/TEN1HD/master_3500.m3u8',
+                '720p': 'https://tataplay.slivcdn.com/hls/live/2011747/TEN1HD/master_2000.m3u8',
+                '540p': 'https://tataplay.slivcdn.com/hls/live/2011747/TEN1HD/master_900.m3u8'
+            }
+        };
+
+        let currentLang = localStorage.getItem('streamLang') || 'hindi';
+        let currentQuality = localStorage.getItem('streamQuality') || 'auto';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('streamLang', lang);
+            updateStream();
+        }
+
+        function setQuality(quality) {
+            currentQuality = quality;
+            localStorage.setItem('streamQuality', quality);
+            updateStream();
+        }
+
+        function updateStream() {
+            const url = streamLinks[currentLang][currentQuality];
+            video.src = url;
+            video.play();
+            nowPlaying.innerText = `Now Playing: ${capitalize(currentLang)} (${currentQuality})`;
+        }
+
+        function toggleFullscreen() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light');
+            localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // Volume Control
+        volumeSlider.addEventListener('input', () => {
+            video.volume = volumeSlider.value;
+        });
+
+        // Restore saved theme
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light');
+        }
+
+        // Load saved quality & language
+        qualitySelect.value = currentQuality;
+        updateStream();
+    </script>
+</body>
+
+</html>
