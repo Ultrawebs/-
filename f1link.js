@@ -76,7 +76,7 @@ const videoLinks = {
     "Practice 2": "https://dai.fancode.com/secondary/118432_english_hls_14216ta-di_h264_backup/vod_81_master.m3u8",
     "Practice 3": "https://dai.fancode.com/secondary/118433_english_hls_13110ta-di_h264_backup/vod_841_master.m3u8",
     "Qualifying": "https://dai.fancode.com/secondary/118434_english_hls_84566ta-di_h264_backup/vod_953_master.m3u8",
-    "Race": "link"
+    "Race": "https://dai.fancode.com/secondary/118435_english_hls_97553ta-di_h264_backup/vod_207_master.m3u8"
   }
 };
 
