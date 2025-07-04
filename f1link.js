@@ -77,6 +77,97 @@ const videoLinks = {
     "Practice 3": "https://dai.fancode.com/secondary/118433_english_hls_13110ta-di_h264_backup/vod_841_master.m3u8",
     "Qualifying": "https://dai.fancode.com/secondary/118434_english_hls_84566ta-di_h264_backup/vod_953_master.m3u8",
     "Race": "https://dai.fancode.com/secondary/118435_english_hls_97553ta-di_h264_backup/vod_207_master.m3u8"
+  },
+  british: {
+    "Practice 1": "link",
+    "Practice 2": "link",
+    "Practice 3": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  belgian: {
+    "Practice 1": "link",
+    "Sprint Qualifying": "link",
+    "Sprint": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  hungarian: {
+    "Practice 1": "link",
+    "Practice 2": "link",
+    "Practice 3": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  dutch: {
+    "Practice 1": "link",
+    "Practice 2": "link",
+    "Practice 3": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  italian: {
+    "Practice 1": "link",
+    "Practice 2": "link",
+    "Practice 3": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  azerbaijan: {
+    "Practice 1": "link",
+    "Practice 2": "link",
+    "Practice 3": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  singapore: {
+    "Practice 1": "link",
+    "Practice 2": "link",
+    "Practice 3": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  us: {
+    "Practice 1": "link",
+    "Sprint Qualifying": "link",
+    "Sprint": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  mexico: {
+    "Practice 1": "link",
+    "Practice 2": "link",
+    "Practice 3": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  brazilian: {
+    "Practice 1": "link",
+    "Sprint Qualifying": "link",
+    "Sprint": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  lasvegas: {
+    "Practice 1": "link",
+    "Practice 2": "link",
+    "Practice 3": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  qatar: {
+    "Practice 1": "link",
+    "Sprint Qualifying": "link",
+    "Sprint": "link",
+    "Qualifying": "link",
+    "Race": "link"
+  },
+  abudhabi: {
+    "Practice 1": "link",
+    "Practice 2": "link",
+    "Practice 3": "link",
+    "Qualifying": "link",
+    "Race": "link"
   }
 };
 
