@@ -79,7 +79,7 @@ const videoLinks = {
     "Race": "https://dai.fancode.com/secondary/118435_english_hls_97553ta-di_h264_backup/vod_207_master.m3u8"
   },
   british: {
-    "Practice 1": "link",
+    "Practice 1": "https://dai.fancode.com/secondary/118436_english_hls_8809ta-di_h264_backup/vod_902_master.m3u8",
     "Practice 2": "link",
     "Practice 3": "link",
     "Qualifying": "link",
