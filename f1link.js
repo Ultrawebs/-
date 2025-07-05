@@ -82,7 +82,7 @@ const videoLinks = {
     "Practice 1": "https://dai.fancode.com/secondary/118436_english_hls_8809ta-di_h264_backup/vod_902_master.m3u8",
     "Practice 2": "https://in-mc-vod.fancode.com/delhi/118437_english_hls_70462ta-di_h264_backup/vod_551_index.m3u8",
     "Practice 3": "https://in-mc-vod.fancode.com/delhi/118438_english_hls_32454ta-di_h264_backup/vod_771_index.m3u8",
-    "Qualifying": "link",
+    "Qualifying": "https://in-mc-vod.fancode.com/delhi/118439_english_hls_67086ta-di_h264_backup/vod_392_index.m3u8",
     "Race": "link"
   },
   belgian: {
