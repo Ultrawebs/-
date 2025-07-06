@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+
+  <!-- Page Title -->
+  <title>TSN – Live Sports Broadcast & Highlights</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://www.tsn.ca/content/dam/sports/images/favicon/tsn/favicon.ico"
+    sizes="128x128" />
+
+  <!-- Page Description -->
+  <meta name="description"
+    content="Watch live sports broadcasts, highlights, and expert commentary on TSN. Stay updated with real-time coverage of the biggest games and exclusive content across hockey, football, basketball, and more." />
+  <meta name="keywords"
+    content="TSN, live sports, sports highlights, hockey, football, basketball, sports streaming, TSN live, Canadian sports" />
+  <meta name="author" content="UltraWebs(HM)" />
+
+  <!-- Open Graph for Facebook & LinkedIn -->
+  <meta property="og:title" content="TSN – Live Sports Broadcast & Highlights" />
+  <meta property="og:description"
+    content="Catch the latest games, expert commentary, and exclusive sports coverage on TSN." />
+  <meta property="og:image"
+    content="https://www.tsn.ca/polopoly_fs/1.623987!/fileimage/httpImage/image.jpg_gen/derivatives/default/auth2.jpg" />
+  <meta property="og:url" content="https://www.tsn.ca" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TSN" />
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TSN – Live Sports Broadcast & Highlights" />
+  <meta name="twitter:description"
+    content="Watch real-time sports coverage and analysis across all major leagues on TSN." />
+  <meta name="twitter:image"
+    content="https://www.tsn.ca/polopoly_fs/1.623987!/fileimage/httpImage/image.jpg_gen/derivatives/default/auth2.jpg" />
+  <meta name="twitter:site" content="@TSN_Sports" />
+  <meta name="twitter:creator" content="@TSN_Sports" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap" rel="stylesheet" />
+  <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <link rel="icon" type="image/png" href="https://www.tsn.ca/content/dam/sports/images/favicon/tsn/favicon.ico"
+    sizes="128x128" style="border-radius: 5px" />
+  <title>TSN</title>
+  <style>
+    html,
+    body {
+      font-family: "Onest", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("https://wallpapercave.com/wp/wp15109547.webp");
+      background-size: cover;
+      /* Optional: adjust based on your design */
+      background-attachment: fixed;
+      /* Makes the background image fixed */
+      overflow: auto;
+      overflow-x: hidden;
+      /* Allow vertical and horizontal scrolling */
+    }
+
+    /* Media query for mobile devices */
+    @media only screen and (max-width: 600px) {
+      body {
+        background-image: url("https://wallpapercave.com/wp/wp15109547.webp");
+        /* Set aspect ratio to 9:16 */
+        background-size: cover;
+        padding: 02px;
+      }
+    }
+
+    /* Custom scrollbar */
+    body::-webkit-scrollbar {
+      width: 8px;
+      /* Width of the scrollbar */
+      /* border-radius: 5px; */
+      /* Rounded corners */
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    body::-webkit-scrollbar-track {
+      backdrop-filter: blur(10px);
+      /* Apply blur effect */
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    body::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      /* Rounded corners for the thumb */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /* Add shadow */
+      background-color: rgba(140, 140, 140, 0.308);
+      /* Thumb color */
+      transition: background-color 0.3s ease;
+      /* Smooth transition */
+    }
+
+    /* Hide scrollbar after 3 seconds */
+    body.hide-scrollbar::-webkit-scrollbar {
+      scrollbar-width: thin;
+    }
+
+    body.hide-scrollbar::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      /* Hide thumb */
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      backdrop-filter: blur(10px);
+      /* Adjust blur strength as needed */
+      background-color: rgba(51, 51, 51, 0.098);
+      /* Adjust background color and opacity */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      text-align: center;
+      padding: 08px;
+      box-sizing: border-box;
+      max-width: 100%;
+      overflow: hidden;
+      border-radius: 0px;
+    }
+
+    header img {
+      border-radius: 03px;
+      max-width: auto;
+      height: auto;
+      max-height: 35px;
+      /* filter: brightness(0) grayscale(1) invert(1) sepia(1) saturate(1) hue-rotate(300deg); */
+    }
+
+    #container {
+      font-family: "Onest", sans-serif;
+      color: white;
+      padding: 10px;
+      backdrop-filter: blur(20px);
+      background-color: rgba(51, 51, 51, 0.098);
+      margin: 0 auto;
+    }
+
+    /* Media query for larger screens (desktop) */
+    @media only screen and (min-width: 601px) {
+      #container {
+        max-width: 75%;
+        /* Set width to 80% for desktop */
+      }
+    }
+
+    /* Media query for smaller screens (mobile) */
+    @media only screen and (max-width: 600px) {
+      #container {
+        max-width: 100%;
+        /* Set initial width to 100% for mobile */
+      }
+    }
+
+    #player-container {
+      border-radius: 05px;
+      overflow: hidden;
+      /* Center align the container */
+      margin: 0 auto;
+    }
+
+    @media only screen and (max-width: 600px) {
+      #player-container {
+        max-width: 100%;
+        /* Set initial width to 100% for mobile */
+      }
+    }
+
+    @media only screen and (min-width: 601px) {
+      #player-container {
+        max-width: 100%;
+        /* Set initial width to 100% for mobile */
+      }
+    }
+
+    @media only screen and (min-width: 3840px) {
+      #player-container {
+        max-width: 100%;
+        /* Set initial width to 100% for 4K TV */
+      }
+    }
+
+    .watermark {
+      font-family: "Onest", sans-serif;
+      position: baseline;
+      bottom: 10px;
+      /* Set distance from bottom of viewport */
+      text-align: right;
+      margin-right: 10px;
+      font-size: 12px;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      z-index: 9999;
+    }
+
+    footer {
+      font-family: "Anek Latin", sans-serif;
+      width: auto;
+      backdrop-filter: blur(05px);
+      /* Adjust blur strength as needed */
+      background-color: rgba(51, 51, 51, 0.098);
+      /* Adjust background color and opacity */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      color: White;
+      text-align: center;
+      font-size: 16px;
+      padding: 8px 8px;
+      font-weight: bold;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0 0 10px;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    h3 {
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    li {
+      text-align: justify;
+      margin: 0 0 08px;
+    }
+
+    .toggle-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1001;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: #fff;
+      /* White background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      /* Adding shadow for depth */
+      transition: transform 0.5s, box-shadow 0.3s;
+      animation: pulse-toggle 2s infinite ease-out;
+    }
+
+    .toggle-button svg {
+      width: 28px;
+      /* Adjust SVG width */
+      height: 28px;
+      /* Adjust SVG height */
+      fill: #010101;
+      /* SVG fill color */
+      transition: transform 0.5s ease;
+      /* Smooth transition for rotation */
+    }
+
+    .toggle-button.active svg {
+      transform: rotate(260deg);
+      /* Rotate 360 degrees when active */
+    }
+
+    .telegram-float,
+    .bmc-float {
+      position: fixed;
+      right: 20px;
+      z-index: 1000;
+      display: none;
+    }
+
+    .telegram-float {
+      bottom: 80px;
+    }
+
+    .bmc-float {
+      bottom: 140px;
+    }
+
+    .telegram-icon,
+    .bmc-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .telegram-icon {
+      background-color: #0088cc;
+      /* Blue background for Telegram */
+      animation: pulse-blue 1.5s infinite ease-out;
+    }
+
+    .bmc-icon {
+      background-color: #ffdd00;
+      /* Yellow background for Buy Me a Coffee */
+      animation: pulse-yellow 1.5s infinite ease-out;
+    }
+
+    .telegram-icon svg {
+      fill: #fff;
+      /* White color for Telegram icon */
+      width: 30px;
+      height: 30px;
+    }
+
+    .bmc-icon svg {
+      /* Black color for Buy Me a Coffee icon */
+      width: 32px;
+      height: 32px;
+    }
+
+    .show {
+      display: flex;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slide-in 0.5s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .hide {
+      display: flex;
+      animation: slide-out 0.3s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+
+    @keyframes slide-in {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slide-out {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    @keyframes pulse-toggle {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+
+      50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+
+    @keyframes pulse-blue {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5);
+      }
+
+      80% {
+        box-shadow: 0 0 0 14px rgba(0, 136, 204, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0);
+      }
+    }
+
+    @keyframes pulse-yellow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 221, 0, 0.5);
+      }
+
+      80% {
+        box-shadow: 0 0 0 14px rgba(255, 221, 0, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 221, 0, 0);
+      }
+    }
+
+    .alert {
+      color: orangered;
+      margin-top: 5px;
+      font-weight: bold;
+      background-color: black;
+      width: fit-content;
+      text-align: center;
+    }
+
+    #playlist {
+      width: 80%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .playlist-item {
+      font-family: "Anek Latin", sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 08px;
+      margin: 04px 0;
+      backdrop-filter: blur(10px);
+      background-color: rgba(75, 75, 75, 0.178);
+      color: aliceblue;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 650;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .playlist-item.active {
+      backdrop-filter: blur(10px);
+      background-color: rgba(141, 141, 141, 0.582);
+      /* Change background color for active item */
+    }
+
+    .playlist-item:hover {
+      background-color: rgba(75, 75, 75, 0.509);
+    }
+
+    .playlist-info {
+      display: flex;
+      align-items: center;
+      text-align: left;
+    }
+
+    .playlist-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .playlist-icons span {
+      margin-left: 10px;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: 900;
+      background-color: white;
+      color: black;
+    }
+
+    .HD {
+      color: rgb(211, 33, 33) !important;
+      font-size: 14px;
+      width: 18px;
+      text-align: center;
+    }
+
+    .language {
+      color: black;
+      font-size: 14px;
+      width: 50px;
+      text-align: center;
+    }
+
+    .language2 {
+      color: black;
+      font-size: 14px;
+      width: 55px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      #player-container {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      #playlist {
+        width: 100%;
+        margin-bottom: 05px;
+      }
+
+      .playlist-icons span {
+        margin-left: 10px;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: 800;
+        background-color: white;
+        color: black;
+      }
+
+      .playlist-item {
+        font-size: 14px;
+        margin: 04px 0;
+        padding: 8px;
+        border-radius: 03px;
+        font-weight: 700;
+      }
+    }
+
+    .flag-icon {
+      width: 25px;
+      height: auto;
+      margin-left: 10px;
+      border-radius: 03px;
+    }
+
+    .flag-icon:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+
+    /* Popup overlay */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s;
+    }
+
+    /* Popup box */
+    .popup-box {
+      background: white;
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(-20px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @media (max-width: 600px) {
+      .popup-box {
+        max-width: 70%;
+      }
+    }
+
+    .popup-message {
+      text-align: justify;
+    }
+
+    /* Show the popup */
+    .popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-overlay.active .popup-box {
+      transform: translateY(0);
+    }
+
+    /* Buttons */
+    .popup-buttons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .popup-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .ok-btn {
+      background: orangered;
+      color: white;
+      font-weight: bold;
+    }
+
+    .cancel-btn {
+      background: #ccc;
+      color: black;
+    }
+
+    /* Netflix-style menu override */
+    .jw-settings-menu {
+      font-family: 'Onest', sans-serif !important;
+      background: #111 !important;
+      border-radius: 10px !important;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease-in-out !important;
+      overflow: hidden !important;
+    }
+
+    .jw-settings-menu .jw-settings-submenu {
+      transition: all 0.3s ease-in-out !important;
+    }
+
+    .jw-settings-menu .jw-settings-content-item {
+      color: #eee !important;
+      font-family: 'Onest', sans-serif !important;
+      padding: 10px 16px !important;
+      border-bottom: 1px solid #333;
+      transition: background 0.2s ease-in-out !important;
+    }
+
+    .jw-settings-menu .jw-settings-content-item:hover {
+      background-color: #222 !important;
+      color: #fff !important;
+    }
+
+    .jw-icon-inline.jw-button-color:hover {
+      filter: brightness(1.4);
+    }
+
+    /* Import font (optional) */
+    @import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;700&display=swap');
+
+    /* Shimmer text setup */
+    /* Wrapper to center the text */
+    .shine-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      margin-top: 8px;
+    }
+
+    /* Text with shining effect */
+    .shine-text {
+      font-size: 1.20rem;
+      font-weight: bolder;
+      color: orangered;
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .shine-text::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 20%;
+      height: 100%;
+      background: linear-gradient(120deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.2) 30%,
+          rgba(255, 255, 255, 0.6) 50%,
+          rgba(255, 255, 255, 0.2) 70%,
+          rgba(255, 255, 255, 0) 100%);
+      transform: skewX(-20deg);
+      animation: shine 09s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+      mix-blend-mode: lighten;
+      pointer-events: none;
+      will-change: left;
+    }
+
+    /* Shine animation */
+    @keyframes shine {
+      0% {
+        left: -75%;
+      }
+
+      50% {
+        left: 125%;
+      }
+
+      100% {
+        left: -75%;
+      }
+    }
+
+    /* Responsive text */
+    @media screen and (max-width: 600px) {
+      .shine-text {
+        font-size: 0.95rem;
+        white-space: normal;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .shine-text {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <img alt="prime video" id="top-image" loading="eager" src="https://logonoid.com/images/tsn-logo.png" />
+    </header>
+
+    <div class="shine-wrapper">
+      <div class="shine-text">
+        Please wait for 30 seconds, the video will start playing automatically.
+      </div>
+    </div>
+
+    <center>
+      <div id="player-container"></div>
+
+      <div id="playlist">
+        <div class="playlist-item active" id="video1">
+          <div class="playlist-info">
+            <i class="fa fa-play-circle" style="color: orangered; font-size: 22px; margin-right: 10px"></i>
+            TSN > 2
+          </div>
+          <div class="playlist-icons">
+            <span class="language" style="color: blue">English</span>
+            <span class="HD">HD</span>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/960px-Flag_of_Canada_%28Pantone%29.svg.png"
+              alt="AUS Flag" class="flag-icon" />
+          </div>
+        </div>
+        <div class="playlist-item" id="video2">
+          <div class="playlist-info">
+            <i class="fa fa-play-circle" style="color: orangered; font-size: 22px; margin-right: 10px"></i>
+            TSN > 3
+          </div>
+          <div class="playlist-icons">
+            <span class="language" style="color: blue">English</span>
+            <span class="HD">HD</span>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/960px-Flag_of_Canada_%28Pantone%29.svg.png"
+              alt="AUS Flag" class="flag-icon" />
+          </div>
+        </div>
+        <div class="playlist-item" id="video3">
+          <div class="playlist-info">
+            <i class="fa fa-play-circle" style="color: orangered; font-size: 22px; margin-right: 10px"></i>
+            TSN > 4
+          </div>
+          <div class="playlist-icons">
+            <span class="language" style="color: blue">English</span>
+            <span class="HD">HD</span>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/960px-Flag_of_Canada_%28Pantone%29.svg.png"
+              alt="AUS Flag" class="flag-icon" />
+          </div>
+        </div>
+        <div class="playlist-item" id="video4">
+          <div class="playlist-info">
+            <i class="fa fa-play-circle" style="color: orangered; font-size: 22px; margin-right: 10px"></i>
+            TSN > 5
+          </div>
+          <div class="playlist-icons">
+            <span class="language" style="color: blue">English</span>
+            <span class="HD">HD</span>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/960px-Flag_of_Canada_%28Pantone%29.svg.png"
+              alt="AUS Flag" class="flag-icon" />
+          </div>
+        </div>
+      </div>
+    </center>
+
+    <script type="text/javascript">
+      jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";
+      var playerInstance = jwplayer("player-container").setup({
+        file: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/v5v9yfn62i/out/v1/0991e33d09da46b2857fcc845db95c40/cenc.mpd",
+        aspectratio: "16:9",
+        width: "100%",
+        image:
+          "https://logonoid.com/images/tsn-logo.png",
+        autostart: true, // Disable autostart initially
+        captions: { color: "white", fontSize: "25%", backgroundOpacity: 0 },
+        abouttext: "Ultrawebs(HM)",
+        aboutlink: "https://linktr.ee/ultrawebs",
+        skin: {
+          name: "glow", // Default JW Player skin (change it if needed)
+        },
+        sharing: {
+          sites: [
+            "facebook",
+            "twitter",
+            "tumblr",
+            "googleplus",
+            {
+              icon: "https://i.imgur.com/PL7Vp6K.png",
+              src: "http://www.jwplayer.com/?",
+              label: "jwplayer",
+            },
+          ],
+        },
+        Volume: "50",
+        mute: false,
+        type: "dash",
+        drm: {
+          clearkey: {
+            keyId: "362202eefc5d9e42eec6450998cce9e8",
+            key: "978dfdd53186ec587d940e0bd1e2ec42",
+          },
+        },
+      });
+
+      document.getElementById("video1").addEventListener("click", () => {
+        playerInstance.load([
+          {
+            file: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/v5v9yfn62i/out/v1/0991e33d09da46b2857fcc845db95c40/cenc.mpd",
+            image:
+              "https://www.tsn.ca/content/dam/sports/images/logos/tsn-streams/tsn2-dark.svg",
+            drm: {
+              clearkey: {
+                keyId: "362202eefc5d9e42eec6450998cce9e8",
+                key: "978dfdd53186ec587d940e0bd1e2ec42",
+              },
+            },
+          },
+        ]);
+        playerInstance.play();
+      });
+
+      document.getElementById("video2").addEventListener("click", () => {
+        playerInstance.load([
+          {
+            file: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/mrskysvotx/out/v1/ad58961bd8fd48d2944e461c034b8914/cenc.mpd",
+            image:
+              "https://www.tsn.ca/content/dam/sports/images/logos/tsn-streams/tsn3-dark.svg",
+            drm: {
+              clearkey: {
+                keyId: "d9097a1b7d04b7786b29f2b0e155316d",
+                key: "279695ebe0fb1bc5787422b6b59ce8a8",
+              },
+            },
+          },
+        ]);
+        playerInstance.play();
+      });
+
+      document.getElementById("video3").addEventListener("click", () => {
+        playerInstance.load([
+          {
+            file: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/irtfdsri14/out/v1/165128c314e944faa3d79e107974b323/cenc.mpd",
+            image:
+              "https://www.tsn.ca/content/dam/sports/images/logos/tsn-streams/tsn4-dark.svg",
+            drm: {
+              clearkey: {
+                keyId: "e1aa4c4daf6222a04f7ae80130495ea1",
+                key: "31bb1ee9a8d088f62b0103550c301449",
+              },
+            },
+          },
+        ]);
+        playerInstance.play();
+      });
+
+      document.getElementById("video4").addEventListener("click", () => {
+        playerInstance.load([
+          {
+            file: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/mttgh1c4ei/out/v1/9cc664b146744e2ba23066aa048efbc5/cenc.mpd",
+            image:
+              "https://www.tsn.ca/content/dam/sports/images/logos/tsn-streams/tsn5-dark.svg",
+            drm: {
+              clearkey: {
+                keyId: "8ce20e2a4b3dd04e0a6e5469b7cb47be",
+                key: "163c323b65d0597b13f037641fd67b1e",
+              },
+            },
+          },
+        ]);
+        playerInstance.play();
+      });
+
+
+      document
+        .getElementById("darkMode")
+        .addEventListener("click", function () {
+          document.querySelector(".jwplayer").classList.toggle("dark-theme");
+        });
+    </script>
+
+    <h3>Disclaimer</h3>
+    <ul>
+      <li>
+        TSN is dedicated to delivering high-quality sports broadcasting and in-depth coverage to its viewers.
+      </li>
+      <li>
+        All content aiorangered or streamed through TSN is sourced from accorangeredited sports networks, rights holders, and
+        professional contributors.
+      </li>
+      <li>
+        Our mission is to provide accurate, exciting, and comprehensive sports content across various platforms.
+      </li>
+      <li>
+        TSN upholds intellectual property laws and ensures all programming complies with broadcasting and copyright
+        regulations.
+      </li>
+      <li>
+        Sports footage, commentary, and highlights on TSN are produced by our in-house teams or obtained through
+        official broadcasting agreements with leagues, teams, and partners.
+      </li>
+    </ul>
+    <div class="watermark">
+      Created by UltraWebs(HM) © <span id="year"></span>
+    </div>
+    <footer>
+      TSN © <span id="year-footer"></span> | Designed by UW
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("year-footer").textContent =
+        new Date().getFullYear();
+    </script>
+  </div>
+
+  <div class="toggle-button" onclick="toggleButtons()">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
+      viewBox="0 0 512 512">
+      <path fill="#010101"
+        d="M459.654,233.373l-90.531,90.5c-49.969,50-131.031,50-181,0c-7.875-7.844-14.031-16.688-19.438-25.813  l42.063-42.063c2-2.016,4.469-3.172,6.828-4.531c2.906,9.938,7.984,19.344,15.797,27.156c24.953,24.969,65.563,24.938,90.5,0  l90.5-90.5c24.969-24.969,24.969-65.563,0-90.516c-24.938-24.953-65.531-24.953-90.5,0l-32.188,32.219  c-26.109-10.172-54.25-12.906-81.641-8.891l68.578-68.578c50-49.984,131.031-49.984,181.031,0  C509.623,102.342,509.623,183.389,459.654,233.373z M220.326,382.186l-32.203,32.219c-24.953,24.938-65.563,24.938-90.516,0  c-24.953-24.969-24.953-65.563,0-90.531l90.516-90.5c24.969-24.969,65.547-24.969,90.5,0c7.797,7.797,12.875,17.203,15.813,27.125  c2.375-1.375,4.813-2.5,6.813-4.5l42.063-42.047c-5.375-9.156-11.563-17.969-19.438-25.828c-49.969-49.984-131.031-49.984-181.016,0  l-90.5,90.5c-49.984,50-49.984,131.031,0,181.031c49.984,49.969,131.031,49.969,181.016,0l68.594-68.594  C274.561,395.092,246.42,392.342,220.326,382.186z" />
+    </svg>
+  </div>
+
+  <a href="https://t.me/ultrawebs" target="_blank" class="telegram-float">
+    <div class="telegram-icon">
+      <svg viewBox="0 0 64 64">
+        <path
+          d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z">
+        </path>
+      </svg>
+    </div>
+  </a>
+
+  <a href="https://buymeacoffee.com/haritmengar" target="_blank" class="bmc-float">
+    <div class="bmc-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="50" viewBox="0 0 35 50" fill="none">
+        <path d="M30.7512 11.6307L30.7171 11.6106L30.6382 11.5865C30.6699 11.6134 30.7097 11.6289 30.7512 11.6307Z"
+          fill="#0D0C22" />
+        <path d="M31.2481 15.2031L31.21 15.2138L31.2481 15.2031Z" fill="#0D0C22" />
+        <path
+          d="M30.7659 11.6253C30.761 11.6247 30.7563 11.6236 30.7517 11.6219C30.7514 11.6251 30.7514 11.6283 30.7517 11.6314C30.7569 11.6307 30.7618 11.6286 30.7659 11.6253Z"
+          fill="#0D0C22" />
+        <path d="M30.7515 11.6314H30.7572V11.6278L30.7515 11.6314Z" fill="#0D0C22" />
+        <path
+          d="M31.2178 15.1962L31.2753 15.1634L31.2967 15.1514L31.3161 15.1307C31.2796 15.1464 31.2463 15.1686 31.2178 15.1962Z"
+          fill="#0D0C22" />
+        <path d="M30.8507 11.7088L30.7945 11.6553L30.7563 11.6345C30.7768 11.6707 30.8107 11.6973 30.8507 11.7088Z"
+          fill="#0D0C22" />
+        <path
+          d="M16.715 46.3714C16.6701 46.3908 16.6307 46.4212 16.6006 46.4597L16.636 46.4369C16.6601 46.4149 16.6942 46.3888 16.715 46.3714Z"
+          fill="#0D0C22" />
+        <path
+          d="M24.9235 44.7473C24.9235 44.6965 24.8987 44.7059 24.9048 44.8864C24.9048 44.8717 24.9108 44.857 24.9134 44.843C24.9168 44.8109 24.9195 44.7794 24.9235 44.7473Z"
+          fill="#0D0C22" />
+        <path
+          d="M24.0719 46.3714C24.027 46.3908 23.9877 46.4212 23.9575 46.4597L23.993 46.4369C24.017 46.4149 24.0512 46.3888 24.0719 46.3714Z"
+          fill="#0D0C22" />
+        <path
+          d="M10.9344 46.7574C10.9003 46.7277 10.8586 46.7082 10.814 46.7012C10.8501 46.7186 10.8862 46.736 10.9103 46.7493L10.9344 46.7574Z"
+          fill="#0D0C22" />
+        <path
+          d="M9.63391 45.5042C9.62859 45.4515 9.61242 45.4005 9.58643 45.3544C9.60484 45.4024 9.62025 45.4516 9.63258 45.5015L9.63391 45.5042Z"
+          fill="#0D0C22" />
+        <path
+          d="M18.3715 23.0976C16.5857 23.8665 14.5591 24.7382 11.9326 24.7382C10.8339 24.736 9.74049 24.5844 8.68213 24.2875L10.4987 43.0444C10.563 43.8284 10.9181 44.5594 11.4935 45.0923C12.0689 45.6251 12.8225 45.9208 13.6047 45.9207C13.6047 45.9207 16.1804 46.0552 17.0398 46.0552C17.9648 46.0552 20.7385 45.9207 20.7385 45.9207C21.5205 45.9207 22.274 45.6249 22.8493 45.092C23.4245 44.5592 23.7795 43.8283 23.8438 43.0444L25.7895 22.3173C24.92 22.0187 24.0425 21.8203 23.0533 21.8203C21.3424 21.8196 19.964 22.4122 18.3715 23.0976Z"
+          fill="#FFFFFF" />
+        <path d="M3.05859 15.095L3.08936 15.1238L3.10943 15.1358C3.09397 15.1205 3.07693 15.1068 3.05859 15.095Z"
+          fill="#0D0C22" />
+        <path
+          d="M34.1896 13.3639L33.916 11.9762C33.6706 10.7312 33.1134 9.55468 31.8426 9.10468C31.4353 8.96073 30.9732 8.89885 30.6608 8.60086C30.3485 8.30288 30.2562 7.84009 30.1839 7.41094C30.0502 6.62326 29.9244 5.83492 29.7873 5.04859C29.6689 4.37257 29.5753 3.61315 29.267 2.99296C28.8657 2.16022 28.033 1.67322 27.205 1.35102C26.7807 1.19173 26.3477 1.05698 25.9081 0.947426C23.8394 0.398542 21.6644 0.196746 19.5362 0.0817228C16.9817 -0.0600379 14.4204 -0.0173274 11.872 0.209526C9.97525 0.383071 7.97745 0.592939 6.17495 1.25281C5.51616 1.49429 4.8373 1.7842 4.33634 2.29609C3.72169 2.92502 3.52104 3.89768 3.96982 4.68199C4.28886 5.23895 4.82927 5.63245 5.40246 5.89276C6.14906 6.22818 6.92877 6.48341 7.72865 6.65421C9.95585 7.14928 12.2626 7.34368 14.538 7.42641C17.0599 7.52878 19.5859 7.44582 22.0958 7.1782C22.7165 7.10959 23.336 7.0273 23.9545 6.93134C24.6828 6.81901 25.1503 5.86115 24.9356 5.19388C24.6788 4.39611 23.9886 4.08669 23.208 4.2071C23.093 4.22526 22.9786 4.24208 22.8636 4.25889L22.7807 4.271C22.5163 4.30463 22.2518 4.33602 21.9874 4.36517C21.4412 4.42437 20.8937 4.4728 20.3448 4.51046C19.1155 4.59656 17.8828 4.63625 16.6508 4.63827C15.4403 4.63827 14.229 4.60396 13.0211 4.52392C12.47 4.48759 11.9202 4.4414 11.3718 4.38535C11.1223 4.35912 10.8735 4.33154 10.6247 4.3006L10.3879 4.27033L10.3364 4.26293L10.091 4.22728C9.58933 4.15127 9.08771 4.06382 8.59144 3.95822C8.54136 3.94704 8.49657 3.91902 8.46446 3.87879C8.43236 3.83855 8.41486 3.7885 8.41486 3.73691C8.41486 3.68533 8.43236 3.63528 8.46446 3.59504C8.49657 3.55481 8.54136 3.52679 8.59144 3.51561H8.6008C9.03086 3.42346 9.46426 3.34476 9.899 3.27615C10.0439 3.25328 10.1893 3.23086 10.3351 3.20888H10.3391C10.6113 3.19072 10.8849 3.14162 11.1557 3.10933C13.5125 2.86279 15.8832 2.77874 18.2513 2.85776C19.4011 2.89139 20.5501 2.95933 21.6945 3.07637C21.9406 3.10193 22.1854 3.12884 22.4302 3.15911C22.5238 3.17054 22.6181 3.18399 22.7124 3.19543L22.9024 3.22301C23.4562 3.30597 24.0071 3.40664 24.5551 3.52503C25.367 3.70261 26.4097 3.76046 26.7709 4.65508C26.8859 4.93894 26.9381 5.25442 27.0016 5.5524L27.0826 5.93245C27.0847 5.93927 27.0863 5.94624 27.0873 5.9533C27.2785 6.85017 27.4701 7.74704 27.6618 8.64391C27.6758 8.71017 27.6762 8.77862 27.6628 8.84501C27.6493 8.9114 27.6225 8.97429 27.5838 9.02977C27.5451 9.08525 27.4955 9.13212 27.4381 9.16746C27.3806 9.2028 27.3165 9.22585 27.2498 9.23517H27.2444L27.1274 9.25132L27.0117 9.26679C26.6452 9.31477 26.2782 9.35961 25.9108 9.40132C25.1871 9.48428 24.4623 9.55603 23.7364 9.61657C22.294 9.7372 20.8486 9.81635 19.4004 9.85401C18.6625 9.87374 17.9247 9.88294 17.1872 9.88159C14.2517 9.87926 11.3188 9.70768 8.40283 9.36769C8.08714 9.33002 7.77145 9.28966 7.45577 9.24863C7.70056 9.28024 7.27786 9.22441 7.19225 9.2123C6.9916 9.18405 6.79095 9.15468 6.5903 9.12419C5.91679 9.02262 5.24729 8.8975 4.57511 8.78786C3.76249 8.65333 2.98531 8.72059 2.25026 9.12419C1.6469 9.45624 1.15857 9.96544 0.850401 10.5838C0.533376 11.243 0.439071 11.9608 0.297279 12.6691C0.155487 13.3774 -0.0652275 14.1395 0.0183763 14.8666C0.198292 16.4359 1.28915 17.7113 2.85823 17.9965C4.33434 18.2655 5.81847 18.4835 7.30662 18.6691C13.1524 19.3892 19.0582 19.4753 24.9223 18.9261C25.3998 18.8812 25.8767 18.8324 26.3529 18.7794C26.5016 18.763 26.6521 18.7802 26.7934 18.8299C26.9347 18.8795 27.0631 18.9603 27.1693 19.0663C27.2755 19.1724 27.3567 19.3009 27.4071 19.4426C27.4575 19.5843 27.4757 19.7356 27.4605 19.8853L27.312 21.3369C27.0128 24.2701 26.7136 27.2031 26.4144 30.1358C26.1023 33.2157 25.7882 36.2953 25.472 39.3747C25.3829 40.242 25.2937 41.109 25.2045 41.9758C25.1189 42.8294 25.1069 43.7099 24.9457 44.5534C24.6915 45.8799 23.7986 46.6945 22.4957 46.9925C21.3021 47.2657 20.0827 47.4091 18.8586 47.4203C17.5016 47.4277 16.1452 47.3672 14.7881 47.3746C13.3395 47.3826 11.5651 47.2481 10.4468 46.1638C9.46426 45.2113 9.32849 43.72 9.19472 42.4306C9.01637 40.7234 8.83957 39.0164 8.66434 37.3097L7.68116 27.8192L7.0451 21.6786C7.0344 21.577 7.0237 21.4768 7.01367 21.3745C6.93742 20.642 6.42176 19.925 5.60913 19.962C4.91354 19.9929 4.12299 20.5875 4.20458 21.3745L4.67611 25.927L5.65126 35.3442C5.92905 38.0191 6.20617 40.6944 6.48262 43.3703C6.53613 43.8828 6.58628 44.3967 6.64247 44.9093C6.94812 47.7102 9.075 49.2196 11.7089 49.6448C13.2472 49.8936 14.8229 49.9448 16.384 49.9703C18.3851 50.0026 20.4063 50.08 22.3747 49.7154C25.2915 49.1773 27.4799 47.2185 27.7922 44.1801C27.8814 43.303 27.9706 42.4256 28.0597 41.548C28.3563 38.6458 28.6523 35.7433 28.9479 32.8406L29.9151 23.3562L30.3585 19.0095C30.3806 18.794 30.4711 18.5913 30.6166 18.4315C30.7621 18.2717 30.9549 18.1633 31.1665 18.1223C32.0005 17.9588 32.7977 17.6796 33.391 17.0413C34.3354 16.0249 34.5233 14.6998 34.1896 13.3639ZM2.81542 14.3016C2.82813 14.2955 2.80472 14.4052 2.79469 14.4563C2.79268 14.3789 2.7967 14.3103 2.81542 14.3016ZM2.89635 14.9312C2.90304 14.9265 2.9231 14.9534 2.94384 14.9857C2.9124 14.9561 2.89234 14.9339 2.89568 14.9312H2.89635ZM2.97594 15.0368C3.0047 15.0859 3.02009 15.1168 2.97594 15.0368V15.0368ZM3.13579 15.1673H3.1398C3.1398 15.172 3.14716 15.1767 3.14984 15.1814C3.1454 15.1762 3.14048 15.1715 3.13513 15.1673H3.13579ZM31.1277 14.9722C30.828 15.2588 30.3766 15.392 29.9305 15.4586C24.9276 16.2052 19.8519 16.5832 14.7942 16.4164C11.1745 16.292 7.59287 15.8877 4.00928 15.3785C3.65815 15.3287 3.27758 15.2642 3.03614 15.0038C2.58133 14.5128 2.80472 13.524 2.9231 12.9307C3.03145 12.3872 3.23879 11.6628 3.88154 11.5854C4.88478 11.467 6.04989 11.8928 7.04243 12.0442C8.2374 12.2276 9.43684 12.3744 10.6407 12.4848C15.7787 12.9556 21.0029 12.8823 26.1181 12.1935C27.0505 12.0675 27.9795 11.9211 28.9051 11.7543C29.7298 11.6056 30.6441 11.3264 31.1424 12.1854C31.4841 12.7706 31.5296 13.5536 31.4768 14.2148C31.4605 14.5029 31.3354 14.7739 31.127 14.9722H31.1277Z"
+          fill="#0D0C22" />
+      </svg>
+    </div>
+  </a>
+
+  <!-- Popup Container -->
+  <div class="popup-overlay" id="coffeePopup">
+    <div class="popup-box">
+      <h2>☕ Buy Me a Coffee?</h2>
+      <p class="popup-message" id="popupMessage">
+        Hey there! If you enjoy my work, show your support by buying me a
+        coffee! Every cup fuels my creativity and keeps me going. <br />
+        <center><b>Click OK to show your support!</b></center>
+      </p>
+      <div class="popup-buttons">
+        <button class="ok-btn" onclick="orangeredirectToCoffee()">OK</button>
+        <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Show popup on page load and trigger speech after user interaction
+    window.onload = function () {
+      setTimeout(() => {
+        document.getElementById("coffeePopup").classList.add("active");
+        setTimeout(speakMessage, 1000); // Delay speech slightly
+      }, 500);
+    };
+
+    // orangeredirect to Buy Me a Coffee
+    function orangeredirectToCoffee() {
+      window.open("https://buymeacoffee.com/haritmengar", "_blank");
+      closePopup();
+    }
+
+    // Close popup
+    function closePopup() {
+      document.getElementById("coffeePopup").classList.remove("active");
+    }
+
+    // // Speak the popup message aloud
+    // function speakMessage() {
+    //   let messageText = document.getElementById("popupMessage").innerText;
+    //   let speech = new SpeechSynthesisUtterance(messageText);
+    //   speech.lang = "en-UK"; // British English accent
+    //   speech.rate = 1; // Normal speed
+    //   speech.pitch = 1; // Normal pitch
+    //   speech.volume = 1; // Full volume
+
+    //   // Fix for Chrome & Safari: Wait until voices are loaded
+    //   let voicesLoaded = false;
+    //   speechSynthesis.onvoiceschanged = function () {
+    //     if (!voicesLoaded) {
+    //       let voices = speechSynthesis.getVoices();
+    //       if (voices.length > 0) {
+    //         speech.voice = voices.find(voice => voice.lang === "en-UK") || voices[0];
+    //         speechSynthesis.speak(speech);
+    //         voicesLoaded = true;
+    //       }
+    //     }
+    //   };
+    // }
+  </script>
+
+  <script>
+    function toggleButtons() {
+      var toggleButton = document.querySelector(".toggle-button");
+      var telegramButton = document.querySelector(".telegram-float");
+      var bmcButton = document.querySelector(".bmc-float");
+
+      if (toggleButton.classList.contains("active")) {
+        telegramButton.classList.remove("show");
+        telegramButton.classList.add("hide");
+        bmcButton.classList.remove("show");
+        bmcButton.classList.add("hide");
+        toggleButton.classList.remove("active");
+        setTimeout(() => {
+          telegramButton.style.display = "none";
+          bmcButton.style.display = "none";
+        }, 500);
+      } else {
+        telegramButton.style.display = "flex";
+        bmcButton.style.display = "flex";
+        setTimeout(() => {
+          telegramButton.classList.remove("hide");
+          telegramButton.classList.add("show");
+          bmcButton.classList.remove("hide");
+          bmcButton.classList.add("show");
+          toggleButton.classList.add("active");
+        }, 10);
+      }
+    }
+  </script>
+</body>
+<script>
+  // Click event listeners for playlist items
+  const playlistItems = document.querySelectorAll(".playlist-item");
+  playlistItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      // Remove 'active' class from all playlist items
+      playlistItems.forEach((item) => item.classList.remove("active"));
+      // Add 'active' class to the clicked item
+      item.classList.add("active");
+    });
+  });
+
+  // Function to prevent right-click menu
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+  });
+
+  // Function to prevent keyboard shortcuts
+  document.onkeydown = function (e) {
+    // Disable F12 key
+    if (event.keyCode == 123) {
+      return false;
+    }
+    // Disable Ctrl+Shift+I key combination
+    if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+      return false;
+    }
+    // Disable Ctrl+Shift+J key combination
+    if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+      return false;
+    }
+    // Disable Ctrl+Shift+U key combination
+    if (e.ctrlKey && e.shiftKey && e.keyCode == "U".charCodeAt(0)) {
+      return false;
+    }
+    // Disable Ctrl+C key combination
+    if (e.ctrlKey && e.keyCode == "C".charCodeAt(0)) {
+      return false;
+    }
+  };
+</script>
+
+</html>
