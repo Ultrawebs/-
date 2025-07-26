@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Now Playing | StreamX</title>
+
+    <!-- ✅ Page Description -->
+    <meta name="description"
+        content="StreamX Player – Watch live or on-demand streams in full-screen with custom JW Player skin and Chromecast/AirPlay support." />
+
+    <!-- ✅ Favicon -->
+    <link rel="icon" href="https://www.streamx.dev/assets/favicon/favicon.svg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://www.streamx.dev/assets/favicon/favicon.svg" />
+
+    <!-- ✅ Theme color for browser/mobile address bar -->
+    <meta name="theme-color" content="#000000" />
+
+    <!-- ✅ Open Graph Tags (for Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Now Playing | StreamX" />
+    <meta property="og:description"
+        content="Watch your favorite live streams in fullscreen with Chromecast and AirPlay support." />
+    <meta property="og:image" content="https://user-images.githubusercontent.com/13284744/166101616-50a44d38-3ffb-4296-8a77-92f76a4c21b5.png" />
+    <meta property="og:url" content="ultrawebs.github.io/-/" />
+    <meta property="og:type" content="video.other" />
+
+    <!-- ✅ Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Now Playing | StreamX" />
+    <meta name="twitter:description"
+        content="Watch your favorite streams in full-screen with a custom JW Player experience." />
+    <meta name="twitter:image" content="https://user-images.githubusercontent.com/13284744/166101616-50a44d38-3ffb-4296-8a77-92f76a4c21b5.png" />
+
+    <!-- ✅ Fonts and Player Library -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            font-family: "Space Grotesk", sans-serif;
+            overflow: hidden;
+        }
+
+        #player-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #video-title {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+        }
+
+        #player {
+            width: 100%;
+            height: 100%;
+        }
+
+        .jwplayer {
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        /* JWPlayer theme customizations */
+        .jwplayer .jw-icon-inline.jw-button-color,
+        .jwplayer .jw-icon.jw-button-color path {
+            color: #00e5ff !important;
+            fill: #00e5ff !important;
+        }
+
+        .jwplayer .jw-progress {
+            background-color: #00e5ff !important;
+        }
+
+        .jwplayer .jw-settings-menu,
+        .jwplayer .jw-option,
+        .jwplayer .jw-text {
+            background: #111 !important;
+            color: #eee !important;
+            font-size: 16px !important;
+            /* Increased font size */
+        }
+
+        .jw-settings-menu {
+            border-radius: 10px !important;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease-in-out !important;
+            overflow: hidden !important;
+        }
+
+        .jw-settings-menu .jw-settings-content-item {
+            padding: 12px 18px !important;
+            border-bottom: 1px solid #333;
+            font-size: 16px !important;
+            /* Increased font size */
+        }
+
+        .jw-settings-menu .jw-settings-content-item:hover {
+            background-color: #222 !important;
+            color: #fff !important;
+        }
+
+        .jw-icon-inline.jw-button-color:hover {
+            filter: brightness(1.4);
+        }
+
+        /* Make JW Player's time/duration text background transparent */
+        .jwplayer .jw-text-elapsed,
+        .jwplayer .jw-text-duration {
+            background: transparent !important;
+            font-size: 15px !important;
+            /* Increased font size */
+            color: #eee !important;
+        }
+
+        /* Remove gray bar behind time text (controls area) */
+        .jwplayer .jw-controlbar .jw-slider-time {
+            background: transparent !important;
+        }
+
+        /* Optional: Increase size of subtitles/captions if used */
+        .jwplayer .jw-text-track {
+            font-size: 20px !important;
+            color: #00e5ff !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="player-container">
+        <div id="video-title"></div>
+        <div id="player"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoSrc = urlParams.get("src");
+        const name = urlParams.get("name") || "Now Playing";
+
+        const titleElement = document.getElementById("video-title");
+        titleElement.textContent = name;
+
+        let hideTimeout;
+
+        function showTitleTemporarily() {
+            titleElement.style.display = "block";
+            clearTimeout(hideTimeout);
+            hideTimeout = setTimeout(() => {
+                titleElement.style.display = "none";
+            }, 5000);
+        }
+
+        document.addEventListener("mousemove", () => {
+            showTitleTemporarily();
+        });
+
+        if (!videoSrc) {
+            alert("No video source provided.");
+        } else {
+            const playerInstance = jwplayer("player").setup({
+                file: videoSrc,
+                width: "100%",
+                height: "100%",
+                aspectratio: "16:9",
+                autostart: true,
+                mute: false,
+                controls: true,
+                displaytitle: false,
+                displaydescription: false,
+                stretching: "uniform",
+                skin: { name: "seven" },
+
+                // ✅ Chromecast + AirPlay
+                cast: {},
+                airplay: true
+            });
+
+            playerInstance.on("ready", () => {
+                const container = document.documentElement;
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+
+                showTitleTemporarily(); // Show once when ready
+            });
+        }
+    </script>
+
+</body>
+
+</html>
