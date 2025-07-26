@@ -88,7 +88,7 @@ const videoLinks = {
   belgian: {
     "Practice 1": "https://in-mc-vod.fancode.com/delhi/118441_english_hls_61743ta-di_h264_backup/vod_773_index.m3u8",
     "Sprint Qualifying": "https://in-mc-vod.fancode.com/delhi/118442_english_hls_49925ta-di_h264_backup/vod_778_index.m3u8",
-    "Sprint": "link",
+    "Sprint": "https://in-mc-vod.fancode.com/delhi/118443_english_hls_50075ta-di_h264_backup/vod_699_index.m3u8",
     "Qualifying": "link",
     "Race": "link"
   },
