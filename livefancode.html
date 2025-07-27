@@ -582,7 +582,7 @@
                 }
 
                 // Construct player URL
-                const playerUrl = new URL("-/fancodeplayer.html", window.location.origin);
+                const playerUrl = new URL("-/player.html", window.location.origin);
                 playerUrl.searchParams.set("src", streamUrl);
                 playerUrl.searchParams.set("name", match.title || 'Live Match');
 
