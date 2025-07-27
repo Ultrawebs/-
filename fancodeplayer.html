@@ -6,38 +6,28 @@
     <title>Now Playing - StreamMovie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO Meta Description -->
+    <!-- SEO -->
     <meta name="description"
-        content="Watch live sports in full-screen HD with real-time playback. Smooth streaming experience tailored for fans of football, cricket, and more.">
-
-    <!-- Favicon -->
-    <link rel="icon" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
-    <link rel="manifest" href="site.webmanifest" />
-
-    <!-- Open Graph (for Facebook, LinkedIn, WhatsApp, etc.) -->
+        content="Watch live sports in HD fullscreen. Smooth streaming for football, cricket, and more.">
     <meta property="og:title" content="Now Playing - StreamMovie" />
-    <meta property="og:description"
-        content="Watch live sports in full-screen HD with real-time playback. Perfect for fans of football, cricket, and more." />
-    <meta property="og:image" content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
-    <meta property="og:url" content="https://ultrawebs.github.io/-/" />
+    <meta property="og:description" content="Watch live sports now!" />
+    <meta property="og:image"
+        content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
     <meta property="og:type" content="video.other" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Now Playing - StreamMovie" />
-    <meta name="twitter:description"
-        content="Live HD sports streaming with full-screen experience. Watch your favorite matches now!" />
-    <meta name="twitter:image" content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
-    <meta name="twitter:site" content="@YourTwitterHandle" />
 
-    <!-- Optional: JWPlayer Library if needed -->
-    <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+    <!-- Icons -->
+    <link rel="icon"
+        href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png"
+        type="image/png" />
+    <link rel="apple-touch-icon"
+        href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- JWPlayer -->
+    <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
 
     <style>
         html,
@@ -154,20 +144,15 @@
     </div>
 
     <script>
-        // Get URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const videoSrc = urlParams.get("src");
         const name = urlParams.get("name") || "Now Playing";
 
-        // Dynamically update the browser tab title with stream name
         document.title = `${name} - Now Playing - StreamMovie`;
-
         const titleElement = document.getElementById("video-title");
         titleElement.textContent = name;
 
         let hideTimeout;
-
-        // Show video title temporarily on user interaction
         function showTitleTemporarily() {
             titleElement.style.display = "block";
             clearTimeout(hideTimeout);
@@ -175,17 +160,12 @@
                 titleElement.style.display = "none";
             }, 5000);
         }
+        document.addEventListener("mousemove", showTitleTemporarily);
 
-        document.addEventListener("mousemove", () => {
-            showTitleTemporarily();
-        });
-
-        // Detect file type for JWPlayer setup
         function getFileType(src) {
             if (!src) return "";
             if (src.endsWith(".mp4")) return "mp4";
             if (src.endsWith(".m3u8")) return "hls";
-            if (src.endsWith(".mpd")) return "dash";
             return "";
         }
 
@@ -193,6 +173,11 @@
             alert("No video source provided.");
         } else {
             const fileType = getFileType(videoSrc);
+            if (!["mp4", "hls"].includes(fileType)) {
+                alert("Unsupported video format. Only .mp4 and .m3u8 are allowed.");
+                throw new Error("Unsupported format.");
+            }
+
             const playerConfig = {
                 file: videoSrc,
                 type: fileType,
@@ -210,36 +195,14 @@
                 airplay: true
             };
 
-            // Optional DRM configuration
-            if (fileType === "dash") {
-                const drmType = urlParams.get("drm"); // "clearkey" or "widevine"
-                if (drmType === "clearkey") {
-                    playerConfig.drm = {
-                        clearkey: {
-                            keyId: urlParams.get("keyid"),
-                            key: urlParams.get("key")
-                        }
-                    };
-                } else if (drmType === "widevine") {
-                    playerConfig.drm = {
-                        widevine: {
-                            url: urlParams.get("license") || "https://your-widevine-license.com/"
-                        }
-                    };
-                }
-            }
-
             const playerInstance = jwplayer("player").setup(playerConfig);
 
             playerInstance.on("ready", () => {
                 const container = document.documentElement;
-                if (container.requestFullscreen) {
-                    container.requestFullscreen();
-                } else if (container.webkitRequestFullscreen) {
-                    container.webkitRequestFullscreen();
-                } else if (container.msRequestFullscreen) {
-                    container.msRequestFullscreen();
-                }
+                if (container.requestFullscreen) container.requestFullscreen();
+                else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+                else if (container.msRequestFullscreen) container.msRequestFullscreen();
+
                 showTitleTemporarily();
             });
         }
