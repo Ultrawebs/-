@@ -143,70 +143,85 @@
         <div id="player"></div>
     </div>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const videoSrc = urlParams.get("src");
-        const name = urlParams.get("name") || "Now Playing";
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    let videoSrc = urlParams.get("src");
+    const name = decodeURIComponent(urlParams.get("name") || "Now Playing");
 
-        document.title = `${name} - Now Playing - StreamMovie`;
-        const titleElement = document.getElementById("video-title");
-        titleElement.textContent = name;
-
-        let hideTimeout;
-        function showTitleTemporarily() {
-            titleElement.style.display = "block";
-            clearTimeout(hideTimeout);
-            hideTimeout = setTimeout(() => {
-                titleElement.style.display = "none";
-            }, 5000);
+    // Decode `src` properly (ensure it's not double-encoded)
+    try {
+        while (videoSrc !== decodeURIComponent(videoSrc)) {
+            videoSrc = decodeURIComponent(videoSrc);
         }
-        document.addEventListener("mousemove", showTitleTemporarily);
+    } catch (e) {
+        console.warn("Invalid src decode:", e);
+    }
 
-        function getFileType(src) {
-            if (!src) return "";
-            if (src.endsWith(".mp4")) return "mp4";
-            if (src.endsWith(".m3u8")) return "hls";
-            return "";
+    document.title = `${name} - Now Playing - StreamMovie`;
+    const titleElement = document.getElementById("video-title");
+    titleElement.textContent = name;
+
+    let hideTimeout;
+    function showTitleTemporarily() {
+        titleElement.style.display = "block";
+        clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => {
+            titleElement.style.display = "none";
+        }, 5000);
+    }
+    document.addEventListener("mousemove", showTitleTemporarily);
+
+    function getFileType(src) {
+        const cleanSrc = src.split("?")[0].split("#")[0];
+        if (cleanSrc.endsWith(".mp4")) return "mp4";
+        if (cleanSrc.endsWith(".m3u8")) return "hls";
+        return "";
+    }
+
+    if (!videoSrc) {
+        alert("No video source provided.");
+    } else {
+        const fileType = getFileType(videoSrc);
+        if (!["mp4", "hls"].includes(fileType)) {
+            alert("Unsupported video format. Only .mp4 and .m3u8 are allowed.");
+            throw new Error("Unsupported format.");
         }
 
-        if (!videoSrc) {
-            alert("No video source provided.");
-        } else {
-            const fileType = getFileType(videoSrc);
-            if (!["mp4", "hls"].includes(fileType)) {
-                alert("Unsupported video format. Only .mp4 and .m3u8 are allowed.");
-                throw new Error("Unsupported format.");
-            }
+        const playerConfig = {
+            file: videoSrc,
+            type: fileType,
+            width: "100%",
+            height: "100%",
+            aspectratio: "16:9",
+            autostart: true,
+            mute: false,
+            controls: true,
+            displaytitle: false,
+            displaydescription: false,
+            stretching: "uniform",
+            skin: { name: "seven" },
+            cast: {},
+            airplay: true
+        };
 
-            const playerConfig = {
-                file: videoSrc,
-                type: fileType,
-                width: "100%",
-                height: "100%",
-                aspectratio: "16:9",
-                autostart: true,
-                mute: false,
-                controls: true,
-                displaytitle: false,
-                displaydescription: false,
-                stretching: "uniform",
-                skin: { name: "seven" },
-                cast: {},
-                airplay: true
-            };
+        const playerInstance = jwplayer("player").setup(playerConfig);
 
-            const playerInstance = jwplayer("player").setup(playerConfig);
+        playerInstance.on("ready", () => {
+            const container = document.documentElement;
+            if (container.requestFullscreen) container.requestFullscreen();
+            else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+            else if (container.msRequestFullscreen) container.msRequestFullscreen();
 
-            playerInstance.on("ready", () => {
-                const container = document.documentElement;
-                if (container.requestFullscreen) container.requestFullscreen();
-                else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
-                else if (container.msRequestFullscreen) container.msRequestFullscreen();
+            showTitleTemporarily();
+        });
 
-                showTitleTemporarily();
-            });
-        }
-    </script>
+        playerInstance.on("error", function (e) {
+            console.error("JWPlayer Error:", e.message || e.code);
+            alert("Playback failed: " + (e.message || "Error Code: " + e.code));
+        });
+    }
+</script>
+
 </body>
 
 </html>
