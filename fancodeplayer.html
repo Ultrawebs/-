@@ -2,226 +2,199 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Now Playing - StreamMovie</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>Now Playing - StreamMovie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO -->
-    <meta name="description"
-        content="Watch live sports in HD fullscreen. Smooth streaming for football, cricket, and more.">
-    <meta property="og:title" content="Now Playing - StreamMovie" />
-    <meta property="og:description" content="Watch live sports now!" />
-    <meta property="og:image"
-        content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
-    <meta property="og:type" content="video.other" />
-    <meta name="twitter:card" content="summary_large_image" />
+  <meta name="description" content="Watch live sports in HD fullscreen. Smooth streaming for football, cricket, and more.">
+  <meta property="og:title" content="Now Playing - StreamMovie" />
+  <meta property="og:description" content="Watch live sports now!" />
+  <meta property="og:image" content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
+  <meta property="og:type" content="video.other" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Icons -->
-    <link rel="icon"
-        href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png"
-        type="image/png" />
-    <link rel="apple-touch-icon"
-        href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
+  <link rel="icon" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- JWPlayer -->
+  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
 
-    <!-- JWPlayer -->
-    <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: "Space Grotesk", sans-serif;
+      overflow: hidden;
+    }
 
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background: #000;
-            color: #fff;
-            font-family: "Space Grotesk", sans-serif;
-            overflow: hidden;
-        }
+    #player-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-        #player-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+    #video-title {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      z-index: 10;
+      display: none;
+    }
 
-        #video-title {
-            position: absolute;
-            top: 20px;
-            width: 100%;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-            z-index: 10;
-        }
+    #player {
+      width: 100%;
+      height: 100%;
+    }
 
-        #player {
-            width: 100%;
-            height: 100%;
-        }
+    .jwplayer {
+      height: 100% !important;
+      width: 100% !important;
+    }
 
-        .jwplayer {
-            height: 100% !important;
-            width: 100% !important;
-        }
+    /* Custom Theme */
+    .jwplayer .jw-icon-inline.jw-button-color,
+    .jwplayer .jw-icon.jw-button-color path {
+      color: #00e5ff !important;
+      fill: #00e5ff !important;
+    }
 
-        /* JWPlayer theme customizations */
-        .jwplayer .jw-icon-inline.jw-button-color,
-        .jwplayer .jw-icon.jw-button-color path {
-            color: #00e5ff !important;
-            fill: #00e5ff !important;
-        }
+    .jwplayer .jw-progress {
+      background-color: #00e5ff !important;
+    }
 
-        .jwplayer .jw-progress {
-            background-color: #00e5ff !important;
-        }
+    .jwplayer .jw-settings-menu,
+    .jwplayer .jw-option,
+    .jwplayer .jw-text {
+      background: #111 !important;
+      color: #eee !important;
+      font-size: 16px !important;
+    }
 
-        .jwplayer .jw-settings-menu,
-        .jwplayer .jw-option,
-        .jwplayer .jw-text {
-            background: #111 !important;
-            color: #eee !important;
-            font-size: 16px !important;
-        }
+    .jw-settings-menu {
+      border-radius: 10px !important;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease-in-out !important;
+      overflow: hidden !important;
+    }
 
-        .jw-settings-menu {
-            border-radius: 10px !important;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-            transition: all 0.3s ease-in-out !important;
-            overflow: hidden !important;
-        }
+    .jw-settings-menu .jw-settings-content-item {
+      padding: 12px 18px !important;
+      border-bottom: 1px solid #333;
+      font-size: 16px !important;
+    }
 
-        .jw-settings-menu .jw-settings-content-item {
-            padding: 12px 18px !important;
-            border-bottom: 1px solid #333;
-            font-size: 16px !important;
-        }
+    .jw-settings-menu .jw-settings-content-item:hover {
+      background-color: #222 !important;
+      color: #fff !important;
+    }
 
-        .jw-settings-menu .jw-settings-content-item:hover {
-            background-color: #222 !important;
-            color: #fff !important;
-        }
+    .jw-icon-inline.jw-button-color:hover {
+      filter: brightness(1.4);
+    }
 
-        .jw-icon-inline.jw-button-color:hover {
-            filter: brightness(1.4);
-        }
+    .jwplayer .jw-text-elapsed,
+    .jwplayer .jw-text-duration {
+      background: transparent !important;
+      font-size: 15px !important;
+      color: #eee !important;
+    }
 
-        /* Make JW Player's time/duration text background transparent */
-        .jwplayer .jw-text-elapsed,
-        .jwplayer .jw-text-duration {
-            background: transparent !important;
-            font-size: 15px !important;
-            color: #eee !important;
-        }
+    .jwplayer .jw-controlbar .jw-slider-time {
+      background: transparent !important;
+    }
 
-        /* Remove gray bar behind time text (controls area) */
-        .jwplayer .jw-controlbar .jw-slider-time {
-            background: transparent !important;
-        }
-
-        /* Optional: Increase size of subtitles/captions if used */
-        .jwplayer .jw-text-track {
-            font-size: 20px !important;
-            color: #00e5ff !important;
-        }
-    </style>
+    .jwplayer .jw-text-track {
+      font-size: 20px !important;
+      color: #00e5ff !important;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="player-container">
-        <div id="video-title"></div>
-        <div id="player"></div>
-    </div>
+  <div id="player-container">
+    <div id="video-title"></div>
+    <div id="player"></div>
+  </div>
 
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    let videoSrc = urlParams.get("src");
-    const name = decodeURIComponent(urlParams.get("name") || "Now Playing");
-
-    // Decode `src` properly (ensure it's not double-encoded)
-    try {
-        while (videoSrc !== decodeURIComponent(videoSrc)) {
-            videoSrc = decodeURIComponent(videoSrc);
-        }
-    } catch (e) {
-        console.warn("Invalid src decode:", e);
-    }
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const rawSrc = params.get("src");
+    const name = params.get("name") || "Now Playing";
+    const videoSrc = rawSrc ? decodeURIComponent(rawSrc.trim()) : "";
 
     document.title = `${name} - Now Playing - StreamMovie`;
     const titleElement = document.getElementById("video-title");
     titleElement.textContent = name;
 
+    // Auto-hide video title after 5 seconds
     let hideTimeout;
     function showTitleTemporarily() {
-        titleElement.style.display = "block";
-        clearTimeout(hideTimeout);
-        hideTimeout = setTimeout(() => {
-            titleElement.style.display = "none";
-        }, 5000);
+      titleElement.style.display = "block";
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        titleElement.style.display = "none";
+      }, 5000);
     }
     document.addEventListener("mousemove", showTitleTemporarily);
 
     function getFileType(src) {
-        const cleanSrc = src.split("?")[0].split("#")[0];
-        if (cleanSrc.endsWith(".mp4")) return "mp4";
-        if (cleanSrc.endsWith(".m3u8")) return "hls";
-        return "";
+      if (!src) return "";
+      if (src.endsWith(".mp4")) return "mp4";
+      if (src.endsWith(".m3u8")) return "hls";
+      return "";
     }
 
     if (!videoSrc) {
-        alert("No video source provided.");
+      alert("❌ No video source provided.");
     } else {
-        const fileType = getFileType(videoSrc);
-        if (!["mp4", "hls"].includes(fileType)) {
-            alert("Unsupported video format. Only .mp4 and .m3u8 are allowed.");
-            throw new Error("Unsupported format.");
-        }
+      const fileType = getFileType(videoSrc);
+      if (!["mp4", "hls"].includes(fileType)) {
+        alert("❌ Unsupported video format. Only .mp4 and .m3u8 allowed.");
+        throw new Error("Invalid format");
+      }
 
-        const playerConfig = {
-            file: videoSrc,
-            type: fileType,
-            width: "100%",
-            height: "100%",
-            aspectratio: "16:9",
-            autostart: true,
-            mute: false,
-            controls: true,
-            displaytitle: false,
-            displaydescription: false,
-            stretching: "uniform",
-            skin: { name: "seven" },
-            cast: {},
-            airplay: true
-        };
+      const playerConfig = {
+        file: videoSrc,
+        type: fileType,
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: true,
+        mute: false,
+        controls: true,
+        displaytitle: false,
+        displaydescription: false,
+        stretching: "uniform",
+        skin: { name: "seven" },
+        cast: {},
+        airplay: true
+      };
 
-        const playerInstance = jwplayer("player").setup(playerConfig);
+      const playerInstance = jwplayer("player").setup(playerConfig);
 
-        playerInstance.on("ready", () => {
-            const container = document.documentElement;
-            if (container.requestFullscreen) container.requestFullscreen();
-            else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
-            else if (container.msRequestFullscreen) container.msRequestFullscreen();
-
-            showTitleTemporarily();
-        });
-
-        playerInstance.on("error", function (e) {
-            console.error("JWPlayer Error:", e.message || e.code);
-            alert("Playback failed: " + (e.message || "Error Code: " + e.code));
-        });
+      playerInstance.on("ready", () => {
+        showTitleTemporarily();
+        const container = document.documentElement;
+        if (container.requestFullscreen) container.requestFullscreen();
+        else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+        else if (container.msRequestFullscreen) container.msRequestFullscreen();
+      });
     }
-</script>
-
+  </script>
 </body>
-
 </html>
