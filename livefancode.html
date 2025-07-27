@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>FanCode Live Sports - Dynamic Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Meta Description -->
+    <meta name="description"
+        content="StreamX brings you live sports action in HD – football, cricket, tennis, and more. Enjoy buffer-free streaming, real-time scores, and smooth playback on any device.">
+
+    <!-- Open Graph Meta (Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Live Sports | StreamX" />
+    <meta property="og:description"
+        content="Watch live sports in HD with smooth playback – StreamX covers football, cricket, and more!" />
+    <meta property="og:image" content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
+    <meta property="og:url" content="https://ultrawebs.github.io/-/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="StreamX" />
+
+    <!-- Twitter Card Meta -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Live Sports | StreamX" />
+    <meta name="twitter:description"
+        content="StreamX lets you watch live sports events – football, cricket, and more – in full HD." />
+    <meta name="twitter:image" content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
+    <meta name="twitter:site" content="@StreamX" />
+    <meta name="twitter:creator" content="@StreamX" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- Fonts or CSS (optional, include your CSS here) -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary: #00e5ff;
+            --bg-dark: #000000e7;
+            --card-bg: #181b25;
+            --live-color: #ff2263;
+            --text-light: #e8e8ef;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-dark);
+            font-family: 'Space Grotesk', sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--card-bg);
+            color: var(--text-light);
+            font-weight: 600;
+            padding: 1rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            padding: 1rem;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .header-container h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-grow: 1;
+            min-width: 160px;
+            text-align: left;
+        }
+
+        #searchBar {
+            flex: 1 1 300px;
+            max-width: 450px;
+            min-width: 120px;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            border: 1px solid #00e5ff;
+            /* Added border */
+            font-size: 0.95rem;
+            outline-offset: 2px;
+            outline-color: var(--primary);
+            background: #181b25;
+            color: #fff;
+            transition: box-shadow 0.2s;
+            font-family: inherit;
+            height: 36px;
+            line-height: 1;
+        }
+
+        #searchBar::placeholder {
+            color: #bbb;
+        }
+
+        #searchBar:focus {
+            box-shadow: 0 0 6px var(--primary);
+        }
+
+        /* Movie section */
+        .movie-section {
+            margin-bottom: 2.1rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+            padding: 0.4rem 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .grid-wrapper {
+            position: relative;
+        }
+
+        .movie-container {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 0.5rem;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .movie-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .movie-card {
+            flex: 0 0 auto;
+            width: 320px;
+            aspect-ratio: 16 / 9;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+            position: relative;
+            transition: transform 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.03);
+            z-index: 2;
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit;
+            flex-grow: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 1rem;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            border-radius: inherit;
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+
+        .movie-card:hover .overlay,
+        .movie-card:focus-within .overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .teams,
+        .event {
+            font-size: 0.93rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-light);
+        }
+
+        .time {
+            font-size: 0.8rem;
+            color: #c0efff;
+            margin-top: 0.2rem;
+        }
+
+        .badge {
+            margin-top: 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3em 0.9em;
+            border-radius: 20px;
+            background: #444;
+            color: #fff;
+            display: inline-block;
+        }
+
+        .badge.live {
+            background: var(--live-color);
+        }
+
+        .grid-scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgb(0, 0, 0, 0.7);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s;
+            opacity: 0.9;
+        }
+
+        .grid-scroll-btn:hover:not(:disabled) {
+            background: rgba(0, 0, 0, 0.9);
+            transform: translateY(-50%) scale(1.1);
+            opacity: 1;
+        }
+
+        .grid-scroll-btn:disabled {
+            opacity: 0.2;
+            cursor: not-allowed;
+        }
+
+        .left-btn {
+            left: 8px;
+        }
+
+        .right-btn {
+            right: 8px;
+        }
+
+        /* New Footer Styles */
+        .footer {
+            background-color: #000;
+            padding: 40px 20px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .footer-social {
+            text-align: center;
+        }
+
+        .footer-social a {
+            margin: 0 10px;
+            color: #ccc;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #fff;
+        }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .footer-links-grid ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links-grid li {
+            margin: 8px 0;
+        }
+
+        .footer-links-grid a {
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links-grid a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .service-code {
+            background: none;
+            border: 1px solid #555;
+            padding: 8px 16px;
+            color: #ccc;
+            font-size: 13px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: center;
+        }
+
+        .service-code:hover {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .disclaimer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-container {
+                gap: 0.8rem;
+            }
+
+            .header-container h1 {
+                font-size: 1.3rem;
+                min-width: unset;
+            }
+
+            #searchBar {
+                padding: 0.55rem 1rem;
+                min-width: unset;
+                height: 38px;
+                /* Adjusted for mobile */
+            }
+
+            .movie-card {
+                width: 85vw;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+                padding: 0.3rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0.8rem;
+            }
+
+            .header-container {
+                align-items: stretch;
+                gap: 0.6rem;
+            }
+
+            .header-container h1 {
+                font-size: 1.2rem;
+                text-align: center;
+                padding-bottom: 0;
+            }
+
+            #searchBar {
+                padding: 0.55rem 1rem;
+                min-width: unset;
+                height: 38px;
+                /* Adjusted for mobile */
+            }
+
+            .movie-card {
+                width: 82vw;
+                min-width: 130px;
+            }
+
+            .title {
+                font-size: 0.98rem;
+            }
+
+            .teams,
+            .event,
+            .time {
+                font-size: 0.78rem;
+            }
+
+            .grid-scroll-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+
+            .footer-links-grid {
+                text-align: left;
+            }
+
+            .footer-social a {
+                font-size: 18px;
+                margin: 0 6px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header-container h1 {
+                font-size: 1.1rem;
+            }
+
+            #searchBar {
+                padding: 0.45rem 0.8rem;
+                font-size: 0.9rem;
+                height: 34px;
+                /* Smaller height for very small screens */
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>FanCode Live Sports</h1>
+            <input type="search" id="searchBar" placeholder="Search matches, teams, events..."
+                aria-label="Search matches" />
+        </div>
+    </header>
+    <main>
+        <div id="allCategoriesContainer">
+            <p style="text-align:center; color:#bbb;">Loading matches...</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <div class="footer-links-grid">
+                <ul>
+                    <li><a href="#">Audio Description</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Legal Notices</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Cookie Preferences</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Corporate Information</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Media Center</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <button class="service-code">Service Code</button>
+                <p>© 2024 – 2025 FanCode Live Sports, Inc.</p>
+                <p> Terms of Use | Privacy Policy | Cookie Preferences </p>
+                <p>All rights reserved.</p>
+            </div>
+
+            <div class="disclaimer">
+                <p>This is a demo application for educational purposes only. No actual streaming services are provided.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const jsonUrl = "https://api.allorigins.win/raw?url=https://raw.githubusercontent.com/drmlive/fancode-live-events/main/fancode.json";
+            const allCategoriesContainer = document.getElementById("allCategoriesContainer");
+            const searchBar = document.getElementById('searchBar');
+
+            function formatStartTime(str) {
+                if (!str) return '-';
+                try {
+                    const date = new Date(str);
+                    if (isNaN(date)) return str;
+                    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                } catch (e) {
+                    return str;
+                }
+            }
+
+            function playChannel(match) {
+                const streamUrl = match.adfree_url ?? match.dai_url;
+                if (!streamUrl) {
+                    showErrorMessage('No live stream available for this match.');
+                    return;
+                }
+                const playerUrl = new URL("fancodeplayer.html", window.location.href);
+                playerUrl.searchParams.set("src", encodeURIComponent(streamUrl));
+                playerUrl.searchParams.set("name", encodeURIComponent(match.title || 'Live Match'));
+                window.open(playerUrl.toString(), "_blank", "noopener,noreferrer");
+            }
+
+            function showErrorMessage(message) {
+                const existingMsg = document.querySelector('.error-message');
+                if (existingMsg) existingMsg.remove();
+
+                const msg = document.createElement('div');
+                msg.className = 'error-message';
+                msg.style.position = 'fixed';
+                msg.style.bottom = '20px';
+                msg.style.left = '50%';
+                msg.style.transform = 'translateX(-50%)';
+                msg.style.background = 'rgba(255, 0, 0, 0.8)';
+                msg.style.color = '#fff';
+                msg.style.padding = '10px 20px';
+                msg.style.borderRadius = '4px';
+                msg.style.zIndex = '10000';
+                msg.style.maxWidth = '90%';
+                msg.style.textAlign = 'center';
+                msg.style.whiteSpace = 'nowrap';
+                msg.textContent = message;
+                document.body.appendChild(msg);
+                setTimeout(() => msg.remove(), 3000);
+            }
+
+            function createMatchCard(match) {
+                const card = document.createElement("div");
+                card.className = "movie-card";
+                card.tabIndex = "0";
+                card.setAttribute('aria-label', `${match.title || 'Match'} - ${match.team_1 || ''} vs ${match.team_2 || ''}`);
+
+                // Click and keyboard event for accessibility
+                const handlePlay = () => playChannel(match);
+                card.addEventListener('click', handlePlay);
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handlePlay();
+                    }
+                });
+
+                const poster = document.createElement("img");
+                poster.src = match.src || "https://placehold.co/600x375?text=No+Image";
+                poster.alt = match.title || "Match Image";
+                poster.loading = 'lazy';
+
+                const overlay = document.createElement("div");
+                overlay.className = "overlay";
+
+                const title = document.createElement("div");
+                title.className = "title";
+                title.textContent = match.title || "Untitled Match";
+
+                const teams = document.createElement("div");
+                teams.className = "teams";
+                if (match.team_1 && match.team_2) {
+                    teams.textContent = `${match.team_1} vs ${match.team_2}`;
+                } else if (match.match_name) {
+                    teams.textContent = match.match_name;
+                }
+
+                const event = document.createElement("div");
+                event.className = "event";
+                event.textContent = match.event_name || "";
+
+                const time = document.createElement("div");
+                time.className = "time";
+                time.textContent = formatStartTime(match.startTime);
+
+                const badge = document.createElement("span");
+                badge.className = "badge";
+                if (match.status === "LIVE") {
+                    badge.classList.add("live");
+                    badge.textContent = "LIVE";
+                } else {
+                    badge.textContent = match.status || "";
+                }
+
+                overlay.appendChild(title);
+                if (teams.textContent) overlay.appendChild(teams);
+                if (event.textContent) overlay.appendChild(event);
+                overlay.appendChild(time);
+                if (badge.textContent) overlay.appendChild(badge);
+
+                card.appendChild(poster);
+                card.appendChild(overlay);
+                return card;
+            }
+
+            function createSection(titleText, matches) {
+                if (!matches || matches.length === 0) return null;
+
+                const section = document.createElement("section");
+                section.className = "movie-section";
+
+                const title = document.createElement("div");
+                title.className = "section-title";
+                title.textContent = titleText;
+
+                const wrapper = document.createElement("div");
+                wrapper.className = "grid-wrapper";
+
+                const container = document.createElement("div");
+                container.className = "movie-container grid";
+
+                matches.forEach(match => {
+                    const card = createMatchCard(match);
+                    container.appendChild(card);
+                });
+
+                wrapper.appendChild(container);
+                section.appendChild(title);
+                section.appendChild(wrapper);
+                return section;
+            }
+
+            function addGridScrollButtons() {
+                document.querySelectorAll(".grid-wrapper").forEach(wrapper => {
+                    const grid = wrapper.querySelector(".grid");
+                    if (!grid) return;
+
+                    // Remove existing buttons if any
+                    wrapper.querySelectorAll(".grid-scroll-btn").forEach(btn => btn.remove());
+
+                    // Don't add buttons if no scrolling needed
+                    if (grid.scrollWidth <= grid.clientWidth + 1) return;
+
+                    // Create left button
+                    const leftBtn = document.createElement("button");
+                    leftBtn.className = "grid-scroll-btn left-btn";
+                    leftBtn.setAttribute("aria-label", "Scroll left");
+                    leftBtn.innerHTML = `<span class="material-icons" aria-hidden="true">chevron_left</span>`;
+
+                    // Create right button
+                    const rightBtn = document.createElement("button");
+                    rightBtn.className = "grid-scroll-btn right-btn";
+                    rightBtn.setAttribute("aria-label", "Scroll right");
+                    rightBtn.innerHTML = `<span class="material-icons" aria-hidden="true">chevron_right</span>`;
+
+                    // Scroll functions
+                    const scrollLeft = () => {
+                        grid.scrollBy({ left: -grid.clientWidth * 0.85, behavior: "smooth" });
+                        setTimeout(updateButtons, 400);
+                    };
+
+                    const scrollRight = () => {
+                        grid.scrollBy({ left: grid.clientWidth * 0.85, behavior: "smooth" });
+                        setTimeout(updateButtons, 400);
+                    };
+
+                    leftBtn.addEventListener("click", scrollLeft);
+                    rightBtn.addEventListener("click", scrollRight);
+
+                    // Update button states
+                    function updateButtons() {
+                        leftBtn.disabled = grid.scrollLeft < 10;
+                        rightBtn.disabled = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10;
+                    }
+
+                    // Add buttons to DOM
+                    wrapper.appendChild(leftBtn);
+                    wrapper.appendChild(rightBtn);
+
+                    // Initial update
+                    updateButtons();
+
+                    // Event listeners
+                    grid.addEventListener("scroll", updateButtons);
+                    window.addEventListener("resize", updateButtons);
+                });
+            }
+
+            function filterMatches(query) {
+                const normalizedQuery = query.trim().toLowerCase();
+                const allCards = document.querySelectorAll('.movie-card');
+                let anyVisible = false;
+
+                allCards.forEach(card => {
+                    const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
+                    const teams = card.querySelector('.teams')?.textContent.toLowerCase() || '';
+                    const event = card.querySelector('.event')?.textContent.toLowerCase() || '';
+
+                    const isMatch = title.includes(normalizedQuery) ||
+                        teams.includes(normalizedQuery) ||
+                        event.includes(normalizedQuery);
+
+                    card.style.display = isMatch ? 'flex' : 'none';
+                    if (isMatch) anyVisible = true;
+                });
+
+                // Hide sections with no visible matches
+                document.querySelectorAll('.movie-section').forEach(section => {
+                    const hasVisibleCards = Array.from(section.querySelectorAll('.movie-card'))
+                        .some(card => card.style.display !== 'none');
+                    section.style.display = hasVisibleCards ? '' : 'none';
+                });
+
+                return anyVisible;
+            }
+
+            // Fetch and render matches
+            function loadMatches() {
+                fetch(jsonUrl)
+                    .then(res => {
+                        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                        return res.json();
+                    })
+                    .then(data => {
+                        const matches = Array.isArray(data?.matches) ? data.matches : [];
+
+                        if (matches.length === 0) {
+                            allCategoriesContainer.innerHTML =
+                                "<div style='color:#bbb; text-align:center; margin:20px;'>No matches available at the moment.</div>";
+                            return;
+                        }
+
+                        allCategoriesContainer.innerHTML = "";
+
+                        // Filter and display live matches first
+                        const liveMatches = matches.filter(m =>
+                            m.status === "LIVE" && (m.adfree_url || m.dai_url)
+                        );
+
+                        if (liveMatches.length > 0) {
+                            const liveSection = createSection("Live Now", liveMatches);
+                            if (liveSection) allCategoriesContainer.appendChild(liveSection);
+                        }
+
+                        // Group remaining matches by category
+                        const categorized = matches.reduce((acc, match) => {
+                            if (match.status === "LIVE" && (match.adfree_url || match.dai_url)) return acc;
+                            const cat = match.event_category || "Other Events";
+                            if (!acc[cat]) acc[cat] = [];
+                            acc[cat].push(match);
+                            return acc;
+                        }, {});
+
+                        // Display categorized matches
+                        Object.keys(categorized)
+                            .sort()
+                            .forEach(cat => {
+                                const section = createSection(cat, categorized[cat]);
+                                if (section) allCategoriesContainer.appendChild(section);
+                            });
+
+                        // Add scroll buttons
+                        addGridScrollButtons();
+
+                        // If search query exists, filter immediately
+                        if (searchBar.value.trim()) {
+                            filterMatches(searchBar.value);
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Failed to load matches:", err);
+                        allCategoriesContainer.innerHTML =
+                            '<p style="color: #ff5555; text-align:center; padding:20px;">Failed to load matches. Please check your connection and try again.</p>';
+                    });
+            }
+
+            // Search functionality
+            searchBar.addEventListener('input', () => {
+                const query = searchBar.value;
+                filterMatches(query);
+            });
+
+            // Initial load
+            loadMatches();
+        });
+    </script>
+</body>
+
+</html>
