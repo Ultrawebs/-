@@ -14,7 +14,8 @@
     <meta property="og:title" content="Live Sports | StreamX" />
     <meta property="og:description"
         content="Watch live sports in HD with smooth playback – StreamX covers football, cricket, and more!" />
-    <meta property="og:image" content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
+    <meta property="og:image"
+        content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
     <meta property="og:url" content="https://ultrawebs.github.io/-/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="StreamX" />
@@ -24,15 +25,21 @@
     <meta name="twitter:title" content="Live Sports | StreamX" />
     <meta name="twitter:description"
         content="StreamX lets you watch live sports events – football, cricket, and more – in full HD." />
-    <meta name="twitter:image" content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
+    <meta name="twitter:image"
+        content="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1d6ada58-4603-4525-9647-234fdaaef7ca.png" />
     <meta name="twitter:site" content="@StreamX" />
     <meta name="twitter:creator" content="@StreamX" />
 
     <!-- Favicon -->
-    <link rel="icon" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
+    <link rel="icon"
+        href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png"
+        type="image/x-icon" />
+    <link rel="apple-touch-icon"
+        href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/2ec485e0-d1e6-408e-a86b-2deec6c123c1.png" />
     <link rel="manifest" href="site.webmanifest" />
 
     <!-- Fonts or CSS (optional, include your CSS here) -->
@@ -562,15 +569,27 @@
 
             function playChannel(match) {
                 const streamUrl = match.adfree_url ?? match.dai_url;
+
                 if (!streamUrl) {
                     showErrorMessage('No live stream available for this match.');
                     return;
                 }
-                const playerUrl = new URL("fancodeplayer.html", window.location.href);
-                playerUrl.searchParams.set("src", encodeURIComponent(streamUrl));
-                playerUrl.searchParams.set("name", encodeURIComponent(match.title || 'Live Match'));
+
+                // Validate only .mp4 or .m3u8 URLs
+                if (!/\.(mp4|m3u8)(\?|$)/i.test(streamUrl)) {
+                    showErrorMessage('Unsupported stream format. Only .mp4 and .m3u8 are supported.');
+                    return;
+                }
+
+                // Construct player URL
+                const playerUrl = new URL("fancodeplayer.html", window.location.origin);
+                playerUrl.searchParams.set("src", streamUrl);
+                playerUrl.searchParams.set("name", match.title || 'Live Match');
+
+                // Open in a new tab safely
                 window.open(playerUrl.toString(), "_blank", "noopener,noreferrer");
             }
+
 
             function showErrorMessage(message) {
                 const existingMsg = document.querySelector('.error-message');
