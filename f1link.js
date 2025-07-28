@@ -90,7 +90,7 @@ const videoLinks = {
     "Sprint Qualifying": "https://in-mc-vod.fancode.com/delhi/118442_english_hls_49925ta-di_h264_backup/vod_778_index.m3u8",
     "Sprint": "https://in-mc-vod.fancode.com/delhi/118443_english_hls_50075ta-di_h264_backup/vod_699_index.m3u8",
     "Qualifying": "https://in-mc-vod.fancode.com/delhi/118444_english_hls_17828ta-di_h264_backup/vod_444_index.m3u8",
-    "Race": "link"
+    "Race": "https://in-mc-vod.fancode.com/delhi/118445_english_hls_1572ta-di_h264_backup/vod_894_index.m3u8"
   },
   hungarian: {
     "Practice 1": "link",
