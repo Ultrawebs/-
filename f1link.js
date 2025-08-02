@@ -95,8 +95,8 @@ const videoLinks = {
   hungarian: {
     "Practice 1": "https://in-mc-vod.fancode.com/delhi/118446_english_hls_1954ta-di_h264_backup/vod_765_index.m3u8",
     "Practice 2": "https://in-mc-vod.fancode.com/delhi/118447_english_hls_44779ta-di_h264_backup/vod_398_index.m3u8",
-    "Practice 3": "link",
-    "Qualifying": "link",
+    "Practice 3": "https://in-mc-vod.fancode.com/delhi/118448_english_hls_71018ta-di_h264_backup/vod_55_index.m3u8",
+    "Qualifying": "https://in-mc-vod.fancode.com/delhi/118449_english_hls_71829ta-di_h264_backup/vod_515_index.m3u8",
     "Race": "link"
   },
   dutch: {
