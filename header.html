@@ -1,0 +1,93 @@
+<header class="site-header">
+  <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/3097/3097005.png" alt="StreamX Logo">
+    <span>StreamX</span>
+  </div>
+
+  <nav id="menuBar" class="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="channels.html">Channels</a>
+    <a href="movies.html">Movies</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <button class="menu-toggle">☰</button>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(20, 20, 20, 0.9);
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    backdrop-filter: blur(6px);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #00e5ff;
+  }
+
+  .logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-menu a {
+    color: #eee;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-menu a:hover {
+    color: #00e5ff;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background: rgba(25, 25, 25, 0.95);
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-menu.show {
+      display: flex;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+  }
+</style>
