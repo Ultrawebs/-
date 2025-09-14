@@ -1,98 +1,81 @@
+<footer class="footer">
+  <div class="footer-links">
+    <a href="#">Help Center</a>
+    <a href="#">Jobs</a>
+    <a href="#">Privacy</a>
+    <a href="#">Contact Us</a>
+    <a href="#">Terms of Use</a>
+  </div>
+
+  <div class="socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <p class="copy">
+    © 2024 – 2025 <span>StreamX</span>. All rights reserved.  
+    <br />
+    <small>This is a demo application for educational purposes only.</small>
+  </p>
+</footer>
+
 <style>
-  footer {
-    background: rgba(0, 0, 0, 0.85);
-    color: #ddd;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.95rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
+.footer {
+  padding: 40px 20px;
+  text-align: center;
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+}
 
-  footer .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
 
-  footer .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
 
-  footer .footer-logo img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-  }
+.footer-links a:hover {
+  color: #00e5ff;
+}
 
-  footer nav {
-    display: flex;
-    gap: 20px;
-  }
+.socials {
+  margin: 15px 0;
+}
 
-  footer nav a {
-    color: #bbb;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
+.socials a {
+  margin: 0 10px;
+  font-size: 1.3rem;
+  color: #bbb;
+  transition: color 0.3s, transform 0.2s;
+}
 
-  footer nav a:hover {
-    color: #fff;
-  }
+.socials a:hover {
+  color: #00e5ff;
+  transform: scale(1.1);
+}
 
-  footer .footer-copy {
-    flex: 1;
-    text-align: right;
-    font-size: 0.85rem;
-    color: #999;
-  }
+.copy {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #888;
+}
 
-  /* Tablet */
-  @media (max-width: 768px) {
-    footer .footer-container {
-      flex-direction: column;
-      text-align: center;
-    }
-    footer .footer-copy {
-      text-align: center;
-    }
-    footer nav {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-  }
-
-  /* Mobile */
-  @media (max-width: 480px) {
-    footer {
-      font-size: 0.85rem;
-      padding: 16px;
-    }
-    footer nav {
-      gap: 12px;
-    }
-  }
+.copy span {
+  color: #00e5ff;
+}
 </style>
 
-<footer>
-  <div class="footer-container">
-    <div class="footer-logo">
-      <img src="logo.png" alt="StreamX Logo">
-      <span>StreamX</span>
-    </div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Channels</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-    <div class="footer-copy">
-      © 2025 StreamX. All rights reserved.
-    </div>
-  </div>
-</footer>
+<!-- FontAwesome Icons -->
+<script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
