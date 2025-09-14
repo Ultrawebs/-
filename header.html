@@ -1,9 +1,12 @@
 <header class="header">
-  <div class="logo">Ultra<span class="animated-text">Webs</span></div> 
+  <div class="logo">
+    <span class="ultra-text">Ultra</span>
+    <span class="animated-webs">Webs</span>
+  </div> 
   <nav class="nav">
     <a href="#">Home</a>
     <a href="#">About</a>
-    <a href="#">Contact US</a>
+    <a href="#">Contact Us</a>
     <a href="#">My Profile</a>
   </nav>
   <div class="menu-toggle" id="menuToggle">&#9776;</div>
@@ -32,25 +35,45 @@
   font-weight: 700;
   color: #fff;
   letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
-.logo span {
-  color: #00e5ff;
+/* Ultra Text */
+.ultra-text {
+  color: #fff;
+  margin-right: 5px;
+  display: inline-block;
+  transition: opacity 1s ease;
+  animation: ultraFade 6s infinite;
 }
 
-/* ===== ANIMATED "Webs" ===== */
-.animated-text {
+/* Animated Webs */
+.animated-webs {
   background: linear-gradient(90deg, #00e5ff, #ff00ff, #00ff9d, #00e5ff);
   background-size: 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: animateText 5s infinite linear;
+  display: inline-block;
+  transform: translateX(-120%);
+  animation: websSlide 6s infinite;
 }
 
-@keyframes animateText {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Animations */
+@keyframes ultraFade {
+  0%, 40% { opacity: 1; }
+  50%, 90% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes websSlide {
+  0% { transform: translateX(-120%); opacity: 0; }
+  20% { transform: translateX(0); opacity: 1; }
+  40% { transform: translateX(0); opacity: 1; }
+  60% { transform: translateX(120%); opacity: 0; }
+  100% { transform: translateX(-120%); opacity: 0; }
 }
 
 .nav {
