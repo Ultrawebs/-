@@ -1,0 +1,98 @@
+<style>
+  footer {
+    background: rgba(0, 0, 0, 0.85);
+    color: #ddd;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  footer .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  footer .footer-logo img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+
+  footer nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  footer nav a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer nav a:hover {
+    color: #fff;
+  }
+
+  footer .footer-copy {
+    flex: 1;
+    text-align: right;
+    font-size: 0.85rem;
+    color: #999;
+  }
+
+  /* Tablet */
+  @media (max-width: 768px) {
+    footer .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    footer .footer-copy {
+      text-align: center;
+    }
+    footer nav {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    footer {
+      font-size: 0.85rem;
+      padding: 16px;
+    }
+    footer nav {
+      gap: 12px;
+    }
+  }
+</style>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="logo.png" alt="StreamX Logo">
+      <span>StreamX</span>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Channels</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="footer-copy">
+      © 2025 StreamX. All rights reserved.
+    </div>
+  </div>
+</footer>
