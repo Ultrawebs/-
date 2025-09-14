@@ -1,88 +1,101 @@
-<header class="site-header">
-  <div class="logo">
-    <img src="https://cdn-icons-png.flaticon.com/512/3097/3097005.png" alt="StreamX Logo">
-    <span>StreamX</span>
+<!-- header.html -->
+<header>
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo.png" alt="StreamX Logo">
+      <span>StreamX</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Live TV</a>
+      <a href="#">Movies</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" aria-label="Menu">
+      ☰
+    </button>
   </div>
-
-  <nav id="menuBar" class="nav-menu">
-    <a href="index.html">Home</a>
-    <a href="channels.html">Channels</a>
-    <a href="movies.html">Movies</a>
-    <a href="about.html">About</a>
-  </nav>
-
-  <button class="menu-toggle">☰</button>
 </header>
 
 <style>
-  .site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(20, 20, 20, 0.9);
+  header {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 999;
-    backdrop-filter: blur(6px);
+    flex-wrap: wrap;
   }
 
   .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    font-size: 1.2rem;
     font-weight: 700;
-    font-size: 1.3rem;
-    color: #00e5ff;
   }
 
   .logo img {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
   }
 
-  .nav-menu {
+  .nav-links {
     display: flex;
     gap: 20px;
   }
 
-  .nav-menu a {
-    color: #eee;
+  .nav-links a {
+    color: #ddd;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
   }
 
-  .nav-menu a:hover {
-    color: #00e5ff;
+  .nav-links a:hover {
+    color: #fff;
   }
 
   .menu-toggle {
     display: none;
+    font-size: 1.5rem;
     background: none;
     border: none;
     color: #fff;
-    font-size: 1.8rem;
     cursor: pointer;
   }
 
+  /* Tablet */
   @media (max-width: 768px) {
-    .nav-menu {
+    .nav-links {
       display: none;
       flex-direction: column;
-      position: absolute;
-      top: 60px;
-      right: 10px;
-      background: rgba(25, 25, 25, 0.95);
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.95);
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
     }
 
-    .nav-menu.show {
+    .nav-links.show {
       display: flex;
     }
 
@@ -90,4 +103,29 @@
       display: block;
     }
   }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .logo span {
+      font-size: 1rem;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      padding: 6px 0;
+    }
+  }
 </style>
+
+<script>
+  // Toggle mobile menu
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".nav-links");
+
+    if (toggleBtn && nav) {
+      toggleBtn.addEventListener("click", () => {
+        nav.classList.toggle("show");
+      });
+    }
+  });
+</script>
