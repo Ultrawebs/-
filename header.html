@@ -1,131 +1,111 @@
-<!-- header.html -->
-<header>
-  <div class="header-container">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="logo.png" alt="StreamX Logo">
-      <span>StreamX</span>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Live TV</a>
-      <a href="#">Movies</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-
-    <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" aria-label="Menu">
-      ☰
-    </button>
-  </div>
+<header class="header">
+  <div class="logo">Ultra<span class="animated-text">Webs</span></div> 
+  <nav class="nav">
+    <a href="#">Home</a>
+    <a href="#">Movies</a>
+    <a href="#">Series</a>
+    <a href="#">Live TV</a>
+    <a href="#">Sports</a>
+    <a href="#">Search</a>
+    <a href="#">My Profile</a>
+  </nav>
+  <div class="menu-toggle" id="menuToggle">&#9776;</div>
 </header>
 
 <style>
-  header {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    color: #fff;
-    padding: 12px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* ===== GLASSMORPHISM HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #00e5ff;
+}
+
+/* ===== ANIMATED "Webs" ===== */
+.animated-text {
+  background: linear-gradient(90deg, #00e5ff, #ff00ff, #00ff9d, #00e5ff);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateText 5s infinite linear;
+}
+
+@keyframes animateText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #eee;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #00e5ff;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(14px);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 12px;
   }
 
-  .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
+  .nav.show {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.2rem;
-    font-weight: 700;
-  }
-
-  .logo img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 20px;
-  }
-
-  .nav-links a {
-    color: #ddd;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-
-  .nav-links a:hover {
-    color: #fff;
   }
 
   .menu-toggle {
-    display: none;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+    display: block;
   }
-
-  /* Tablet */
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      background: rgba(0, 0, 0, 0.95);
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
-    .nav-links.show {
-      display: flex;
-    }
-
-    .menu-toggle {
-      display: block;
-    }
-  }
-
-  /* Mobile */
-  @media (max-width: 480px) {
-    .logo span {
-      font-size: 1rem;
-    }
-    .nav-links a {
-      font-size: 0.9rem;
-      padding: 6px 0;
-    }
-  }
+}
 </style>
 
 <script>
-  // Toggle mobile menu
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.querySelector(".menu-toggle");
-    const nav = document.querySelector(".nav-links");
-
-    if (toggleBtn && nav) {
-      toggleBtn.addEventListener("click", () => {
-        nav.classList.toggle("show");
-      });
-    }
-  });
+document.getElementById("menuToggle").addEventListener("click", () => {
+  document.querySelector(".nav").classList.toggle("show");
+});
 </script>
