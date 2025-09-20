@@ -116,7 +116,7 @@ const videoLinks = {
   azerbaijan: {
     "Practice 1": "https://in-mc-vod.fancode.com/delhi/118461_english_hls_622a351da356645ta-di_h264_backup/vod_127_index.m3u8",
     "Practice 2": "https://in-mc-vod.fancode.com/delhi/118462_english_hls_feb4efd2ea4782ta-di_h264_backup/vod_457_index.m3u8",
-    "Practice 3": "link",
+    "Practice 3": "https://in-mc-vod.fancode.com/delhi/118463_english_hls_a98f8ba8bb77588ta-di_h264_backup/vod_484_index.m3u8",
     "Qualifying": "link",
     "Race": "link"
   },
