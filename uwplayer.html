@@ -8,26 +8,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+
+    <!-- Default meta tags (will be dynamically updated) -->
+    <meta name="description" content="Watch live TV online in HD on StreamX.">
+    <meta name="keywords" content="Live TV, Online TV, StreamX, HD Streaming">
+    <meta name="author" content="StreamX">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:title" content="Live TV | StreamX">
+    <meta property="og:description" content="Watch live TV online in HD on StreamX.">
+    <meta property="og:image" content="og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Live TV | StreamX">
+    <meta name="twitter:description" content="Watch live TV online in HD on StreamX.">
+    <meta name="twitter:image" content="og-image.png">
+    <meta name="twitter:site" content="@StreamX">
+
+    <!-- Load Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
+        /* ===== GLOBAL FONT & RESET ===== */
         html,
         body {
-            min-height: 100%;
-            background: #000 !important;
-            color: #fff;
             margin: 0;
             padding: 0;
-            font-family: "Space Grotesk", sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
+            background: url('https://wallpapercave.com/wp/wp15392660.jpg') no-repeat center center fixed;
+            background-size: fill;
+            color: #fff;
+            min-height: 100%;
+            position: relative;
         }
 
+        /* DARK OVERLAY */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+        }
+
+        /* GLASSMORPHISM CONTAINER */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* VIDEO SECTION */
         .video-wrapper {
             width: 100%;
             max-width: 1000px;
-            margin: 100px auto 40px;
+            margin: 120px auto 40px;
             padding: 1rem;
+            position: relative;
+            z-index: 2;
         }
 
         .ambient-glow {
-            position: relative;
             display: flex;
             flex-direction: column;
             border-radius: 16px;
@@ -39,14 +94,7 @@
             align-items: center;
             gap: 12px;
             padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.135);
-            /* semi-transparent */
             border-radius: 16px 16px 0 0;
-            backdrop-filter: blur(12px) saturate(160%) contrast(120%);
-            -webkit-backdrop-filter: blur(12px) saturate(160%) contrast(120%);
-            /* subtle frosted border */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            /* depth */
             transition: all 0.3s ease;
         }
 
@@ -62,89 +110,71 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: #00e5ff;
-            letter-spacing: 0.5px;
+            font-family: 'Space Grotesk', sans-serif;
         }
-
 
         #player {
             width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 0 0 8px 8px;
+            aspect-ratio: 16/9;
+            border-radius: 0 0 16px 16px;
             overflow: hidden;
-            background: #000;
+        }
+
+        #play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 16px;
+            transition: background 0.3s;
+        }
+
+        #play-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s, background 0.2s;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        #play-button:hover {
+            transform: scale(1.05);
+            background: rgba(0, 229, 255, 0.15);
         }
 
         h2 {
             text-align: center;
             color: #ccc;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        /* JW Player theme tweaks */
-        .jwplayer .jw-icon-inline.jw-button-color,
-        .jwplayer .jw-icon.jw-button-color path {
-            color: #00e5ff !important;
-            fill: #00e5ff !important;
+        /* JW PLAYER THEME */
+        .jwplayer {
+            --jwplayer-primary-color: #00e5ff;
+            --jwplayer-background-color: rgba(0, 0, 0, 0.5);
+            --jwplayer-slider-color: #00e5ff;
+            --jwplayer-button-color: #00e5ff;
+            --jwplayer-tooltip-color: #00e5ff;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        .jwplayer .jw-progress {
-            background-color: #00e5ff !important;
-        }
-
-        .jwplayer .jw-settings-menu,
-        .jwplayer .jw-option,
-        .jwplayer .jw-text {
-            background: #111 !important;
-            color: #eee !important;
-            font-size: 16px !important;
-        }
-
-        .jw-settings-menu {
-            border-radius: 10px !important;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-            transition: all 0.3s ease-in-out !important;
-            overflow: hidden !important;
-        }
-
-        .jw-settings-menu .jw-settings-content-item {
-            padding: 12px 18px !important;
-            border-bottom: 1px solid #333;
-            font-size: 16px !important;
-        }
-
-        .jw-settings-menu .jw-settings-content-item:hover {
-            background-color: #222 !important;
-            color: #fff !important;
-        }
-
-        .jw-icon-inline.jw-button-color:hover {
-            filter: brightness(1.4);
-        }
-
-        /* Make JW Player's time/duration text background transparent */
-        .jwplayer .jw-text-elapsed,
-        .jwplayer .jw-text-duration {
-            background: transparent !important;
-            font-size: 15px !important;
-            color: #eee !important;
-        }
-
-        /* Remove gray bar behind time text (controls area) */
-        .jwplayer .jw-controlbar .jw-slider-time {
-            background: transparent !important;
-        }
-
-        /* Optional: Increase size of subtitles/captions if used */
-        .jwplayer .jw-text-track {
-            font-size: 20px !important;
-            color: #00e5ff !important;
-        }
-
-        @media (max-width: 768px) {
-            .video-wrapper {
-                margin-top: 80px;
-                padding: 1rem;
-            }
-
+        @media (max-width:768px) {
             .channel-info span {
                 font-size: 1rem;
             }
@@ -163,23 +193,25 @@
 
     <!-- VIDEO SECTION -->
     <div class="video-wrapper">
-        <div class="ambient-glow">
-            <!-- Channel Info -->
-            <div class="channel-info" id="channel-info" style="display: none;">
+        <div class="ambient-glow glass">
+            <div class="channel-info" id="channel-info" style="display:none;">
                 <img id="channel-logo" src="" alt="Logo" />
                 <span id="channel-name"></span>
             </div>
-
-            <!-- Player -->
             <div id="player"></div>
         </div>
-        <canvas id="color-sample-canvas" style="display: none;"></canvas>
+
+        <div id="play-overlay">
+            <button id="play-button">
+                <span class="material-icons">volume_up</span> Tap to Play with Sound
+            </button>
+        </div>
     </div>
+
 
     <!-- FOOTER -->
     <div id="footer-container"></div>
 
-    <!-- JW Player Setup -->
     <script>
         const params = new URLSearchParams(window.location.search);
         const src = params.get("play");
@@ -188,35 +220,82 @@
         const channelName = params.get("channel");
         const logoUrl = params.get("logo");
 
-        // Channel Info + Title update
+        // Helper functions
+        function setMeta(tagName, attrName, content) {
+            let tag = document.querySelector(`${tagName}[${attrName}]`);
+            if (!tag) {
+                tag = document.createElement(tagName);
+                tag.setAttribute(attrName, attrName.includes("property") ? attrName.split('"')[1] : attrName.split('"')[1]);
+                document.head.appendChild(tag);
+            }
+            tag.setAttribute("content", content);
+        }
+
+        function setFavicon(url) {
+            if (!url) return;
+            let link = document.querySelector("link[rel~='icon']");
+            if (!link) {
+                link = document.createElement('link');
+                link.rel = 'icon';
+                document.head.appendChild(link);
+            }
+            link.href = url;
+        }
+
         if (channelName && logoUrl) {
-            const infoBox = document.getElementById("channel-info");
-            document.getElementById("channel-name").textContent = decodeURIComponent(channelName);
-            document.getElementById("channel-logo").src = decodeURIComponent(logoUrl);
-            infoBox.style.display = "flex";
-            document.title = decodeURIComponent(channelName) + " | StreamX";
+            const decodedName = decodeURIComponent(channelName);
+            const decodedLogo = decodeURIComponent(logoUrl);
+
+            // Update channel info
+            document.getElementById("channel-info").style.display = "flex";
+            document.getElementById("channel-name").textContent = decodedName;
+            document.getElementById("channel-logo").src = decodedLogo;
+            document.title = decodedName + " | StreamX";
+
+            // Update favicon
+            setFavicon(decodedLogo);
+
+            // SEO meta
+            setMeta("meta", 'name="description"', `Watch ${decodedName} live online in HD on StreamX.`);
+            setMeta("meta", 'name="keywords"', `Live TV, Online TV, StreamX, ${decodedName}, HD Streaming, TV Channels`);
+            setMeta("meta", 'name="author"', 'StreamX');
+            setMeta("meta", 'name="robots"', 'index, follow');
+
+            // Open Graph
+            setMeta("meta", 'property="og:title"', `${decodedName} | StreamX`);
+            setMeta("meta", 'property="og:description"', `Watch ${decodedName} live online in HD on StreamX.`);
+            setMeta("meta", 'property="og:image"', decodedLogo);
+            setMeta("meta", 'property="og:image:width"', '1200');
+            setMeta("meta", 'property="og:image:height"', '630');
+            setMeta("meta", 'property="og:type"', 'website');
+            setMeta("meta", 'property="og:url"', window.location.href);
+
+            // Twitter
+            setMeta("meta", 'name="twitter:title"', `${decodedName} | StreamX`);
+            setMeta("meta", 'name="twitter:description"', `Watch ${decodedName} live online in HD on StreamX.`);
+            setMeta("meta", 'name="twitter:image"', decodedLogo);
+            setMeta("meta", 'name="twitter:card"', 'summary_large_image');
+            setMeta("meta", 'name="twitter:site"', '@StreamX');
         }
 
         function getSourceType(url) {
             if (!url) return null;
             if (url.includes(".m3u8")) return "hls";
             if (url.includes(".mpd")) return "dash";
-            if (url.includes(".mp4")) return "mp4";
-            if (url.includes(".mkv")) return "mp4"; // JW treats mkv as mp4 container
-            return "mp4"; // fallback
+            if (url.includes(".mp4") || url.includes(".mkv")) return "mp4";
+            return "mp4";
         }
 
         if (!src) {
             document.querySelector(".video-wrapper").innerHTML = "<h2>No video source provided.</h2>";
         } else {
             const type = getSourceType(src);
-
             const playerConfig = {
                 file: src,
-                type: type,
-                autostart: true,
+                type,
+                autostart: true,    // starts muted
+                mute: true,         // muted initially
                 controls: true,
-                mute: false,
                 cast: {},
                 airplay: true,
                 width: "100%",
@@ -225,104 +304,40 @@
                 playbackRateControls: true,
             };
 
-            // If DASH DRM is provided
             if (type === "dash" && kidKey && kidKey.includes(":")) {
                 const [keyId, key] = kidKey.split(":");
-                playerConfig.drm = {
-                    [drm]: { keyId, key },
-                };
+                playerConfig.drm = { [drm]: { keyId, key } };
             }
 
             jwplayer("player").setup(playerConfig);
         }
-    </script>
 
-    <!-- Header Loader -->
-    <script>
-        fetch("header.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("header-placeholder").innerHTML = data;
-                const toggleBtn = document.querySelector(".menu-toggle");
-                const menuBar = document.getElementById("menuBar");
-                if (toggleBtn && menuBar) {
-                    toggleBtn.addEventListener("click", () => {
-                        menuBar.classList.toggle("show");
-                    });
-                }
-            });
-    </script>
-
-    <!-- Footer Loader -->
-    <script>
-        fetch("footer.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("footer-container").innerHTML = data;
-            });
-    </script>
-
-    <script>
-    function setMetaContent(selector, content) {
-        let tag = document.querySelector(selector);
-        if (!tag) {
-            tag = document.createElement('meta');
-            if (selector.includes("property")) {
-                tag.setAttribute("property", selector.split('"')[1]);
-            } else if (selector.includes("name")) {
-                tag.setAttribute("name", selector.split('"')[1]);
+        // Header/Footer loader
+        fetch("header.html").then(res => res.text()).then(data => {
+            document.getElementById("header-placeholder").innerHTML = data;
+            const toggleBtn = document.querySelector(".menu-toggle");
+            const menuBar = document.getElementById("menuBar");
+            if (toggleBtn && menuBar) {
+                toggleBtn.addEventListener("click", () => menuBar.classList.toggle("show"));
             }
-            document.head.appendChild(tag);
-        }
-        tag.setAttribute("content", content);
-    }
+        });
 
-    function setFavicon(url) {
-        if (!url) return;
-        let link = document.querySelector("link[rel~='icon']");
-        if (!link) {
-            link = document.createElement('link');
-            link.rel = 'icon';
-            document.head.appendChild(link);
-        }
-        link.href = url;
-    }
+        fetch("footer.html").then(res => res.text()).then(data => {
+            document.getElementById("footer-container").innerHTML = data;
+        });
 
-    if (channelName && logoUrl) {
-        const decodedLogo = decodeURIComponent(logoUrl);
-        const decodedName = decodeURIComponent(channelName);
+        const overlay = document.getElementById("play-overlay");
+        overlay.addEventListener("click", () => {
+            const player = jwplayer("player");
 
-        // Update favicon
-        setFavicon(decodedLogo);
+            // Play video and unmute
+            player.play(true);
+            player.setVolume(40); // Unmute & full volume
 
-        // Update page title
-        document.title = decodedName + " | StreamX";
+            overlay.style.display = "none"; // hide overlay
+        });
 
-        // SEO meta
-        setMetaContent('meta[name="description"]', `Watch ${decodedName} live online in HD on StreamX.`);
-        setMetaContent('meta[name="keywords"]', `Live TV, Online TV, StreamX, ${decodedName}, HD Streaming, TV Channels`);
-        setMetaContent('meta[name="author"]', 'StreamX');
-        setMetaContent('meta[name="robots"]', 'index, follow');
-
-        // Open Graph (Facebook, LinkedIn, WhatsApp)
-        setMetaContent('meta[property="og:title"]', decodedName + " | StreamX");
-        setMetaContent('meta[property="og:description"]', `Watch ${decodedName} live online in HD on StreamX.`);
-        setMetaContent('meta[property="og:image"]', decodedLogo);
-        setMetaContent('meta[property="og:image:width"]', '1200');
-        setMetaContent('meta[property="og:image:height"]', '630');
-        setMetaContent('meta[property="og:type"]', 'website');
-        setMetaContent('meta[property="og:url"]', window.location.href);
-
-        // Twitter Card
-        setMetaContent('meta[name="twitter:card"]', 'summary_large_image');
-        setMetaContent('meta[name="twitter:title"]', decodedName + " | StreamX");
-        setMetaContent('meta[name="twitter:description"]', `Watch ${decodedName} live online in HD on StreamX.`);
-        setMetaContent('meta[name="twitter:image"]', decodedLogo);
-        setMetaContent('meta[name="twitter:site"]', '@StreamX');
-    }
-</script>
-
-
+    </script>
 </body>
 
 </html>
