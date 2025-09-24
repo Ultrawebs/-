@@ -1,101 +1,193 @@
-<footer class="footer">
-  <div class="footer-links">
-    <a href="#">Help Center</a>
-    <a href="#">Jobs</a>
-    <a href="#">Privacy</a>
-    <a href="#">Contact Us</a>
-    <a href="#">Terms of Use</a>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-youtube"></i></a>
-  </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Demo with SVG</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      background: transparent;
+      color: #ccc;
+    }
 
-  <p class="copy">
-    © 2024 – 2025 <span>UltraWebs</span>. All rights reserved.
-    <br />
-    <small>This is a demo application for educational purposes only.</small>
-    <br />
-    <small>Created by UltraWebs(HM) © 2025</small>
-  </p>
-</footer>
+    .footer {
+      padding: 50px 20px;
+      background: linear-gradient(135deg, rgba(15, 15, 15, 0.6), rgba(35, 35, 35, 0.6));
+      backdrop-filter: blur(10px) saturate(150%);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      text-align: center;
+    }
 
-<style>
-.footer {
-  padding: 50px 20px;
-  text-align: center;
-  background: rgba(20, 20, 20, 0.85);
-  backdrop-filter: blur(15px) saturate(150%);
-  -webkit-backdrop-filter: blur(15px) saturate(150%);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  margin-top: 60px;
-  color: #bbb;
-  font-family: 'Space Grotesk', sans-serif;
-}
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
 
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 25px;
-}
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
 
-.footer-links a {
-  color: #bbb;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s, transform 0.2s;
-}
+    .footer-links a {
+      color: #bbb;
+      font-size: 1rem;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s;
+    }
 
-.footer-links a:hover {
-  color: #00e5ff;
-  transform: translateY(-2px);
-}
+    .footer-links a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: #00e5ff;
+      transition: width 0.3s;
+    }
 
-.socials {
-  margin: 20px 0;
-}
+    .footer-links a:hover {
+      color: #00e5ff;
+    }
 
-.socials a {
-  margin: 0 12px;
-  font-size: 1.5rem;
-  color: #bbb;
-  transition: color 0.3s, transform 0.2s;
-}
+    .footer-links a:hover::after {
+      width: 100%;
+    }
 
-.socials a:hover {
-  color: #00e5ff;
-  transform: scale(1.2);
-}
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
 
-.copy {
-  margin-top: 15px;
-  font-size: 0.85rem;
-  color: #888;
-  line-height: 1.4;
-}
+    .socials a {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: transform 0.3s, background 0.3s;
+    }
 
-.copy span {
-  color: #00e5ff;
-}
+    .socials a svg {
+      width: 28px;
+      height: 28px;
+      fill: #00e5ff;
+      transition: fill 0.3s;
+    }
 
-/* Responsive Footer */
-@media (max-width: 768px) {
-  .footer-links {
-    flex-direction: column;
-    gap: 12px;
-  }
+    .socials a:hover {
+      transform: scale(1.3);
+    }
 
-  .socials a {
-    font-size: 1.3rem;
-    margin: 0 8px;
-  }
-}
-</style>
+    .footer-copy p {
+      font-size: 0.9rem;
+      color: #999;
+      line-height: 1.6;
+      margin: 0;
+    }
 
-<!-- FontAwesome Icons -->
-<script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+    .footer-copy span {
+      color: #00e5ff;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .footer-links {
+        gap: 12px;
+        font-size: 0.9rem;
+      }
+
+      .socials a {
+        width: 50px;
+        height: 50px;
+      }
+
+      .socials a svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .footer-copy p {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Links -->
+      <div class="footer-links">
+        <a href="#">Help Center</a>
+        <a href="#">Jobs</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Terms of Use</a>
+      </div>
+
+      <!-- Socials (SVG icons) -->
+      <div class="socials">
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M22.675 0h-21.35C.594 0 0 .593 0 1.326v21.348C0 23.406.594 24 1.326 24h11.495v-9.294H9.691v-3.622h3.13V8.413c0-3.1 1.893-4.788 4.657-4.788 1.325 0 2.464.099 2.794.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.594 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+          </svg>
+        </a>
+        <a href="https://github.com/Ultrawebs" aria-label="GitHub">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.612-4.042-1.612-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.729.082-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.3-5.466-1.335-5.466-5.933 0-1.31.47-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.323 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.29-1.553 3.296-1.23 3.296-1.23.655 1.653.243 2.873.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.807 5.63-5.48 5.927.43.372.814 1.104.814 2.222 0 1.606-.014 2.898-.014 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.373-12-12-12z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x"
+            viewBox="0 0 16 16">
+            <path
+              d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+          </svg>
+        </a>
+        <a href="https://www.google.com/search?q=Ultrawebs by Harit Ultrawebs" aria-label="Google">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google"
+            viewBox="0 0 16 16">
+            <path
+              d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Copy -->
+      <div class="footer-copy">
+        <p>
+          © 2024 – 2025 <span>UltraWebs</span>. All rights reserved.<br>
+          <small>Demo application for educational purposes only.</small><br>
+          <small>Created by UltraWebs(HM) © 2025</small>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
