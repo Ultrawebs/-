@@ -7,7 +7,6 @@
   <title>UltraWebs Header</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ===== RESET & BASE ===== */
     * {
       margin: 0;
       padding: 0;
@@ -17,38 +16,25 @@
 
     /* ===== HEADER ===== */
     .header {
-      position: relative;
-      top: 0;
-      left: 0;
       width: 100%;
-      padding: 15px 40px;
+      padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(25, 25, 25, 0.7);
-      backdrop-filter: blur(18px) saturate(180%);
-      -webkit-backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: 10000;
-      transition: background 0.3s ease, padding 0.3s ease;
-      will-change: background, padding;
-    }
-
-    /* Solid background on scroll */
-    .header.scrolled {
-      background: rgba(25, 25, 25, 0.95);
-    }
-
-    .header:hover {
       background: rgba(25, 25, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    /* ===== LOGO ===== */
     .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
       display: flex;
       align-items: center;
-      font-weight: 700;
-      font-size: 1.6rem;
     }
 
     .ultra-text {
@@ -67,36 +53,31 @@
 
     @keyframes slideText {
       0% {
-        transform: translateX(-120%);
+        transform: translateX(-100%);
         opacity: 0;
       }
 
-      20% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-
+      20%,
       40% {
         transform: translateX(0);
         opacity: 1;
       }
 
       60% {
-        transform: translateX(120%);
+        transform: translateX(100%);
         opacity: 0;
       }
 
       100% {
-        transform: translateX(-120%);
+        transform: translateX(-100%);
         opacity: 0;
       }
     }
 
-    /* ===== NAVIGATION ===== */
+    /* ===== NAVIGATION (Desktop Default) ===== */
     .nav {
       display: flex;
-      gap: 30px;
-      transition: all 0.3s ease;
+      gap: 25px;
     }
 
     .nav a {
@@ -105,7 +86,7 @@
       font-weight: 500;
       font-size: 1rem;
       position: relative;
-      transition: color 0.3s ease;
+      transition: color 0.2s;
     }
 
     .nav a::after {
@@ -127,59 +108,39 @@
       width: 100%;
     }
 
-    /* ===== MENU TOGGLE ===== */
+    /* ===== MENU TOGGLE (Hidden on Desktop) ===== */
     .menu-toggle {
       display: none;
-      font-size: 2rem;
-      color: #fff;
+      font-size: 1.8rem;
       cursor: pointer;
       user-select: none;
     }
 
-    /* ===== OVERLAY ===== */
-    .overlay {
-      position: fixed;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      height: calc(100% - 70px);
-      background: rgba(0, 0, 0, 0.6);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 9998;
-    }
-
-    .overlay.show {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    /* ===== RESPONSIVE ===== */
+    /* ===== MOBILE MENU ===== */
     @media (max-width: 768px) {
       .nav {
-        position: fixed;
-        top: 70px;
-        right: -300px;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
         flex-direction: column;
         background: rgba(25, 25, 25, 0.95);
-        width: 250px;
-        padding: 20px;
-        border-radius: 12px 0 0 12px;
-        gap: 20px;
-        box-shadow: -2px 2px 20px rgba(0, 0, 0, 0.5);
-        transition: right 0.4s ease, opacity 0.4s ease;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        max-height: 0;
         opacity: 0;
-        height: calc(100% - 70px);
-        z-index: 9999;
-        backdrop-filter: blur(10px);
+        transition: max-height 0.4s ease, opacity 0.3s ease;
       }
 
       .nav.show {
-        right: 0;
+        max-height: 400px; /* enough for all links */
         opacity: 1;
+      }
+
+      .nav a {
+        display: block;
+        padding: 14px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .menu-toggle {
@@ -197,55 +158,30 @@
       <span class="ultra-text">Ultra</span>
       <span class="animated-webs">Webs</span>
     </div>
+    <div class="menu-toggle">&#9776;</div>
     <nav class="nav">
       <a href="#">Home</a>
       <a href="#">About</a>
       <a href="#">Contact</a>
       <a href="#">Profile</a>
     </nav>
-    <div class="menu-toggle">&#9776;</div>
   </header>
 
-  <!-- ===== OVERLAY ===== -->
-  <div class="overlay"></div>
-
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const menuToggle = document.querySelector(".menu-toggle");
-      const nav = document.querySelector(".nav");
-      const overlay = document.querySelector(".overlay");
-      const links = document.querySelectorAll(".nav a");
-      const header = document.querySelector(".header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".nav");
 
-      // Menu toggle for mobile
-      menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("show");
-        overlay.classList.toggle("show");
-      });
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("show");
+    });
 
-      overlay.addEventListener("click", () => {
+    // Auto close on link click
+    document.querySelectorAll(".nav a").forEach(link => {
+      link.addEventListener("click", () => {
         nav.classList.remove("show");
-        overlay.classList.remove("show");
-      });
-
-      links.forEach(link => {
-        link.addEventListener("click", () => {
-          nav.classList.remove("show");
-          overlay.classList.remove("show");
-        });
-      });
-
-      // Scroll effect for header background
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
       });
     });
   </script>
 
 </body>
-
 </html>
