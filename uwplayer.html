@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Live TV | StreamX</title>
+    <title>Live TV | UltraWebs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
         rel="stylesheet" />
@@ -312,15 +312,29 @@
             jwplayer("player").setup(playerConfig);
         }
 
-        // Header/Footer loader
-        fetch("header.html").then(res => res.text()).then(data => {
-            document.getElementById("header-placeholder").innerHTML = data;
-            const toggleBtn = document.querySelector(".menu-toggle");
-            const menuBar = document.getElementById("menuBar");
-            if (toggleBtn && menuBar) {
-                toggleBtn.addEventListener("click", () => menuBar.classList.toggle("show"));
-            }
-        });
+        // Load header dynamically
+        fetch("header.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
+
+                // ✅ Run toggle script AFTER header loads
+                const menuToggle = document.querySelector(".menu-toggle");
+                const nav = document.querySelector(".nav");
+
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener("click", () => {
+                        nav.classList.toggle("show");
+                    });
+
+                    // Optional: close nav when clicking a link
+                    document.querySelectorAll(".nav a").forEach(link => {
+                        link.addEventListener("click", () => {
+                            nav.classList.remove("show");
+                        });
+                    });
+                }
+            });
 
         fetch("footer.html").then(res => res.text()).then(data => {
             document.getElementById("footer-container").innerHTML = data;
