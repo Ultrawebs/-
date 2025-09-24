@@ -262,6 +262,67 @@
             });
     </script>
 
+    <script>
+    function setMetaContent(selector, content) {
+        let tag = document.querySelector(selector);
+        if (!tag) {
+            tag = document.createElement('meta');
+            if (selector.includes("property")) {
+                tag.setAttribute("property", selector.split('"')[1]);
+            } else if (selector.includes("name")) {
+                tag.setAttribute("name", selector.split('"')[1]);
+            }
+            document.head.appendChild(tag);
+        }
+        tag.setAttribute("content", content);
+    }
+
+    function setFavicon(url) {
+        if (!url) return;
+        let link = document.querySelector("link[rel~='icon']");
+        if (!link) {
+            link = document.createElement('link');
+            link.rel = 'icon';
+            document.head.appendChild(link);
+        }
+        link.href = url;
+    }
+
+    if (channelName && logoUrl) {
+        const decodedLogo = decodeURIComponent(logoUrl);
+        const decodedName = decodeURIComponent(channelName);
+
+        // Update favicon
+        setFavicon(decodedLogo);
+
+        // Update page title
+        document.title = decodedName + " | StreamX";
+
+        // SEO meta
+        setMetaContent('meta[name="description"]', `Watch ${decodedName} live online in HD on StreamX.`);
+        setMetaContent('meta[name="keywords"]', `Live TV, Online TV, StreamX, ${decodedName}, HD Streaming, TV Channels`);
+        setMetaContent('meta[name="author"]', 'StreamX');
+        setMetaContent('meta[name="robots"]', 'index, follow');
+
+        // Open Graph (Facebook, LinkedIn, WhatsApp)
+        setMetaContent('meta[property="og:title"]', decodedName + " | StreamX");
+        setMetaContent('meta[property="og:description"]', `Watch ${decodedName} live online in HD on StreamX.`);
+        setMetaContent('meta[property="og:image"]', decodedLogo);
+        setMetaContent('meta[property="og:image:width"]', '1200');
+        setMetaContent('meta[property="og:image:height"]', '630');
+        setMetaContent('meta[property="og:type"]', 'website');
+        setMetaContent('meta[property="og:url"]', window.location.href);
+
+        // Twitter Card
+        setMetaContent('meta[name="twitter:card"]', 'summary_large_image');
+        setMetaContent('meta[name="twitter:title"]', decodedName + " | StreamX");
+        setMetaContent('meta[name="twitter:description"]', `Watch ${decodedName} live online in HD on StreamX.`);
+        setMetaContent('meta[name="twitter:image"]', decodedLogo);
+        setMetaContent('meta[name="twitter:site"]', '@StreamX');
+    }
+</script>
+
+
 </body>
 
 </html>
