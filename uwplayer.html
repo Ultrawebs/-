@@ -35,14 +35,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
-        /* ===== GLOBAL FONT & RESET ===== */
+        /* ===== GLOBAL RESET & FONT ===== */
         html,
         body {
             margin: 0;
             padding: 0;
             font-family: 'Space Grotesk', sans-serif;
             background: url('https://wallpapercave.com/wp/wp15392660.jpg') no-repeat center center fixed;
-            background-size: fill;
+            background-size: cover;
             color: #fff;
             min-height: 100%;
             position: relative;
@@ -52,10 +52,7 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: rgba(0, 0, 0, 0.75);
             z-index: 0;
         }
@@ -63,20 +60,21 @@
         /* GLASSMORPHISM CONTAINER */
         .glass {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            border-radius: 1rem;
             backdrop-filter: blur(15px) saturate(180%);
             -webkit-backdrop-filter: blur(15px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
             position: relative;
             z-index: 2;
+            transition: all 0.3s ease;
         }
 
         /* VIDEO SECTION */
         .video-wrapper {
             width: 100%;
             max-width: 1000px;
-            margin: 50px auto 40px;
+            margin: 3rem auto 2rem;
             padding: 1rem;
             position: relative;
             z-index: 2;
@@ -85,72 +83,71 @@
         .ambient-glow {
             display: flex;
             flex-direction: column;
-            border-radius: 16px;
+            border-radius: 1rem;
             transition: box-shadow 0.3s;
         }
 
+        /* CHANNEL INFO */
         .channel-info {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 16px 16px 0 0;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 1rem 1rem 0 0;
             transition: all 0.3s ease;
         }
 
         .channel-info img {
-            width: 50px;
-            height: 50px;
+            width: 3rem;
+            height: 3rem;
             object-fit: contain;
-            border-radius: 10px;
+            border-radius: 0.5rem;
             padding: 2px;
         }
 
         .channel-info span {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #00e5ff;
-            font-family: 'Space Grotesk', sans-serif;
         }
 
+        /* PLAYER WRAPPER */
         #player {
             width: 100%;
             aspect-ratio: 16/9;
-            border-radius: 0 0 16px 16px;
+            border-radius: 0 0 1rem 1rem;
             overflow: hidden;
         }
 
+        /* PLAY OVERLAY */
         #play-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: rgba(0, 0, 0, 0.65);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 10;
-            border-radius: 16px;
-            transition: background 0.3s;
+            border-radius: 1rem;
+            transition: background 0.3s ease;
         }
 
         #play-button {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 28px;
-            font-size: 1.2rem;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
             color: #fff;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
+            border-radius: 0.75rem;
             cursor: pointer;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             transition: transform 0.2s, background 0.2s;
-            font-family: 'Space Grotesk', sans-serif;
         }
 
         #play-button:hover {
@@ -158,30 +155,106 @@
             background: rgba(0, 229, 255, 0.15);
         }
 
+        /* HEADING */
         h2 {
             text-align: center;
             color: #ccc;
-            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
         }
 
-        /* JW PLAYER THEME */
-        .jwplayer {
-            --jwplayer-primary-color: #00e5ff;
-            --jwplayer-background-color: rgba(0, 0, 0, 0.5);
-            --jwplayer-slider-color: #00e5ff;
-            --jwplayer-button-color: #00e5ff;
-            --jwplayer-tooltip-color: #00e5ff;
-            font-family: 'Space Grotesk', sans-serif;
+        /* ===== JWPLAYER CUSTOM THEME ===== */
+
+        /* Force JW Player global font */
+        .jwplayer,
+        .jwplayer * {
+            font-family: 'Space Grotesk', sans-serif !important;
+            font-size: 13px !important;
+            /* compact */
+            line-height: 1.4 !important;
+            letter-spacing: 0.2px;
         }
 
-        @media (max-width:768px) {
+        /* Primary Buttons & Icons */
+        .jwplayer .jw-icon-inline.jw-button-color,
+        .jwplayer .jw-icon.jw-button-color path {
+            color: #00e5ff !important;
+            fill: #00e5ff !important;
+            transition: all 0.3s ease;
+        }
+
+        .jw-icon-inline.jw-button-color:hover {
+            filter: brightness(1.4);
+            text-shadow: 0 0 6px rgba(0, 229, 255, 0.8);
+        }
+
+        /* Progress Bar */
+        .jwplayer .jw-progress {
+            background: linear-gradient(90deg, #00e5ff, #00bfff) !important;
+            box-shadow: 0 0 6px rgba(0, 229, 255, 0.6);
+            border-radius: 4px;
+        }
+
+        /* Settings Menu (Glassmorphism) */
+        .jwplayer .jw-settings-menu {
+            background: rgba(20, 20, 20, 0.4) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 0.75rem !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6) !important;
+            overflow: hidden !important;
+            transition: all 0.3s ease-in-out !important;
+        }
+
+        /* Settings Items */
+        .jw-settings-menu .jw-settings-content-item {
+            padding: 0.6rem 1rem !important;
+            font-size: 13px !important;
+            color: #eee !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .jw-settings-menu .jw-settings-content-item:hover {
+            background: rgba(255, 255, 255, 0.12) !important;
+            color: #fff !important;
+        }
+
+        /* Time Slider (Glassmorphism) */
+        .jwplayer .jw-controlbar .jw-slider-time {
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            border-radius: 6px !important;
+            height: 6px !important;
+        }
+
+        /* Buffered (gray bar) */
+        .jwplayer .jw-controlbar .jw-slider-time .jw-buffer {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-radius: 6px !important;
+        }
+
+        /* Played progress */
+        .jwplayer .jw-controlbar .jw-slider-time .jw-progress {
+            background: linear-gradient(90deg, #00e5ff, #00bfff) !important;
+            box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+            border-radius: 6px !important;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
             .channel-info span {
                 font-size: 1rem;
             }
 
             .channel-info img {
-                width: 32px;
-                height: 32px;
+                width: 2rem;
+                height: 2rem;
+            }
+
+            #play-button {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
             }
         }
     </style>
