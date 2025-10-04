@@ -123,7 +123,7 @@ const videoLinks = {
   singapore: {
     "Practice 1": "https://in-mc-vod.fancode.com/delhi/118466_english_hls_c948f12e2572869ta-di_h264_backup/vod_147_index.m3u8",
     "Practice 2": "https://in-mc-vod.fancode.com/delhi/118467_english_hls_d5ee897ccb96314ta-di_h264_backup/vod_899_index.m3u8",
-    "Practice 3": "link",
+    "Practice 3": "https://in-mc-vod.fancode.com/delhi/118468_english_hls_8d3f3e437861695ta-di_h264_backup/vod_399_index.m3u8",
     "Qualifying": "link",
     "Race": "link"
   },
