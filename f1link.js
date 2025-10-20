@@ -132,7 +132,7 @@ const videoLinks = {
     "Sprint Qualifying": "https://in-mc-vod.fancode.com/mumbai/118472_english_hls_eab5007fdf35308ta-di_h264_backup/vod_693_index.m3u8",
     "Sprint": "https://in-mc-vod.fancode.com/mumbai/118473_english_hls_a44c373cbd14000ta-di_h264_backup/vod_739_index.m3u8",
     "Qualifying": "https://in-mc-vod.fancode.com/mumbai/118474_english_hls_584f9a763a55278ta-di_h264_backup/vod_721_index.m3u8",
-    "Race": "link"
+    "Race": "https://in-mc-vod.fancode.com/mumbai/118475_english_hls_8d5fa32b4758656ta-di_h264_backup/vod_828_index.m3u8"
   },
   mexico: {
     "Practice 1": "link",
