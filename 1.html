@@ -1,118 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>F1 Live Match Player</title>
-  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
-  <style>
-    body {
-      background: #0a0a0a;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    .match-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-    .match {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 10px 20px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .match:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    #player-container {
-      width: 90%;
-      max-width: 900px;
-      margin: auto;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-  </style>
-</head>
-<body>
-  <h1>🏎️ Formula 1 Live Matches</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sports | StreamX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <div class="match-list">
-    <div class="match" data-video="https://in-mc-fdlive.fancode.com/mumbai/130929_english_hls_8469ad708c51045adfreeta-di_h264/index.m3u8">
-      🏁 USA Grand Prix 2025
-    </div>
-    <div class="match" data-video="https://cdn.jwplayer.com/manifests/8C9Q3F8L.m3u8">
-      🇲🇽 Mexico City Grand Prix 2025
-    </div>
-    <div class="match" data-video="https://cdn.jwplayer.com/manifests/Va4DkRlm.m3u8">
-      🇧🇷 São Paulo Grand Prix 2025
-    </div>
-  </div>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <div id="player-container"></div>
+    <!-- Google Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
-  <script>
-    // Initialize JW Player
-    function initializePlayer(videoUrl) {
-      jwplayer("player-container").setup({
-        aspectratio: "16:9",
-        width: "100%",
-        file: videoUrl,
-        image:
-          "https://d2n9h2wits23hf.cloudfront.net/image/v1/static/6057949432001/8382b094-4a8d-4719-a656-3afa74e3818f/156bd909-72ac-47f9-9c65-f8f3b6553de6/1194x672/match/image.jpg",
-        autostart: true,
-        hlshtml: true,
-        abouttext: "Ultrawebs(HM)",
-        aboutlink: "https://linktr.ee/ultrawebs",
-        logo: {
-          file: "https://media.formula1.com/image/upload/f_auto,c_limit,w_285,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo",
-          position: "bottom-right",
-          margin: "20",
-          hide: "false",
-          size: "05%",
-        },
-        fullscreen: {
-          enabled: true,
-          displayLabel: true,
-          label: "Exit Fullscreen",
-        },
-        playbackRateControls: true,
-        cast: {
-          appid: "CC1AD845", // Chromecast default app ID
-        },
-        airplay: true,
-        sharing: {
-          sites: [
-            "facebook",
-            "twitter",
-            "tumblr",
-            {
-              icon: "https://www.gstatic.com/images/icons/material/system/2x/gmail_64dp.png",
-              label: "Gmail",
-              src: "mailto:?subject=Check%20out%20this%20video&body=Watch%20this%20video%20here:%20https://yourdomain.com/video-page",
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+    <!-- Auth script -->
+    <script src="auth.js"></script>
+
+    <!-- JW Player -->
+    <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+
+    <style>
+      /* Player popup styling */
+      #player-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+      }
+      #close-player {
+        margin-top: 15px;
+        background: #ff4444;
+        border: none;
+        color: #fff;
+        padding: 8px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+      }
+      #close-player:hover {
+        background: #ff2222;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="header2">
+      <div class="header2-container">
+        <input
+          type="search"
+          id="searchBar"
+          placeholder="Search matches, teams, events..."
+          aria-label="Search matches"
+        />
+      </div>
+    </div>
+
+    <main>
+      <div id="allCategoriesContainer"></div>
+      <p id="message" style="text-align: center; color: #bbb"></p>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <!-- JW Player Popup -->
+    <div id="player-popup">
+      <div id="player-container" style="width: 90%; max-width: 900px;"></div>
+      <button id="close-player">Close</button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const allCategoriesContainer = document.getElementById("allCategoriesContainer");
+        const searchBar = document.getElementById("searchBar");
+
+        // Load header & footer
+        fetch("header.html").then(r => r.text()).then(d => document.getElementById("header-placeholder").innerHTML = d);
+        fetch("footer.html").then(r => r.text()).then(d => document.getElementById("footer-container").innerHTML = d);
+
+        function formatStartTime(str) {
+          if (!str) return "-";
+          try {
+            const date = new Date(str);
+            return isNaN(date) ? str : date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+          } catch {
+            return str;
+          }
+        }
+
+        function showErrorMessage(message) {
+          const existingMsg = document.querySelector(".error-message");
+          if (existingMsg) existingMsg.remove();
+          const msg = document.createElement("div");
+          msg.className = "error-message";
+          Object.assign(msg.style, {
+            position: "fixed",
+            bottom: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "rgba(255,0,0,0.8)",
+            color: "#fff",
+            padding: "10px 20px",
+            borderRadius: "4px",
+            zIndex: "10000",
+            maxWidth: "90%",
+            textAlign: "center",
+            whiteSpace: "nowrap",
+          });
+          msg.textContent = message;
+          document.body.appendChild(msg);
+          setTimeout(() => msg.remove(), 3000);
+        }
+
+        // 🔹 JW Player Stream Popup
+        function playChannel(match) {
+          const streamUrl = match.adfree_url ?? match.dai_url;
+          if (!streamUrl) return showErrorMessage("No live stream available for this match.");
+          if (!/\.(mp4|m3u8)(\?|$)/i.test(streamUrl)) return showErrorMessage("Unsupported stream format.");
+
+          const popup = document.getElementById("player-popup");
+          popup.style.display = "flex";
+
+          jwplayer("player-container").setup({
+            file: streamUrl,
+            width: "100%",
+            aspectratio: "16:9",
+            autostart: true,
+            hlshtml: true,
+            image: match.src || "https://placehold.co/600x375?text=Match+Preview",
+            abouttext: "Ultrawebs(HM)",
+            aboutlink: "https://linktr.ee/ultrawebs",
+            logo: {
+              file: "https://media.formula1.com/image/upload/f_auto,c_limit,w_285,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo",
+              position: "bottom-right",
+              margin: "20",
+              hide: "false",
+              size: "05%",
             },
-            {
-              icon: "https://cdn-icons-png.flaticon.com/512/25/25686.png",
-              label: "Embed",
-              src: "javascript:prompt('Embed this video:', `<iframe src='https://yourdomain.com/embed-player.html' width='640' height='360' frameborder='0' allowfullscreen></iframe>`);",
-            },
-          ],
-        },
-      });
-    }
+            playbackRateControls: true,
+            cast: { appid: "CC1AD845" },
+            airplay: true,
+          });
 
-    // Handle match click event
-    document.querySelectorAll(".match").forEach((match) => {
-      match.addEventListener("click", () => {
-        const videoUrl = match.getAttribute("data-video");
-        initializePlayer(videoUrl);
+          jwplayer("player-container").on("complete", function () {
+            popup.style.display = "none";
+            jwplayer("player-container").stop();
+          });
+        }
+
+        document.getElementById("close-player").addEventListener("click", () => {
+          document.getElementById("player-popup").style.display = "none";
+          jwplayer("player-container").stop();
+        });
+
+        // 🔹 Create Match Card
+        function createMatchCard(match) {
+          const card = document.createElement("div");
+          card.className = "movie-card";
+          card.tabIndex = "0";
+
+          card.addEventListener("click", () => playChannel(match));
+
+          const poster = document.createElement("img");
+          poster.src = match.src || "https://placehold.co/600x375?text=No+Image";
+          poster.alt = match.title || "Match Image";
+
+          const overlay = document.createElement("div");
+          overlay.className = "overlay";
+
+          const title = document.createElement("div");
+          title.className = "title";
+          title.textContent = match.title || "Untitled Match";
+
+          const teams = document.createElement("div");
+          teams.className = "teams";
+          if (match.team_1 && match.team_2) teams.textContent = `${match.team_1} vs ${match.team_2}`;
+          else if (match.match_name) teams.textContent = match.match_name;
+
+          const event = document.createElement("div");
+          event.className = "event";
+          event.textContent = match.event_name || "";
+
+          const time = document.createElement("div");
+          time.className = "time";
+          time.textContent = formatStartTime(match.startTime);
+
+          const badge = document.createElement("span");
+          badge.className = "badge";
+          badge.textContent = match.status || "";
+          if (match.status === "LIVE") badge.classList.add("live");
+
+          overlay.append(title, teams, event, time, badge);
+          card.append(poster, overlay);
+          return card;
+        }
+
+        // 🔹 Create Match Sections
+        function createSection(titleText, matches) {
+          const section = document.createElement("section");
+          section.className = "movie-section";
+
+          const title = document.createElement("div");
+          title.className = "section-title";
+          title.textContent = titleText;
+
+          const container = document.createElement("div");
+          container.className = "movie-container grid";
+
+          matches.forEach((m) => container.appendChild(createMatchCard(m)));
+          section.append(title, container);
+          return section;
+        }
+
+        // 🔹 Load Matches (Optimized + fallback)
+        async function loadMatches() {
+          const urls = [
+            "https://raw.githubusercontent.com/drmlive/fancode-live-events/main/fancode.json",
+            "https://api.codetabs.com/v1/proxy?quest=https://raw.githubusercontent.com/drmlive/fancode-live-events/main/fancode.json",
+          ];
+
+          allCategoriesContainer.innerHTML =
+            "<div style='color:#bbb;text-align:center;margin:20px;'>Loading matches...</div>";
+
+          for (const url of urls) {
+            try {
+              const res = await fetch(url + "?_=" + Date.now(), { cache: "no-store" });
+              if (!res.ok) continue;
+              const data = await res.json();
+              const matches = data?.matches || [];
+              renderMatches(matches);
+              return;
+            } catch (e) {
+              console.warn("Retrying with backup URL...");
+            }
+          }
+
+          allCategoriesContainer.innerHTML =
+            "<div style='color:#ff7777;text-align:center;margin:20px;'>Failed to load matches.</div>";
+        }
+
+        // 🔹 Render Matches to Page
+        function renderMatches(matches) {
+          allCategoriesContainer.innerHTML = "";
+          if (!matches.length)
+            return (allCategoriesContainer.innerHTML =
+              "<div style='color:#bbb;text-align:center;margin:20px;'>No matches available.</div>");
+
+          const live = matches.filter((m) => m.status === "LIVE" && (m.adfree_url || m.dai_url));
+          if (live.length) allCategoriesContainer.appendChild(createSection("Live Now", live));
+
+          const categories = matches.reduce((a, m) => {
+            if (m.status === "LIVE") return a;
+            const c = m.event_category || "Other Events";
+            (a[c] ||= []).push(m);
+            return a;
+          }, {});
+          Object.keys(categories)
+            .sort()
+            .forEach((cat) => allCategoriesContainer.appendChild(createSection(cat, categories[cat])));
+        }
+
+        searchBar.addEventListener("input", () => {
+          const query = searchBar.value.toLowerCase();
+          document.querySelectorAll(".movie-card").forEach((c) => {
+            const t = c.querySelector(".title")?.textContent.toLowerCase() || "";
+            const e = c.querySelector(".event")?.textContent.toLowerCase() || "";
+            c.style.display = t.includes(query) || e.includes(query) ? "flex" : "none";
+          });
+        });
+
+        loadMatches();
+        setInterval(loadMatches, 300000); // refresh every 5 mins
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
