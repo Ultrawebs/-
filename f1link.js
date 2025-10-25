@@ -135,7 +135,7 @@ const videoLinks = {
     "Race": "https://in-mc-vod.fancode.com/mumbai/118475_english_hls_8d5fa32b4758656ta-di_h264_backup/vod_828_index.m3u8"
   },
   mexico: {
-    "Practice 1": "link",
+    "Practice 1": "https://in-mc-vod.fancode.com/mumbai/118476_english_hls_30943ca9cd22107ta-di_h264_backup/vod_422_index.m3u8",
     "Practice 2": "link",
     "Practice 3": "link",
     "Qualifying": "link",
