@@ -137,8 +137,8 @@ const videoLinks = {
   mexico: {
     "Practice 1": "https://in-mc-vod.fancode.com/mumbai/118476_english_hls_30943ca9cd22107ta-di_h264_backup/vod_422_index.m3u8",
     "Practice 2": "https://in-mc-vod.fancode.com/mumbai/118477_english_hls_882310dcf938273ta-di_h264_backup/vod_864_index.m3u8",
-    "Practice 3": "",
-    "Qualifying": "link",
+    "Practice 3": "https://in-mc-vod.fancode.com/mumbai/118478_english_hls_4e2c6007f727797ta-di_h264_backup/vod_219_index.m3u8",
+    "Qualifying": "https://in-mc-vod.fancode.com/delhi/118479_english_hls_44aa7c496660637ta-di_h264_backup/vod_80_index.m3u8",
     "Race": "link"
   },
   brazilian: {
