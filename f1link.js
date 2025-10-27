@@ -139,7 +139,7 @@ const videoLinks = {
     "Practice 2": "https://in-mc-vod.fancode.com/mumbai/118477_english_hls_882310dcf938273ta-di_h264_backup/vod_864_index.m3u8",
     "Practice 3": "https://in-mc-vod.fancode.com/mumbai/118478_english_hls_4e2c6007f727797ta-di_h264_backup/vod_219_index.m3u8",
     "Qualifying": "https://in-mc-vod.fancode.com/mumbai/118479_english_hls_44aa7c496664266ta-di_h264_backup/vod_120_index.m3u8",
-    "Race": "link"
+    "Race": "https://in-mc-vod.fancode.com/delhi/118480_english_hls_ade6b7414290855ta-di_h264_backup/vod_767_index.m3u8"
   },
   brazilian: {
     "Practice 1": "link",
