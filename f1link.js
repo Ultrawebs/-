@@ -143,7 +143,7 @@ const videoLinks = {
   },
   brazilian: {
     "Practice 1": "https://in-mc-vod.fancode.com/delhi/118481_english_hls_90075d19fd34960_1ta-di_h264_backup/vod_280_index.m3u8",
-    "Sprint Qualifying": "link",
+    "Sprint Qualifying": "https://in-mc-vod.fancode.com/delhi/118482_english_hls_6d35c9eae528043_1ta-di_h264_backup/vod_953_index.m3u8",
     "Sprint": "link",
     "Qualifying": "link",
     "Race": "link"
