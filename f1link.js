@@ -146,7 +146,7 @@ const videoLinks = {
     "Sprint Qualifying": "https://in-mc-vod.fancode.com/delhi/118482_english_hls_6d35c9eae528043_1ta-di_h264_backup/vod_953_index.m3u8",
     "Sprint": "https://in-mc-vod.fancode.com/delhi/118483_english_hls_74edb8d9e494192_1ta-di_h264_backup/vod_145_index.m3u8",
     "Qualifying": "https://in-mc-vod.fancode.com/delhi/118484_english_hls_de92015d7657272_1ta-di_h264_backup/vod_930_index.m3u8",
-    "Race": "link"
+    "Race": "https://in-mc-vod.fancode.com/delhi/118485_english_hls_155190a67c54463_1ta-di_h264_backup/vod_104_index.m3u8"
   },
   lasvegas: {
     "Practice 1": "link",
