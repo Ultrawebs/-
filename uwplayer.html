@@ -63,7 +63,6 @@
             border-radius: 1rem;
             backdrop-filter: blur(15px) saturate(180%);
             -webkit-backdrop-filter: blur(15px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
             position: relative;
             z-index: 2;
@@ -83,7 +82,6 @@
         .ambient-glow {
             display: flex;
             flex-direction: column;
-            border-radius: 1rem;
             transition: box-shadow 0.3s;
         }
 
@@ -115,7 +113,7 @@
         #player {
             width: 100%;
             aspect-ratio: 16/9;
-            border-radius: 0 0 1rem 1rem;
+            border-radius: 0 !important;
             overflow: hidden;
         }
 
