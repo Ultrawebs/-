@@ -158,7 +158,7 @@ const videoLinks = {
   qatar: {
     "Practice 1": "https://in-mc-vod.fancode.com/delhi/118491_english_hls_af47e256a981621_1ta-di_h264_backup/vod_205_index.m3u8",
     "Sprint Qualifying": "https://in-mc-vod.fancode.com/delhi/118492_english_hls_81d0a509129493_1ta-di_h264_backup/vod_672_index.m3u8",
-    "Sprint": "link",
+    "Sprint": "https://in-mc-vod.fancode.com/delhi/118493_english_hls_bb93db6b3391387_1ta-di_h264_backup/vod_579_index.m3u8",
     "Qualifying": "link",
     "Race": "link"
   },
