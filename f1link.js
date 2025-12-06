@@ -165,7 +165,7 @@ const videoLinks = {
   abudhabi: {
     "Practice 1": "https://in-mc-vod.fancode.com/delhi/118496_english_hls_4add3c4fc669938_1ta-di_h264_backup/vod_703_index.m3u8",
     "Practice 2": "https://in-mc-vod.fancode.com/delhi/118497_english_hls_2fb6515cfe6260_1ta-di_h264_backup/vod_714_index.m3u8",
-    "Practice 3": "link",
+    "Practice 3": "https://in-mc-vod.fancode.com/delhi/118498_english_hls_8d6cdebf6830328_1ta-di_h264_backup/vod_253_index.m3u8",
     "Qualifying": "link",
     "Race": "link"
   }
